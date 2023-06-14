@@ -15,8 +15,8 @@ protocol PitchABooSocketDelegate: AnyObject {
 final class PitchABooSocketClient: NSObject {
     private(set) var opened = false
     private(set) var webSocket: URLSessionWebSocketTask?
+    weak var delegate: PitchABooSocketDelegate?
     static let shared = PitchABooSocketClient()
-    var delegate: PitchABooSocketDelegate?
     
     func subscribeToService() {
         if !opened { openWebSocket() }
@@ -46,8 +46,8 @@ final class PitchABooSocketClient: NSObject {
                 )
             )
         ) { [weak self] error in
-            if let error = error {
-                print("Failed with Error \(error.localizedDescription)")
+            if let _ = error {
+                self?.delegate?.errorWhileSubscribingInService(.cantConnectToServer)
             } else {
                 self?.delegate?.didConnectSuccessfully()
             }
