@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var serverValue: String = ""
+    @ObservedObject var viewModel = ViewModel()
     
     var body: some View {
         VStack {
@@ -24,17 +24,16 @@ struct ContentView: View {
                 }
             }
             #else
-            Text("Server Value: \(serverValue)")
-                .padding(60)
+            Text("Server Status: \(viewModel.connectionStatus)")
+                .font(.title)
+                .padding([.bottom], 150)
             
             Button("Start Listening") {
                 let client = PitchABooSocketClient.shared
-                client.subscribeToService { data in
-                    guard let data = data else { return }
-                    serverValue = data
-                }
+                client.delegate = viewModel
+                client.subscribeToService()
             }
-#endif
+            #endif
         }
         .padding()
     }

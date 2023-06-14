@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		007C9DB92A3A2A5E00D242F9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C9DB82A3A2A5E00D242F9 /* Constants.swift */; };
+		007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C9DBB2A3A2FC000D242F9 /* ClientError.swift */; };
+		007C9DBF2A3A38EB00D242F9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C9DBE2A3A38EB00D242F9 /* ViewModel.swift */; };
 		00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE85E2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift */; };
 		00CDE8612A39D98300FB1BF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE8602A39D98300FB1BF5 /* ContentView.swift */; };
 		00CDE8632A39D98400FB1BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CDE8622A39D98400FB1BF5 /* Assets.xcassets */; };
@@ -40,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		007C9DB82A3A2A5E00D242F9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		007C9DBB2A3A2FC000D242F9 /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
+		007C9DBE2A3A38EB00D242F9 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		00CDE85B2A39D98300FB1BF5 /* pitch-a-boo-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pitch-a-boo-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00CDE85E2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameApp.swift; sourceTree = "<group>"; };
 		00CDE8602A39D98300FB1BF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -84,6 +90,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		007C9DBA2A3A2FB200D242F9 /* ClientError */ = {
+			isa = PBXGroup;
+			children = (
+				007C9DBB2A3A2FC000D242F9 /* ClientError.swift */,
+			);
+			path = ClientError;
+			sourceTree = "<group>";
+		};
+		007C9DBD2A3A38DC00D242F9 /* ExampleView */ = {
+			isa = PBXGroup;
+			children = (
+				00CDE8602A39D98300FB1BF5 /* ContentView.swift */,
+				007C9DBE2A3A38EB00D242F9 /* ViewModel.swift */,
+			);
+			path = ExampleView;
+			sourceTree = "<group>";
+		};
 		00CDE8522A39D98300FB1BF5 = {
 			isa = PBXGroup;
 			children = (
@@ -170,7 +193,7 @@
 		00CDE88C2A39D9B000FB1BF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				00CDE8602A39D98300FB1BF5 /* ContentView.swift */,
+				007C9DBD2A3A38DC00D242F9 /* ExampleView */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -190,6 +213,7 @@
 			children = (
 				00CDE89E2A3A06CF00FB1BF5 /* Client */,
 				00CDE8972A3A04C300FB1BF5 /* Entities */,
+				007C9DB82A3A2A5E00D242F9 /* Constants.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -214,6 +238,7 @@
 		00CDE89E2A3A06CF00FB1BF5 /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				007C9DBA2A3A2FB200D242F9 /* ClientError */,
 				00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */,
 			);
 			path = Client;
@@ -352,11 +377,14 @@
 				00CDE8912A39E1D200FB1BF5 /* WebSocketError.swift in Sources */,
 				00CDE8612A39D98300FB1BF5 /* ContentView.swift in Sources */,
 				00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */,
+				007C9DBF2A3A38EB00D242F9 /* ViewModel.swift in Sources */,
 				00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */,
 				00CDE8932A3A044C00FB1BF5 /* ServerMessageHandler.swift in Sources */,
+				007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */,
 				00CDE88F2A39DD4E00FB1BF5 /* PitchABooWebSocketServer.swift in Sources */,
 				00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */,
 				00CDE89B2A3A04EC00FB1BF5 /* TransferMessage.swift in Sources */,
+				007C9DB92A3A2A5E00D242F9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

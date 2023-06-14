@@ -33,17 +33,24 @@ class PitchABooWebSocketServer {
         }
     }
     
-    func sendMessageToClient(data: Data, client: NWConnection) throws {
-        print("SENDING MESSAGE TO CLIENT")
+    func sendMessageToClient(
+        data: Data,
+        client: NWConnection,
+        completion: @escaping (WebSocketError?) -> Void
+    ) {
         let metadata = NWProtocolWebSocket.Metadata(opcode: .binary)
         let context = NWConnection.ContentContext(identifier: "context", metadata: [metadata])
         
-        client.send(content: data, contentContext: context, isComplete: true, completion: .contentProcessed({ error in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                // no-op
-            }
+        client.send(
+            content: data,
+            contentContext: context,
+            isComplete: true,
+            completion: .contentProcessed( { error in
+                if let _ = error {
+                    completion(.unableToSendAMessageToUser)
+                } else {
+                    completion(nil)
+                }
         }))
     }
 }
@@ -54,9 +61,8 @@ extension PitchABooWebSocketServer {
         let serverQueue = DispatchQueue(label: "ServerQueue")
 
         listener.newConnectionHandler = { newConnection in
-            print("RECEIVING NEW CONNECTION")
             self.didReceiveAConnection(newConnection, completion: completion)
-            self.didUpdateConnectionState(newConnection)
+            self.didUpdateConnectionState(newConnection, completion: completion)
             newConnection.start(queue: serverQueue)
         }
 
@@ -91,31 +97,32 @@ extension PitchABooWebSocketServer {
                         connection: connection
                     )
                 } catch {
-                    completion(.cantHandleClientConnection)
+                    completion(.cantHandleClientMessage)
                 }
                 self?.didReceiveAConnection(connection, completion: completion)
             }
         }
     }
 
-    private func didUpdateConnectionState(_ connection: NWConnection) {
+    private func didUpdateConnectionState(
+        _ connection: NWConnection,
+        completion: @escaping (WebSocketError?) -> Void
+    ) {
         print("UPDATING CONNECTION STATE")
         connection.stateUpdateHandler = { state in
             switch state {
                 case .ready:
-                    try! self.sendMessageToClient(
-                            data: JSONEncoder().encode(
-                                TransferMessage(
-                                    type: .connection,
-                                    message: "connected"
-                                )
-                            ),
-                            client: connection
+                    let data = try! JSONEncoder().encode(
+                        TransferMessage(
+                            type: .connection,
+                            message: "connected"
+                        )
                     )
-                case .failed(let error):
-                    print("Client connection failed \(error.localizedDescription)")
-                case .waiting(let error):
-                    print("Waiting for long time \(error.localizedDescription)")
+                    self.sendMessageToClient(data: data, client: connection, completion: completion)
+                case .failed(_):
+                    completion(.cantConnectWithClient)
+                case .waiting(_):
+                    completion(.connectTimeWasTooLong)
                 default:
                     break
             }
@@ -130,14 +137,6 @@ extension PitchABooWebSocketServer {
                         self.connectedClients.append(connection)
                     }
             }
-//            if let _ = message["subscribeTo"] {
-//                self.connectedClients.append(connection)
-//            }
-//            if let id = message["unsubscribeFrom"] as? Int {
-//                let connection = self.connectedClients.remove(at: id)
-//                connection.cancel()
-//                connection.stateUpdateHandler = nil
-//            }
         }
     }
 }
