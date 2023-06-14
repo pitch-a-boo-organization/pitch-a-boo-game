@@ -14,6 +14,8 @@
 		00CDE8712A39D98400FB1BF5 /* pitch_a_boo_gameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE8702A39D98400FB1BF5 /* pitch_a_boo_gameTests.swift */; };
 		00CDE87B2A39D98400FB1BF5 /* pitch_a_boo_gameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE87A2A39D98400FB1BF5 /* pitch_a_boo_gameUITests.swift */; };
 		00CDE87D2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE87C2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift */; };
+		00CDE88F2A39DD4E00FB1BF5 /* PitchABooWebSocketServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE88E2A39DD4E00FB1BF5 /* PitchABooWebSocketServer.swift */; };
+		00CDE8912A39E1D200FB1BF5 /* WebSocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE8902A39E1D200FB1BF5 /* WebSocketError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,8 @@
 		00CDE8762A39D98400FB1BF5 /* pitch-a-boo-gameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pitch-a-boo-gameUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00CDE87A2A39D98400FB1BF5 /* pitch_a_boo_gameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameUITests.swift; sourceTree = "<group>"; };
 		00CDE87C2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		00CDE88E2A39DD4E00FB1BF5 /* PitchABooWebSocketServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchABooWebSocketServer.swift; sourceTree = "<group>"; };
+		00CDE8902A39E1D200FB1BF5 /* WebSocketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 		00CDE85D2A39D98300FB1BF5 /* pitch-a-boo-game */ = {
 			isa = PBXGroup;
 			children = (
+				00CDE88D2A39DC2A00FB1BF5 /* Server */,
 				00CDE88B2A39D9A500FB1BF5 /* Source */,
 				00CDE88A2A39D99C00FB1BF5 /* Resource */,
 				00CDE8892A39D99200FB1BF5 /* Application */,
@@ -159,6 +164,15 @@
 				00CDE8602A39D98300FB1BF5 /* ContentView.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		00CDE88D2A39DC2A00FB1BF5 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				00CDE88E2A39DD4E00FB1BF5 /* PitchABooWebSocketServer.swift */,
+				00CDE8902A39E1D200FB1BF5 /* WebSocketError.swift */,
+			);
+			path = Server;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,8 +305,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00CDE8912A39E1D200FB1BF5 /* WebSocketError.swift in Sources */,
 				00CDE8612A39D98300FB1BF5 /* ContentView.swift in Sources */,
 				00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */,
+				00CDE88F2A39DD4E00FB1BF5 /* PitchABooWebSocketServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

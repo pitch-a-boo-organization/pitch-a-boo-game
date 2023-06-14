@@ -10,10 +10,16 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Button("Start Server") {
+                let socket = try! PitchABooWebSocketServer(port: 8080)
+                socket.startServer { error in
+                    if let _ = error {
+                        print("Erro!")
+                    } else {
+                        print("Conectado com sucesso!")
+                    }
+                }
+            }
         }
         .padding()
     }
