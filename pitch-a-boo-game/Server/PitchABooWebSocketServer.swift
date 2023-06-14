@@ -32,6 +32,20 @@ class PitchABooWebSocketServer {
             throw WebSocketError.unableToInitializeListener
         }
     }
+    
+    func sendMessageToClient(data: Data, client: NWConnection) throws {
+        print("SENDING MESSAGE TO CLIENT")
+        let metadata = NWProtocolWebSocket.Metadata(opcode: .binary)
+        let context = NWConnection.ContentContext(identifier: "context", metadata: [metadata])
+        
+        client.send(content: data, contentContext: context, isComplete: true, completion: .contentProcessed({ error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                // no-op
+            }
+        }))
+    }
 }
 
 // MARK: - Server Connection Handler
@@ -39,9 +53,10 @@ extension PitchABooWebSocketServer {
     func startServer(completion: @escaping (WebSocketError?) -> Void ) {
         let serverQueue = DispatchQueue(label: "ServerQueue")
 
-        listener.newConnectionHandler = { [weak self] newConnection in
-            self?.didReceiveAConnection(newConnection, completion: completion)
-            self?.didUpdateConnectionState(newConnection)
+        listener.newConnectionHandler = { newConnection in
+            print("RECEIVING NEW CONNECTION")
+            self.didReceiveAConnection(newConnection, completion: completion)
+            self.didUpdateConnectionState(newConnection)
             newConnection.start(queue: serverQueue)
         }
 
@@ -84,10 +99,19 @@ extension PitchABooWebSocketServer {
     }
 
     private func didUpdateConnectionState(_ connection: NWConnection) {
+        print("UPDATING CONNECTION STATE")
         connection.stateUpdateHandler = { state in
             switch state {
                 case .ready:
-                    print("Client ready")
+                    try! self.sendMessageToClient(
+                            data: JSONEncoder().encode(
+                                TransferMessage(
+                                    type: .connection,
+                                    message: "connected"
+                                )
+                            ),
+                            client: connection
+                    )
                 case .failed(let error):
                     print("Client connection failed \(error.localizedDescription)")
                 case .waiting(let error):
@@ -99,15 +123,21 @@ extension PitchABooWebSocketServer {
     }
     
     func handleMessageFromClient(data: Data, context: NWConnection.ContentContext, stringVal: String, connection: NWConnection) throws {
-        if let message = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-            if let _ = message["subscribeTo"] {
-                self.connectedClients.append(connection)
+        if let message = try? JSONDecoder().decode(TransferMessage.self, from: data)  {
+            switch message.type {
+                case .connection:
+                    if message.message == "subscribe" {
+                        self.connectedClients.append(connection)
+                    }
             }
-            if let id = message["unsubscribeFrom"] as? Int {
-                let connection = self.connectedClients.remove(at: id)
-                connection.cancel()
-                connection.stateUpdateHandler = nil
-            }
+//            if let _ = message["subscribeTo"] {
+//                self.connectedClients.append(connection)
+//            }
+//            if let id = message["unsubscribeFrom"] as? Int {
+//                let connection = self.connectedClients.remove(at: id)
+//                connection.cancel()
+//                connection.stateUpdateHandler = nil
+//            }
         }
     }
 }
