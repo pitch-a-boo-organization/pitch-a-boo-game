@@ -14,10 +14,15 @@ protocol PitchABooSocketDelegate: AnyObject {
 }
 
 final class PitchABooSocketClient: NSObject {
+    private var baseURL = "ws://10.45.48.5:8080"
     private(set) var opened = false
     private(set) var webSocket: URLSessionWebSocketTask?
     weak var delegate: PitchABooSocketDelegate?
     static let shared = PitchABooSocketClient()
+    
+    func defineServerURL(hostname: String) {
+        self.baseURL = "ws://\(hostname):8080"
+    }
     
     func subscribeToService() {
         if !opened { openWebSocket() }
@@ -58,7 +63,7 @@ final class PitchABooSocketClient: NSObject {
     }
     
     private func openWebSocket() {
-        if let url = URL(string: Constants.baseURL) {
+        if let url = URL(string: baseURL) {
             let request = URLRequest(url: url)
             let session = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
             let webSocket = session.webSocketTask(with: request)

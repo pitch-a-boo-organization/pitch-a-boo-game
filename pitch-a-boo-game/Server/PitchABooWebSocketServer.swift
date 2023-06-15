@@ -34,6 +34,11 @@ class PitchABooWebSocketServer {
         }
     }
     
+    func getDeviceHostname() -> String? {
+        let processInfo = ProcessInfo()
+        return processInfo.hostName
+    }
+    
     func sendMessageToClient(
         data: Data,
         client: NWConnection,
