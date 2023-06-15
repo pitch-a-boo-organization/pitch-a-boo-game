@@ -10,6 +10,7 @@ import Foundation
 protocol PitchABooSocketDelegate: AnyObject {
     func didConnectSuccessfully()
     func errorWhileSubscribingInService(_ error: ClientError)
+    func updateCounter(_ value: String)
 }
 
 final class PitchABooSocketClient: NSObject {
@@ -29,6 +30,7 @@ final class PitchABooSocketClient: NSObject {
                 case .success(let message):
                     self?.decodeServerMessage(message)
                 }
+                self?.subscribeToService()
             }
         )
     }
@@ -109,6 +111,8 @@ extension PitchABooSocketClient {
                 if message.message == "connected" {
                     subscribeToServer()
                 }
+            case .count:
+                delegate?.updateCounter(message.message)
         }
     }
 }

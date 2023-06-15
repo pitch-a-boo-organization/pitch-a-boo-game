@@ -28,6 +28,10 @@ struct ContentView: View {
                 .font(.title)
                 .padding([.bottom], 150)
             
+            Text("Receive From Server: \(viewModel.receiveFromServer)")
+                .font(.title3)
+                .padding([.bottom], 150)
+            
             Button("Start Listening") {
                 let client = PitchABooSocketClient.shared
                 client.delegate = viewModel

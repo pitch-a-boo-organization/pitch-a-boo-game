@@ -8,5 +8,5 @@
 import Foundation
 
 struct Constants {
-    static let baseURL = "ws://localhost:8080"
+    static let baseURL = "ws://10.45.48.5:8080"
 }

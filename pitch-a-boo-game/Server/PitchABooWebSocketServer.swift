@@ -11,6 +11,7 @@ import Network
 class PitchABooWebSocketServer {
     var listener: NWListener
     var connectedClients: [NWConnection] = []
+    var timer: Timer?
         
     init(port: UInt16) throws {
         let parameters = NWParameters(tls: nil)
@@ -59,13 +60,13 @@ class PitchABooWebSocketServer {
 extension PitchABooWebSocketServer {
     func startServer(completion: @escaping (WebSocketError?) -> Void ) {
         let serverQueue = DispatchQueue(label: "ServerQueue")
-
+        
         listener.newConnectionHandler = { newConnection in
             self.didReceiveAConnection(newConnection, completion: completion)
             self.didUpdateConnectionState(newConnection, completion: completion)
             newConnection.start(queue: serverQueue)
         }
-
+        
         listener.stateUpdateHandler = { state in
             switch state {
                 case .ready:
@@ -78,6 +79,7 @@ extension PitchABooWebSocketServer {
         }
 
         listener.start(queue: serverQueue)
+        //Debug: startTimer()
     }
 }
 
@@ -136,7 +138,35 @@ extension PitchABooWebSocketServer {
                     if message.message == "subscribe" {
                         self.connectedClients.append(connection)
                     }
+                case .count:
+                    break
             }
         }
+    }
+}
+
+// MARK: - Debug
+extension PitchABooWebSocketServer {
+    func startTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
+            guard !self.connectedClients.isEmpty else {
+                return
+            }
+            let data = try! JSONEncoder().encode(
+                TransferMessage(
+                    type: .count,
+                    message: "\(Int.random(in: 0...100))"
+                )
+            )
+            for (index, client) in self.connectedClients.enumerated() {
+                print("Sending message to client number \(index)")
+                self.sendMessageToClient(data: data, client: client) { error in
+                    if let error = error {
+                        print(error)
+                    }
+                }
+            }
+        })
+        timer?.fire()
     }
 }
