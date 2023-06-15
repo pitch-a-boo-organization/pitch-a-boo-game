@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		007C9DB92A3A2A5E00D242F9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C9DB82A3A2A5E00D242F9 /* Constants.swift */; };
+		007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C9DBB2A3A2FC000D242F9 /* ClientError.swift */; };
+		007C9DBF2A3A38EB00D242F9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C9DBE2A3A38EB00D242F9 /* ViewModel.swift */; };
 		00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE85E2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift */; };
 		00CDE8612A39D98300FB1BF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE8602A39D98300FB1BF5 /* ContentView.swift */; };
 		00CDE8632A39D98400FB1BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CDE8622A39D98400FB1BF5 /* Assets.xcassets */; };
@@ -14,6 +17,11 @@
 		00CDE8712A39D98400FB1BF5 /* pitch_a_boo_gameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE8702A39D98400FB1BF5 /* pitch_a_boo_gameTests.swift */; };
 		00CDE87B2A39D98400FB1BF5 /* pitch_a_boo_gameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE87A2A39D98400FB1BF5 /* pitch_a_boo_gameUITests.swift */; };
 		00CDE87D2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE87C2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift */; };
+		00CDE88F2A39DD4E00FB1BF5 /* PitchABooWebSocketServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE88E2A39DD4E00FB1BF5 /* PitchABooWebSocketServer.swift */; };
+		00CDE8912A39E1D200FB1BF5 /* WebSocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE8902A39E1D200FB1BF5 /* WebSocketError.swift */; };
+		00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE8942A3A046900FB1BF5 /* MessageType.swift */; };
+		00CDE89B2A3A04EC00FB1BF5 /* TransferMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE89A2A3A04EC00FB1BF5 /* TransferMessage.swift */; };
+		00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		007C9DB82A3A2A5E00D242F9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		007C9DBB2A3A2FC000D242F9 /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
+		007C9DBE2A3A38EB00D242F9 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		00CDE85B2A39D98300FB1BF5 /* pitch-a-boo-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pitch-a-boo-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00CDE85E2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameApp.swift; sourceTree = "<group>"; };
 		00CDE8602A39D98300FB1BF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +56,11 @@
 		00CDE8762A39D98400FB1BF5 /* pitch-a-boo-gameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pitch-a-boo-gameUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00CDE87A2A39D98400FB1BF5 /* pitch_a_boo_gameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameUITests.swift; sourceTree = "<group>"; };
 		00CDE87C2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		00CDE88E2A39DD4E00FB1BF5 /* PitchABooWebSocketServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchABooWebSocketServer.swift; sourceTree = "<group>"; };
+		00CDE8902A39E1D200FB1BF5 /* WebSocketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketError.swift; sourceTree = "<group>"; };
+		00CDE8942A3A046900FB1BF5 /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageType.swift; path = ../../../Server/MessageType.swift; sourceTree = "<group>"; };
+		00CDE89A2A3A04EC00FB1BF5 /* TransferMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferMessage.swift; sourceTree = "<group>"; };
+		00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +88,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		007C9DBA2A3A2FB200D242F9 /* ClientError */ = {
+			isa = PBXGroup;
+			children = (
+				007C9DBB2A3A2FC000D242F9 /* ClientError.swift */,
+			);
+			path = ClientError;
+			sourceTree = "<group>";
+		};
+		007C9DBD2A3A38DC00D242F9 /* ExampleView */ = {
+			isa = PBXGroup;
+			children = (
+				00CDE8602A39D98300FB1BF5 /* ContentView.swift */,
+				007C9DBE2A3A38EB00D242F9 /* ViewModel.swift */,
+			);
+			path = ExampleView;
+			sourceTree = "<group>";
+		};
 		00CDE8522A39D98300FB1BF5 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +128,7 @@
 		00CDE85D2A39D98300FB1BF5 /* pitch-a-boo-game */ = {
 			isa = PBXGroup;
 			children = (
+				00CDE88D2A39DC2A00FB1BF5 /* Server */,
 				00CDE88B2A39D9A500FB1BF5 /* Source */,
 				00CDE88A2A39D99C00FB1BF5 /* Resource */,
 				00CDE8892A39D99200FB1BF5 /* Application */,
@@ -148,6 +182,7 @@
 		00CDE88B2A39D9A500FB1BF5 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				00CDE8962A3A04BF00FB1BF5 /* Domain */,
 				00CDE88C2A39D9B000FB1BF5 /* Presentation */,
 			);
 			path = Source;
@@ -156,9 +191,54 @@
 		00CDE88C2A39D9B000FB1BF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				00CDE8602A39D98300FB1BF5 /* ContentView.swift */,
+				007C9DBD2A3A38DC00D242F9 /* ExampleView */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		00CDE88D2A39DC2A00FB1BF5 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				00CDE89D2A3A054E00FB1BF5 /* ServerError */,
+				00CDE88E2A39DD4E00FB1BF5 /* PitchABooWebSocketServer.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		00CDE8962A3A04BF00FB1BF5 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				00CDE89E2A3A06CF00FB1BF5 /* Client */,
+				00CDE8972A3A04C300FB1BF5 /* Entities */,
+				007C9DB82A3A2A5E00D242F9 /* Constants.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		00CDE8972A3A04C300FB1BF5 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				00CDE8942A3A046900FB1BF5 /* MessageType.swift */,
+				00CDE89A2A3A04EC00FB1BF5 /* TransferMessage.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		00CDE89D2A3A054E00FB1BF5 /* ServerError */ = {
+			isa = PBXGroup;
+			children = (
+				00CDE8902A39E1D200FB1BF5 /* WebSocketError.swift */,
+			);
+			path = ServerError;
+			sourceTree = "<group>";
+		};
+		00CDE89E2A3A06CF00FB1BF5 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				007C9DBA2A3A2FB200D242F9 /* ClientError */,
+				00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */,
+			);
+			path = Client;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,8 +371,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00CDE8912A39E1D200FB1BF5 /* WebSocketError.swift in Sources */,
 				00CDE8612A39D98300FB1BF5 /* ContentView.swift in Sources */,
 				00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */,
+				007C9DBF2A3A38EB00D242F9 /* ViewModel.swift in Sources */,
+				00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */,
+				007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */,
+				00CDE88F2A39DD4E00FB1BF5 /* PitchABooWebSocketServer.swift in Sources */,
+				00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */,
+				00CDE89B2A3A04EC00FB1BF5 /* TransferMessage.swift in Sources */,
+				007C9DB92A3A2A5E00D242F9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,7 +549,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -499,7 +587,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
