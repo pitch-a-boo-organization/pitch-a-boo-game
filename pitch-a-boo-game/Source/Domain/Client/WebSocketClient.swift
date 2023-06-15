@@ -14,7 +14,7 @@ protocol PitchABooSocketDelegate: AnyObject {
 }
 
 final class PitchABooSocketClient: NSObject {
-    private var baseURL = "ws://10.45.48.5:8080"
+    private var baseURL = ""
     private(set) var opened = false
     private(set) var webSocket: URLSessionWebSocketTask?
     weak var delegate: PitchABooSocketDelegate?

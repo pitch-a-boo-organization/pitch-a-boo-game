@@ -11,7 +11,7 @@ import SwiftUI
 struct pitch_a_boo_gameApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ConnectionView()
         }
     }
 }

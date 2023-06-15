@@ -7,12 +7,13 @@
 
 import Foundation
 
-class ViewModel: ObservableObject {
-    @Published private(set) var connectionStatus: String = "Offline"
+class ConnectionViewModel: ObservableObject {
+    @Published private(set) var connected: Bool = false
     @Published private(set) var receiveFromServer: String = ""
+    private(set) var server: PitchABooWebSocketServer = try! PitchABooWebSocketServer(port: 8080)
 }
 
-extension ViewModel: PitchABooSocketDelegate {
+extension ConnectionViewModel: PitchABooSocketDelegate {
     func updateCounter(_ value: String) {
         DispatchQueue.main.async {
             self.receiveFromServer = value
@@ -22,7 +23,7 @@ extension ViewModel: PitchABooSocketDelegate {
     func didConnectSuccessfully() {
         print("Connected")
         DispatchQueue.main.async {
-            self.connectionStatus = "Connected"
+            self.connected = true
         }
     }
     
