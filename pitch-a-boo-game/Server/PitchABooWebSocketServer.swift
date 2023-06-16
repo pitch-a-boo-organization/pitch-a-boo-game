@@ -64,6 +64,7 @@ class PitchABooWebSocketServer {
 // MARK: - Server Connection Handler
 extension PitchABooWebSocketServer {
     func startServer(completion: @escaping (WebSocketError?) -> Void ) {
+        print("Starting Server...")
         let serverQueue = DispatchQueue(label: "ServerQueue")
         
         listener.newConnectionHandler = { newConnection in
@@ -82,8 +83,9 @@ extension PitchABooWebSocketServer {
                     break
             }
         }
-
+            
         listener.start(queue: serverQueue)
+        print("Server Started")
         //Debug: startTimer()
     }
 }
