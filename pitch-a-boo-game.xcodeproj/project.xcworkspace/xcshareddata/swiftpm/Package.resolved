@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "pitch-a-boo-server",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pitch-a-boo-organization/pitch-a-boo-server",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d546828abf11852c898f39f6ea70cedbd1fa9a24"
+      }
+    }
+  ],
+  "version" : 2
+}

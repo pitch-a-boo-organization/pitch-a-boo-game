@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import PitchABooServer
 
 class ConnectionViewModel: ObservableObject {
     @Published private(set) var connected: Bool = false
