@@ -14,13 +14,10 @@ struct TvOSConnectionView: View {
     @State var hostname = ""
     
     var body: some View {
-        VStack {
             Text("Conecte-se ao hostname: \(hostname)")
                 .font(.title)
                 .padding([.bottom], 25)
-            
-            Text("Número de conexões: \(vm.server.connectedClients.count)")
-        }
+        
         .opacity(hostname == "" ? 0 : 1)
         .padding([.bottom], 10  )
         
@@ -30,7 +27,7 @@ struct TvOSConnectionView: View {
                     print("Error! \(error)")
                     return
                 }
-                hostname = vm.server.getDeviceHostname() ?? ""
+                hostname = vm.server.getServerHostname() ?? ""
             }
         } label: {
             Text("Iniciar Sessão")
