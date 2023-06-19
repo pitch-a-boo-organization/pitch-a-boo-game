@@ -22,6 +22,8 @@
 		00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE8942A3A046900FB1BF5 /* MessageType.swift */; };
 		00CDE89B2A3A04EC00FB1BF5 /* TransferMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE89A2A3A04EC00FB1BF5 /* TransferMessage.swift */; };
 		00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */; };
+		85A1EE152A40ECBB0003DDB3 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */; };
+		85A1EE182A40EE4D0003DDB3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 85A1EE172A40EE4D0003DDB3 /* CodeScanner */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,7 @@
 		00CDE8942A3A046900FB1BF5 /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageType.swift; path = ../../../Server/MessageType.swift; sourceTree = "<group>"; };
 		00CDE89A2A3A04EC00FB1BF5 /* TransferMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferMessage.swift; sourceTree = "<group>"; };
 		00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
+		85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85A1EE182A40EE4D0003DDB3 /* CodeScanner in Frameworks */,
 				003361F42A3B7CE900570986 /* PitchABooServer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,6 +204,7 @@
 		00CDE88C2A39D9B000FB1BF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				85A1EE122A40EC920003DDB3 /* QRCodeView */,
 				003361EA2A3B61CE00570986 /* ConnectionView */,
 			);
 			path = Presentation;
@@ -232,6 +237,22 @@
 			path = Client;
 			sourceTree = "<group>";
 		};
+		85A1EE122A40EC920003DDB3 /* QRCodeView */ = {
+			isa = PBXGroup;
+			children = (
+				85A1EE132A40EC9F0003DDB3 /* Components */,
+				85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */,
+			);
+			path = QRCodeView;
+			sourceTree = "<group>";
+		};
+		85A1EE132A40EC9F0003DDB3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -250,6 +271,7 @@
 			name = "pitch-a-boo-game";
 			packageProductDependencies = (
 				003361F32A3B7CE900570986 /* PitchABooServer */,
+				85A1EE172A40EE4D0003DDB3 /* CodeScanner */,
 			);
 			productName = "pitch-a-boo-game";
 			productReference = 00CDE85B2A39D98300FB1BF5 /* pitch-a-boo-game.app */;
@@ -325,6 +347,7 @@
 			mainGroup = 00CDE8522A39D98300FB1BF5;
 			packageReferences = (
 				003361F22A3B7CE900570986 /* XCRemoteSwiftPackageReference "pitch-a-boo-server" */,
+				85A1EE162A40EE4D0003DDB3 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = 00CDE85C2A39D98300FB1BF5 /* Products */;
 			projectDirPath = "";
@@ -368,16 +391,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00CDE8912A39E1D200FB1BF5 /* WebSocketError.swift in Sources */,
-				00CDE8612A39D98300FB1BF5 /* ContentView.swift in Sources */,
 				00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */,
 				007C9DBF2A3A38EB00D242F9 /* ConnectionViewModel.swift in Sources */,
+				85A1EE152A40ECBB0003DDB3 /* QRCodeView.swift in Sources */,
 				003361F12A3B61FB00570986 /* iOSConnectionView.swift in Sources */,
 				00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */,
 				007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */,
 				003361EF2A3B61F400570986 /* TvOSConnectionView.swift in Sources */,
 				003361EC2A3B61DC00570986 /* ConnectionView.swift in Sources */,
-				00CDE88F2A39DD4E00FB1BF5 /* PitchABooWebSocketServer.swift in Sources */,
 				00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */,
 				00CDE89B2A3A04EC00FB1BF5 /* TransferMessage.swift in Sources */,
 			);
@@ -534,10 +555,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"pitch-a-boo-game/Preview Content\"";
-				DEVELOPMENT_TEAM = 685GVH2XJC;
+				DEVELOPMENT_TEAM = F2MBMJ3PK6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need the to scan QR codes.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -572,10 +594,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"pitch-a-boo-game/Preview Content\"";
-				DEVELOPMENT_TEAM = 685GVH2XJC;
+				DEVELOPMENT_TEAM = F2MBMJ3PK6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need the to scan QR codes.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -741,6 +764,14 @@
 				kind = branch;
 			};
 		};
+		85A1EE162A40EE4D0003DDB3 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -748,6 +779,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 003361F22A3B7CE900570986 /* XCRemoteSwiftPackageReference "pitch-a-boo-server" */;
 			productName = PitchABooServer;
+		};
+		85A1EE172A40EE4D0003DDB3 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 85A1EE162A40EE4D0003DDB3 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
