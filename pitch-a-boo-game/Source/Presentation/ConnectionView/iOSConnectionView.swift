@@ -6,12 +6,25 @@
 //
 
 #if os(iOS)
-import Foundation
 import SwiftUI
+import CodeScanner
 
 struct iOSConnectionView: View {
     @EnvironmentObject var viewModel: ConnectionViewModel
     @State var serverHostname = ""
+    @State var isPresentingScanner = false
+    
+    var scannerSheet: some View {
+        CodeScannerView(
+            codeTypes: [.qr],
+            completion: { result in
+                if case let .success(code) = result {
+                    viewModel.setScannedCode(with: code.string)
+                    isPresentingScanner = false
+                }
+            }
+        )
+    }
     
     var body: some View {
         VStack {
@@ -51,6 +64,14 @@ struct iOSConnectionView: View {
                         .frame(width: 150, height: 50)
                 }
                 .disabled(serverHostname == "")
+                
+                Text(viewModel.scannedCode)
+                
+                Button("Scan the QR Code from your AppleTV") {
+                    isPresentingScanner = true
+                }.sheet(isPresented: $isPresentingScanner) {
+                    scannerSheet
+                }
             }
           
         }

@@ -12,6 +12,11 @@ class ConnectionViewModel: ObservableObject {
     @Published private(set) var connected: Bool = false
     @Published private(set) var receiveFromServer: String = ""
     private(set) var server: PitchABooWebSocketServer = try! PitchABooWebSocketServer(port: 8080)
+    @Published private(set) var scannedCode: String = "Scan the TV QR code to get started."
+    
+    public func setScannedCode(with code: String) {
+        self.scannedCode = code
+    }
 }
 
 extension ConnectionViewModel: PitchABooSocketDelegate {
