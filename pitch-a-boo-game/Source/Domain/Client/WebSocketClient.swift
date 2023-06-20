@@ -65,11 +65,12 @@ final class PitchABooSocketClient: NSObject {
     
     private func decodeServerMessage(_ serverMessage: URLSessionWebSocketTask.Message) {
         switch serverMessage {
+            
         case .string:
             break
         case .data(let data):
             do {
-                let message = try JSONDecoder().decode(TransferMessage.self, from: data)
+                let message = try JSONDecoder().decode(DTOTransferMessage.self, from: data)
                 handleMessageFromServer(message)
             } catch {
                 delegate?.errorWhileSubscribingInService(.unableToEncode)
@@ -152,14 +153,15 @@ extension PitchABooSocketClient: URLSessionWebSocketDelegate {
 }
 
 extension PitchABooSocketClient {
-    func handleMessageFromServer(_ message: TransferMessage) {
-        switch message.type {
-        case .connection:
-            if message.message == "connected" {
-                subscribeToServer()
-            }
-        case .count:
-            delegate?.updateCounter(message.message)
-        }
+    func handleMessageFromServer(_ message: DTOTransferMessage) {
+        print(message)
+//        switch message.type {
+//        case .connection:
+//            if message.message == "connected" {
+//                subscribeToServer()
+//            }
+//        case .count:
+//            delegate?.updateCounter(message.message)
+//        }
     }
 }
