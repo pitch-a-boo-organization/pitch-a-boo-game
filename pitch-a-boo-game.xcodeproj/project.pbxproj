@@ -36,8 +36,10 @@
 		85F3C5962A41D055003D7C1A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5952A41D055003D7C1A /* Item.swift */; };
 		85F3C5982A41D075003D7C1A /* Persona.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5972A41D075003D7C1A /* Persona.swift */; };
 		85F3C59A2A41D090003D7C1A /* SaleResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5992A41D090003D7C1A /* SaleResult.swift */; };
-		85F3C59C2A41E5D6003D7C1A /* TransferMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C59B2A41E5D6003D7C1A /* TransferMessage.swift */; };
+		85F3C59C2A41E5D6003D7C1A /* DTOTransferMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C59B2A41E5D6003D7C1A /* DTOTransferMessage.swift */; };
 		85F3C59E2A41E634003D7C1A /* CommandCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C59D2A41E634003D7C1A /* CommandCode.swift */; };
+		85F3C5A02A41E6C8003D7C1A /* TransferMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C59F2A41E6C8003D7C1A /* TransferMessage.swift */; };
+		85F3C5A32A41E759003D7C1A /* WebSocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5A22A41E759003D7C1A /* WebSocketError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,8 +91,10 @@
 		85F3C5952A41D055003D7C1A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		85F3C5972A41D075003D7C1A /* Persona.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persona.swift; sourceTree = "<group>"; };
 		85F3C5992A41D090003D7C1A /* SaleResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleResult.swift; sourceTree = "<group>"; };
-		85F3C59B2A41E5D6003D7C1A /* TransferMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransferMessage.swift; path = DTOs/TransferMessage.swift; sourceTree = "<group>"; };
+		85F3C59B2A41E5D6003D7C1A /* DTOTransferMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOTransferMessage.swift; sourceTree = "<group>"; };
 		85F3C59D2A41E634003D7C1A /* CommandCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandCode.swift; sourceTree = "<group>"; };
+		85F3C59F2A41E6C8003D7C1A /* TransferMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferMessage.swift; sourceTree = "<group>"; };
+		85F3C5A22A41E759003D7C1A /* WebSocketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,14 +254,15 @@
 		00CDE8972A3A04C300FB1BF5 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				85F3C5A12A41E746003D7C1A /* Errors */,
 				85F3C5802A41CB12003D7C1A /* DTOs */,
 				00CDE8942A3A046900FB1BF5 /* MessageType.swift */,
-				85F3C59B2A41E5D6003D7C1A /* TransferMessage.swift */,
 				85F3C5952A41D055003D7C1A /* Item.swift */,
 				85F3C5932A41D046003D7C1A /* Player.swift */,
 				85F3C5972A41D075003D7C1A /* Persona.swift */,
 				85F3C5992A41D090003D7C1A /* SaleResult.swift */,
 				85F3C59D2A41E634003D7C1A /* CommandCode.swift */,
+				85F3C59F2A41E6C8003D7C1A /* TransferMessage.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -299,8 +304,17 @@
 				85F3C58D2A41CEC3003D7C1A /* DTOPlayersConnected.swift */,
 				85F3C58F2A41CED2003D7C1A /* DTOChosenPlayer.swift */,
 				85F3C5912A41CEDF003D7C1A /* DTOSaleResult.swift */,
+				85F3C59B2A41E5D6003D7C1A /* DTOTransferMessage.swift */,
 			);
 			path = DTOs;
+			sourceTree = "<group>";
+		};
+		85F3C5A12A41E746003D7C1A /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				85F3C5A22A41E759003D7C1A /* WebSocketError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,9 +455,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85F3C5A32A41E759003D7C1A /* WebSocketError.swift in Sources */,
 				85F3C5882A41CE85003D7C1A /* DTOConnectStatus.swift in Sources */,
 				85F3C5842A41CE69003D7C1A /* DTOStatusAvailability.swift in Sources */,
-				85F3C59C2A41E5D6003D7C1A /* TransferMessage.swift in Sources */,
+				85F3C59C2A41E5D6003D7C1A /* DTOTransferMessage.swift in Sources */,
 				85F3C5982A41D075003D7C1A /* Persona.swift in Sources */,
 				85F3C5902A41CED2003D7C1A /* DTOChosenPlayer.swift in Sources */,
 				85F3C5922A41CEDF003D7C1A /* DTOSaleResult.swift in Sources */,
@@ -462,6 +477,7 @@
 				85F3C5862A41CE77003D7C1A /* DTOConnectSession.swift in Sources */,
 				85F3C58E2A41CEC3003D7C1A /* DTOPlayersConnected.swift in Sources */,
 				85F3C5822A41CD5E003D7C1A /* DTOVerifyAvailability.swift in Sources */,
+				85F3C5A02A41E6C8003D7C1A /* TransferMessage.swift in Sources */,
 				85F3C58C2A41CEAF003D7C1A /* DTOBid.swift in Sources */,
 				85F3C59E2A41E634003D7C1A /* CommandCode.swift in Sources */,
 				85F3C58A2A41CE98003D7C1A /* DTOStartProcess.swift in Sources */,

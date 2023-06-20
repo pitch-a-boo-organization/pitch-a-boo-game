@@ -10,7 +10,5 @@ import Foundation
 struct Item: Codable {
     let id: Int
     let name: String
-    let bonusScore: Int
-    let persona: Persona
     let value: Int
 }

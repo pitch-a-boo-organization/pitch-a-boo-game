@@ -10,5 +10,5 @@ import Foundation
 struct Persona: Codable {
     let id: Int
     let name: String
-    let perk: String
+    let characteristics: [String]
 }

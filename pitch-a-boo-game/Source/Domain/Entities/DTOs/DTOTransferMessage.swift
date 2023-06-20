@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TransferMessage: Codable {
+struct DTOTransferMessage: Codable {
     let code: CommandCode
     let device: Device
     let message: Data
