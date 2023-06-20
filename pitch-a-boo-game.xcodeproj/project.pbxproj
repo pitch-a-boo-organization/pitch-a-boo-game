@@ -20,10 +20,26 @@
 		00CDE87B2A39D98400FB1BF5 /* pitch_a_boo_gameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE87A2A39D98400FB1BF5 /* pitch_a_boo_gameUITests.swift */; };
 		00CDE87D2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE87C2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift */; };
 		00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE8942A3A046900FB1BF5 /* MessageType.swift */; };
-		00CDE89B2A3A04EC00FB1BF5 /* TransferMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE89A2A3A04EC00FB1BF5 /* TransferMessage.swift */; };
 		00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */; };
 		85A1EE152A40ECBB0003DDB3 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */; };
 		85A1EE182A40EE4D0003DDB3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 85A1EE172A40EE4D0003DDB3 /* CodeScanner */; };
+		85F3C5822A41CD5E003D7C1A /* DTOVerifyAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5812A41CD5E003D7C1A /* DTOVerifyAvailability.swift */; };
+		85F3C5842A41CE69003D7C1A /* DTOStatusAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5832A41CE69003D7C1A /* DTOStatusAvailability.swift */; };
+		85F3C5862A41CE77003D7C1A /* DTOConnectSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5852A41CE77003D7C1A /* DTOConnectSession.swift */; };
+		85F3C5882A41CE85003D7C1A /* DTOConnectStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5872A41CE85003D7C1A /* DTOConnectStatus.swift */; };
+		85F3C58A2A41CE98003D7C1A /* DTOStartProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5892A41CE98003D7C1A /* DTOStartProcess.swift */; };
+		85F3C58C2A41CEAF003D7C1A /* DTOBid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C58B2A41CEAF003D7C1A /* DTOBid.swift */; };
+		85F3C58E2A41CEC3003D7C1A /* DTOPlayersConnected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C58D2A41CEC3003D7C1A /* DTOPlayersConnected.swift */; };
+		85F3C5902A41CED2003D7C1A /* DTOChosenPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C58F2A41CED2003D7C1A /* DTOChosenPlayer.swift */; };
+		85F3C5922A41CEDF003D7C1A /* DTOSaleResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5912A41CEDF003D7C1A /* DTOSaleResult.swift */; };
+		85F3C5942A41D046003D7C1A /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5932A41D046003D7C1A /* Player.swift */; };
+		85F3C5962A41D055003D7C1A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5952A41D055003D7C1A /* Item.swift */; };
+		85F3C5982A41D075003D7C1A /* Persona.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5972A41D075003D7C1A /* Persona.swift */; };
+		85F3C59A2A41D090003D7C1A /* SaleResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5992A41D090003D7C1A /* SaleResult.swift */; };
+		85F3C59C2A41E5D6003D7C1A /* DTOTransferMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C59B2A41E5D6003D7C1A /* DTOTransferMessage.swift */; };
+		85F3C59E2A41E634003D7C1A /* CommandCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C59D2A41E634003D7C1A /* CommandCode.swift */; };
+		85F3C5A02A41E6C8003D7C1A /* TransferMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C59F2A41E6C8003D7C1A /* TransferMessage.swift */; };
+		85F3C5A32A41E759003D7C1A /* WebSocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5A22A41E759003D7C1A /* WebSocketError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +76,25 @@
 		00CDE87A2A39D98400FB1BF5 /* pitch_a_boo_gameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameUITests.swift; sourceTree = "<group>"; };
 		00CDE87C2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		00CDE8942A3A046900FB1BF5 /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageType.swift; path = ../../../Server/MessageType.swift; sourceTree = "<group>"; };
-		00CDE89A2A3A04EC00FB1BF5 /* TransferMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferMessage.swift; sourceTree = "<group>"; };
 		00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 		85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
+		85F3C5812A41CD5E003D7C1A /* DTOVerifyAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOVerifyAvailability.swift; sourceTree = "<group>"; };
+		85F3C5832A41CE69003D7C1A /* DTOStatusAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOStatusAvailability.swift; sourceTree = "<group>"; };
+		85F3C5852A41CE77003D7C1A /* DTOConnectSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOConnectSession.swift; sourceTree = "<group>"; };
+		85F3C5872A41CE85003D7C1A /* DTOConnectStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOConnectStatus.swift; sourceTree = "<group>"; };
+		85F3C5892A41CE98003D7C1A /* DTOStartProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOStartProcess.swift; sourceTree = "<group>"; };
+		85F3C58B2A41CEAF003D7C1A /* DTOBid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOBid.swift; sourceTree = "<group>"; };
+		85F3C58D2A41CEC3003D7C1A /* DTOPlayersConnected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOPlayersConnected.swift; sourceTree = "<group>"; };
+		85F3C58F2A41CED2003D7C1A /* DTOChosenPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOChosenPlayer.swift; sourceTree = "<group>"; };
+		85F3C5912A41CEDF003D7C1A /* DTOSaleResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOSaleResult.swift; sourceTree = "<group>"; };
+		85F3C5932A41D046003D7C1A /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		85F3C5952A41D055003D7C1A /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		85F3C5972A41D075003D7C1A /* Persona.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persona.swift; sourceTree = "<group>"; };
+		85F3C5992A41D090003D7C1A /* SaleResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleResult.swift; sourceTree = "<group>"; };
+		85F3C59B2A41E5D6003D7C1A /* DTOTransferMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOTransferMessage.swift; sourceTree = "<group>"; };
+		85F3C59D2A41E634003D7C1A /* CommandCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandCode.swift; sourceTree = "<group>"; };
+		85F3C59F2A41E6C8003D7C1A /* TransferMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferMessage.swift; sourceTree = "<group>"; };
+		85F3C5A22A41E759003D7C1A /* WebSocketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,8 +254,15 @@
 		00CDE8972A3A04C300FB1BF5 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				85F3C5A12A41E746003D7C1A /* Errors */,
+				85F3C5802A41CB12003D7C1A /* DTOs */,
 				00CDE8942A3A046900FB1BF5 /* MessageType.swift */,
-				00CDE89A2A3A04EC00FB1BF5 /* TransferMessage.swift */,
+				85F3C5952A41D055003D7C1A /* Item.swift */,
+				85F3C5932A41D046003D7C1A /* Player.swift */,
+				85F3C5972A41D075003D7C1A /* Persona.swift */,
+				85F3C5992A41D090003D7C1A /* SaleResult.swift */,
+				85F3C59D2A41E634003D7C1A /* CommandCode.swift */,
+				85F3C59F2A41E6C8003D7C1A /* TransferMessage.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -251,6 +290,31 @@
 			children = (
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		85F3C5802A41CB12003D7C1A /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				85F3C5812A41CD5E003D7C1A /* DTOVerifyAvailability.swift */,
+				85F3C5832A41CE69003D7C1A /* DTOStatusAvailability.swift */,
+				85F3C5852A41CE77003D7C1A /* DTOConnectSession.swift */,
+				85F3C5872A41CE85003D7C1A /* DTOConnectStatus.swift */,
+				85F3C5892A41CE98003D7C1A /* DTOStartProcess.swift */,
+				85F3C58B2A41CEAF003D7C1A /* DTOBid.swift */,
+				85F3C58D2A41CEC3003D7C1A /* DTOPlayersConnected.swift */,
+				85F3C58F2A41CED2003D7C1A /* DTOChosenPlayer.swift */,
+				85F3C5912A41CEDF003D7C1A /* DTOSaleResult.swift */,
+				85F3C59B2A41E5D6003D7C1A /* DTOTransferMessage.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		85F3C5A12A41E746003D7C1A /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				85F3C5A22A41E759003D7C1A /* WebSocketError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,16 +455,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85F3C5A32A41E759003D7C1A /* WebSocketError.swift in Sources */,
+				85F3C5882A41CE85003D7C1A /* DTOConnectStatus.swift in Sources */,
+				85F3C5842A41CE69003D7C1A /* DTOStatusAvailability.swift in Sources */,
+				85F3C59C2A41E5D6003D7C1A /* DTOTransferMessage.swift in Sources */,
+				85F3C5982A41D075003D7C1A /* Persona.swift in Sources */,
+				85F3C5902A41CED2003D7C1A /* DTOChosenPlayer.swift in Sources */,
+				85F3C5922A41CEDF003D7C1A /* DTOSaleResult.swift in Sources */,
+				85F3C5962A41D055003D7C1A /* Item.swift in Sources */,
 				00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */,
 				007C9DBF2A3A38EB00D242F9 /* ConnectionViewModel.swift in Sources */,
 				85A1EE152A40ECBB0003DDB3 /* QRCodeView.swift in Sources */,
 				003361F12A3B61FB00570986 /* iOSConnectionView.swift in Sources */,
+				85F3C5942A41D046003D7C1A /* Player.swift in Sources */,
 				00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */,
 				007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */,
 				003361EF2A3B61F400570986 /* TvOSConnectionView.swift in Sources */,
 				003361EC2A3B61DC00570986 /* ConnectionView.swift in Sources */,
+				85F3C59A2A41D090003D7C1A /* SaleResult.swift in Sources */,
 				00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */,
-				00CDE89B2A3A04EC00FB1BF5 /* TransferMessage.swift in Sources */,
+				85F3C5862A41CE77003D7C1A /* DTOConnectSession.swift in Sources */,
+				85F3C58E2A41CEC3003D7C1A /* DTOPlayersConnected.swift in Sources */,
+				85F3C5822A41CD5E003D7C1A /* DTOVerifyAvailability.swift in Sources */,
+				85F3C5A02A41E6C8003D7C1A /* TransferMessage.swift in Sources */,
+				85F3C58C2A41CEAF003D7C1A /* DTOBid.swift in Sources */,
+				85F3C59E2A41E634003D7C1A /* CommandCode.swift in Sources */,
+				85F3C58A2A41CE98003D7C1A /* DTOStartProcess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,7 +840,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pitch-a-boo-organization/pitch-a-boo-server";
 			requirement = {
-				branch = main;
+				branch = feat/transfer_message_protocol;
 				kind = branch;
 			};
 		};
