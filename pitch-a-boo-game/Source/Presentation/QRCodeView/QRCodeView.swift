@@ -5,6 +5,7 @@
 //  Created by Joan Wilson Oliveira on 19/06/23.
 //
 
+#if os(iOS)
 import SwiftUI
 import CodeScanner
 
@@ -36,8 +37,6 @@ struct QRCodeView: View {
             }
         }
     }
-
-    
 }
 
 
@@ -46,3 +45,4 @@ struct QRCodeView_Previews: PreviewProvider {
         QRCodeView()
     }
 }
+#endif

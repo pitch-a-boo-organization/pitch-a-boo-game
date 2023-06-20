@@ -22,7 +22,7 @@
 		00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE8942A3A046900FB1BF5 /* MessageType.swift */; };
 		00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */; };
 		85A1EE152A40ECBB0003DDB3 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */; };
-		85A1EE182A40EE4D0003DDB3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 85A1EE172A40EE4D0003DDB3 /* CodeScanner */; };
+		85A1EE182A40EE4D0003DDB3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; platformFilters = (ios, macos, ); productRef = 85A1EE172A40EE4D0003DDB3 /* CodeScanner */; };
 		85F3C5822A41CD5E003D7C1A /* DTOVerifyAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5812A41CD5E003D7C1A /* DTOVerifyAvailability.swift */; };
 		85F3C5842A41CE69003D7C1A /* DTOStatusAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5832A41CE69003D7C1A /* DTOStatusAvailability.swift */; };
 		85F3C5862A41CE77003D7C1A /* DTOConnectSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5852A41CE77003D7C1A /* DTOConnectSession.swift */; };
@@ -40,6 +40,10 @@
 		85F3C59E2A41E634003D7C1A /* CommandCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C59D2A41E634003D7C1A /* CommandCode.swift */; };
 		85F3C5A02A41E6C8003D7C1A /* TransferMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C59F2A41E6C8003D7C1A /* TransferMessage.swift */; };
 		85F3C5A32A41E759003D7C1A /* WebSocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5A22A41E759003D7C1A /* WebSocketError.swift */; };
+		DD3E567F2A42562900F5B30F /* EntryScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E567E2A42562900F5B30F /* EntryScreenView.swift */; };
+		DD3E56812A42563D00F5B30F /* EntryScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56802A42563D00F5B30F /* EntryScreenViewModel.swift */; };
+		DD3E56832A4259CD00F5B30F /* tvOSEntryScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56822A4259CD00F5B30F /* tvOSEntryScreenView.swift */; };
+		DD3E56852A425A3E00F5B30F /* PreparePitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56842A425A3E00F5B30F /* PreparePitchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,10 @@
 		85F3C59D2A41E634003D7C1A /* CommandCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandCode.swift; sourceTree = "<group>"; };
 		85F3C59F2A41E6C8003D7C1A /* TransferMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferMessage.swift; sourceTree = "<group>"; };
 		85F3C5A22A41E759003D7C1A /* WebSocketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketError.swift; sourceTree = "<group>"; };
+		DD3E567E2A42562900F5B30F /* EntryScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryScreenView.swift; sourceTree = "<group>"; };
+		DD3E56802A42563D00F5B30F /* EntryScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryScreenViewModel.swift; sourceTree = "<group>"; };
+		DD3E56822A4259CD00F5B30F /* tvOSEntryScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSEntryScreenView.swift; sourceTree = "<group>"; };
+		DD3E56842A425A3E00F5B30F /* PreparePitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparePitchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +244,8 @@
 		00CDE88C2A39D9B000FB1BF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DD3E567B2A4255E700F5B30F /* PreparePitchView */,
+				DD3E567A2A4255D500F5B30F /* EntryScreenView */,
 				85A1EE122A40EC920003DDB3 /* QRCodeView */,
 				003361EA2A3B61CE00570986 /* ConnectionView */,
 			);
@@ -315,6 +325,40 @@
 				85F3C5A22A41E759003D7C1A /* WebSocketError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		DD3E567A2A4255D500F5B30F /* EntryScreenView */ = {
+			isa = PBXGroup;
+			children = (
+				DD3E567D2A42560B00F5B30F /* Components */,
+				DD3E567E2A42562900F5B30F /* EntryScreenView.swift */,
+				DD3E56802A42563D00F5B30F /* EntryScreenViewModel.swift */,
+			);
+			path = EntryScreenView;
+			sourceTree = "<group>";
+		};
+		DD3E567B2A4255E700F5B30F /* PreparePitchView */ = {
+			isa = PBXGroup;
+			children = (
+				DD3E567C2A4255FE00F5B30F /* Components */,
+				DD3E56842A425A3E00F5B30F /* PreparePitchView.swift */,
+			);
+			path = PreparePitchView;
+			sourceTree = "<group>";
+		};
+		DD3E567C2A4255FE00F5B30F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DD3E567D2A42560B00F5B30F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DD3E56822A4259CD00F5B30F /* tvOSEntryScreenView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,11 +505,14 @@
 				85F3C59C2A41E5D6003D7C1A /* DTOTransferMessage.swift in Sources */,
 				85F3C5982A41D075003D7C1A /* Persona.swift in Sources */,
 				85F3C5902A41CED2003D7C1A /* DTOChosenPlayer.swift in Sources */,
+				DD3E56832A4259CD00F5B30F /* tvOSEntryScreenView.swift in Sources */,
+				DD3E56852A425A3E00F5B30F /* PreparePitchView.swift in Sources */,
 				85F3C5922A41CEDF003D7C1A /* DTOSaleResult.swift in Sources */,
 				85F3C5962A41D055003D7C1A /* Item.swift in Sources */,
 				00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */,
 				007C9DBF2A3A38EB00D242F9 /* ConnectionViewModel.swift in Sources */,
 				85A1EE152A40ECBB0003DDB3 /* QRCodeView.swift in Sources */,
+				DD3E56812A42563D00F5B30F /* EntryScreenViewModel.swift in Sources */,
 				003361F12A3B61FB00570986 /* iOSConnectionView.swift in Sources */,
 				85F3C5942A41D046003D7C1A /* Player.swift in Sources */,
 				00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */,
@@ -479,6 +526,7 @@
 				85F3C5822A41CD5E003D7C1A /* DTOVerifyAvailability.swift in Sources */,
 				85F3C5A02A41E6C8003D7C1A /* TransferMessage.swift in Sources */,
 				85F3C58C2A41CEAF003D7C1A /* DTOBid.swift in Sources */,
+				DD3E567F2A42562900F5B30F /* EntryScreenView.swift in Sources */,
 				85F3C59E2A41E634003D7C1A /* CommandCode.swift in Sources */,
 				85F3C58A2A41CE98003D7C1A /* DTOStartProcess.swift in Sources */,
 			);
@@ -635,7 +683,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"pitch-a-boo-game/Preview Content\"";
-				DEVELOPMENT_TEAM = F2MBMJ3PK6;
+				DEVELOPMENT_TEAM = 2D837DJ3YC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -658,10 +706,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "thiagohba.com.pitch-a-boo-game";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3";
 			};
 			name = Debug;
 		};
@@ -697,10 +747,12 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "thiagohba.com.pitch-a-boo-game";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3";
 			};
 			name = Release;
 		};
@@ -840,7 +892,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pitch-a-boo-organization/pitch-a-boo-server";
 			requirement = {
-				branch = feat/transfer_message_protocol;
+				branch = main;
 				kind = branch;
 			};
 		};
