@@ -82,6 +82,7 @@
 		00CDE8942A3A046900FB1BF5 /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageType.swift; path = ../../../Server/MessageType.swift; sourceTree = "<group>"; };
 		00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 		85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
+		85C639342A4265DE001AE223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		85F3C5812A41CD5E003D7C1A /* DTOVerifyAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOVerifyAvailability.swift; sourceTree = "<group>"; };
 		85F3C5832A41CE69003D7C1A /* DTOStatusAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOStatusAvailability.swift; sourceTree = "<group>"; };
 		85F3C5852A41CE77003D7C1A /* DTOConnectSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOConnectSession.swift; sourceTree = "<group>"; };
@@ -182,6 +183,7 @@
 		00CDE85D2A39D98300FB1BF5 /* pitch-a-boo-game */ = {
 			isa = PBXGroup;
 			children = (
+				85C639342A4265DE001AE223 /* Info.plist */,
 				00CDE88B2A39D9A500FB1BF5 /* Source */,
 				00CDE88A2A39D99C00FB1BF5 /* Resource */,
 				00CDE8892A39D99200FB1BF5 /* Application */,
@@ -687,6 +689,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "pitch-a-boo-game/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need the to scan QR codes.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -728,6 +731,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "pitch-a-boo-game/Info.plist";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need the to scan QR codes.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;

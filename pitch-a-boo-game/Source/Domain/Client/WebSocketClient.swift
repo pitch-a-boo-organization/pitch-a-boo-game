@@ -132,12 +132,11 @@ extension PitchABooSocketClient {
         }
     }
 
-    
     func sendVerifyAvailability(stage: Int, isAvailable availability: Bool) {
         let dto = DTOVerifyAvailability(stage: stage, available: availability)
         do {
             let data = try JSONEncoder().encode(dto)
-            let transferMessage = DTOTransferMessage(code: .connectionAvailability, device: .iOS, message: data)
+            let transferMessage = DTOTransferMessage(code: .client(.verifyAvailability), device: .iOS, message: data)
             sendMessageToServer(webSocket: webSocket, message: transferMessage)
         } catch {
             print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
@@ -148,7 +147,7 @@ extension PitchABooSocketClient {
         let dto = DTOConnectSession(stage: stage, subscribe: shouldSubscribe)
         do {
             let data = try JSONEncoder().encode(dto)
-            let transferMessage = DTOTransferMessage(code: .connectToSession, device: .iOS, message: data)
+            let transferMessage = DTOTransferMessage(code: .client(.connectToSession), device: .iOS, message: data)
             sendMessageToServer(webSocket: webSocket, message: transferMessage)
         } catch {
             print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
@@ -159,18 +158,12 @@ extension PitchABooSocketClient {
         let dto = DTOStartProcess(stage: stage, start: shouldStart)
         do {
             let data = try JSONEncoder().encode(dto)
-            let transferMessage = DTOTransferMessage(code: .startGame, device: .iOS, message: data)
+            let transferMessage = DTOTransferMessage(code: .client(.startProcess), device: .iOS, message: data)
             sendMessageToServer(webSocket: webSocket, message: transferMessage)
         } catch {
             print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
         }
     }
-    
-    
-
-
-    
-    
 }
 
 extension PitchABooSocketClient: URLSessionWebSocketDelegate {
