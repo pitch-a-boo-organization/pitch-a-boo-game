@@ -98,6 +98,10 @@ final class PitchABooSocketClient: NSObject {
     }
 }
 
+extension PitchABooSocketClient {
+    
+}
+
 extension PitchABooSocketClient: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
         opened = true
