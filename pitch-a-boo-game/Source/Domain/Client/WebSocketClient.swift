@@ -87,7 +87,10 @@ final class PitchABooSocketClient: NSObject {
     }
 }
 
+// Connection Cycle Methods
 extension PitchABooSocketClient {
+    
+    //Deprecated
     func sendMessageToServer(webSocket: URLSessionWebSocketTask?, message: TransferMessage) {
         guard let webSocket = webSocket else { return }
         
@@ -107,6 +110,7 @@ extension PitchABooSocketClient {
             print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
         }
     }
+    
     
     func sendMessageToServer(webSocket: URLSessionWebSocketTask?, message: DTOTransferMessage) {
         guard let webSocket = webSocket else { return }
@@ -139,6 +143,34 @@ extension PitchABooSocketClient {
             print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
         }
     }
+    
+    func sendConnectSession(stage: Int, shouldSubscribe: Bool) {
+        let dto = DTOConnectSession(stage: stage, subscribe: shouldSubscribe)
+        do {
+            let data = try JSONEncoder().encode(dto)
+            let transferMessage = DTOTransferMessage(code: .connectToSession, device: .iOS, message: data)
+            sendMessageToServer(webSocket: webSocket, message: transferMessage)
+        } catch {
+            print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
+        }
+    }
+    
+    func sendStartProcess(stage: Int, shouldStart: Bool) {
+        let dto = DTOStartProcess(stage: stage, start: shouldStart)
+        do {
+            let data = try JSONEncoder().encode(dto)
+            let transferMessage = DTOTransferMessage(code: .startGame, device: .iOS, message: data)
+            sendMessageToServer(webSocket: webSocket, message: transferMessage)
+        } catch {
+            print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
+        }
+    }
+    
+    
+
+
+    
+    
 }
 
 extension PitchABooSocketClient: URLSessionWebSocketDelegate {
