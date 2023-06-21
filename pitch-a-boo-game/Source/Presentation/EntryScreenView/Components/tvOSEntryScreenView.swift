@@ -21,7 +21,7 @@ struct tvOSEntryScreenView: View {
                 VStack {
                     Spacer()
                     VStack {
-
+                        PlayersGrid(players: entryViewModel.players)
                     }
                 }
                 VStack {
@@ -53,7 +53,7 @@ struct tvOSEntryScreenView: View {
                 VStack {
                     Spacer()
                     VStack {
-
+                        PlayersGrid(players: entryViewModel.players)
                     }
                 }
             }
