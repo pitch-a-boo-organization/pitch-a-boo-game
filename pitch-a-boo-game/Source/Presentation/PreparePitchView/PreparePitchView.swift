@@ -9,7 +9,9 @@ import SwiftUI
 
 struct PreparePitchView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        #if os(tvOS)
+        tvOSPreparePitchView()
+        #endif
     }
 }
 

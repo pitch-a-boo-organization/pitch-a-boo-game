@@ -44,6 +44,21 @@
 		DD3E56812A42563D00F5B30F /* EntryScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56802A42563D00F5B30F /* EntryScreenViewModel.swift */; };
 		DD3E56832A4259CD00F5B30F /* tvOSEntryScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56822A4259CD00F5B30F /* tvOSEntryScreenView.swift */; };
 		DD3E56852A425A3E00F5B30F /* PreparePitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56842A425A3E00F5B30F /* PreparePitchView.swift */; };
+		DD3E56892A431DBD00F5B30F /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56882A431DBD00F5B30F /* Counter.swift */; };
+		DD3E568B2A431E3A00F5B30F /* PlayersGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E568A2A431E3A00F5B30F /* PlayersGrid.swift */; };
+		DD3E568D2A431E9500F5B30F /* EntryPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E568C2A431E9500F5B30F /* EntryPlayers.swift */; };
+		DD3E568F2A431F1D00F5B30F /* PreparePitchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E568E2A431F1D00F5B30F /* PreparePitchViewModel.swift */; };
+		DD3E56912A431F3600F5B30F /* tvOSPreparePitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56902A431F3600F5B30F /* tvOSPreparePitchView.swift */; };
+		DD3E56932A4320A000F5B30F /* PlayerScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56922A4320A000F5B30F /* PlayerScore.swift */; };
+		DD3E569B2A43235300F5B30F /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E569A2A43235300F5B30F /* ScoreView.swift */; };
+		DD3E569D2A43235E00F5B30F /* PitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E569C2A43235E00F5B30F /* PitchView.swift */; };
+		DD3E569F2A43237000F5B30F /* ReviewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E569E2A43237000F5B30F /* ReviewItemView.swift */; };
+		DD3E56A12A43237E00F5B30F /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A02A43237E00F5B30F /* ScoreViewModel.swift */; };
+		DD3E56A32A43238900F5B30F /* PitchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A22A43238900F5B30F /* PitchViewModel.swift */; };
+		DD3E56A52A43239600F5B30F /* ReviewItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A42A43239600F5B30F /* ReviewItemViewModel.swift */; };
+		DD3E56A72A4323A700F5B30F /* tvOSReviewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A62A4323A700F5B30F /* tvOSReviewItemView.swift */; };
+		DD3E56A92A4323B600F5B30F /* tvOSPitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A82A4323B600F5B30F /* tvOSPitchView.swift */; };
+		DD3E56AB2A4323C600F5B30F /* tvOSScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56AA2A4323C600F5B30F /* tvOSScoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +118,21 @@
 		DD3E56802A42563D00F5B30F /* EntryScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryScreenViewModel.swift; sourceTree = "<group>"; };
 		DD3E56822A4259CD00F5B30F /* tvOSEntryScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSEntryScreenView.swift; sourceTree = "<group>"; };
 		DD3E56842A425A3E00F5B30F /* PreparePitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparePitchView.swift; sourceTree = "<group>"; };
+		DD3E56882A431DBD00F5B30F /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		DD3E568A2A431E3A00F5B30F /* PlayersGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersGrid.swift; sourceTree = "<group>"; };
+		DD3E568C2A431E9500F5B30F /* EntryPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryPlayers.swift; sourceTree = "<group>"; };
+		DD3E568E2A431F1D00F5B30F /* PreparePitchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparePitchViewModel.swift; sourceTree = "<group>"; };
+		DD3E56902A431F3600F5B30F /* tvOSPreparePitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSPreparePitchView.swift; sourceTree = "<group>"; };
+		DD3E56922A4320A000F5B30F /* PlayerScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScore.swift; sourceTree = "<group>"; };
+		DD3E569A2A43235300F5B30F /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		DD3E569C2A43235E00F5B30F /* PitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchView.swift; sourceTree = "<group>"; };
+		DD3E569E2A43237000F5B30F /* ReviewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewItemView.swift; sourceTree = "<group>"; };
+		DD3E56A02A43237E00F5B30F /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
+		DD3E56A22A43238900F5B30F /* PitchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchViewModel.swift; sourceTree = "<group>"; };
+		DD3E56A42A43239600F5B30F /* ReviewItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewItemViewModel.swift; sourceTree = "<group>"; };
+		DD3E56A62A4323A700F5B30F /* tvOSReviewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSReviewItemView.swift; sourceTree = "<group>"; };
+		DD3E56A82A4323B600F5B30F /* tvOSPitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSPitchView.swift; sourceTree = "<group>"; };
+		DD3E56AA2A4323C600F5B30F /* tvOSScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSScoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +274,10 @@
 		00CDE88C2A39D9B000FB1BF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DD3E56872A431D5D00F5B30F /* Components */,
+				DD3E56952A4322FC00F5B30F /* ReviewItemView */,
+				DD3E56942A4322BB00F5B30F /* PitchView */,
+				DD3E56962A43231500F5B30F /* ScoreView */,
 				DD3E567B2A4255E700F5B30F /* PreparePitchView */,
 				DD3E567A2A4255D500F5B30F /* EntryScreenView */,
 				85A1EE122A40EC920003DDB3 /* QRCodeView */,
@@ -342,6 +376,7 @@
 			children = (
 				DD3E567C2A4255FE00F5B30F /* Components */,
 				DD3E56842A425A3E00F5B30F /* PreparePitchView.swift */,
+				DD3E568E2A431F1D00F5B30F /* PreparePitchViewModel.swift */,
 			);
 			path = PreparePitchView;
 			sourceTree = "<group>";
@@ -349,6 +384,7 @@
 		DD3E567C2A4255FE00F5B30F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				DD3E56902A431F3600F5B30F /* tvOSPreparePitchView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -357,6 +393,71 @@
 			isa = PBXGroup;
 			children = (
 				DD3E56822A4259CD00F5B30F /* tvOSEntryScreenView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DD3E56872A431D5D00F5B30F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DD3E56882A431DBD00F5B30F /* Counter.swift */,
+				DD3E568A2A431E3A00F5B30F /* PlayersGrid.swift */,
+				DD3E568C2A431E9500F5B30F /* EntryPlayers.swift */,
+				DD3E56922A4320A000F5B30F /* PlayerScore.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DD3E56942A4322BB00F5B30F /* PitchView */ = {
+			isa = PBXGroup;
+			children = (
+				DD3E56982A43233900F5B30F /* Components */,
+				DD3E569C2A43235E00F5B30F /* PitchView.swift */,
+				DD3E56A22A43238900F5B30F /* PitchViewModel.swift */,
+			);
+			path = PitchView;
+			sourceTree = "<group>";
+		};
+		DD3E56952A4322FC00F5B30F /* ReviewItemView */ = {
+			isa = PBXGroup;
+			children = (
+				DD3E56972A43233200F5B30F /* Components */,
+				DD3E569E2A43237000F5B30F /* ReviewItemView.swift */,
+				DD3E56A42A43239600F5B30F /* ReviewItemViewModel.swift */,
+			);
+			path = ReviewItemView;
+			sourceTree = "<group>";
+		};
+		DD3E56962A43231500F5B30F /* ScoreView */ = {
+			isa = PBXGroup;
+			children = (
+				DD3E56992A43234000F5B30F /* Components */,
+				DD3E569A2A43235300F5B30F /* ScoreView.swift */,
+				DD3E56A02A43237E00F5B30F /* ScoreViewModel.swift */,
+			);
+			path = ScoreView;
+			sourceTree = "<group>";
+		};
+		DD3E56972A43233200F5B30F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DD3E56A62A4323A700F5B30F /* tvOSReviewItemView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DD3E56982A43233900F5B30F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DD3E56A82A4323B600F5B30F /* tvOSPitchView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		DD3E56992A43234000F5B30F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DD3E56AA2A4323C600F5B30F /* tvOSScoreView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -499,6 +600,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD3E56A32A43238900F5B30F /* PitchViewModel.swift in Sources */,
 				85F3C5A32A41E759003D7C1A /* WebSocketError.swift in Sources */,
 				85F3C5882A41CE85003D7C1A /* DTOConnectStatus.swift in Sources */,
 				85F3C5842A41CE69003D7C1A /* DTOStatusAvailability.swift in Sources */,
@@ -507,26 +609,40 @@
 				85F3C5902A41CED2003D7C1A /* DTOChosenPlayer.swift in Sources */,
 				DD3E56832A4259CD00F5B30F /* tvOSEntryScreenView.swift in Sources */,
 				DD3E56852A425A3E00F5B30F /* PreparePitchView.swift in Sources */,
+				DD3E56A72A4323A700F5B30F /* tvOSReviewItemView.swift in Sources */,
+				DD3E56A52A43239600F5B30F /* ReviewItemViewModel.swift in Sources */,
 				85F3C5922A41CEDF003D7C1A /* DTOSaleResult.swift in Sources */,
+				DD3E56AB2A4323C600F5B30F /* tvOSScoreView.swift in Sources */,
+				DD3E569D2A43235E00F5B30F /* PitchView.swift in Sources */,
+				DD3E569B2A43235300F5B30F /* ScoreView.swift in Sources */,
+				DD3E568F2A431F1D00F5B30F /* PreparePitchViewModel.swift in Sources */,
+				DD3E568B2A431E3A00F5B30F /* PlayersGrid.swift in Sources */,
 				85F3C5962A41D055003D7C1A /* Item.swift in Sources */,
 				00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */,
+				DD3E56932A4320A000F5B30F /* PlayerScore.swift in Sources */,
 				007C9DBF2A3A38EB00D242F9 /* ConnectionViewModel.swift in Sources */,
 				85A1EE152A40ECBB0003DDB3 /* QRCodeView.swift in Sources */,
+				DD3E56912A431F3600F5B30F /* tvOSPreparePitchView.swift in Sources */,
 				DD3E56812A42563D00F5B30F /* EntryScreenViewModel.swift in Sources */,
 				003361F12A3B61FB00570986 /* iOSConnectionView.swift in Sources */,
 				85F3C5942A41D046003D7C1A /* Player.swift in Sources */,
 				00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */,
+				DD3E56892A431DBD00F5B30F /* Counter.swift in Sources */,
 				007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */,
 				003361EF2A3B61F400570986 /* TvOSConnectionView.swift in Sources */,
+				DD3E569F2A43237000F5B30F /* ReviewItemView.swift in Sources */,
 				003361EC2A3B61DC00570986 /* ConnectionView.swift in Sources */,
 				85F3C59A2A41D090003D7C1A /* SaleResult.swift in Sources */,
 				00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */,
 				85F3C5862A41CE77003D7C1A /* DTOConnectSession.swift in Sources */,
+				DD3E56A12A43237E00F5B30F /* ScoreViewModel.swift in Sources */,
 				85F3C58E2A41CEC3003D7C1A /* DTOPlayersConnected.swift in Sources */,
 				85F3C5822A41CD5E003D7C1A /* DTOVerifyAvailability.swift in Sources */,
 				85F3C5A02A41E6C8003D7C1A /* TransferMessage.swift in Sources */,
+				DD3E568D2A431E9500F5B30F /* EntryPlayers.swift in Sources */,
 				85F3C58C2A41CEAF003D7C1A /* DTOBid.swift in Sources */,
 				DD3E567F2A42562900F5B30F /* EntryScreenView.swift in Sources */,
+				DD3E56A92A4323B600F5B30F /* tvOSPitchView.swift in Sources */,
 				85F3C59E2A41E634003D7C1A /* CommandCode.swift in Sources */,
 				85F3C58A2A41CE98003D7C1A /* DTOStartProcess.swift in Sources */,
 			);
