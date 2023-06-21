@@ -13,6 +13,7 @@ struct iOSConnectionView: View {
     @EnvironmentObject var viewModel: ConnectionViewModel
     @State var serverHostname = ""
     @State var isPresentingScanner = false
+    let client = PitchABooSocketClient.shared
     
     var scannerSheet: some View {
         CodeScannerView(
@@ -36,6 +37,18 @@ struct iOSConnectionView: View {
                     Text("Aguardando jogadores...")
                         .font(.body)
                     Text("\(viewModel.allConnectedPlayers.description)")
+                    
+                    Button {
+                        client.sendStartGameFlowToServer()
+                    } label: {
+                        Text("Conectar")
+                            .padding(12)
+                            .foregroundColor(.white)
+                            .background(.black)
+                            .cornerRadius(12)
+                            .frame(width: 150, height: 50)
+                    }
+                    .disabled(viewModel.allConnectedPlayers <= 0)
                 }
             } else {
                 Text("Conectar a uma sessão!")
@@ -52,7 +65,6 @@ struct iOSConnectionView: View {
                     .padding([.bottom], 50)
                 
                 Button {
-                    let client = PitchABooSocketClient.shared
                     client.defineServerURL(hostname: serverHostname)
                     client.delegate = viewModel
                     client.subscribeToService()
