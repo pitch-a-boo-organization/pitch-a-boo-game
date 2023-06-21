@@ -23,6 +23,7 @@
 		00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */; };
 		85A1EE152A40ECBB0003DDB3 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */; };
 		85A1EE182A40EE4D0003DDB3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; platformFilters = (ios, macos, ); productRef = 85A1EE172A40EE4D0003DDB3 /* CodeScanner */; };
+		85EA4FC62A43203000637B6F /* DTOPlayerIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */; };
 		85F3C5822A41CD5E003D7C1A /* DTOVerifyAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5812A41CD5E003D7C1A /* DTOVerifyAvailability.swift */; };
 		85F3C5842A41CE69003D7C1A /* DTOStatusAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5832A41CE69003D7C1A /* DTOStatusAvailability.swift */; };
 		85F3C5862A41CE77003D7C1A /* DTOConnectSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5852A41CE77003D7C1A /* DTOConnectSession.swift */; };
@@ -83,6 +84,7 @@
 		00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 		85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		85C639342A4265DE001AE223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOPlayerIdentifier.swift; sourceTree = "<group>"; };
 		85F3C5812A41CD5E003D7C1A /* DTOVerifyAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOVerifyAvailability.swift; sourceTree = "<group>"; };
 		85F3C5832A41CE69003D7C1A /* DTOStatusAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOStatusAvailability.swift; sourceTree = "<group>"; };
 		85F3C5852A41CE77003D7C1A /* DTOConnectSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOConnectSession.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				85F3C58F2A41CED2003D7C1A /* DTOChosenPlayer.swift */,
 				85F3C5912A41CEDF003D7C1A /* DTOSaleResult.swift */,
 				85F3C59B2A41E5D6003D7C1A /* DTOTransferMessage.swift */,
+				85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				DD3E56852A425A3E00F5B30F /* PreparePitchView.swift in Sources */,
 				85F3C5922A41CEDF003D7C1A /* DTOSaleResult.swift in Sources */,
 				85F3C5962A41D055003D7C1A /* Item.swift in Sources */,
+				85EA4FC62A43203000637B6F /* DTOPlayerIdentifier.swift in Sources */,
 				00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */,
 				007C9DBF2A3A38EB00D242F9 /* ConnectionViewModel.swift in Sources */,
 				85A1EE152A40ECBB0003DDB3 /* QRCodeView.swift in Sources */,
@@ -685,7 +689,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"pitch-a-boo-game/Preview Content\"";
-				DEVELOPMENT_TEAM = 2D837DJ3YC;
+				DEVELOPMENT_TEAM = F2MBMJ3PK6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

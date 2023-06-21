@@ -19,11 +19,11 @@ enum CommandCode: Codable {
     }
     
     enum ServerMessage: Int, Codable {
-        case availabilityStatus = 1
-        case connectionStatus = 3
+        case statusAvailability = 1
+        case connectStatus = 3
+        case playersConnected = 6
         case startProcess = 4
-        case connectedPlayers = 6
-        case choosenPlayer = 7
+        case chosenPlayer = 7
         case saleResult = 8
     }
 }

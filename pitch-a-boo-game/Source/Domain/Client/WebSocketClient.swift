@@ -36,8 +36,8 @@ final class PitchABooSocketClient: NSObject {
             case .success(let message):
                 self?.decodeServerMessage(message)
             }
-            self?.subscribeToService()
-        }
+                self?.subscribeToService()
+            }
         )
     }
     
@@ -105,7 +105,7 @@ extension PitchABooSocketClient {
                     self?.delegate?.didConnectSuccessfully()
                 }
             }
-
+            
         } catch {
             print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
         }
@@ -126,12 +126,12 @@ extension PitchABooSocketClient {
                     self?.delegate?.didConnectSuccessfully()
                 }
             }
-
+            
         } catch {
             print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
         }
     }
-
+    
     func sendVerifyAvailability(stage: Int, isAvailable availability: Bool) {
         let dto = DTOVerifyAvailability(stage: stage, available: availability)
         do {
@@ -180,13 +180,27 @@ extension PitchABooSocketClient: URLSessionWebSocketDelegate {
 extension PitchABooSocketClient {
     func handleMessageFromServer(_ message: DTOTransferMessage) {
         print(message)
-//        switch message.type {
-//        case .connection:
-//            if message.message == "connected" {
-//                subscribeToServer()
-//            }
-//        case .count:
-//            delegate?.updateCounter(message.message)
-//        }
+        switch message.code {
+        case .server(.statusAvailability):
+            sendConnectSession(stage: 10, shouldSubscribe: true)
+        case .server(.connectStatus):
+            //nao envia nada??
+            break
+        case .server(.playersConnected):
+            //Confirma se pode comecar
+            sendStartProcess(stage: 10, shouldStart: true)
+            break
+        case .server(.startProcess):
+            //E#nvia um startProcess
+            break
+        case .server(.chosenPlayer):
+            //Start
+            break
+        case .server(.saleResult):
+            //Recomeca ou acaba
+            break
+        default:
+            break
+        }
     }
 }

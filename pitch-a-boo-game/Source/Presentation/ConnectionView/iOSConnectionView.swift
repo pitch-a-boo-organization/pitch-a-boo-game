@@ -52,7 +52,7 @@ struct iOSConnectionView: View {
                 
                 Button {
                     let client = PitchABooSocketClient.shared
-                    client.defineServerURL(hostname: serverHostname)
+                    client.defineServerURL(hostname: viewModel.scannedCode)
                     client.delegate = viewModel
                     client.subscribeToService()
                 } label: {
@@ -65,7 +65,7 @@ struct iOSConnectionView: View {
                 }
                 .disabled(serverHostname == "")
                 
-                Text(viewModel.scannedCode)
+                Text(UIDevice.current.identifierForVendor?.uuidString ?? "")
                 
                 Button("Scan the QR Code from your AppleTV") {
                     isPresentingScanner = true
