@@ -24,6 +24,7 @@
 		85A1EE152A40ECBB0003DDB3 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */; };
 		85A1EE182A40EE4D0003DDB3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; platformFilters = (ios, macos, ); productRef = 85A1EE172A40EE4D0003DDB3 /* CodeScanner */; };
 		85EA4FC62A43203000637B6F /* DTOPlayerIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */; };
+		85EA4FC82A43969600637B6F /* ChosenPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA4FC72A43969600637B6F /* ChosenPlayer.swift */; };
 		85F3C5822A41CD5E003D7C1A /* DTOVerifyAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5812A41CD5E003D7C1A /* DTOVerifyAvailability.swift */; };
 		85F3C5842A41CE69003D7C1A /* DTOStatusAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5832A41CE69003D7C1A /* DTOStatusAvailability.swift */; };
 		85F3C5862A41CE77003D7C1A /* DTOConnectSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5852A41CE77003D7C1A /* DTOConnectSession.swift */; };
@@ -95,11 +96,12 @@
 		00CDE8762A39D98400FB1BF5 /* pitch-a-boo-gameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pitch-a-boo-gameUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00CDE87A2A39D98400FB1BF5 /* pitch_a_boo_gameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameUITests.swift; sourceTree = "<group>"; };
 		00CDE87C2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		00CDE8942A3A046900FB1BF5 /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessageType.swift; path = ../../../Server/MessageType.swift; sourceTree = "<group>"; };
+		00CDE8942A3A046900FB1BF5 /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageType.swift; sourceTree = "<group>"; };
 		00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 		85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		85C639342A4265DE001AE223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOPlayerIdentifier.swift; sourceTree = "<group>"; };
+		85EA4FC72A43969600637B6F /* ChosenPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenPlayer.swift; sourceTree = "<group>"; };
 		85F3C5812A41CD5E003D7C1A /* DTOVerifyAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOVerifyAvailability.swift; sourceTree = "<group>"; };
 		85F3C5832A41CE69003D7C1A /* DTOStatusAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOStatusAvailability.swift; sourceTree = "<group>"; };
 		85F3C5852A41CE77003D7C1A /* DTOConnectSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOConnectSession.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 		007C9DBA2A3A2FB200D242F9 /* ClientError */ = {
 			isa = PBXGroup;
 			children = (
+				00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */,
 				007C9DBB2A3A2FC000D242F9 /* ClientError.swift */,
 			);
 			path = ClientError;
@@ -302,15 +305,9 @@
 		00CDE8972A3A04C300FB1BF5 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				85EA4FC92A4396A700637B6F /* Base */,
 				85F3C5A12A41E746003D7C1A /* Errors */,
 				85F3C5802A41CB12003D7C1A /* DTOs */,
-				00CDE8942A3A046900FB1BF5 /* MessageType.swift */,
-				85F3C5952A41D055003D7C1A /* Item.swift */,
-				85F3C5932A41D046003D7C1A /* Player.swift */,
-				85F3C5972A41D075003D7C1A /* Persona.swift */,
-				85F3C5992A41D090003D7C1A /* SaleResult.swift */,
-				85F3C59D2A41E634003D7C1A /* CommandCode.swift */,
-				85F3C59F2A41E6C8003D7C1A /* TransferMessage.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -319,7 +316,6 @@
 			isa = PBXGroup;
 			children = (
 				007C9DBA2A3A2FB200D242F9 /* ClientError */,
-				00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -338,6 +334,21 @@
 			children = (
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		85EA4FC92A4396A700637B6F /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				00CDE8942A3A046900FB1BF5 /* MessageType.swift */,
+				85F3C5952A41D055003D7C1A /* Item.swift */,
+				85EA4FC72A43969600637B6F /* ChosenPlayer.swift */,
+				85F3C5932A41D046003D7C1A /* Player.swift */,
+				85F3C5972A41D075003D7C1A /* Persona.swift */,
+				85F3C5992A41D090003D7C1A /* SaleResult.swift */,
+				85F3C59D2A41E634003D7C1A /* CommandCode.swift */,
+				85F3C59F2A41E6C8003D7C1A /* TransferMessage.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		85F3C5802A41CB12003D7C1A /* DTOs */ = {
@@ -628,6 +639,7 @@
 				DD3E56932A4320A000F5B30F /* PlayerScore.swift in Sources */,
 				007C9DBF2A3A38EB00D242F9 /* ConnectionViewModel.swift in Sources */,
 				85A1EE152A40ECBB0003DDB3 /* QRCodeView.swift in Sources */,
+				85EA4FC82A43969600637B6F /* ChosenPlayer.swift in Sources */,
 				DD3E56912A431F3600F5B30F /* tvOSPreparePitchView.swift in Sources */,
 				DD3E56812A42563D00F5B30F /* EntryScreenViewModel.swift in Sources */,
 				003361F12A3B61FB00570986 /* iOSConnectionView.swift in Sources */,
@@ -810,8 +822,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.role-playing-games";
 				INFOPLIST_FILE = "pitch-a-boo-game/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.role-playing-games";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need the to scan QR codes.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -854,8 +866,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.role-playing-games";
 				INFOPLIST_FILE = "pitch-a-boo-game/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.role-playing-games";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need the to scan QR codes.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
