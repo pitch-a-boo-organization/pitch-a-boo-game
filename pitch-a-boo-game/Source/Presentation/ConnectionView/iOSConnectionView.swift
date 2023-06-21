@@ -35,6 +35,7 @@ struct iOSConnectionView: View {
                         .padding([.bottom], 10)
                     Text("Aguardando jogadores...")
                         .font(.body)
+                    Text("\(viewModel.allConnectedPlayers.description)")
                 }
             } else {
                 Text("Conectar a uma sessão!")
@@ -52,7 +53,7 @@ struct iOSConnectionView: View {
                 
                 Button {
                     let client = PitchABooSocketClient.shared
-                    client.defineServerURL(hostname: viewModel.scannedCode)
+                    client.defineServerURL(hostname: serverHostname)
                     client.delegate = viewModel
                     client.subscribeToService()
                 } label: {
@@ -73,6 +74,8 @@ struct iOSConnectionView: View {
                     scannerSheet
                 }
             }
+            
+            
           
         }
     }

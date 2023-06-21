@@ -25,5 +25,6 @@ enum CommandCode: Codable {
         case startProcess = 4
         case chosenPlayer = 7
         case saleResult = 8
+        case playerIdentifier = 9
     }
 }

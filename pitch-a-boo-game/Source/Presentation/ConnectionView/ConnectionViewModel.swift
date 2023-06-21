@@ -13,9 +13,19 @@ class ConnectionViewModel: ObservableObject {
     @Published private(set) var receiveFromServer: String = ""
     private(set) var server: PitchABooWebSocketServer = try! PitchABooWebSocketServer(port: 8080)
     @Published private(set) var scannedCode: String = "Scan the TV QR code to get started."
+    @Published private(set) var localUser: Player = Player(id: 0, name: "Undefined", bones: 0, sellingItem: Item(id: 0, name: "None", value: 0), persona: Persona(id: 0, name: "None", characteristics: ["Unknown"]))
+    @Published private(set) var allConnectedPlayers: [Player] = []
     
     public func setScannedCode(with code: String) {
-        self.scannedCode = code
+        scannedCode = code
+    }
+    
+    private func setLocalPlayer(_ player: Player) {
+        localUser = player
+    }
+    
+    private func setAllConnectedPlayers(_ players: [Player]) {
+        allConnectedPlayers = players
     }
 }
 
@@ -35,5 +45,13 @@ extension ConnectionViewModel: PitchABooSocketDelegate {
     
     func errorWhileSubscribingInService(_ error: ClientError) {
         print("Error in subscribing: \(error.localizedDescription)")
+    }
+    
+    func saveLocalPlayerIdentifier(_ player: Player) {
+        setLocalPlayer(player)
+    }
+    
+    func saveAllConnectedPlayers(_ players: [Player]) {
+        setAllConnectedPlayers(players)
     }
 }
