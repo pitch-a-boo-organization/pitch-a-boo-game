@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct PitchView: View {
+    @ObservedObject var pitchViewModel = PitchViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Group {
+            #if os(tvOS)
+            tvOSPitchView()
+            #endif
+        }.environmentObject(pitchViewModel)
     }
 }
 

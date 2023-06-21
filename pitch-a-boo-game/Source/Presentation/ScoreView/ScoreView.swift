@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ScoreView: View {
+    @ObservedObject var scoreViewModel = ScoreViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Group {
+            #if os(tvOS)
+            tvOSScoreView()
+            #endif
+        }.environmentObject(scoreViewModel)
     }
 }
 

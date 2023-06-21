@@ -9,14 +9,25 @@ import SwiftUI
 
 struct tvOSPreparePitchView: View {
     @State var player: Int = 01
+
+    @State var navigateToView = false
     var body: some View {
-        VStack(spacing: 50) {
-            Counter()
-            Spacer()
-            Text("Player \(player) is thinking...")
-                .font(.title)
-            Spacer()
-        }
+            VStack(spacing: 50) {
+                Counter(countdown: 30,
+                    timersUp: {
+                        navigateToView = true
+                        print(navigateToView)
+                    }
+                )
+
+                .navigationDestination(isPresented: $navigateToView) {
+                    PitchView()
+                }
+                Spacer()
+                Text("Player \(player) is thinking...")
+                    .font(.title)
+                Spacer()
+            }
     }
 }
 

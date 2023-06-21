@@ -14,6 +14,8 @@ class EntryScreenViewModel: ObservableObject {
     @Published var filter = CIFilter.qrCodeGenerator()
     @Published private(set) var string: String = "Connection label"
 
+    @Published private(set) var players: [String] = ["wilson", "cicero"]
+
     public func generateQRCode() -> UIImage? {
 
         filter.message = Data(self.string.utf8)

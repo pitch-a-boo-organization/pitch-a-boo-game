@@ -8,8 +8,26 @@
 import SwiftUI
 
 struct tvOSPitchView: View {
+    @State var player: Int = 01
+
+    @State var navigateToView = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            VStack(spacing: 50) {
+                Counter(countdown: 45,
+                    timersUp: {
+                        navigateToView = true
+                        print(navigateToView)
+                    }
+                )
+
+                .navigationDestination(isPresented: $navigateToView) {
+                    PitchView()
+                }
+                Spacer()
+                Text("Player \(player) turn")
+                    .font(.title)
+                Spacer()
+            }
     }
 }
 

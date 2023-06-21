@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ReviewItemView: View {
+    @ObservedObject var reviewItemViewModel = ReviewItemViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Group {
+            #if os(tvOS)
+            tvOSReviewItemView()
+            #endif
+        }.environmentObject(reviewItemViewModel)
     }
 }
 

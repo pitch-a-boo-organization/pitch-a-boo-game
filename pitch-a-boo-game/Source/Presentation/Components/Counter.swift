@@ -9,9 +9,10 @@ import SwiftUI
 
 struct Counter: View {
 
-    @State var countdown: Int = 30
-    
+    @State var countdown: Int
+
     @State var timer: Timer? = nil
+    var timersUp: (() -> Void)?
 
     var timeString: String {
         let minutes = countdown / 60
@@ -26,6 +27,7 @@ struct Counter: View {
                 if countdown > 0 {
                     countdown -= 1
                 } else {
+                    timersUp?()
                     timer?.invalidate()
                     timer = nil
                 }
@@ -43,7 +45,6 @@ struct Counter: View {
                 Text("\(timeString)")
                     .bold()
                     .font(.system(size: 146.45))
-
             }
         }
         .onAppear{
@@ -55,6 +56,7 @@ struct Counter: View {
 
 struct Counter_Previews: PreviewProvider {
     static var previews: some View {
-        Counter()
+        var count = 1
+        Counter(countdown: 1)
     }
 }

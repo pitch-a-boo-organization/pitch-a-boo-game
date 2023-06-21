@@ -9,9 +9,11 @@ import SwiftUI
 
 struct PlayersGrid: View {
 
+    var players: [String]
+
     var body: some View {
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 206) {
-            ForEach(0..<4) { index in
+            ForEach(0..<players.count) { index in
                 EntryPlayers(index: index)
             }
         }
@@ -21,6 +23,7 @@ struct PlayersGrid: View {
 
 struct PlayersGrid_Previews: PreviewProvider {
     static var previews: some View {
-        PlayersGrid()
+        let players = ["teste", "teste"]
+        PlayersGrid(players: players)
     }
 }

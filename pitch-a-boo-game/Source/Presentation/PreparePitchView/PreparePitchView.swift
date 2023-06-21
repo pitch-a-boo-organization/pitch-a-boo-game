@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct PreparePitchView: View {
+    @ObservedObject var prepareViewModel = PreparePitchViewModel()
     var body: some View {
-        #if os(tvOS)
-        tvOSPreparePitchView()
-        #endif
+        Group {
+            #if os(tvOS)
+            tvOSPreparePitchView()
+            #endif
+        }.environmentObject(prepareViewModel)
     }
 }
 
