@@ -7,14 +7,24 @@
 
 import Foundation
 
-enum CommandCode: Int, Codable {
-    case connectionAvailability = 0
-    case availabilityStatus = 1
-    case connectToSession = 2
-    case connectionStatus = 3
-    case startGame = 4
-    case bid = 5
-    case connectedPlayers = 6
-    case selectedPlayer = 7
-    case saleResult = 8
+enum CommandCode: Codable {
+    case client(ClientMessage)
+    case server(ServerMessage)
+    
+    enum ClientMessage: Int, Codable {
+        case verifyAvailability = 0
+        case connectToSession = 2
+        case bid = 5
+        case startProcess = 4
+    }
+    
+    enum ServerMessage: Int, Codable {
+        case statusAvailability = 1
+        case connectStatus = 3
+        case playersConnected = 6
+        case startProcess = 4
+        case chosenPlayer = 7
+        case saleResult = 8
+        case playerIdentifier = 9
+    }
 }

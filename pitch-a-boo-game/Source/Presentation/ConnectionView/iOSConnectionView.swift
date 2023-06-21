@@ -35,6 +35,7 @@ struct iOSConnectionView: View {
                         .padding([.bottom], 10)
                     Text("Aguardando jogadores...")
                         .font(.body)
+                    Text("\(viewModel.allConnectedPlayers.description)")
                 }
             } else {
                 Text("Conectar a uma sessão!")
@@ -65,7 +66,7 @@ struct iOSConnectionView: View {
                 }
                 .disabled(serverHostname == "")
                 
-                Text(viewModel.scannedCode)
+                Text(UIDevice.current.identifierForVendor?.uuidString ?? "")
                 
                 Button("Scan the QR Code from your AppleTV") {
                     isPresentingScanner = true
@@ -73,6 +74,8 @@ struct iOSConnectionView: View {
                     scannerSheet
                 }
             }
+            
+            
           
         }
     }

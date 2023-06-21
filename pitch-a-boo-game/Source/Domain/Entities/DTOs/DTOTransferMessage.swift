@@ -8,7 +8,7 @@
 import Foundation
 
 struct DTOTransferMessage: Codable {
-    let code: CommandCode
+    let code: Int
     let device: Device
     let message: Data
     
@@ -22,3 +22,6 @@ enum Device: Int, Codable {
     case tvOS = 2
     case coreOS = 3
 }
+
+
+

@@ -12,6 +12,8 @@ protocol PitchABooSocketDelegate: AnyObject {
     func didConnectSuccessfully()
     func errorWhileSubscribingInService(_ error: ClientError)
     func updateCounter(_ value: String)
+    func saveLocalPlayerIdentifier(_ player: Player)
+    func saveAllConnectedPlayers(_ players: [Player])
 }
 
 final class PitchABooSocketClient: NSObject {
@@ -30,8 +32,10 @@ final class PitchABooSocketClient: NSObject {
         guard let webSocket = webSocket else { return }
         
         webSocket.receive(completionHandler: { [weak self] result in
+            print(result)
             switch result {
-            case .failure(_):
+            case .failure(let error):
+                print(error.localizedDescription)
                 self?.delegate?.errorWhileSubscribingInService(.failWhenReceiveMessage)
             case .success(let message):
                 self?.decodeServerMessage(message)
@@ -69,8 +73,10 @@ final class PitchABooSocketClient: NSObject {
         case .string:
             break
         case .data(let data):
+//            print("Message: \(try! JSONSerialization.jsonObject(with: data))" )
             do {
                 let message = try JSONDecoder().decode(DTOTransferMessage.self, from: data)
+                print(message.device)
                 handleMessageFromServer(message)
             } catch {
                 delegate?.errorWhileSubscribingInService(.unableToEncode)
@@ -87,7 +93,10 @@ final class PitchABooSocketClient: NSObject {
     }
 }
 
+// Connection Cycle Methods
 extension PitchABooSocketClient {
+    
+    //Deprecated
     func sendMessageToServer(webSocket: URLSessionWebSocketTask?, message: TransferMessage) {
         guard let webSocket = webSocket else { return }
         
@@ -102,11 +111,12 @@ extension PitchABooSocketClient {
                     self?.delegate?.didConnectSuccessfully()
                 }
             }
-
+            
         } catch {
             print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
         }
     }
+    
     
     func sendMessageToServer(webSocket: URLSessionWebSocketTask?, message: DTOTransferMessage) {
         guard let webSocket = webSocket else { return }
@@ -122,18 +132,39 @@ extension PitchABooSocketClient {
                     self?.delegate?.didConnectSuccessfully()
                 }
             }
-
+            
         } catch {
             print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
         }
     }
-
     
     func sendVerifyAvailability(stage: Int, isAvailable availability: Bool) {
         let dto = DTOVerifyAvailability(stage: stage, available: availability)
         do {
             let data = try JSONEncoder().encode(dto)
-            let transferMessage = DTOTransferMessage(code: .connectionAvailability, device: .iOS, message: data)
+            let transferMessage = DTOTransferMessage(code: CommandCode.ClientMessage.verifyAvailability.rawValue, device: .iOS, message: data)
+            sendMessageToServer(webSocket: webSocket, message: transferMessage)
+        } catch {
+            print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
+        }
+    }
+    
+    func sendConnectSession(stage: Int, shouldSubscribe: Bool) {
+        let dto = DTOConnectSession(stage: stage, subscribe: shouldSubscribe)
+        do {
+            let data = try JSONEncoder().encode(dto)
+            let transferMessage = DTOTransferMessage(code: CommandCode.ClientMessage.connectToSession.rawValue, device: .iOS, message: data)
+            sendMessageToServer(webSocket: webSocket, message: transferMessage)
+        } catch {
+            print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
+        }
+    }
+    
+    func sendStartProcess(stage: Int, shouldStart: Bool) {
+        let dto = DTOStartProcess(stage: stage, start: shouldStart)
+        do {
+            let data = try JSONEncoder().encode(dto)
+            let transferMessage = DTOTransferMessage(code: CommandCode.ClientMessage.startProcess.rawValue, device: .iOS, message: data)
             sendMessageToServer(webSocket: webSocket, message: transferMessage)
         } catch {
             print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
@@ -152,16 +183,53 @@ extension PitchABooSocketClient: URLSessionWebSocketDelegate {
     }
 }
 
+// Receiver Handlers
 extension PitchABooSocketClient {
-    func handleMessageFromServer(_ message: DTOTransferMessage) {
+    private func decodeData<T: Decodable>(_ type: T.Type, from data: Data) throws -> T {
+        let decoder = JSONDecoder()
+        return try decoder.decode(type, from: data)
+    }
+    
+    internal func handleMessageFromServer(_ message: DTOTransferMessage) {
         print(message)
-//        switch message.type {
-//        case .connection:
-//            if message.message == "connected" {
-//                subscribeToServer()
-//            }
-//        case .count:
-//            delegate?.updateCounter(message.message)
-//        }
+        // Convert CommandCode that was sent as a Integer to CommandCode enum type
+        guard let code = CommandCode.ServerMessage(rawValue: message.code) else { return }
+        switch code {
+        case .statusAvailability:
+            sendConnectSession(stage: 10, shouldSubscribe: true)
+        case .playerIdentifier:
+            handlePlayerIdentifier(with: message)
+        case .playersConnected:
+            handlePlayersConnected(with: message)
+        case .startProcess:
+            //QUANDO TODOS ESTIVEREM CONECTADOS Eu ENVIA ESSE StartPRocess
+            break
+        case .chosenPlayer:
+            //Start
+            break
+        case .saleResult:
+            //Recomeca ou acaba
+            break
+        default:
+            break
+        }
+    }
+    
+    private func handlePlayerIdentifier(with message: DTOTransferMessage) {
+        do {
+            let decodedLocalPlayer = try decodeData(DTOPlayerIdentifier.self, from: message.message)
+            delegate?.saveLocalPlayerIdentifier(decodedLocalPlayer.player)
+        } catch {
+            print("PitchABooSocketClient - localPlayer cannot be decoded \(error.localizedDescription)")
+        }
+    }
+    
+    private func handlePlayersConnected(with message: DTOTransferMessage) {
+        do {
+            let decodedLocalPlayer = try decodeData(DTOPlayersConnected.self, from: message.message)
+            delegate?.saveAllConnectedPlayers(decodedLocalPlayer.players)
+        } catch {
+            print("PitchABooSocketClient - connectedPlayers cannot be decoded \(error.localizedDescription)")
+        }
     }
 }
