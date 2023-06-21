@@ -13,7 +13,7 @@ struct ConnectionView: View {
     
     var body: some View {
         Group {
-            #if os(macOS)
+            #if os(tvOS)
                 TvOSConnectionView()
             #else
                 iOSConnectionView()

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Network
 
 protocol PitchABooSocketDelegate: AnyObject {
     func didConnectSuccessfully()
@@ -30,36 +31,23 @@ final class PitchABooSocketClient: NSObject {
         
         webSocket.receive(completionHandler: { [weak self] result in
             switch result {
-                case .failure(_):
-                    self?.delegate?.errorWhileSubscribingInService(.failWhenReceiveMessage)
-                case .success(let message):
-                    self?.decodeServerMessage(message)
-                }
-                self?.subscribeToService()
+            case .failure(_):
+                self?.delegate?.errorWhileSubscribingInService(.failWhenReceiveMessage)
+            case .success(let message):
+                self?.decodeServerMessage(message)
             }
+            self?.subscribeToService()
+        }
         )
     }
     
     private func subscribeToServer() {
         guard let webSocket = webSocket else { return }
-        
-        webSocket.send(
-            URLSessionWebSocketTask.Message.data(
-                try! JSONEncoder().encode(
-                    TransferMessage(
-                        type: .connection,
-                        message: "subscribe"
-                    )
-                )
-            )
-        ) { [weak self] error in
-            if let _ = error {
-                self?.delegate?.errorWhileSubscribingInService(.cantConnectToServer)
-            } else {
-                self?.delegate?.didConnectSuccessfully()
-            }
-        }
-        
+        let transferMessage = TransferMessage(
+            type: .connection,
+            message: "subscribe"
+        )
+        sendMessageToServer(webSocket: webSocket, message: transferMessage)
     }
     
     private func openWebSocket() {
@@ -77,17 +65,18 @@ final class PitchABooSocketClient: NSObject {
     
     private func decodeServerMessage(_ serverMessage: URLSessionWebSocketTask.Message) {
         switch serverMessage {
-            case .string:
-                break
-            case .data(let data):
-                do {
-                    let message = try JSONDecoder().decode(TransferMessage.self, from: data)
-                    handleMessageFromServer(message)
-                } catch {
-                    delegate?.errorWhileSubscribingInService(.unableToEncode)
-                }
-            default:
-                break
+            
+        case .string:
+            break
+        case .data(let data):
+            do {
+                let message = try JSONDecoder().decode(DTOTransferMessage.self, from: data)
+                handleMessageFromServer(message)
+            } catch {
+                delegate?.errorWhileSubscribingInService(.unableToEncode)
+            }
+        default:
+            break
         }
     }
     
@@ -95,6 +84,60 @@ final class PitchABooSocketClient: NSObject {
         webSocket?.cancel(with: .goingAway, reason: nil)
         opened = false
         webSocket = nil
+    }
+}
+
+extension PitchABooSocketClient {
+    func sendMessageToServer(webSocket: URLSessionWebSocketTask?, message: TransferMessage) {
+        guard let webSocket = webSocket else { return }
+        
+        do {
+            let encondedData = try JSONEncoder().encode(message)
+            webSocket.send(
+                URLSessionWebSocketTask.Message.data(encondedData)
+            ) { [weak self] error in
+                if let _ = error {
+                    self?.delegate?.errorWhileSubscribingInService(.cantConnectToServer)
+                } else {
+                    self?.delegate?.didConnectSuccessfully()
+                }
+            }
+
+        } catch {
+            print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
+        }
+    }
+    
+    func sendMessageToServer(webSocket: URLSessionWebSocketTask?, message: DTOTransferMessage) {
+        guard let webSocket = webSocket else { return }
+        
+        do {
+            let encondedData = try JSONEncoder().encode(message)
+            webSocket.send(
+                URLSessionWebSocketTask.Message.data(encondedData)
+            ) { [weak self] error in
+                if let _ = error {
+                    self?.delegate?.errorWhileSubscribingInService(.cantConnectToServer)
+                } else {
+                    self?.delegate?.didConnectSuccessfully()
+                }
+            }
+
+        } catch {
+            print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
+        }
+    }
+
+    
+    func sendVerifyAvailability(stage: Int, isAvailable availability: Bool) {
+        let dto = DTOVerifyAvailability(stage: stage, available: availability)
+        do {
+            let data = try JSONEncoder().encode(dto)
+            let transferMessage = DTOTransferMessage(code: .connectionAvailability, device: .iOS, message: data)
+            sendMessageToServer(webSocket: webSocket, message: transferMessage)
+        } catch {
+            print("PitchABooSocketClient - Cannot encode data \(error.localizedDescription)")
+        }
     }
 }
 
@@ -110,14 +153,15 @@ extension PitchABooSocketClient: URLSessionWebSocketDelegate {
 }
 
 extension PitchABooSocketClient {
-    func handleMessageFromServer(_ message: TransferMessage) {
-        switch message.type {
-            case .connection:
-                if message.message == "connected" {
-                    subscribeToServer()
-                }
-            case .count:
-                delegate?.updateCounter(message.message)
-        }
+    func handleMessageFromServer(_ message: DTOTransferMessage) {
+        print(message)
+//        switch message.type {
+//        case .connection:
+//            if message.message == "connected" {
+//                subscribeToServer()
+//            }
+//        case .count:
+//            delegate?.updateCounter(message.message)
+//        }
     }
 }
