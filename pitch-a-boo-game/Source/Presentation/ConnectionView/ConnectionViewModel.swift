@@ -11,21 +11,34 @@ import PitchABooServer
 class ConnectionViewModel: ObservableObject {
     @Published private(set) var connected: Bool = false
     @Published private(set) var receiveFromServer: String = ""
-    private(set) var server: PitchABooWebSocketServer = try! PitchABooWebSocketServer(port: 8080)
     @Published private(set) var scannedCode: String = "Scan the TV QR code to get started."
-    @Published private(set) var localUser: Player = Player(id: 0, name: "Undefined", bones: 0, sellingItem: Item(id: 0, name: "None", value: 0), persona: Persona(id: 0, name: "None", characteristics: ["Unknown"]))
+    @Published private(set) var localUser: Player = Player.createAnUndefinedPlayer()
     @Published private(set) var allConnectedPlayers: [Player] = []
+    
+    @Published private(set) var chosenPlayer: ChosenPlayer = ChosenPlayer.createAnUndefinedChosenPlayer()
+    
+    private(set) var server: PitchABooWebSocketServer = try! PitchABooWebSocketServer(port: 8080)
     
     public func setScannedCode(with code: String) {
         scannedCode = code
     }
     
     private func setLocalPlayer(_ player: Player) {
-        localUser = player
+        DispatchQueue.main.async {
+            self.localUser = player
+        }
+        
     }
     
     private func setAllConnectedPlayers(_ players: [Player]) {
-        allConnectedPlayers = players
+        DispatchQueue.main.async {
+            self.allConnectedPlayers = players
+        }
+        
+    }
+    
+    internal func setChosenPlayer(_ chosenPlayer: ChosenPlayer) {
+        self.chosenPlayer = chosenPlayer
     }
 }
 
@@ -53,5 +66,9 @@ extension ConnectionViewModel: PitchABooSocketDelegate {
     
     func saveAllConnectedPlayers(_ players: [Player]) {
         setAllConnectedPlayers(players)
+    }
+    
+    func saveChosenPlayer(_ chosenPlayer: ChosenPlayer) {
+        setChosenPlayer(chosenPlayer)
     }
 }
