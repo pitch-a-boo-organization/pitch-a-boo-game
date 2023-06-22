@@ -17,7 +17,10 @@ struct CardItem: View {
     @State var numberOfCoins = "5"
     @State private var degrees = 180.0
 
+
+
     var body: some View {
+        
         ZStack {
 
             RoundedRectangle(cornerRadius: 10, style: .continuous)
@@ -60,15 +63,15 @@ struct CardItem: View {
             }
 
         }
-        .rotation3DEffect(.degrees(degrees), axis: (x: 0, y: 1, z: 0))
         .frame(width: 321.49, height: 523.57)
-        .onAppear{
-            withAnimation {
-                withAnimation(Animation.linear(duration: 5)) {
-                    degrees = 360
-                }
-            }
-        }
+//        .rotation3DEffect(.degrees(degrees), axis: (x: 0, y: 1, z: 0))
+//        .onAppear{
+//            withAnimation {
+//                withAnimation(.linear(duration: 5)) {
+//                    degrees = 360
+//                }
+//            }
+//        }
     }
 }
 
