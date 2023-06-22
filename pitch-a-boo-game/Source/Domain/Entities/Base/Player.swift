@@ -13,4 +13,11 @@ struct Player: Codable {
     let bones: Int
     let sellingItem: Item
     let persona: Persona
+    
+}
+
+extension Player {
+    static func createAnUndefinedPlayer() -> Player {
+        Player(id: 0, name: "Undefined", bones: 0, sellingItem: Item(id: 0, name: "None", value: 0), persona: Persona(id: 0, name: "None", characteristics: ["Unknown"]))
+    }
 }

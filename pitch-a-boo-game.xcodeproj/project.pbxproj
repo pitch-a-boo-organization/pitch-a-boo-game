@@ -189,7 +189,6 @@
 		007C9DBA2A3A2FB200D242F9 /* ClientError */ = {
 			isa = PBXGroup;
 			children = (
-				00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */,
 				007C9DBB2A3A2FC000D242F9 /* ClientError.swift */,
 			);
 			path = ClientError;
@@ -315,6 +314,7 @@
 		00CDE89E2A3A06CF00FB1BF5 /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */,
 				007C9DBA2A3A2FB200D242F9 /* ClientError */,
 			);
 			path = Client;
@@ -1032,7 +1032,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pitch-a-boo-organization/pitch-a-boo-server";
 			requirement = {
-				branch = main;
+				branch = feat/stage_30;
 				kind = branch;
 			};
 		};

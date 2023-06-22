@@ -134,10 +134,15 @@ extension PitchABooSocketClient {
     func sendMessageToServer(webSocket: URLSessionWebSocketTask?, message: DTOTransferMessage) {
         guard let webSocket = webSocket else { return }
         
+        dump(message)
+        
         do {
             let encondedData = try JSONEncoder().encode(message)
+            dump(encondedData)
+            print("Enviado")
             webSocket.send(
                 URLSessionWebSocketTask.Message.data(encondedData)
+                
             ) { [weak self] error in
                 if let _ = error {
                     self?.delegate?.errorWhileSubscribingInService(.cantConnectToServer)
@@ -202,6 +207,25 @@ extension PitchABooSocketClient {
         }
     }
     
+    func sendABidToServer(_ dtoBid: DTOBid) {
+        let dto = DTOBid(
+            stage: dtoBid.stage,
+            bid: dtoBid.bid,
+            player: dtoBid.player
+        )
+        do {
+            let data = try JSONEncoder().encode(dto)
+            let transferMessage = DTOTransferMessage(
+                code: 5,
+                device: .iOS,
+                message: data
+            )
+            sendMessageToServer(webSocket: webSocket, message: transferMessage)
+        } catch {
+            print("PitchABooSocketClient - \(#function) DTOBid cannot be encoded \(error.localizedDescription)")
+        }
+    }
+    
     
 }
 
@@ -228,7 +252,20 @@ extension PitchABooSocketClient {
         case .chosenPlayer:
             handleChosenPlayer(with: message)
             
-            break
+            //Primeiro turno
+            sendStartProcess(stage: 32, shouldStart: true)
+            
+            
+            //Segundo turno
+            sendStartProcess(stage: 33, shouldStart: true)
+            
+            
+            
+            
+        case .startProcess:
+            handleStartProcess(with: message)
+            
+            
         case .saleResult:
             //Recomeca ou acaba
             break
@@ -262,6 +299,23 @@ extension PitchABooSocketClient {
             delegate?.saveChosenPlayer(chosenPlayer)
         } catch {
             print(print("PitchABooSocketClient - chosenPlayer cannot be decoded \(error.localizedDescription)"))
+        }
+    }
+    
+    private func handleStartProcess(with message: DTOTransferMessage) {
+        do {
+            let decodedStartProcess = try decodeData(DTOStartProcess.self, from: message.message)
+            //Avisar ViewModel
+            switch decodedStartProcess.stage {
+            case 33:
+                print("caiu no 33")
+                //Start Bid process
+                //delegate.bid
+            default:
+                print("caiu default")
+            }
+        } catch {
+            print("\(#function) \(Self.self) cannot be decoded \(error.localizedDescription)")
         }
     }
 }

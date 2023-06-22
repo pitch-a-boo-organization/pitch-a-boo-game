@@ -48,7 +48,7 @@ struct iOSConnectionView: View {
                             .cornerRadius(12)
                             .frame(width: 150, height: 50)
                     }
-                    .disabled(viewModel.allConnectedPlayers <= 0)
+                    .disabled(viewModel.allConnectedPlayers.count <= 0)
                 }
             } else {
                 Text("Conectar a uma sessão!")
