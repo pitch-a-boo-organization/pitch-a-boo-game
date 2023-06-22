@@ -9,18 +9,21 @@ import SwiftUI
 
 struct PlayerScore: View {
     let name = "Zumbi"
+    let imageCoin = "BoneCoin"
+    let tombstone = "whiteTombstone"
+    let numberOfCoins = "5"
     var body: some View {
         VStack {
             Text("\(name)")
                 .font(.title3)
-            Image("whiteTombstone")
+            Image(tombstone)
                 .resizable()
                 .frame(width: 87,height: 87)
             HStack(spacing: 6) {
-                Image("BoneCoin")
+                Image(imageCoin)
                     .resizable()
                     .frame(width: 58.25, height: 53.67)
-                Text("5")
+                Text(numberOfCoins)
                     .bold()
                     .font(.title3)
             }

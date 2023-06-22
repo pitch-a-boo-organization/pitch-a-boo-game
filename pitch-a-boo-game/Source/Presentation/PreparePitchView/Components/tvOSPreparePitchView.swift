@@ -13,7 +13,7 @@ struct tvOSPreparePitchView: View {
     @State var navigateToView = false
     var body: some View {
             VStack(spacing: 50) {
-                Counter(countdown: 30,
+                Counter(countdown: 2,
                     timersUp: {
                         navigateToView = true
                         print(navigateToView)

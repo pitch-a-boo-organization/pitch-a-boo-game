@@ -13,7 +13,7 @@ struct tvOSPitchView: View {
     @State var navigateToView = false
     var body: some View {
             VStack(spacing: 50) {
-                Counter(countdown: 45,
+                Counter(countdown: 3,
                     timersUp: {
                         navigateToView = true
                         print(navigateToView)
@@ -21,7 +21,7 @@ struct tvOSPitchView: View {
                 )
 
                 .navigationDestination(isPresented: $navigateToView) {
-                    PitchView()
+                    ReviewItemView()
                 }
                 Spacer()
                 Text("Player \(player) turn")

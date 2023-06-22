@@ -9,7 +9,16 @@ import SwiftUI
 
 struct tvOSReviewItemView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack{
+                Circle().frame(width: 100, height: 100)
+                Spacer()
+                Circle().frame(width: 100, height: 100)
+            }
+            NavigationLink(destination: ScoreView(), label: {
+                CardItem()
+            }).buttonStyle(.card)
+        }
     }
 }
 
