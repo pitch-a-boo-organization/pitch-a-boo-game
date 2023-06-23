@@ -43,7 +43,7 @@ final class PitchABooSocketClient: NSObject {
             switch result {
             case .failure(let error):
                 print(error.localizedDescription)
-                self?.delegate?.errorWhileSubscribingInService(.failWhenReceiveMessage)
+                self?.iOSDelegate?.errorWhileSubscribingInService(.failWhenReceiveMessage)
             case .success(let message):
                 self?.decodeServerMessage(message)
             }
@@ -86,7 +86,7 @@ final class PitchABooSocketClient: NSObject {
                 print(message.device)
                 handleMessageFromServer(message)
             } catch {
-                delegate?.errorWhileSubscribingInService(.unableToEncode)
+                iOSDelegate?.errorWhileSubscribingInService(.unableToEncode)
             }
         default:
             break
@@ -151,9 +151,9 @@ extension PitchABooSocketClient {
                 
             ) { [weak self] error in
                 if let _ = error {
-                    self?.delegate?.errorWhileSubscribingInService(.cantConnectToServer)
+                    self?.socketDelegate?.failedToSend(error: .failWhenReceiveMessage)
                 } else {
-                    self?.delegate?.didConnectSuccessfully()
+                    self?.socketDelegate?.sentSuccesfully()
                 }
             }
             
@@ -283,7 +283,7 @@ extension PitchABooSocketClient {
     private func handlePlayerIdentifier(with message: DTOTransferMessage) {
         do {
             let decodedLocalPlayer = try decodeData(DTOPlayerIdentifier.self, from: message.message)
-            delegate?.saveLocalPlayerIdentifier(decodedLocalPlayer.player)
+            iOSDelegate?.saveLocalPlayerIdentifier(decodedLocalPlayer.player)
         } catch {
             print("PitchABooSocketClient - localPlayer cannot be decoded \(error.localizedDescription)")
         }
@@ -292,7 +292,7 @@ extension PitchABooSocketClient {
     private func handlePlayersConnected(with message: DTOTransferMessage) {
         do {
             let decodedLocalPlayer = try decodeData(DTOPlayersConnected.self, from: message.message)
-            delegate?.saveAllConnectedPlayers(decodedLocalPlayer.players)
+            tvOSDelegate?.saveAllConnectedPlayers(decodedLocalPlayer.players)
         } catch {
             print("PitchABooSocketClient - connectedPlayers cannot be decoded \(error.localizedDescription)")
         }
@@ -302,7 +302,7 @@ extension PitchABooSocketClient {
         do {
             let decodedChosenPlayer = try decodeData(DTOChosenPlayer.self, from: message.message)
             let chosenPlayer = ChosenPlayer(player: decodedChosenPlayer.player, sellingItem: decodedChosenPlayer.item)
-            delegate?.saveChosenPlayer(chosenPlayer)
+            socketDelegate?.saveChosenPlayer(chosenPlayer)
         } catch {
             print(print("PitchABooSocketClient - chosenPlayer cannot be decoded \(error.localizedDescription)"))
         }
