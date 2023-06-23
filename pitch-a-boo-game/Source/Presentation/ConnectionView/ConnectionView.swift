@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import PitchABooServer
 
 struct ConnectionView: View {
-    @ObservedObject var tvOSViewModel = TvOSViewModel()
+    private var server: PitchABooWebSocketServer = try! PitchABooWebSocketServer(port: 8080)
+    @ObservedObject var tvOSViewModel =  TvOSViewModel()
     @ObservedObject var iOSViewModel = IOSViewModel()
     
     var body: some View {
@@ -18,6 +20,13 @@ struct ConnectionView: View {
             #else
                 iOSConnectionView()
             #endif
+        }
+        .onAppear {
+            tvOSViewModel.server = server
+            iOSViewModel.server = server
+            
+            iOSViewModel.client.iOSDelegate = iOSViewModel
+            tvOSViewModel.client.tvOSDelegate = tvOSViewModel
         }
         .environmentObject(iOSViewModel)
         .environmentObject(tvOSViewModel)

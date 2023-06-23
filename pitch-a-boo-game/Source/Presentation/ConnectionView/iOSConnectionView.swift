@@ -10,17 +10,16 @@ import SwiftUI
 import CodeScanner
 
 struct iOSConnectionView: View {
-    @EnvironmentObject var viewModel: ConnectionViewModel
+    @EnvironmentObject var iOSViewModel: IOSViewModel
     @State var serverHostname = ""
     @State var isPresentingScanner = false
-    let client = PitchABooSocketClient.shared
     
     var scannerSheet: some View {
         CodeScannerView(
             codeTypes: [.qr],
             completion: { result in
                 if case let .success(code) = result {
-                    viewModel.setScannedCode(with: code.string)
+                    iOSViewModel.setScannedCode(with: code.string)
                     isPresentingScanner = false
                 }
             }
@@ -29,17 +28,16 @@ struct iOSConnectionView: View {
     
     var body: some View {
         VStack {
-            if viewModel.connected {
+            if iOSViewModel.connected {
                 VStack {
                     Text("Conectado")
                         .font(.title)
                         .padding([.bottom], 10)
                     Text("Aguardando jogadores...")
                         .font(.body)
-                    Text("\(viewModel.allConnectedPlayers.description)")
                     
                     Button {
-                        client.sendStartGameFlowToServer()
+                        iOSViewModel.client.sendStartGameFlowToServer()
                     } label: {
                         Text("Conectar")
                             .padding(12)
@@ -48,7 +46,6 @@ struct iOSConnectionView: View {
                             .cornerRadius(12)
                             .frame(width: 150, height: 50)
                     }
-                    .disabled(viewModel.allConnectedPlayers.count <= 0)
                 }
             } else {
                 Text("Conectar a uma sessão!")
@@ -65,9 +62,8 @@ struct iOSConnectionView: View {
                     .padding([.bottom], 50)
                 
                 Button {
-                    client.defineServerURL(hostname: serverHostname)
-                    client.delegate = viewModel
-                    client.subscribeToService()
+                    iOSViewModel.client.defineServerURL(hostname: serverHostname)
+                    iOSViewModel.client.subscribeToService()
                 } label: {
                     Text("Conectar")
                         .padding(12)

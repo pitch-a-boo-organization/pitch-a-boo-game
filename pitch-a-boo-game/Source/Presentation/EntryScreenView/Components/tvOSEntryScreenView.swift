@@ -6,12 +6,13 @@
 //
 #if os(tvOS)
 import SwiftUI
+import CoreImage.CIFilterBuiltins
 
-struct tvOSEntryScreenView: View {
-    @EnvironmentObject var entryViewModel: EntryScreenViewModel
-
+struct TvOSEntryScreenView: View {
+    @EnvironmentObject var entryViewModel: TvOSViewModel
+    @State var context = CIContext()
+    @State var filter = CIFilter.qrCodeGenerator()
     private let logoImage = "Logo"
-
     let textConnections = "Everybody's connected"
     private let textScan = "Scan to Play!"
 
@@ -40,11 +41,15 @@ struct tvOSEntryScreenView: View {
                         }
 
                         VStack(spacing: 5) {
-                            Image(uiImage: entryViewModel.generateQRCode()!)
-                                .resizable()
-                                .interpolation(.none)
-                                .frame(width: 250, height: 250)
-                                .foregroundColor(.white)
+                            Image(
+                                uiImage: generateQRCode(
+                                    serverHostname: entryViewModel.server.getServerHostname()!
+                                )!
+                            )
+                            .resizable()
+                            .interpolation(.none)
+                            .frame(width: 250, height: 250)
+                            .foregroundColor(.white)
                             Text("\(textScan)")
                                 .font(.title3)
                                 .foregroundColor(.black)
@@ -56,8 +61,7 @@ struct tvOSEntryScreenView: View {
 
                 VStack {
                     VStack {
-                        PlayersGrid(players: entryViewModel.players)
-//                            .frame(maxWidth: 491, maxHeight: 418.38889)
+                        PlayersGrid(players: entryViewModel.allConnectedPlayers)
                     }
 
                 }
@@ -65,11 +69,15 @@ struct tvOSEntryScreenView: View {
             }
         }.background(Color("EntryBackground"))
     }
-}
-
-struct tvOSEntryScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        tvOSEntryScreenView()
+    
+    public func generateQRCode(serverHostname: String) -> UIImage? {
+        filter.message = Data(serverHostname.utf8)
+        if let outputImage = filter.outputImage {
+            if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
+                return UIImage(cgImage: cgimg)
+            }
+        }
+        return nil
     }
 }
 #endif
