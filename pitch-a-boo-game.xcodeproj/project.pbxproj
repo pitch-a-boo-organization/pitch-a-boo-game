@@ -179,8 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				003361ED2A3B61DF00570986 /* Components */,
-				85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */,
-				85A412E72A45C402007B9098 /* IOSViewModel.swift */,
 				003361EB2A3B61DC00570986 /* ConnectionView.swift */,
 			);
 			path = ConnectionView;
@@ -193,6 +191,15 @@
 				003361F02A3B61FB00570986 /* iOSConnectionView.swift */,
 			);
 			name = Components;
+			sourceTree = "<group>";
+		};
+		0066436B2A460C8B005C3AA0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */,
+				85A412E72A45C402007B9098 /* IOSViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		007C9DBA2A3A2FB200D242F9 /* ClientError */ = {
@@ -289,6 +296,7 @@
 		00CDE88C2A39D9B000FB1BF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				0066436B2A460C8B005C3AA0 /* ViewModels */,
 				85A412E92A45C584007B9098 /* Delegates */,
 				DD3E56872A431D5D00F5B30F /* Components */,
 				DD3E56952A4322FC00F5B30F /* ReviewItemView */,
@@ -826,7 +834,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.1.5;
 				DEVELOPMENT_ASSET_PATHS = "\"pitch-a-boo-game/Preview Content\"";
-				DEVELOPMENT_TEAM = F2MBMJ3PK6;
+				DEVELOPMENT_TEAM = 685GVH2XJC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1040,7 +1048,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pitch-a-boo-organization/pitch-a-boo-server";
 			requirement = {
-				branch = main;
+				branch = feat/reactive_server;
 				kind = branch;
 			};
 		};

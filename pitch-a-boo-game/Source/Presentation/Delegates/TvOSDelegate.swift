@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol TvOSDelegate: AnyObject {
-    func saveAllConnectedPlayers(_ players: [Player])
-}
+//protocol TvOSDelegate: AnyObject {
+//    func saveAllConnectedPlayers(_ players: [Player])
+//}

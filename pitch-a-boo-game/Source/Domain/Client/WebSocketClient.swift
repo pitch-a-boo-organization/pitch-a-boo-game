@@ -14,13 +14,9 @@ final class PitchABooSocketClient: NSObject {
     private(set) var webSocket: URLSessionWebSocketTask?
     static let shared = PitchABooSocketClient()
     
-    weak var iOSDelegate: IOSDelegate? { didSet {
-        print("IOS DELEGATE!")
-    }}
-    weak var tvOSDelegate: TvOSDelegate? { didSet {
-        print("TVOS DELEGATE!")
-    }}
-    weak var socketDelegate: SocketDelegate?
+    weak var iOSDelegate: IOSDelegate?
+//    weak var tvOSDelegate: TvOSDelegate?
+//    weak var socketDelegate: SocketDelegate?
     
     func defineServerURL(hostname: String) {
         self.baseURL = "ws://\(hostname):8080"
@@ -98,6 +94,7 @@ extension PitchABooSocketClient: URLSessionWebSocketDelegate {
 
 // Connection Cycle Methods
 extension PitchABooSocketClient {
+    // MARK: - Refactor
     func sendMessageToServer(webSocket: URLSessionWebSocketTask?, message: DTOTransferMessage) {
         guard let webSocket = webSocket else { return }
         
@@ -112,9 +109,9 @@ extension PitchABooSocketClient {
                 
             ) { [weak self] error in
                 if let _ = error {
-                    self?.socketDelegate?.failedToSend(error: .failWhenReceiveMessage)
+//                    self?.socketDelegate?.failedToSend(error: .failWhenReceiveMessage)
                 } else {
-                    self?.socketDelegate?.sentSuccesfully()
+//                    self?.socketDelegate?.sentSuccesfully()
                 }
             }
             
@@ -250,20 +247,22 @@ extension PitchABooSocketClient {
         }
     }
     
+    // apagar
     private func handlePlayersConnected(with message: DTOTransferMessage) {
         do {
             let decodedLocalPlayer = try decodeData(DTOPlayersConnected.self, from: message.message)
-            tvOSDelegate?.saveAllConnectedPlayers(decodedLocalPlayer.players)
+//            tvOSDelegate?.saveAllConnectedPlayers(decodedLocalPlayer.players)
         } catch {
             print("PitchABooSocketClient - connectedPlayers cannot be decoded \(error.localizedDescription)")
         }
     }
     
+    // apagar
     private func handleChosenPlayer(with message: DTOTransferMessage) {
         do {
             let decodedChosenPlayer = try decodeData(DTOChosenPlayer.self, from: message.message)
             let chosenPlayer = ChosenPlayer(player: decodedChosenPlayer.player, sellingItem: decodedChosenPlayer.item)
-            socketDelegate?.saveChosenPlayer(chosenPlayer)
+//            socketDelegate?.saveChosenPlayer(chosenPlayer)
         } catch {
             print(print("PitchABooSocketClient - chosenPlayer cannot be decoded \(error.localizedDescription)"))
         }

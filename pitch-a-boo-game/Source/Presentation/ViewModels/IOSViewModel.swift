@@ -53,20 +53,7 @@ extension IOSViewModel: IOSDelegate {
     }
     
     
-}
-
-extension IOSViewModel: SocketDelegate {
     func saveChosenPlayer(_ chosenPlayer: ChosenPlayer) {
         setChosenPlayer(chosenPlayer)
     }
-    
-    func sentSuccesfully() {
-        
-    }
-    
-    func failedToSend(error: ClientError) {
-        
-    }
-    
-    
 }

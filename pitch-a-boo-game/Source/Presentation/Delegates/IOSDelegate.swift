@@ -11,4 +11,5 @@ protocol IOSDelegate: AnyObject {
     func didConnectSuccessFully()
     func errorWhileSubscribingInService(_ error: ClientError)
     func saveLocalPlayerIdentifier(_ player: Player)
+    func saveChosenPlayer(_ chosenPlayer: ChosenPlayer)
 }

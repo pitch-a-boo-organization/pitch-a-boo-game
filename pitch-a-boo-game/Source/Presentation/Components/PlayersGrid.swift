@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import PitchABooServer
 
 #if os(tvOS)
 struct PlayersGrid: View {
-    var players: [Player]
+    var players: [PitchABooServer.Player]
 
     var body: some View {
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 206) {

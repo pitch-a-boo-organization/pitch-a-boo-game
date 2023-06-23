@@ -28,6 +28,7 @@ struct IOSEntryScreenView: View {
     
     var body: some View {
         VStack(spacing: 10) {
+            Text("Seu player: \(entryViewModel.localUser.name)")
             Text(entryViewModel.scannedCode)
             
             Button("Scan QR Code") {

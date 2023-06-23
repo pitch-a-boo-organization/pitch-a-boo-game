@@ -9,14 +9,11 @@ import SwiftUI
 import PitchABooServer
 
 struct EntryScreenView: View {
-    let server = try! PitchABooWebSocketServer(port: 8080)
-    @ObservedObject var iOSViewModel = IOSViewModel()
-    @ObservedObject var tvOSViewModel = TvOSViewModel()
-    
     #if os(iOS)
+    @ObservedObject var iOSViewModel = IOSViewModel()
+    
     init() {
         iOSViewModel.client.iOSDelegate = iOSViewModel
-        iOSViewModel.client.tvOSDelegate = tvOSViewModel
     }
     
     var body: some View {
@@ -27,10 +24,11 @@ struct EntryScreenView: View {
     }
     
     #else
+    @ObservedObject var tvOSViewModel = TvOSViewModel()
+    
     init() {
-        server.startServer(completion: { _ in } )
-        tvOSViewModel.server = server
-        tvOSViewModel.client.tvOSDelegate = tvOSViewModel
+        tvOSViewModel.server.startServer { _ in }
+        tvOSViewModel.server.defineOutput(tvOSViewModel)
     }
     
     var body: some View {

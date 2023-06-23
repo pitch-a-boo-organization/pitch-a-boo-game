@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol SocketDelegate: AnyObject {
-    func saveChosenPlayer(_ chosenPlayer: ChosenPlayer)
-    func sentSuccesfully()
-    func failedToSend(error: ClientError)
-}
+//protocol SocketDelegate: AnyObject {
+//    func saveChosenPlayer(_ chosenPlayer: ChosenPlayer)
+//    func sentSuccesfully()
+//    func failedToSend(error: ClientError)
+//}
