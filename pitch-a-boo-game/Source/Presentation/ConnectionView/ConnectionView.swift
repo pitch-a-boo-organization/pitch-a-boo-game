@@ -5,13 +5,11 @@
 //  Created by Thiago Henrique on 15/06/23.
 //
 
-import Foundation
 import SwiftUI
 
 struct ConnectionView: View {
     @ObservedObject var tvOSViewModel = TvOSViewModel()
     @ObservedObject var iOSViewModel = IOSViewModel()
-    
     
     var body: some View {
         Group {

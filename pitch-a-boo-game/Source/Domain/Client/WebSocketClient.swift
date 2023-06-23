@@ -9,19 +9,25 @@ import Foundation
 import Network
 
 protocol PitchABooSocketDelegate: AnyObject {
-    func didConnectSuccessfully()
-    func errorWhileSubscribingInService(_ error: ClientError)
-    func updateCounter(_ value: String)
-    func saveLocalPlayerIdentifier(_ player: Player)
-    func saveAllConnectedPlayers(_ players: [Player])
-    func saveChosenPlayer(_ chosenPlayer: ChosenPlayer)
+    func didConnectSuccessfully() // iOS
+    func errorWhileSubscribingInService(_ error: ClientError) // iOS
+    func updateCounter(_ value: String) // APAGAR
+    func saveLocalPlayerIdentifier(_ player: Player) // iOS
+    func saveAllConnectedPlayers(_ players: [Player]) // TV
+    func saveChosenPlayer(_ chosenPlayer: ChosenPlayer) // TODOS
 }
 
 final class PitchABooSocketClient: NSObject {
     private var baseURL = ""
     private(set) var opened = false
     private(set) var webSocket: URLSessionWebSocketTask?
-    weak var delegate: PitchABooSocketDelegate?
+    
+    weak var delegate: PitchABooSocketDelegate? //APAGAR
+    
+    weak var iOSDelegate: IOSDelegate?
+    weak var tvOSDelegate: TvOSDelegate?
+    weak var socketDelegate: SocketDelegate?
+    
     static let shared = PitchABooSocketClient()
     
     func defineServerURL(hostname: String) {

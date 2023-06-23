@@ -4,7 +4,7 @@
 //
 //  Created by Cicero Nascimento on 20/06/23.
 //
-
+#if os(tvOS)
 import SwiftUI
 
 struct tvOSEntryScreenView: View {
@@ -72,3 +72,4 @@ struct tvOSEntryScreenView_Previews: PreviewProvider {
         tvOSEntryScreenView()
     }
 }
+#endif

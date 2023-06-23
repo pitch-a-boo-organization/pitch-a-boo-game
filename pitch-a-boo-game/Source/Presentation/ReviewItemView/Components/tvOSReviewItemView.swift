@@ -4,7 +4,7 @@
 //
 //  Created by Cicero Nascimento on 21/06/23.
 //
-
+#if os(tvOS)
 import SwiftUI
 
 struct tvOSReviewItemView: View {
@@ -53,3 +53,4 @@ struct tvOSReviewItemView_Previews: PreviewProvider {
             .previewDevice(.init(stringLiteral: "Apple TV 4K"))
     }
 }
+#endif

@@ -25,6 +25,9 @@
 		85A1EE182A40EE4D0003DDB3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; platformFilters = (ios, macos, ); productRef = 85A1EE172A40EE4D0003DDB3 /* CodeScanner */; };
 		85A412E62A45C3F5007B9098 /* TvOSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */; };
 		85A412E82A45C402007B9098 /* IOSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412E72A45C402007B9098 /* IOSViewModel.swift */; };
+		85A412EB2A45C5A0007B9098 /* IOSDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412EA2A45C5A0007B9098 /* IOSDelegate.swift */; };
+		85A412ED2A45C5B2007B9098 /* TvOSDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412EC2A45C5B2007B9098 /* TvOSDelegate.swift */; };
+		85A412EF2A45C5C9007B9098 /* SocketDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412EE2A45C5C9007B9098 /* SocketDelegate.swift */; };
 		85EA4FC62A43203000637B6F /* DTOPlayerIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */; };
 		85EA4FC82A43969600637B6F /* ChosenPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA4FC72A43969600637B6F /* ChosenPlayer.swift */; };
 		85F3C5822A41CD5E003D7C1A /* DTOVerifyAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5812A41CD5E003D7C1A /* DTOVerifyAvailability.swift */; };
@@ -104,6 +107,9 @@
 		85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSViewModel.swift; sourceTree = "<group>"; };
 		85A412E72A45C402007B9098 /* IOSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSViewModel.swift; sourceTree = "<group>"; };
+		85A412EA2A45C5A0007B9098 /* IOSDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSDelegate.swift; sourceTree = "<group>"; };
+		85A412EC2A45C5B2007B9098 /* TvOSDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSDelegate.swift; sourceTree = "<group>"; };
+		85A412EE2A45C5C9007B9098 /* SocketDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketDelegate.swift; sourceTree = "<group>"; };
 		85C639342A4265DE001AE223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOPlayerIdentifier.swift; sourceTree = "<group>"; };
 		85EA4FC72A43969600637B6F /* ChosenPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenPlayer.swift; sourceTree = "<group>"; };
@@ -288,6 +294,7 @@
 		00CDE88C2A39D9B000FB1BF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				85A412E92A45C584007B9098 /* Delegates */,
 				DD3E56872A431D5D00F5B30F /* Components */,
 				DD3E56952A4322FC00F5B30F /* ReviewItemView */,
 				DD3E56942A4322BB00F5B30F /* PitchView */,
@@ -342,6 +349,16 @@
 			children = (
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		85A412E92A45C584007B9098 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				85A412EA2A45C5A0007B9098 /* IOSDelegate.swift */,
+				85A412EC2A45C5B2007B9098 /* TvOSDelegate.swift */,
+				85A412EE2A45C5C9007B9098 /* SocketDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		85EA4FC92A4396A700637B6F /* Base */ = {
@@ -665,9 +682,12 @@
 				85F3C59A2A41D090003D7C1A /* SaleResult.swift in Sources */,
 				00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */,
 				85F3C5862A41CE77003D7C1A /* DTOConnectSession.swift in Sources */,
+				85A412EF2A45C5C9007B9098 /* SocketDelegate.swift in Sources */,
+				85A412EB2A45C5A0007B9098 /* IOSDelegate.swift in Sources */,
 				DD3E56A12A43237E00F5B30F /* ScoreViewModel.swift in Sources */,
 				85F3C58E2A41CEC3003D7C1A /* DTOPlayersConnected.swift in Sources */,
 				85F3C5822A41CD5E003D7C1A /* DTOVerifyAvailability.swift in Sources */,
+				85A412ED2A45C5B2007B9098 /* TvOSDelegate.swift in Sources */,
 				85F3C5A02A41E6C8003D7C1A /* TransferMessage.swift in Sources */,
 				DD3E568D2A431E9500F5B30F /* EntryPlayers.swift in Sources */,
 				85F3C58C2A41CEAF003D7C1A /* DTOBid.swift in Sources */,
