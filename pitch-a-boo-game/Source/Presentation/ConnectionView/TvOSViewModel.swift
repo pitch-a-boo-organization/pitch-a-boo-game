@@ -10,3 +10,23 @@ import Foundation
 class TvOSViewModel: ObservableObject {
     
 }
+
+extension TvOSViewModel: TvOSDelegate {
+    func saveAllConnectedPlayers(_ players: [Player]) {
+        
+    }
+}
+
+extension TvOSViewModel: SocketDelegate {
+    func saveChosenPlayer(_ chosenPlayer: ChosenPlayer) {
+        
+    }
+    
+    func sentSuccesfully() {
+        
+    }
+    
+    func failedToSend(error: ClientError) {
+        
+    }
+}

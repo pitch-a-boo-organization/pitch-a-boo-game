@@ -10,3 +10,35 @@ import Foundation
 class IOSViewModel: ObservableObject {
     
 }
+
+extension IOSViewModel: IOSDelegate {
+    func didConnectSuccessFully() {
+        
+    }
+    
+    func errorWhileSubscribingInService(_ error: ClientError) {
+        
+    }
+    
+    func saveLocalPlayerIdentifier(_ player: Player) {
+        
+    }
+    
+    
+}
+
+extension IOSViewModel: SocketDelegate {
+    func saveChosenPlayer(_ chosenPlayer: ChosenPlayer) {
+        
+    }
+    
+    func sentSuccesfully() {
+        
+    }
+    
+    func failedToSend(error: ClientError) {
+        
+    }
+    
+    
+}
