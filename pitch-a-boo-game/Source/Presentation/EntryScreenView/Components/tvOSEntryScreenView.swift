@@ -26,20 +26,25 @@ struct TvOSEntryScreenView: View {
                             .resizable()
                             .frame(width: 488, height: 356.45154)
                         
-                        VStack {
-                            NavigationLink(destination: PreparePitchView(), label: {
-                                ZStack {
-                                    Rectangle()
-                                        .foregroundColor(.clear)
-                                        .background(Color(red: 0.11, green: 0.11, blue: 0.11))
-                                        .cornerRadius(13.86969)
-                                        .frame(width: 388, height: 81.5864)
-                                    
-                                    Text("\(textConnections)")
-                                }
-                            })
-                            .buttonStyle(.card)
+                        Text(entryViewModel.server.getServerHostname() ?? "none")
+                        
+                        if entryViewModel.isMatchReady {
+                            VStack {
+                                NavigationLink(destination: PreparePitchView(), label: {
+                                    ZStack {
+                                        Rectangle()
+                                            .foregroundColor(.clear)
+                                            .background(Color(red: 0.11, green: 0.11, blue: 0.11))
+                                            .cornerRadius(13.86969)
+                                            .frame(width: 388, height: 81.5864)
+                                        
+                                        Text("\(textConnections)")
+                                    }
+                                })
+                                .buttonStyle(.card)
+                            }
                         }
+                        
                         
                         VStack(spacing: 5) {
                             Image(
