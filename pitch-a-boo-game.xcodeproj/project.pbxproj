@@ -12,7 +12,6 @@
 		003361F12A3B61FB00570986 /* iOSConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003361F02A3B61FB00570986 /* iOSConnectionView.swift */; };
 		003361F42A3B7CE900570986 /* PitchABooServer in Frameworks */ = {isa = PBXBuildFile; productRef = 003361F32A3B7CE900570986 /* PitchABooServer */; };
 		007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C9DBB2A3A2FC000D242F9 /* ClientError.swift */; };
-		007C9DBF2A3A38EB00D242F9 /* ConnectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C9DBE2A3A38EB00D242F9 /* ConnectionViewModel.swift */; };
 		00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE85E2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift */; };
 		00CDE8632A39D98400FB1BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CDE8622A39D98400FB1BF5 /* Assets.xcassets */; };
 		00CDE8672A39D98400FB1BF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CDE8662A39D98400FB1BF5 /* Preview Assets.xcassets */; };
@@ -21,8 +20,13 @@
 		00CDE87D2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE87C2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift */; };
 		00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE8942A3A046900FB1BF5 /* MessageType.swift */; };
 		00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */; };
-		85A1EE152A40ECBB0003DDB3 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */; };
 		85A1EE182A40EE4D0003DDB3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; platformFilters = (ios, macos, ); productRef = 85A1EE172A40EE4D0003DDB3 /* CodeScanner */; };
+		85A412E62A45C3F5007B9098 /* TvOSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */; };
+		85A412E82A45C402007B9098 /* IOSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412E72A45C402007B9098 /* IOSViewModel.swift */; };
+		85A412EB2A45C5A0007B9098 /* IOSDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412EA2A45C5A0007B9098 /* IOSDelegate.swift */; };
+		85A412ED2A45C5B2007B9098 /* TvOSDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412EC2A45C5B2007B9098 /* TvOSDelegate.swift */; };
+		85A412EF2A45C5C9007B9098 /* SocketDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412EE2A45C5C9007B9098 /* SocketDelegate.swift */; };
+		85A412F12A45DB9B007B9098 /* IOSEntryScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412F02A45DB9B007B9098 /* IOSEntryScreenView.swift */; };
 		85EA4FC62A43203000637B6F /* DTOPlayerIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */; };
 		85EA4FC82A43969600637B6F /* ChosenPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA4FC72A43969600637B6F /* ChosenPlayer.swift */; };
 		85F3C5822A41CD5E003D7C1A /* DTOVerifyAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5812A41CD5E003D7C1A /* DTOVerifyAvailability.swift */; };
@@ -43,8 +47,7 @@
 		85F3C5A02A41E6C8003D7C1A /* TransferMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C59F2A41E6C8003D7C1A /* TransferMessage.swift */; };
 		85F3C5A32A41E759003D7C1A /* WebSocketError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5A22A41E759003D7C1A /* WebSocketError.swift */; };
 		DD3E567F2A42562900F5B30F /* EntryScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E567E2A42562900F5B30F /* EntryScreenView.swift */; };
-		DD3E56812A42563D00F5B30F /* EntryScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56802A42563D00F5B30F /* EntryScreenViewModel.swift */; };
-		DD3E56832A4259CD00F5B30F /* tvOSEntryScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56822A4259CD00F5B30F /* tvOSEntryScreenView.swift */; };
+		DD3E56832A4259CD00F5B30F /* TvOSEntryScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56822A4259CD00F5B30F /* TvOSEntryScreenView.swift */; };
 		DD3E56852A425A3E00F5B30F /* PreparePitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56842A425A3E00F5B30F /* PreparePitchView.swift */; };
 		DD3E56892A431DBD00F5B30F /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56882A431DBD00F5B30F /* Counter.swift */; };
 		DD3E568B2A431E3A00F5B30F /* PlayersGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E568A2A431E3A00F5B30F /* PlayersGrid.swift */; };
@@ -86,7 +89,6 @@
 		003361EE2A3B61F400570986 /* TvOSConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSConnectionView.swift; sourceTree = "<group>"; };
 		003361F02A3B61FB00570986 /* iOSConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSConnectionView.swift; sourceTree = "<group>"; };
 		007C9DBB2A3A2FC000D242F9 /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
-		007C9DBE2A3A38EB00D242F9 /* ConnectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionViewModel.swift; sourceTree = "<group>"; };
 		00CDE85B2A39D98300FB1BF5 /* pitch-a-boo-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pitch-a-boo-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00CDE85E2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameApp.swift; sourceTree = "<group>"; };
 		00CDE8622A39D98400FB1BF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,7 +101,12 @@
 		00CDE87C2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		00CDE8942A3A046900FB1BF5 /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageType.swift; sourceTree = "<group>"; };
 		00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
-		85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
+		85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSViewModel.swift; sourceTree = "<group>"; };
+		85A412E72A45C402007B9098 /* IOSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSViewModel.swift; sourceTree = "<group>"; };
+		85A412EA2A45C5A0007B9098 /* IOSDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSDelegate.swift; sourceTree = "<group>"; };
+		85A412EC2A45C5B2007B9098 /* TvOSDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSDelegate.swift; sourceTree = "<group>"; };
+		85A412EE2A45C5C9007B9098 /* SocketDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketDelegate.swift; sourceTree = "<group>"; };
+		85A412F02A45DB9B007B9098 /* IOSEntryScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSEntryScreenView.swift; sourceTree = "<group>"; };
 		85C639342A4265DE001AE223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOPlayerIdentifier.swift; sourceTree = "<group>"; };
 		85EA4FC72A43969600637B6F /* ChosenPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenPlayer.swift; sourceTree = "<group>"; };
@@ -121,8 +128,7 @@
 		85F3C59F2A41E6C8003D7C1A /* TransferMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferMessage.swift; sourceTree = "<group>"; };
 		85F3C5A22A41E759003D7C1A /* WebSocketError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketError.swift; sourceTree = "<group>"; };
 		DD3E567E2A42562900F5B30F /* EntryScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryScreenView.swift; sourceTree = "<group>"; };
-		DD3E56802A42563D00F5B30F /* EntryScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryScreenViewModel.swift; sourceTree = "<group>"; };
-		DD3E56822A4259CD00F5B30F /* tvOSEntryScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSEntryScreenView.swift; sourceTree = "<group>"; };
+		DD3E56822A4259CD00F5B30F /* TvOSEntryScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSEntryScreenView.swift; sourceTree = "<group>"; };
 		DD3E56842A425A3E00F5B30F /* PreparePitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparePitchView.swift; sourceTree = "<group>"; };
 		DD3E56882A431DBD00F5B30F /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		DD3E568A2A431E3A00F5B30F /* PlayersGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersGrid.swift; sourceTree = "<group>"; };
@@ -174,7 +180,6 @@
 			children = (
 				003361ED2A3B61DF00570986 /* Components */,
 				003361EB2A3B61DC00570986 /* ConnectionView.swift */,
-				007C9DBE2A3A38EB00D242F9 /* ConnectionViewModel.swift */,
 			);
 			path = ConnectionView;
 			sourceTree = "<group>";
@@ -186,6 +191,15 @@
 				003361F02A3B61FB00570986 /* iOSConnectionView.swift */,
 			);
 			name = Components;
+			sourceTree = "<group>";
+		};
+		0066436B2A460C8B005C3AA0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */,
+				85A412E72A45C402007B9098 /* IOSViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		007C9DBA2A3A2FB200D242F9 /* ClientError */ = {
@@ -282,13 +296,14 @@
 		00CDE88C2A39D9B000FB1BF5 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				0066436B2A460C8B005C3AA0 /* ViewModels */,
+				85A412E92A45C584007B9098 /* Delegates */,
 				DD3E56872A431D5D00F5B30F /* Components */,
 				DD3E56952A4322FC00F5B30F /* ReviewItemView */,
 				DD3E56942A4322BB00F5B30F /* PitchView */,
 				DD3E56962A43231500F5B30F /* ScoreView */,
 				DD3E567B2A4255E700F5B30F /* PreparePitchView */,
 				DD3E567A2A4255D500F5B30F /* EntryScreenView */,
-				85A1EE122A40EC920003DDB3 /* QRCodeView */,
 				003361EA2A3B61CE00570986 /* ConnectionView */,
 			);
 			path = Presentation;
@@ -322,20 +337,14 @@
 			path = Client;
 			sourceTree = "<group>";
 		};
-		85A1EE122A40EC920003DDB3 /* QRCodeView */ = {
+		85A412E92A45C584007B9098 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				85A1EE132A40EC9F0003DDB3 /* Components */,
-				85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */,
+				85A412EA2A45C5A0007B9098 /* IOSDelegate.swift */,
+				85A412EC2A45C5B2007B9098 /* TvOSDelegate.swift */,
+				85A412EE2A45C5C9007B9098 /* SocketDelegate.swift */,
 			);
-			path = QRCodeView;
-			sourceTree = "<group>";
-		};
-		85A1EE132A40EC9F0003DDB3 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		85EA4FC92A4396A700637B6F /* Base */ = {
@@ -384,7 +393,6 @@
 			children = (
 				DD3E567D2A42560B00F5B30F /* Components */,
 				DD3E567E2A42562900F5B30F /* EntryScreenView.swift */,
-				DD3E56802A42563D00F5B30F /* EntryScreenViewModel.swift */,
 			);
 			path = EntryScreenView;
 			sourceTree = "<group>";
@@ -410,7 +418,8 @@
 		DD3E567D2A42560B00F5B30F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DD3E56822A4259CD00F5B30F /* tvOSEntryScreenView.swift */,
+				DD3E56822A4259CD00F5B30F /* TvOSEntryScreenView.swift */,
+				85A412F02A45DB9B007B9098 /* IOSEntryScreenView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -626,7 +635,7 @@
 				85F3C59C2A41E5D6003D7C1A /* DTOTransferMessage.swift in Sources */,
 				85F3C5982A41D075003D7C1A /* Persona.swift in Sources */,
 				85F3C5902A41CED2003D7C1A /* DTOChosenPlayer.swift in Sources */,
-				DD3E56832A4259CD00F5B30F /* tvOSEntryScreenView.swift in Sources */,
+				DD3E56832A4259CD00F5B30F /* TvOSEntryScreenView.swift in Sources */,
 				DD3E56852A425A3E00F5B30F /* PreparePitchView.swift in Sources */,
 				DD3E56A72A4323A700F5B30F /* tvOSReviewItemView.swift in Sources */,
 				DD3E56A52A43239600F5B30F /* ReviewItemViewModel.swift in Sources */,
@@ -635,17 +644,16 @@
 				DD3E56AB2A4323C600F5B30F /* tvOSScoreView.swift in Sources */,
 				DD3E569D2A43235E00F5B30F /* PitchView.swift in Sources */,
 				DD3E569B2A43235300F5B30F /* ScoreView.swift in Sources */,
+				85A412E62A45C3F5007B9098 /* TvOSViewModel.swift in Sources */,
 				DD3E568F2A431F1D00F5B30F /* PreparePitchViewModel.swift in Sources */,
 				DD3E568B2A431E3A00F5B30F /* PlayersGrid.swift in Sources */,
 				85F3C5962A41D055003D7C1A /* Item.swift in Sources */,
 				85EA4FC62A43203000637B6F /* DTOPlayerIdentifier.swift in Sources */,
 				00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */,
 				DD3E56932A4320A000F5B30F /* PlayerScore.swift in Sources */,
-				007C9DBF2A3A38EB00D242F9 /* ConnectionViewModel.swift in Sources */,
-				85A1EE152A40ECBB0003DDB3 /* QRCodeView.swift in Sources */,
 				85EA4FC82A43969600637B6F /* ChosenPlayer.swift in Sources */,
 				DD3E56912A431F3600F5B30F /* tvOSPreparePitchView.swift in Sources */,
-				DD3E56812A42563D00F5B30F /* EntryScreenViewModel.swift in Sources */,
+				85A412E82A45C402007B9098 /* IOSViewModel.swift in Sources */,
 				003361F12A3B61FB00570986 /* iOSConnectionView.swift in Sources */,
 				85F3C5942A41D046003D7C1A /* Player.swift in Sources */,
 				00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */,
@@ -657,9 +665,12 @@
 				85F3C59A2A41D090003D7C1A /* SaleResult.swift in Sources */,
 				00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */,
 				85F3C5862A41CE77003D7C1A /* DTOConnectSession.swift in Sources */,
+				85A412EF2A45C5C9007B9098 /* SocketDelegate.swift in Sources */,
+				85A412EB2A45C5A0007B9098 /* IOSDelegate.swift in Sources */,
 				DD3E56A12A43237E00F5B30F /* ScoreViewModel.swift in Sources */,
 				85F3C58E2A41CEC3003D7C1A /* DTOPlayersConnected.swift in Sources */,
 				85F3C5822A41CD5E003D7C1A /* DTOVerifyAvailability.swift in Sources */,
+				85A412ED2A45C5B2007B9098 /* TvOSDelegate.swift in Sources */,
 				85F3C5A02A41E6C8003D7C1A /* TransferMessage.swift in Sources */,
 				DD3E568D2A431E9500F5B30F /* EntryPlayers.swift in Sources */,
 				85F3C58C2A41CEAF003D7C1A /* DTOBid.swift in Sources */,
@@ -667,6 +678,7 @@
 				DD3E56A92A4323B600F5B30F /* tvOSPitchView.swift in Sources */,
 				85F3C59E2A41E634003D7C1A /* CommandCode.swift in Sources */,
 				85F3C58A2A41CE98003D7C1A /* DTOStartProcess.swift in Sources */,
+				85A412F12A45DB9B007B9098 /* IOSEntryScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -822,7 +834,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.1.5;
 				DEVELOPMENT_ASSET_PATHS = "\"pitch-a-boo-game/Preview Content\"";
-				DEVELOPMENT_TEAM = F2MBMJ3PK6;
+				DEVELOPMENT_TEAM = 685GVH2XJC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1036,7 +1048,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pitch-a-boo-organization/pitch-a-boo-server";
 			requirement = {
-				branch = main;
+				branch = feat/reactive_server;
 				kind = branch;
 			};
 		};

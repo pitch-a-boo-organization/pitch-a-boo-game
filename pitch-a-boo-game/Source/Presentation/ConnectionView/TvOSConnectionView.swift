@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 struct TvOSConnectionView: View {
-    @EnvironmentObject var vm: ConnectionViewModel
+    @EnvironmentObject var tvOSViewModel: TvOSViewModel
     @State var hostname = ""
     
     var body: some View {
@@ -22,12 +22,12 @@ struct TvOSConnectionView: View {
         .padding([.bottom], 10  )
         
         Button {
-            vm.server.startServer { error in
+            tvOSViewModel.server.startServer { error in
                 if let error = error {
                     print("Error! \(error)")
                     return
                 }
-                hostname = vm.server.getServerHostname() ?? ""
+                hostname = tvOSViewModel.server.getServerHostname() ?? ""
             }
         } label: {
             Text("Iniciar Sessão")

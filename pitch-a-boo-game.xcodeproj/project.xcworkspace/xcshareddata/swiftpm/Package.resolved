@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/pitch-a-boo-organization/pitch-a-boo-server",
       "state" : {
-        "branch" : "main",
-        "revision" : "644fd04d285866154948f1cf3a3be1c8a72a8e3a"
+        "branch" : "feat/reactive_server",
+        "revision" : "d2ab69cb5ec10e6212f220d86e981819102a507f"
       }
     }
   ],
