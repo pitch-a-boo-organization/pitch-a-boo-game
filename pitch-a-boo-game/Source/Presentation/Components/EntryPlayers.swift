@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EntryPlayers: View {
-    @State private var imageStates: [Bool] = [false, true, true, false]
+    @State private var imageStates: [Bool] = [true, true, true, true]
     var index:Int
 
     func toggleImageState(_ index: Int) {
@@ -18,7 +18,7 @@ struct EntryPlayers: View {
         Image(imageStates[index] ? "whiteTombstone" : "tombstone")
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(width: 87, height: 86)
+            .frame(width: 105, height: 116.38889)
     }
 }
 
