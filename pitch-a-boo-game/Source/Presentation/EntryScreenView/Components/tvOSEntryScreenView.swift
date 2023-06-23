@@ -12,52 +12,58 @@ struct tvOSEntryScreenView: View {
 
     private let logoImage = "Logo"
 
-    let textConnections = "EVERYBODY'S IN"
+    let textConnections = "Everybody's connected"
     private let textScan = "Scan to Play!"
 
     var body: some View {
         NavigationStack {
-            HStack {
-                VStack {
-                    Spacer()
-                    VStack {
-                        PlayersGrid(players: entryViewModel.players)
-                    }
-                }
-                VStack {
+            HStack(alignment: .center) {
+                VStack(alignment: .leading) {
                     VStack(spacing: 95) {
                         Image(logoImage)
                             .resizable()
-                            .frame(maxWidth: 472, maxHeight: 203.04)
-                        Spacer()
+                            .frame(width: 488, height: 356.45154)
+
                         VStack {
                             NavigationLink(destination: PreparePitchView(), label: {
-                                Text("\(textConnections)")
-                                    .foregroundColor(.black)
+                                ZStack {
+                                    Rectangle()
+                                        .foregroundColor(.clear)
+                                        .background(Color(red: 0.11, green: 0.11, blue: 0.11))
+                                        .cornerRadius(13.86969)
+                                        .frame(width: 388, height: 81.5864)
 
+                                    Text("\(textConnections)")
+                                }
                             })
+                            .buttonStyle(.card)
                         }
-                        Spacer()
-                        VStack {
+
+                        VStack(spacing: 5) {
                             Image(uiImage: entryViewModel.generateQRCode()!)
                                 .resizable()
                                 .interpolation(.none)
-                                .frame(maxWidth: 150, maxHeight: 150)
+                                .frame(width: 250, height: 250)
                                 .foregroundColor(.white)
+                            Text("\(textScan)")
+                                .font(.title3)
+                                .foregroundColor(.black)
                         }
-                        .scaleEffect(2)
-                        Text("\(textScan)")
-                            .font(.title2)
                     }
+                    .padding(.leading, 166)
                 }
+                Spacer()
+
                 VStack {
-                    Spacer()
                     VStack {
                         PlayersGrid(players: entryViewModel.players)
+//                            .frame(maxWidth: 491, maxHeight: 418.38889)
                     }
+
                 }
+                Spacer()
             }
-        }
+        }.background(Color("EntryBackground"))
     }
 }
 
