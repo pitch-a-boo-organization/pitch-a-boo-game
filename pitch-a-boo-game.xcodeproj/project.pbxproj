@@ -20,7 +20,6 @@
 		00CDE87D2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE87C2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift */; };
 		00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE8942A3A046900FB1BF5 /* MessageType.swift */; };
 		00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */; };
-		85A1EE152A40ECBB0003DDB3 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */; };
 		85A1EE182A40EE4D0003DDB3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; platformFilters = (ios, macos, ); productRef = 85A1EE172A40EE4D0003DDB3 /* CodeScanner */; };
 		85A412E62A45C3F5007B9098 /* TvOSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */; };
 		85A412E82A45C402007B9098 /* IOSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412E72A45C402007B9098 /* IOSViewModel.swift */; };
@@ -102,7 +101,6 @@
 		00CDE87C2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		00CDE8942A3A046900FB1BF5 /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageType.swift; sourceTree = "<group>"; };
 		00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
-		85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSViewModel.swift; sourceTree = "<group>"; };
 		85A412E72A45C402007B9098 /* IOSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSViewModel.swift; sourceTree = "<group>"; };
 		85A412EA2A45C5A0007B9098 /* IOSDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSDelegate.swift; sourceTree = "<group>"; };
@@ -298,7 +296,6 @@
 				DD3E56962A43231500F5B30F /* ScoreView */,
 				DD3E567B2A4255E700F5B30F /* PreparePitchView */,
 				DD3E567A2A4255D500F5B30F /* EntryScreenView */,
-				85A1EE122A40EC920003DDB3 /* QRCodeView */,
 				003361EA2A3B61CE00570986 /* ConnectionView */,
 			);
 			path = Presentation;
@@ -330,22 +327,6 @@
 				007C9DBA2A3A2FB200D242F9 /* ClientError */,
 			);
 			path = Client;
-			sourceTree = "<group>";
-		};
-		85A1EE122A40EC920003DDB3 /* QRCodeView */ = {
-			isa = PBXGroup;
-			children = (
-				85A1EE132A40EC9F0003DDB3 /* Components */,
-				85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */,
-			);
-			path = QRCodeView;
-			sourceTree = "<group>";
-		};
-		85A1EE132A40EC9F0003DDB3 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		85A412E92A45C584007B9098 /* Delegates */ = {
@@ -662,7 +643,6 @@
 				85EA4FC62A43203000637B6F /* DTOPlayerIdentifier.swift in Sources */,
 				00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */,
 				DD3E56932A4320A000F5B30F /* PlayerScore.swift in Sources */,
-				85A1EE152A40ECBB0003DDB3 /* QRCodeView.swift in Sources */,
 				85EA4FC82A43969600637B6F /* ChosenPlayer.swift in Sources */,
 				DD3E56912A431F3600F5B30F /* tvOSPreparePitchView.swift in Sources */,
 				85A412E82A45C402007B9098 /* IOSViewModel.swift in Sources */,

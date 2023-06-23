@@ -9,29 +9,41 @@ import SwiftUI
 import PitchABooServer
 
 struct EntryScreenView: View {
-    @ObservedObject var tvOSViewModel = TvOSViewModel()
+    let server = try! PitchABooWebSocketServer(port: 8080)
     @ObservedObject var iOSViewModel = IOSViewModel()
+    @ObservedObject var tvOSViewModel = TvOSViewModel()
     
+    #if os(iOS)
     init() {
-        let server = try! PitchABooWebSocketServer(port: 8080)
-        
-        tvOSViewModel.server = server
-        tvOSViewModel.client.tvOSDelegate = tvOSViewModel
-        iOSViewModel.server = server
         iOSViewModel.client.iOSDelegate = iOSViewModel
+        iOSViewModel.client.tvOSDelegate = tvOSViewModel
     }
     
     var body: some View {
         Group {
-            #if os(tvOS)
-            TvOSEntryScreenView()
-            #else
             IOSEntryScreenView()
-            #endif
         }
-        .environmentObject(tvOSViewModel)
         .environmentObject(iOSViewModel)
     }
+    
+    #else
+    init() {
+        server.startServer(completion: { _ in } )
+        tvOSViewModel.server = server
+        tvOSViewModel.client.tvOSDelegate = tvOSViewModel
+    }
+    
+    var body: some View {
+        Group {
+            TvOSEntryScreenView()
+        }
+        .environmentObject(tvOSViewModel)
+    }
+    #endif
+    
+    
+    
+
 }
 
 

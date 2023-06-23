@@ -20,6 +20,7 @@ struct IOSEntryScreenView: View {
                 if case let .success(code) = result {
                     entryViewModel.setScannedCode(with: code.string)
                     self.isPresentingScanner = false
+                    entryViewModel.subscribeToService()
                 }
             }
         )

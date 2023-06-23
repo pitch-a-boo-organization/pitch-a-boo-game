@@ -22,12 +22,12 @@ struct TvOSConnectionView: View {
         .padding([.bottom], 10  )
         
         Button {
-            tvOSViewModel.server.startServer { error in
+            tvOSViewModel.server?.startServer { error in
                 if let error = error {
                     print("Error! \(error)")
                     return
                 }
-                hostname = tvOSViewModel.server.getServerHostname() ?? ""
+                hostname = tvOSViewModel.server?.getServerHostname() ?? ""
             }
         } label: {
             Text("Iniciar Sessão")

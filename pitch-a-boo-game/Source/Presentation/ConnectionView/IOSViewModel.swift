@@ -14,7 +14,6 @@ class IOSViewModel: ObservableObject {
     @Published private(set) var scannedCode: String = "Scan the TV QR code to get started."
     @Published private(set) var localUser: Player = Player.createAnUndefinedPlayer()
     @Published private(set) var chosenPlayer: ChosenPlayer = ChosenPlayer.createAnUndefinedChosenPlayer()
-    var server: PitchABooWebSocketServer!
     let client = PitchABooSocketClient.shared
     
     public func setScannedCode(with code: String) {
@@ -29,6 +28,11 @@ class IOSViewModel: ObservableObject {
     
     internal func setChosenPlayer(_ chosenPlayer: ChosenPlayer) {
         self.chosenPlayer = chosenPlayer
+    }
+    
+    public func subscribeToService() {
+        client.defineServerURL(hostname: scannedCode)
+        client.subscribeToService()
     }
 }
 

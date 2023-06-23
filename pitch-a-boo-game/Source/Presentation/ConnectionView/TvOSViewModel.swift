@@ -19,13 +19,11 @@ class TvOSViewModel: ObservableObject {
         DispatchQueue.main.async {
             self.allConnectedPlayers = players
         }
-        
     }
     
     internal func setChosenPlayer(_ chosenPlayer: ChosenPlayer) {
         self.chosenPlayer = chosenPlayer
     }
-
 }
 
 extension TvOSViewModel: TvOSDelegate {

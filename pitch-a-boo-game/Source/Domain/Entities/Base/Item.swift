@@ -7,8 +7,14 @@
 
 import Foundation
 
-struct Item: Codable {
+struct Item: Codable, Hashable {
     let id: Int
     let name: String
     let value: Int
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(name)
+        hasher.combine(value)
+    }
 }

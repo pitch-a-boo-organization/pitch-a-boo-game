@@ -40,30 +40,41 @@ struct TvOSEntryScreenView: View {
                             .buttonStyle(.card)
                         }
 
-                        VStack(spacing: 5) {
-                            Image(
-                                uiImage: generateQRCode(
-                                    serverHostname: entryViewModel.server.getServerHostname()!
-                                )!
-                            )
-                            .resizable()
-                            .interpolation(.none)
-                            .frame(width: 250, height: 250)
-                            .foregroundColor(.white)
-                            Text("\(textScan)")
-                                .font(.title3)
-                                .foregroundColor(.black)
+                        if entryViewModel.server != nil {
+                            VStack(spacing: 5) {
+                                Image(
+                                    uiImage: generateQRCode(
+                                        serverHostname: entryViewModel.server!.getServerHostname()!
+                                    )!
+                                )
+                                .resizable()
+                                .interpolation(.none)
+                                .frame(width: 250, height: 250)
+                                .foregroundColor(.white)
+                                Text("\(textScan)")
+                                    .font(.title3)
+                                    .foregroundColor(.black)
+    //
+                                Button("Add Player") {
+                                    entryViewModel.saveAllConnectedPlayers([
+                                        Player.createAnUndefinedPlayer(),
+                                        Player.createAnUndefinedPlayer(),
+                                        Player.createAnUndefinedPlayer()
+                                    ])
+                                }
+                            }
                         }
+                 
+                        
                     }
                     .padding(.leading, 166)
                 }
                 Spacer()
 
                 VStack {
-                    VStack {
-                        PlayersGrid(players: entryViewModel.allConnectedPlayers)
-                    }
-
+                    PlayersGrid(
+                        players: entryViewModel.allConnectedPlayers
+                    )
                 }
                 Spacer()
             }
