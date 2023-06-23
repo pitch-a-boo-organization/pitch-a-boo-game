@@ -23,6 +23,8 @@
 		00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */; };
 		85A1EE152A40ECBB0003DDB3 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */; };
 		85A1EE182A40EE4D0003DDB3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; platformFilters = (ios, macos, ); productRef = 85A1EE172A40EE4D0003DDB3 /* CodeScanner */; };
+		85A412E62A45C3F5007B9098 /* TvOSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */; };
+		85A412E82A45C402007B9098 /* IOSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412E72A45C402007B9098 /* IOSViewModel.swift */; };
 		85EA4FC62A43203000637B6F /* DTOPlayerIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */; };
 		85EA4FC82A43969600637B6F /* ChosenPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA4FC72A43969600637B6F /* ChosenPlayer.swift */; };
 		85F3C5822A41CD5E003D7C1A /* DTOVerifyAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5812A41CD5E003D7C1A /* DTOVerifyAvailability.swift */; };
@@ -100,6 +102,8 @@
 		00CDE8942A3A046900FB1BF5 /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageType.swift; sourceTree = "<group>"; };
 		00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 		85A1EE142A40ECBB0003DDB3 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
+		85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSViewModel.swift; sourceTree = "<group>"; };
+		85A412E72A45C402007B9098 /* IOSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSViewModel.swift; sourceTree = "<group>"; };
 		85C639342A4265DE001AE223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOPlayerIdentifier.swift; sourceTree = "<group>"; };
 		85EA4FC72A43969600637B6F /* ChosenPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenPlayer.swift; sourceTree = "<group>"; };
@@ -175,6 +179,8 @@
 				003361ED2A3B61DF00570986 /* Components */,
 				003361EB2A3B61DC00570986 /* ConnectionView.swift */,
 				007C9DBE2A3A38EB00D242F9 /* ConnectionViewModel.swift */,
+				85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */,
+				85A412E72A45C402007B9098 /* IOSViewModel.swift */,
 			);
 			path = ConnectionView;
 			sourceTree = "<group>";
@@ -635,6 +641,7 @@
 				DD3E56AB2A4323C600F5B30F /* tvOSScoreView.swift in Sources */,
 				DD3E569D2A43235E00F5B30F /* PitchView.swift in Sources */,
 				DD3E569B2A43235300F5B30F /* ScoreView.swift in Sources */,
+				85A412E62A45C3F5007B9098 /* TvOSViewModel.swift in Sources */,
 				DD3E568F2A431F1D00F5B30F /* PreparePitchViewModel.swift in Sources */,
 				DD3E568B2A431E3A00F5B30F /* PlayersGrid.swift in Sources */,
 				85F3C5962A41D055003D7C1A /* Item.swift in Sources */,
@@ -646,6 +653,7 @@
 				85EA4FC82A43969600637B6F /* ChosenPlayer.swift in Sources */,
 				DD3E56912A431F3600F5B30F /* tvOSPreparePitchView.swift in Sources */,
 				DD3E56812A42563D00F5B30F /* EntryScreenViewModel.swift in Sources */,
+				85A412E82A45C402007B9098 /* IOSViewModel.swift in Sources */,
 				003361F12A3B61FB00570986 /* iOSConnectionView.swift in Sources */,
 				85F3C5942A41D046003D7C1A /* Player.swift in Sources */,
 				00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */,

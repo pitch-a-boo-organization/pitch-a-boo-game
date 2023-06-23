@@ -9,7 +9,9 @@ import Foundation
 import SwiftUI
 
 struct ConnectionView: View {
-    @ObservedObject var viewModel = ConnectionViewModel()
+    @ObservedObject var tvOSViewModel = TvOSViewModel()
+    @ObservedObject var iOSViewModel = IOSViewModel()
+    
     
     var body: some View {
         Group {
@@ -19,6 +21,7 @@ struct ConnectionView: View {
                 iOSConnectionView()
             #endif
         }
-        .environmentObject(viewModel)
+        .environmentObject(iOSViewModel)
+        .environmentObject(tvOSViewModel)
     }
 }
