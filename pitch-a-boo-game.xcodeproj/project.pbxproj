@@ -27,6 +27,7 @@
 		85A412ED2A45C5B2007B9098 /* TvOSDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412EC2A45C5B2007B9098 /* TvOSDelegate.swift */; };
 		85A412EF2A45C5C9007B9098 /* SocketDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412EE2A45C5C9007B9098 /* SocketDelegate.swift */; };
 		85A412F12A45DB9B007B9098 /* IOSEntryScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412F02A45DB9B007B9098 /* IOSEntryScreenView.swift */; };
+		85D30C412A4661580031A83B /* IOSPreparePitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D30C402A4661580031A83B /* IOSPreparePitchView.swift */; };
 		85EA4FC62A43203000637B6F /* DTOPlayerIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */; };
 		85EA4FC82A43969600637B6F /* ChosenPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA4FC72A43969600637B6F /* ChosenPlayer.swift */; };
 		85F3C5822A41CD5E003D7C1A /* DTOVerifyAvailability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3C5812A41CD5E003D7C1A /* DTOVerifyAvailability.swift */; };
@@ -108,6 +109,7 @@
 		85A412EE2A45C5C9007B9098 /* SocketDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketDelegate.swift; sourceTree = "<group>"; };
 		85A412F02A45DB9B007B9098 /* IOSEntryScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSEntryScreenView.swift; sourceTree = "<group>"; };
 		85C639342A4265DE001AE223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		85D30C402A4661580031A83B /* IOSPreparePitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSPreparePitchView.swift; sourceTree = "<group>"; };
 		85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOPlayerIdentifier.swift; sourceTree = "<group>"; };
 		85EA4FC72A43969600637B6F /* ChosenPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenPlayer.swift; sourceTree = "<group>"; };
 		85F3C5812A41CD5E003D7C1A /* DTOVerifyAvailability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOVerifyAvailability.swift; sourceTree = "<group>"; };
@@ -411,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				DD3E56902A431F3600F5B30F /* tvOSPreparePitchView.swift */,
+				85D30C402A4661580031A83B /* IOSPreparePitchView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				DD3E56A52A43239600F5B30F /* ReviewItemViewModel.swift in Sources */,
 				85F3C5922A41CEDF003D7C1A /* DTOSaleResult.swift in Sources */,
 				DD3E56AF2A43436200F5B30F /* CardItem.swift in Sources */,
+				85D30C412A4661580031A83B /* IOSPreparePitchView.swift in Sources */,
 				DD3E56AB2A4323C600F5B30F /* tvOSScoreView.swift in Sources */,
 				DD3E569D2A43235E00F5B30F /* PitchView.swift in Sources */,
 				DD3E569B2A43235300F5B30F /* ScoreView.swift in Sources */,

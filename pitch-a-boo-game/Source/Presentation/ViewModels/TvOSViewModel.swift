@@ -20,6 +20,10 @@ public final class TvOSViewModel: ObservableObject {
     }
     
     internal let client = PitchABooSocketClient.shared
+    
+    public func startGameFlow() {
+        client.sendStartGameFlowToServer()
+    }
 }
 
 extension TvOSViewModel: PitchABooServer.ServerOutputs {

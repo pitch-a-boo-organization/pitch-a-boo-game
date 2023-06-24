@@ -14,6 +14,7 @@ struct TvOSEntryScreenView: View {
     private let logoImage = "Logo"
     let textConnections = "Everybody's connected"
     private let textScan = "Scan to Play!"
+    @State var moveToPrepareView: Bool = false
 
     @EnvironmentObject var entryViewModel: TvOSViewModel
     
@@ -30,7 +31,9 @@ struct TvOSEntryScreenView: View {
                         
                         if entryViewModel.isMatchReady {
                             VStack {
-                                NavigationLink(destination: PreparePitchView(), label: {
+                                Button {
+                                    entryViewModel.startGameFlow()
+                                } label: {
                                     ZStack {
                                         Rectangle()
                                             .foregroundColor(.clear)
@@ -40,8 +43,10 @@ struct TvOSEntryScreenView: View {
                                         
                                         Text("\(textConnections)")
                                     }
-                                })
+                                }
                                 .buttonStyle(.card)
+                            }.navigationDestination(isPresented: $moveToPrepareView) {
+                                PreparePitchView()
                             }
                         }
                         

@@ -12,7 +12,7 @@ import CodeScanner
 struct IOSEntryScreenView: View {
     @EnvironmentObject var entryViewModel: IOSViewModel
     @State var isPresentingScanner = false
-    @State var serverHostname: String = ""
+    @State var serverHostname: String = "joan-wilsons-macbook-pro.local"
     
     var scannerSheet: some View {
         CodeScannerView(
@@ -29,38 +29,42 @@ struct IOSEntryScreenView: View {
     }
     
     var body: some View {
-        VStack(spacing: 10) {
-            Text("Seu player: \(entryViewModel.localUser.name)")
-            Text(entryViewModel.scannedCode)
-            
-            Button("Scan QR Code") {
-                self.isPresentingScanner = true
-            }.sheet(isPresented: $isPresentingScanner) {
-                self.scannerSheet
+        NavigationStack {
+            VStack(spacing: 10) {
+                Text("Seu player: \(entryViewModel.localUser.name)")
+                
+                Button("Scan QR Code") {
+                    self.isPresentingScanner = true
+                }.sheet(isPresented: $isPresentingScanner) {
+                    self.scannerSheet
+                }
+                
+                TextField("hostname", text: $serverHostname)
+                    .autocorrectionDisabled(true)
+                    .textInputAutocapitalization(.never)
+                    .frame(width: 300, height: 50)
+                    .textFieldStyle(.roundedBorder)
+                    .padding(8)
+                    .padding([.horizontal], 150)
+                    .padding([.bottom], 50)
+                
+                Button {
+                    entryViewModel.setScannedCode(with: serverHostname)
+                    entryViewModel.subscribeToService()
+                } label: {
+                    Text("Conectar")
+                        .padding(12)
+                        .foregroundColor(.white)
+                        .background(.black)
+                        .cornerRadius(12)
+                        .frame(width: 150, height: 50)
+                }
+                .disabled(serverHostname == "")
+            }.navigationDestination(isPresented: $entryViewModel.matchIsReady) {
+                IOSPreparePitchView()
             }
-            
-            TextField("hostname", text: $serverHostname)
-                .autocorrectionDisabled(true)
-                .textInputAutocapitalization(.never)
-                .frame(width: 300, height: 50)
-                .textFieldStyle(.roundedBorder)
-                .padding(8)
-                .padding([.horizontal], 150)
-                .padding([.bottom], 50)
-            
-            Button {
-                entryViewModel.setScannedCode(with: serverHostname)
-                entryViewModel.subscribeToService()
-            } label: {
-                Text("Conectar")
-                    .padding(12)
-                    .foregroundColor(.white)
-                    .background(.black)
-                    .cornerRadius(12)
-                    .frame(width: 150, height: 50)
-            }
-            .disabled(serverHostname == "")
         }
+        
     }
 }
 #endif

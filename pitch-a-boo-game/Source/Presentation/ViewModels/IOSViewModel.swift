@@ -13,7 +13,19 @@ class IOSViewModel: ObservableObject {
     @Published private(set) var receiveFromServer: String = ""
     @Published private(set) var scannedCode: String = "Scan the TV QR code to get started."
     @Published private(set) var localUser: Player = Player.createAnUndefinedPlayer()
-    @Published private(set) var chosenPlayer: ChosenPlayer = ChosenPlayer.createAnUndefinedChosenPlayer()
+    @Published public var matchIsReady: Bool = false
+    @Published private(set) var amIChosen: Bool = false
+    @Published private(set) var chosenPlayer: ChosenPlayer = ChosenPlayer.createAnUndefinedChosenPlayer() {
+        didSet {
+            if chosenPlayer.player.name != "Unselected" {
+                matchIsReady = true
+                if chosenPlayer.player.id == localUser.id {
+                    amIChosen = true
+                }
+            }
+        }
+    }
+
     let client = PitchABooSocketClient.shared
     
     public func setScannedCode(with code: String) {

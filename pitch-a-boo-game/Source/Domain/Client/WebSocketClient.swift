@@ -262,7 +262,7 @@ extension PitchABooSocketClient {
         do {
             let decodedChosenPlayer = try decodeData(DTOChosenPlayer.self, from: message.message)
             let chosenPlayer = ChosenPlayer(player: decodedChosenPlayer.player, sellingItem: decodedChosenPlayer.item)
-//            socketDelegate?.saveChosenPlayer(chosenPlayer)
+            iOSDelegate?.saveChosenPlayer(chosenPlayer)
         } catch {
             print(print("PitchABooSocketClient - chosenPlayer cannot be decoded \(error.localizedDescription)"))
         }
