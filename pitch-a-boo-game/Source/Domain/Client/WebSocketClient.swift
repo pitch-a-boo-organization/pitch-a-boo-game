@@ -213,17 +213,6 @@ extension PitchABooSocketClient {
         // GameFlowReceivers
         case .chosenPlayer:
             handleChosenPlayer(with: message)
-            
-            //Primeiro turno
-            sendStartProcess(stage: 32, shouldStart: true)
-            
-            
-            //Segundo turno
-            sendStartProcess(stage: 33, shouldStart: true)
-            
-            
-            
-            
         case .startProcess:
             handleStartProcess(with: message)
             

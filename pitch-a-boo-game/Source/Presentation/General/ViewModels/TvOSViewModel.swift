@@ -33,16 +33,8 @@ public final class TvOSViewModel: ObservableObject {
         server.router.redirectMessage(message, from: dummyConnection)
     }
     
-    func startGameFlow() {
-        let transferMessage = PitchABooServer.TransferMessage(
-            code: CommandCode.ClientMessage.startProcess.rawValue,
-            device: .tvOS,
-            message: try! JSONEncoder().encode(DTOStartProcess(stage: 31, start: true))
-        )
-       sendMessageToServer(transferMessage)
-    }
-    
     func sendStartPitchStage(_ stage: Int) {
+        print("GOING TO STAGE: \(stage)")
         let transferMessage = PitchABooServer.TransferMessage(
             code: CommandCode.ClientMessage.startProcess.rawValue,
             device: .tvOS,

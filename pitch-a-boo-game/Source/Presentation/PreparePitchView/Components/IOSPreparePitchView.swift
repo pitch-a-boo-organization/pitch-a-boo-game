@@ -31,12 +31,18 @@ struct IOSPreparePitchView: View {
                     .bold()
             }
         }
+        .onAppear { bindViewModel() }
         .navigationDestination(isPresented: $goToPitchView) {
             IOSPitchView()
         }
-        .onReceive(prepareViewModel.$currentStage) { value in
-            goToPitchView =  prepareViewModel.currentStage == 33
+    }
+    
+    func bindViewModel() {
+        prepareViewModel.$currentStage.sink { value in
+            print("RECEIVE VALUE: \(value)")
+            goToPitchView = (value == 33)
         }
+        .store(in: &prepareViewModel.cancellable)
     }
 }
 #endif

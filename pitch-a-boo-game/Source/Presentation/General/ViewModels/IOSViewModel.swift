@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 import PitchABooServer
 
 class IOSViewModel: ObservableObject {
@@ -28,6 +29,7 @@ class IOSViewModel: ObservableObject {
             }
         }
     }
+    var cancellable: Set<AnyCancellable> = []
 
     let client = PitchABooSocketClient.shared
     
@@ -55,6 +57,7 @@ class IOSViewModel: ObservableObject {
 
 extension IOSViewModel: IOSDelegate {
     func didUpdateStage(_ stage: Int) {
+        print("Did update stage: \(stage)")
         DispatchQueue.main.async {
             self.currentStage = stage
         }
