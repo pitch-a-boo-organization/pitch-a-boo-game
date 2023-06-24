@@ -9,15 +9,15 @@
 import SwiftUI
 
 struct tvOSPreparePitchView: View {
+    @EnvironmentObject var prepareViewModel: TvOSViewModel
     @State var player: Int = 01
     @State var navigateToView = false
     
     var body: some View {
             VStack(spacing: 50) {
-                Counter(countdown: 2,
+                Counter(countdown: 15,
                     timersUp: {
                         navigateToView = true
-                        print(navigateToView)
                     }
                 )
 
@@ -25,8 +25,10 @@ struct tvOSPreparePitchView: View {
                     PitchView()
                 }
                 Spacer()
-                Text("Player \(player) is thinking...")
-                    .font(.title)
+                if let name = prepareViewModel.sellingPlayer?.name {
+                    Text("Player \(name) is preparing their apresentation...")
+                        .font(.title)
+                }
                 Spacer()
             }
     }

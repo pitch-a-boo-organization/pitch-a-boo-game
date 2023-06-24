@@ -18,9 +18,11 @@ class IOSViewModel: ObservableObject {
     @Published private(set) var chosenPlayer: ChosenPlayer = ChosenPlayer.createAnUndefinedChosenPlayer() {
         didSet {
             if chosenPlayer.player.name != "Unselected" {
-                matchIsReady = true
-                if chosenPlayer.player.id == localUser.id {
-                    amIChosen = true
+                DispatchQueue.main.async {
+                    self.matchIsReady = true
+                    if self.chosenPlayer.player.id == self.localUser.id {
+                        self.amIChosen = true
+                    }
                 }
             }
         }
@@ -39,7 +41,10 @@ class IOSViewModel: ObservableObject {
     }
     
     internal func setChosenPlayer(_ chosenPlayer: ChosenPlayer) {
-        self.chosenPlayer = chosenPlayer
+        print("CHOOSEN PLAYER ID: \(chosenPlayer.player.id), CURRENT PLAYER ID: \(localUser.id)")
+        DispatchQueue.main.async {
+            self.chosenPlayer = chosenPlayer
+        }
     }
     
     public func subscribeToService() {

@@ -19,6 +19,7 @@ public final class TvOSViewModel: ObservableObject {
     @Published var server = try! PitchABooWebSocketServer(port: 8080)
     @Published var isMatchReady: Bool = false
     @Published var inningHasStarted: Bool = false
+    @Published var sellingPlayer: PitchABooServer.Player?
     @Published var players: [PitchABooServer.Player] = [] {
         didSet {
             if players.count >= 2 {
@@ -42,6 +43,7 @@ extension TvOSViewModel: PitchABooServer.ServerOutputs {
     public func didDefineSellingPlayer(_ player: PitchABooServer.Player) {
         DispatchQueue.main.async { [weak self] in
             self?.inningHasStarted = true
+            self?.sellingPlayer = player
         }
         //Define server player
     }

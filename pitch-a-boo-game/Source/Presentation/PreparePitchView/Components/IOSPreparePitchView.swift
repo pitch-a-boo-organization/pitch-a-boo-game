@@ -11,10 +11,19 @@ struct IOSPreparePitchView: View {
     @EnvironmentObject var prepareViewModel: IOSViewModel
     
     var body: some View {
-        if prepareViewModel.amIChosen == true {
-            Text("Cara fui escolhido")
+        if prepareViewModel.amIChosen {
+            VStack {
+                Text("You're the seller!")
+                    .font(.title2)
+                    .bold()
+                    .padding(26)
+                Text("Prepare Pitch...")
+                    .padding(8)
+                Text("Item: \(prepareViewModel.chosenPlayer.sellingItem.name)")
+                Text("Value: \(prepareViewModel.chosenPlayer.sellingItem.value)")
+            }
         } else {
-            Text("Fui nada Lek")
+            Text("Look for TV!")
         }
     }
 }
