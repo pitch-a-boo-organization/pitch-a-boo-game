@@ -28,14 +28,31 @@ public final class TvOSViewModel: ObservableObject {
         }
     }
     
-    public func startGameFlow() {
+    func sendMessageToServer(_ message: PitchABooServer.TransferMessage) {
+        let dummyConnection = DummyConnection()
+        server.router.redirectMessage(message, from: dummyConnection)
+    }
+    
+    func startGameFlow() {
         let transferMessage = PitchABooServer.TransferMessage(
             code: CommandCode.ClientMessage.startProcess.rawValue,
             device: .tvOS,
             message: try! JSONEncoder().encode(DTOStartProcess(stage: 31, start: true))
         )
-        let dummyConnection = DummyConnection()
-        server.router.redirectMessage(transferMessage, from: dummyConnection)
+       sendMessageToServer(transferMessage)
+    }
+    
+    func sendStartPitchStage(_ stage: Int) {
+        let transferMessage = PitchABooServer.TransferMessage(
+            code: CommandCode.ClientMessage.startProcess.rawValue,
+            device: .tvOS,
+            message: try! JSONEncoder().encode(
+                DTOStartProcess(
+                    stage: stage, start: true
+                )
+            )
+        )
+        sendMessageToServer(transferMessage)
     }
 }
 

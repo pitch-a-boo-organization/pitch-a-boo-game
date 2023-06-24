@@ -44,7 +44,7 @@ struct TvOSEntryScreenView: View {
                                 }
                                 .buttonStyle(.card)
                             }.navigationDestination(isPresented: $entryViewModel.inningHasStarted) {
-                                tvOSPreparePitchView()
+                                TvOSPreparePitchView()
                             }
                         }
                         

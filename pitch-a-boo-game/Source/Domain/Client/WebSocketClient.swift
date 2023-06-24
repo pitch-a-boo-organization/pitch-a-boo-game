@@ -272,9 +272,7 @@ extension PitchABooSocketClient {
             //Avisar ViewModel
             switch decodedStartProcess.stage {
             case 33:
-                print("caiu no 33")
-                //Start Bid process
-                //delegate.bid
+                iOSDelegate?.didUpdateStage(33)
             default:
                 print("caiu default")
             }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		003361F42A3B7CE900570986 /* PitchABooServer in Frameworks */ = {isa = PBXBuildFile; productRef = 003361F32A3B7CE900570986 /* PitchABooServer */; };
+		006643702A476306005C3AA0 /* IOSPitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0066436F2A476306005C3AA0 /* IOSPitchView.swift */; };
 		007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C9DBB2A3A2FC000D242F9 /* ClientError.swift */; };
 		00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE85E2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift */; };
 		00CDE8632A39D98400FB1BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CDE8622A39D98400FB1BF5 /* Assets.xcassets */; };
@@ -47,16 +48,14 @@
 		DD3E56892A431DBD00F5B30F /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56882A431DBD00F5B30F /* Counter.swift */; };
 		DD3E568B2A431E3A00F5B30F /* PlayersGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E568A2A431E3A00F5B30F /* PlayersGrid.swift */; };
 		DD3E568D2A431E9500F5B30F /* EntryPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E568C2A431E9500F5B30F /* EntryPlayers.swift */; };
-		DD3E56912A431F3600F5B30F /* tvOSPreparePitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56902A431F3600F5B30F /* tvOSPreparePitchView.swift */; };
+		DD3E56912A431F3600F5B30F /* TvOSPreparePitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56902A431F3600F5B30F /* TvOSPreparePitchView.swift */; };
 		DD3E56932A4320A000F5B30F /* PlayerScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56922A4320A000F5B30F /* PlayerScore.swift */; };
 		DD3E569B2A43235300F5B30F /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E569A2A43235300F5B30F /* ScoreView.swift */; };
-		DD3E569D2A43235E00F5B30F /* PitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E569C2A43235E00F5B30F /* PitchView.swift */; };
 		DD3E569F2A43237000F5B30F /* ReviewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E569E2A43237000F5B30F /* ReviewItemView.swift */; };
 		DD3E56A12A43237E00F5B30F /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A02A43237E00F5B30F /* ScoreViewModel.swift */; };
-		DD3E56A32A43238900F5B30F /* PitchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A22A43238900F5B30F /* PitchViewModel.swift */; };
 		DD3E56A52A43239600F5B30F /* ReviewItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A42A43239600F5B30F /* ReviewItemViewModel.swift */; };
 		DD3E56A72A4323A700F5B30F /* tvOSReviewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A62A4323A700F5B30F /* tvOSReviewItemView.swift */; };
-		DD3E56A92A4323B600F5B30F /* tvOSPitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A82A4323B600F5B30F /* tvOSPitchView.swift */; };
+		DD3E56A92A4323B600F5B30F /* TvOSPitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A82A4323B600F5B30F /* TvOSPitchView.swift */; };
 		DD3E56AB2A4323C600F5B30F /* tvOSScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56AA2A4323C600F5B30F /* tvOSScoreView.swift */; };
 		DD3E56AF2A43436200F5B30F /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56AE2A43436200F5B30F /* CardItem.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0066436F2A476306005C3AA0 /* IOSPitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSPitchView.swift; sourceTree = "<group>"; };
 		007C9DBB2A3A2FC000D242F9 /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
 		00CDE85B2A39D98300FB1BF5 /* pitch-a-boo-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pitch-a-boo-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00CDE85E2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameApp.swift; sourceTree = "<group>"; };
@@ -122,16 +122,14 @@
 		DD3E56882A431DBD00F5B30F /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		DD3E568A2A431E3A00F5B30F /* PlayersGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersGrid.swift; sourceTree = "<group>"; };
 		DD3E568C2A431E9500F5B30F /* EntryPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryPlayers.swift; sourceTree = "<group>"; };
-		DD3E56902A431F3600F5B30F /* tvOSPreparePitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSPreparePitchView.swift; sourceTree = "<group>"; };
+		DD3E56902A431F3600F5B30F /* TvOSPreparePitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSPreparePitchView.swift; sourceTree = "<group>"; };
 		DD3E56922A4320A000F5B30F /* PlayerScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScore.swift; sourceTree = "<group>"; };
 		DD3E569A2A43235300F5B30F /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
-		DD3E569C2A43235E00F5B30F /* PitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchView.swift; sourceTree = "<group>"; };
 		DD3E569E2A43237000F5B30F /* ReviewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewItemView.swift; sourceTree = "<group>"; };
 		DD3E56A02A43237E00F5B30F /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
-		DD3E56A22A43238900F5B30F /* PitchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchViewModel.swift; sourceTree = "<group>"; };
 		DD3E56A42A43239600F5B30F /* ReviewItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewItemViewModel.swift; sourceTree = "<group>"; };
 		DD3E56A62A4323A700F5B30F /* tvOSReviewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSReviewItemView.swift; sourceTree = "<group>"; };
-		DD3E56A82A4323B600F5B30F /* tvOSPitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSPitchView.swift; sourceTree = "<group>"; };
+		DD3E56A82A4323B600F5B30F /* TvOSPitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSPitchView.swift; sourceTree = "<group>"; };
 		DD3E56AA2A4323C600F5B30F /* tvOSScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSScoreView.swift; sourceTree = "<group>"; };
 		DD3E56AE2A43436200F5B30F /* CardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -383,7 +381,7 @@
 		DD3E567C2A4255FE00F5B30F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DD3E56902A431F3600F5B30F /* tvOSPreparePitchView.swift */,
+				DD3E56902A431F3600F5B30F /* TvOSPreparePitchView.swift */,
 				85D30C402A4661580031A83B /* IOSPreparePitchView.swift */,
 			);
 			path = Components;
@@ -414,8 +412,6 @@
 			isa = PBXGroup;
 			children = (
 				DD3E56982A43233900F5B30F /* Components */,
-				DD3E569C2A43235E00F5B30F /* PitchView.swift */,
-				DD3E56A22A43238900F5B30F /* PitchViewModel.swift */,
 			);
 			path = PitchView;
 			sourceTree = "<group>";
@@ -451,7 +447,8 @@
 		DD3E56982A43233900F5B30F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DD3E56A82A4323B600F5B30F /* tvOSPitchView.swift */,
+				DD3E56A82A4323B600F5B30F /* TvOSPitchView.swift */,
+				0066436F2A476306005C3AA0 /* IOSPitchView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -602,7 +599,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD3E56A32A43238900F5B30F /* PitchViewModel.swift in Sources */,
 				85F3C5A32A41E759003D7C1A /* WebSocketError.swift in Sources */,
 				85F3C5882A41CE85003D7C1A /* DTOConnectStatus.swift in Sources */,
 				85F3C5842A41CE69003D7C1A /* DTOStatusAvailability.swift in Sources */,
@@ -616,7 +612,6 @@
 				DD3E56AF2A43436200F5B30F /* CardItem.swift in Sources */,
 				85D30C412A4661580031A83B /* IOSPreparePitchView.swift in Sources */,
 				DD3E56AB2A4323C600F5B30F /* tvOSScoreView.swift in Sources */,
-				DD3E569D2A43235E00F5B30F /* PitchView.swift in Sources */,
 				DD3E569B2A43235300F5B30F /* ScoreView.swift in Sources */,
 				85A412E62A45C3F5007B9098 /* TvOSViewModel.swift in Sources */,
 				DD3E568B2A431E3A00F5B30F /* PlayersGrid.swift in Sources */,
@@ -625,12 +620,13 @@
 				00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */,
 				DD3E56932A4320A000F5B30F /* PlayerScore.swift in Sources */,
 				85EA4FC82A43969600637B6F /* ChosenPlayer.swift in Sources */,
-				DD3E56912A431F3600F5B30F /* tvOSPreparePitchView.swift in Sources */,
+				DD3E56912A431F3600F5B30F /* TvOSPreparePitchView.swift in Sources */,
 				85A412E82A45C402007B9098 /* IOSViewModel.swift in Sources */,
 				85F3C5942A41D046003D7C1A /* Player.swift in Sources */,
 				00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */,
 				DD3E56892A431DBD00F5B30F /* Counter.swift in Sources */,
 				007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */,
+				006643702A476306005C3AA0 /* IOSPitchView.swift in Sources */,
 				DD3E569F2A43237000F5B30F /* ReviewItemView.swift in Sources */,
 				85F3C59A2A41D090003D7C1A /* SaleResult.swift in Sources */,
 				00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */,
@@ -643,7 +639,7 @@
 				DD3E568D2A431E9500F5B30F /* EntryPlayers.swift in Sources */,
 				85F3C58C2A41CEAF003D7C1A /* DTOBid.swift in Sources */,
 				DD3E567F2A42562900F5B30F /* EntryScreenView.swift in Sources */,
-				DD3E56A92A4323B600F5B30F /* tvOSPitchView.swift in Sources */,
+				DD3E56A92A4323B600F5B30F /* TvOSPitchView.swift in Sources */,
 				85F3C59E2A41E634003D7C1A /* CommandCode.swift in Sources */,
 				85F3C58A2A41CE98003D7C1A /* DTOStartProcess.swift in Sources */,
 				85A412F12A45DB9B007B9098 /* IOSEntryScreenView.swift in Sources */,

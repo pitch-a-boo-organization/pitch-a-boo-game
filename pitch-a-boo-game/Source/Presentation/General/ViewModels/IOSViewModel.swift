@@ -15,6 +15,7 @@ class IOSViewModel: ObservableObject {
     @Published private(set) var localUser: Player = Player.createAnUndefinedPlayer()
     @Published public var matchIsReady: Bool = false
     @Published private(set) var amIChosen: Bool = false
+    @Published private(set) var currentStage: Int = 0
     @Published private(set) var chosenPlayer: ChosenPlayer = ChosenPlayer.createAnUndefinedChosenPlayer() {
         didSet {
             if chosenPlayer.player.name != "Unselected" {
@@ -41,7 +42,6 @@ class IOSViewModel: ObservableObject {
     }
     
     internal func setChosenPlayer(_ chosenPlayer: ChosenPlayer) {
-        print("CHOOSEN PLAYER ID: \(chosenPlayer.player.id), CURRENT PLAYER ID: \(localUser.id)")
         DispatchQueue.main.async {
             self.chosenPlayer = chosenPlayer
         }
@@ -54,6 +54,12 @@ class IOSViewModel: ObservableObject {
 }
 
 extension IOSViewModel: IOSDelegate {
+    func didUpdateStage(_ stage: Int) {
+        DispatchQueue.main.async {
+            self.currentStage = stage
+        }
+    }
+    
     func didConnectSuccessFully() {
         print("Connected")
         DispatchQueue.main.async {

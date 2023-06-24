@@ -5,34 +5,31 @@
 //  Created by Cicero Nascimento on 21/06/23.
 //
 
+#if os(tvOS)
 import SwiftUI
 
-struct tvOSPitchView: View {
+struct TvOSPitchView: View {
+    @EnvironmentObject var pitchViewModel: TvOSViewModel
     @State var player: Int = 01
 
     @State var navigateToView = false
     var body: some View {
             VStack(spacing: 50) {
-                Counter(countdown: 3,
+                Counter(countdown: 45,
                     timersUp: {
                         navigateToView = true
-                        print(navigateToView)
                     }
                 )
-
                 .navigationDestination(isPresented: $navigateToView) {
                     ReviewItemView()
                 }
                 Spacer()
-                Text("Player \(player) turn")
-                    .font(.title)
+                if let player = pitchViewModel.sellingPlayer {
+                    Text("Player \(player.name) is presenting...")
+                        .font(.title)
+                }
                 Spacer()
             }
     }
 }
-
-struct tvOSPitchView_Previews: PreviewProvider {
-    static var previews: some View {
-        tvOSPitchView()
-    }
-}
+#endif

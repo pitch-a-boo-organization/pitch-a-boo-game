@@ -8,21 +8,21 @@
 #if os(tvOS)
 import SwiftUI
 
-struct tvOSPreparePitchView: View {
+struct TvOSPreparePitchView: View {
     @EnvironmentObject var prepareViewModel: TvOSViewModel
     @State var player: Int = 01
     @State var navigateToView = false
     
     var body: some View {
             VStack(spacing: 50) {
-                Counter(countdown: 15,
+                Counter(countdown: 30,
                     timersUp: {
                         navigateToView = true
+                        sendStartPitchStage(33)
                     }
                 )
-
                 .navigationDestination(isPresented: $navigateToView) {
-                    PitchView()
+                    TvOSPitchView()
                 }
                 Spacer()
                 if let name = prepareViewModel.sellingPlayer?.name {
@@ -31,12 +31,6 @@ struct tvOSPreparePitchView: View {
                 }
                 Spacer()
             }
-    }
-}
-
-struct tvOSPreparePitchView_Previews: PreviewProvider {
-    static var previews: some View {
-        tvOSPreparePitchView()
     }
 }
 #endif
