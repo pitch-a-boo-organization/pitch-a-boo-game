@@ -10,9 +10,13 @@ import Combine
 import PitchABooServer
 
 class IOSViewModel: ObservableObject {
+    
+    // MARK: - Connection Properties
     @Published private(set) var connected: Bool = false
     @Published private(set) var receiveFromServer: String = ""
     @Published private(set) var scannedCode: String = "Scan the TV QR code to get started."
+    
+    // MARK: - Gameflow Properties
     @Published private(set) var localUser: Player = Player.createAnUndefinedPlayer()
     @Published public var matchIsReady: Bool = false
     @Published private(set) var amIChosen: Bool = false
@@ -29,6 +33,11 @@ class IOSViewModel: ObservableObject {
             }
         }
     }
+    
+    // MARK: - BidView Properties
+    @Published private(set) var playerBidValue: Int = 0
+    
+    // MARK: -General Properties
     var cancellable: Set<AnyCancellable> = []
 
     let client = PitchABooSocketClient.shared
@@ -81,5 +90,28 @@ extension IOSViewModel: IOSDelegate {
     
     func saveChosenPlayer(_ chosenPlayer: ChosenPlayer) {
         setChosenPlayer(chosenPlayer)
+    }
+}
+
+// MARK: - BidView Methods
+extension IOSViewModel {
+    public func plusBidValue() {
+        if verifyBidValueLimit() {
+            playerBidValue += 1
+        }
+    }
+    
+    public func minusBidValue() {
+        if verifyBidValueLimit() {
+            playerBidValue -= 1
+        }
+    }
+    
+    private func verifyBidValueLimit() -> Bool {
+        if playerBidValue < localUser.bones {
+            return true
+        }
+        
+        return false
     }
 }
