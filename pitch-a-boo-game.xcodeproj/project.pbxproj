@@ -1016,7 +1016,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pitch-a-boo-organization/pitch-a-boo-server";
 			requirement = {
-				branch = feat/inputs_on_server;
+				branch = main;
 				kind = branch;
 			};
 		};
