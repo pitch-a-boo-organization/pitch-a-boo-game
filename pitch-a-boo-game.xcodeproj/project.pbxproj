@@ -19,6 +19,7 @@
 		00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE8942A3A046900FB1BF5 /* MessageType.swift */; };
 		00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */; };
 		8558FD9C2A4774B000B3FD26 /* BidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558FD9B2A4774B000B3FD26 /* BidView.swift */; };
+		8558FD9E2A477E2600B3FD26 /* BidPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558FD9D2A477E2600B3FD26 /* BidPlayer.swift */; };
 		85A1EE182A40EE4D0003DDB3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; platformFilters = (ios, macos, ); productRef = 85A1EE172A40EE4D0003DDB3 /* CodeScanner */; };
 		85A412E62A45C3F5007B9098 /* TvOSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */; };
 		85A412E82A45C402007B9098 /* IOSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412E72A45C402007B9098 /* IOSViewModel.swift */; };
@@ -94,6 +95,7 @@
 		00CDE8942A3A046900FB1BF5 /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageType.swift; sourceTree = "<group>"; };
 		00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
 		8558FD9B2A4774B000B3FD26 /* BidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidView.swift; sourceTree = "<group>"; };
+		8558FD9D2A477E2600B3FD26 /* BidPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidPlayer.swift; sourceTree = "<group>"; };
 		85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSViewModel.swift; sourceTree = "<group>"; };
 		85A412E72A45C402007B9098 /* IOSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSViewModel.swift; sourceTree = "<group>"; };
 		85A412EA2A45C5A0007B9098 /* IOSDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSDelegate.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				85F3C5992A41D090003D7C1A /* SaleResult.swift */,
 				85F3C59D2A41E634003D7C1A /* CommandCode.swift */,
 				85F3C59F2A41E6C8003D7C1A /* TransferMessage.swift */,
+				8558FD9D2A477E2600B3FD26 /* BidPlayer.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -646,6 +649,7 @@
 				85F3C59E2A41E634003D7C1A /* CommandCode.swift in Sources */,
 				85F3C58A2A41CE98003D7C1A /* DTOStartProcess.swift in Sources */,
 				85A412F12A45DB9B007B9098 /* IOSEntryScreenView.swift in Sources */,
+				8558FD9E2A477E2600B3FD26 /* BidPlayer.swift in Sources */,
 				8558FD9C2A4774B000B3FD26 /* BidView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
