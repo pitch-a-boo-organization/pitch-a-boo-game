@@ -28,6 +28,8 @@ public final class TvOSViewModel: ObservableObject {
         }
     }
     
+    @Published var bidPlayersSent: [BidPlayer] = []
+    
     func sendMessageToServer(_ message: PitchABooServer.TransferMessage) {
         let dummyConnection = DummyConnection()
         server.router.redirectMessage(message, from: dummyConnection)
@@ -49,6 +51,13 @@ public final class TvOSViewModel: ObservableObject {
 }
 
 extension TvOSViewModel: PitchABooServer.ServerOutputs {
+    public func didReceiveBid(bid: Int, from player: PitchABooServer.Player) {
+        let newBid = BidPlayer(id: player.id, namePlayer: player.name, bidSent: bid)
+        DispatchQueue.main.async {
+            self.bidPlayersSent.append(newBid)
+        }
+    }
+    
     public func didDefineSellingPlayer(_ player: PitchABooServer.Player) {
         DispatchQueue.main.async { [weak self] in
             self?.inningHasStarted = true
