@@ -14,8 +14,6 @@ struct TvOSEntryScreenView: View {
     private let logoImage = "Logo"
     let textConnections = "Everybody's connected"
     private let textScan = "Scan to Play!"
-    @State var moveToPrepareView: Bool = false
-
     @EnvironmentObject var entryViewModel: TvOSViewModel
     
     var body: some View {
@@ -45,8 +43,8 @@ struct TvOSEntryScreenView: View {
                                     }
                                 }
                                 .buttonStyle(.card)
-                            }.navigationDestination(isPresented: $moveToPrepareView) {
-                                PreparePitchView()
+                            }.navigationDestination(isPresented: $entryViewModel.inningHasStarted) {
+                                tvOSPreparePitchView()
                             }
                         }
                         

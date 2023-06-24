@@ -12,7 +12,7 @@ import CodeScanner
 struct IOSEntryScreenView: View {
     @EnvironmentObject var entryViewModel: IOSViewModel
     @State var isPresentingScanner = false
-    @State var serverHostname: String = "joan-wilsons-macbook-pro.local"
+    @State var serverHostname: String = "thiagos-mac.local"
     
     var scannerSheet: some View {
         CodeScannerView(

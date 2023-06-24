@@ -5,12 +5,13 @@
 //  Created by Cicero Nascimento on 21/06/23.
 //
 
+#if os(tvOS)
 import SwiftUI
 
 struct tvOSPreparePitchView: View {
     @State var player: Int = 01
-
     @State var navigateToView = false
+    
     var body: some View {
             VStack(spacing: 50) {
                 Counter(countdown: 2,
@@ -36,3 +37,4 @@ struct tvOSPreparePitchView_Previews: PreviewProvider {
         tvOSPreparePitchView()
     }
 }
+#endif

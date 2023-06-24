@@ -7,10 +7,18 @@
 
 import Foundation
 import PitchABooServer
+import Network
+
+struct DummyConnection: Connection {
+    func send(content: Data?, contentContext: NWConnection.ContentContext, isComplete: Bool, completion: NWConnection.SendCompletion) {
+        
+    }
+}
 
 public final class TvOSViewModel: ObservableObject {
     @Published var server = try! PitchABooWebSocketServer(port: 8080)
     @Published var isMatchReady: Bool = false
+    @Published var inningHasStarted: Bool = false
     @Published var players: [PitchABooServer.Player] = [] {
         didSet {
             if players.count >= 2 {
@@ -19,15 +27,22 @@ public final class TvOSViewModel: ObservableObject {
         }
     }
     
-    internal let client = PitchABooSocketClient.shared
-    
     public func startGameFlow() {
-        client.sendStartGameFlowToServer()
+        let transferMessage = PitchABooServer.TransferMessage(
+            code: CommandCode.ClientMessage.startProcess.rawValue,
+            device: .tvOS,
+            message: try! JSONEncoder().encode(DTOStartProcess(stage: 31, start: true))
+        )
+        let dummyConnection = DummyConnection()
+        server.router.redirectMessage(transferMessage, from: dummyConnection)
     }
 }
 
 extension TvOSViewModel: PitchABooServer.ServerOutputs {
     public func didDefineSellingPlayer(_ player: PitchABooServer.Player) {
+        DispatchQueue.main.async { [weak self] in
+            self?.inningHasStarted = true
+        }
         //Define server player
     }
     

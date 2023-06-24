@@ -15,8 +15,6 @@ final class PitchABooSocketClient: NSObject {
     static let shared = PitchABooSocketClient()
     
     weak var iOSDelegate: IOSDelegate?
-//    weak var tvOSDelegate: TvOSDelegate?
-//    weak var socketDelegate: SocketDelegate?
     
     func defineServerURL(hostname: String) {
         self.baseURL = "ws://\(hostname):8080"
@@ -161,7 +159,7 @@ extension PitchABooSocketClient {
         do {
             let data = try JSONEncoder().encode(dto)
             let transferMessage = DTOTransferMessage(
-                code: 4,
+                code: CommandCode.ClientMessage.startProcess.rawValue,
                 device: .tvOS,
                 message: data
             )
