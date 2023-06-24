@@ -8,6 +8,7 @@
 import Foundation
 import PitchABooServer
 import Network
+import Combine
 
 struct DummyConnection: Connection {
     func send(content: Data?, contentContext: NWConnection.ContentContext, isComplete: Bool, completion: NWConnection.SendCompletion) {
@@ -29,6 +30,8 @@ public final class TvOSViewModel: ObservableObject {
     }
     
     @Published var bidPlayersSent: [BidPlayer] = []
+    
+    var cancellable: Set<AnyCancellable> = []
     
     func sendMessageToServer(_ message: PitchABooServer.TransferMessage) {
         let dummyConnection = DummyConnection()
