@@ -95,13 +95,18 @@ extension IOSViewModel: IOSDelegate {
 
 // MARK: - BidView Methods
 extension IOSViewModel {
-    public func plusBidValue() {
+    public func sendBid() {
+        let dto = DTOBid(stage: 33, bid: playerBidValue, player: localUser)
+        client.sendABidToServer(dto)
+    }
+    
+    internal func plusBidValue() {
         if verifyBidValueLimit() {
             playerBidValue += 1
         }
     }
     
-    public func minusBidValue() {
+    internal func minusBidValue() {
         if verifyBidValueLimit() {
             playerBidValue -= 1
         }
@@ -111,7 +116,8 @@ extension IOSViewModel {
         if playerBidValue < localUser.bones {
             return true
         }
-        
         return false
     }
+    
+    
 }

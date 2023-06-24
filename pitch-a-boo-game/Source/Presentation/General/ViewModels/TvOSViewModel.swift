@@ -49,6 +49,10 @@ public final class TvOSViewModel: ObservableObject {
 }
 
 extension TvOSViewModel: PitchABooServer.ServerOutputs {
+    public func didReceiveBid(bid: Int, from player: PitchABooServer.Player) {
+        
+    }
+    
     public func didDefineSellingPlayer(_ player: PitchABooServer.Player) {
         DispatchQueue.main.async { [weak self] in
             self?.inningHasStarted = true

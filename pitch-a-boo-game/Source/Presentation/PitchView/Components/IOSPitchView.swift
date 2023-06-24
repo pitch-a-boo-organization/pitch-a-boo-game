@@ -17,9 +17,14 @@ struct IOSPitchView: View {
                 .font(.title2)
                 .bold()
         } else {
-            Text("Pay attention in presentation of player: \(iosPitchViewModel.chosenPlayer.player.name)")
-                .font(.title2)
-                .bold()
+            VStack {
+                Text("Pay attention in presentation of player: \(iosPitchViewModel.chosenPlayer.player.name) \n Feel free to bid any value during the player's presentation")
+                    .font(.title2)
+                    .bold()
+                
+                BidView()
+            }
+            
         }
     }
 }

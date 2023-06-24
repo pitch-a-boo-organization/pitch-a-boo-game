@@ -4,7 +4,7 @@
 //
 //  Created by Joan Wilson Oliveira on 24/06/23.
 //
-
+#if os(iOS)
 import SwiftUI
 
 struct BidView: View {
@@ -12,7 +12,7 @@ struct BidView: View {
     
     var body: some View {
         VStack(spacing: 100) {
-            Text("0")
+            Text("\(bidViewModel.playerBidValue)")
               .font(
                 Font.custom("SF Pro", size: 96)
                   .weight(.semibold)
@@ -28,7 +28,7 @@ struct BidView: View {
                     Image(systemName: "minus")
                         .foregroundColor(.white)
                         .font(.largeTitle)
-                        .frame(width: 60, height: 60)
+                        .frame(width: 50, height: 50)
                         .background(Color("ColorCard"))
                         .clipShape(Circle())
                 }
@@ -38,18 +38,24 @@ struct BidView: View {
                     Image(systemName: "plus")
                         .foregroundColor(.white)
                         .font(.largeTitle)
-                        .frame(width: 60, height: 60)
+                        .frame(width: 50, height: 50)
                         .background(Color("ColorCard"))
                         .clipShape(Circle())
                 }
             }
-           
+            
+            Button {
+                bidViewModel.sendBid()
+            } label: {
+                Text("Send Bid")
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .padding()
+                    .frame(height: 60)
+                    .background(Color("ColorCard"))
+                    .cornerRadius(10)
+            }
         }
     }
 }
-
-struct BidView_Previews: PreviewProvider {
-    static var previews: some View {
-        BidView()
-    }
-}
+#endif

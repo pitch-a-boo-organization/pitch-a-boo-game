@@ -280,7 +280,6 @@
 				DD3E56962A43231500F5B30F /* ScoreView */,
 				DD3E56952A4322FC00F5B30F /* ReviewItemView */,
 				DD3E56942A4322BB00F5B30F /* PitchView */,
-				8558FD992A47748B00B3FD26 /* BidView */,
 				DD3E567B2A4255E700F5B30F /* PreparePitchView */,
 				DD3E567A2A4255D500F5B30F /* EntryScreenView */,
 			);
@@ -313,22 +312,6 @@
 				007C9DBA2A3A2FB200D242F9 /* ClientError */,
 			);
 			path = Client;
-			sourceTree = "<group>";
-		};
-		8558FD992A47748B00B3FD26 /* BidView */ = {
-			isa = PBXGroup;
-			children = (
-				8558FD9A2A47749C00B3FD26 /* Components */,
-			);
-			path = BidView;
-			sourceTree = "<group>";
-		};
-		8558FD9A2A47749C00B3FD26 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				8558FD9B2A4774B000B3FD26 /* BidView.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		85A412E92A45C584007B9098 /* Delegates */ = {
@@ -466,6 +449,7 @@
 		DD3E56982A43233900F5B30F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				8558FD9B2A4774B000B3FD26 /* BidView.swift */,
 				DD3E56A82A4323B600F5B30F /* TvOSPitchView.swift */,
 				0066436F2A476306005C3AA0 /* IOSPitchView.swift */,
 			);
