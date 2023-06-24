@@ -15,8 +15,6 @@ final class PitchABooSocketClient: NSObject {
     static let shared = PitchABooSocketClient()
     
     weak var iOSDelegate: IOSDelegate?
-//    weak var tvOSDelegate: TvOSDelegate?
-//    weak var socketDelegate: SocketDelegate?
     
     func defineServerURL(hostname: String) {
         self.baseURL = "ws://\(hostname):8080"
@@ -161,7 +159,7 @@ extension PitchABooSocketClient {
         do {
             let data = try JSONEncoder().encode(dto)
             let transferMessage = DTOTransferMessage(
-                code: 4,
+                code: CommandCode.ClientMessage.startProcess.rawValue,
                 device: .tvOS,
                 message: data
             )
@@ -215,17 +213,6 @@ extension PitchABooSocketClient {
         // GameFlowReceivers
         case .chosenPlayer:
             handleChosenPlayer(with: message)
-            
-            //Primeiro turno
-            sendStartProcess(stage: 32, shouldStart: true)
-            
-            
-            //Segundo turno
-            sendStartProcess(stage: 33, shouldStart: true)
-            
-            
-            
-            
         case .startProcess:
             handleStartProcess(with: message)
             
@@ -262,7 +249,7 @@ extension PitchABooSocketClient {
         do {
             let decodedChosenPlayer = try decodeData(DTOChosenPlayer.self, from: message.message)
             let chosenPlayer = ChosenPlayer(player: decodedChosenPlayer.player, sellingItem: decodedChosenPlayer.item)
-//            socketDelegate?.saveChosenPlayer(chosenPlayer)
+            iOSDelegate?.saveChosenPlayer(chosenPlayer)
         } catch {
             print(print("PitchABooSocketClient - chosenPlayer cannot be decoded \(error.localizedDescription)"))
         }
@@ -274,9 +261,7 @@ extension PitchABooSocketClient {
             //Avisar ViewModel
             switch decodedStartProcess.stage {
             case 33:
-                print("caiu no 33")
-                //Start Bid process
-                //delegate.bid
+                iOSDelegate?.didUpdateStage(33)
             default:
                 print("caiu default")
             }

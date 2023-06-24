@@ -14,7 +14,6 @@ struct TvOSEntryScreenView: View {
     private let logoImage = "Logo"
     let textConnections = "Everybody's connected"
     private let textScan = "Scan to Play!"
-
     @EnvironmentObject var entryViewModel: TvOSViewModel
     
     var body: some View {
@@ -26,20 +25,29 @@ struct TvOSEntryScreenView: View {
                             .resizable()
                             .frame(width: 488, height: 356.45154)
                         
-                        VStack {
-                            NavigationLink(destination: PreparePitchView(), label: {
-                                ZStack {
-                                    Rectangle()
-                                        .foregroundColor(.clear)
-                                        .background(Color(red: 0.11, green: 0.11, blue: 0.11))
-                                        .cornerRadius(13.86969)
-                                        .frame(width: 388, height: 81.5864)
-                                    
-                                    Text("\(textConnections)")
+                        Text(entryViewModel.server.getServerHostname() ?? "none")
+                        
+                        if entryViewModel.isMatchReady {
+                            VStack {
+                                Button {
+                                    entryViewModel.sendStartPitchStage(31)
+                                } label: {
+                                    ZStack {
+                                        Rectangle()
+                                            .foregroundColor(.clear)
+                                            .background(Color(red: 0.11, green: 0.11, blue: 0.11))
+                                            .cornerRadius(13.86969)
+                                            .frame(width: 388, height: 81.5864)
+                                        
+                                        Text("\(textConnections)")
+                                    }
                                 }
-                            })
-                            .buttonStyle(.card)
+                                .buttonStyle(.card)
+                            }.navigationDestination(isPresented: $entryViewModel.inningHasStarted) {
+                                TvOSPreparePitchView()
+                            }
                         }
+                        
                         
                         VStack(spacing: 5) {
                             Image(

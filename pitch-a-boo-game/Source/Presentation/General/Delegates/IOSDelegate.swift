@@ -12,4 +12,5 @@ protocol IOSDelegate: AnyObject {
     func errorWhileSubscribingInService(_ error: ClientError)
     func saveLocalPlayerIdentifier(_ player: Player)
     func saveChosenPlayer(_ chosenPlayer: ChosenPlayer)
+    func didUpdateStage(_ stage: Int)
 }

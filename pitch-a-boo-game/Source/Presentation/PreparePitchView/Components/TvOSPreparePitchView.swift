@@ -1,38 +1,36 @@
 //
-//  tvOSPitchView.swift
+//  tvOSPreparePitchView.swift
 //  pitch-a-boo-game
 //
 //  Created by Cicero Nascimento on 21/06/23.
 //
 
+#if os(tvOS)
 import SwiftUI
 
-struct tvOSPitchView: View {
+struct TvOSPreparePitchView: View {
+    @EnvironmentObject var prepareViewModel: TvOSViewModel
     @State var player: Int = 01
-
     @State var navigateToView = false
+    
     var body: some View {
             VStack(spacing: 50) {
-                Counter(countdown: 3,
+                Counter(countdown: 30,
                     timersUp: {
                         navigateToView = true
-                        print(navigateToView)
+                        prepareViewModel.sendStartPitchStage(33)
                     }
                 )
-
                 .navigationDestination(isPresented: $navigateToView) {
-                    ReviewItemView()
+                    TvOSPitchView()
                 }
                 Spacer()
-                Text("Player \(player) turn")
-                    .font(.title)
+                if let name = prepareViewModel.sellingPlayer?.name {
+                    Text("Player \(name) is preparing their apresentation...")
+                        .font(.title)
+                }
                 Spacer()
             }
     }
 }
-
-struct tvOSPitchView_Previews: PreviewProvider {
-    static var previews: some View {
-        tvOSPitchView()
-    }
-}
+#endif

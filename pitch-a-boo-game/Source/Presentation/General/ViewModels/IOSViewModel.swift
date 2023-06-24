@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 import PitchABooServer
 
 class IOSViewModel: ObservableObject {
@@ -13,7 +14,23 @@ class IOSViewModel: ObservableObject {
     @Published private(set) var receiveFromServer: String = ""
     @Published private(set) var scannedCode: String = "Scan the TV QR code to get started."
     @Published private(set) var localUser: Player = Player.createAnUndefinedPlayer()
-    @Published private(set) var chosenPlayer: ChosenPlayer = ChosenPlayer.createAnUndefinedChosenPlayer()
+    @Published public var matchIsReady: Bool = false
+    @Published private(set) var amIChosen: Bool = false
+    @Published private(set) var currentStage: Int = 0
+    @Published private(set) var chosenPlayer: ChosenPlayer = ChosenPlayer.createAnUndefinedChosenPlayer() {
+        didSet {
+            if chosenPlayer.player.name != "Unselected" {
+                DispatchQueue.main.async {
+                    self.matchIsReady = true
+                    if self.chosenPlayer.player.id == self.localUser.id {
+                        self.amIChosen = true
+                    }
+                }
+            }
+        }
+    }
+    var cancellable: Set<AnyCancellable> = []
+
     let client = PitchABooSocketClient.shared
     
     public func setScannedCode(with code: String) {
@@ -27,7 +44,9 @@ class IOSViewModel: ObservableObject {
     }
     
     internal func setChosenPlayer(_ chosenPlayer: ChosenPlayer) {
-        self.chosenPlayer = chosenPlayer
+        DispatchQueue.main.async {
+            self.chosenPlayer = chosenPlayer
+        }
     }
     
     public func subscribeToService() {
@@ -37,6 +56,13 @@ class IOSViewModel: ObservableObject {
 }
 
 extension IOSViewModel: IOSDelegate {
+    func didUpdateStage(_ stage: Int) {
+        print("Did update stage: \(stage)")
+        DispatchQueue.main.async {
+            self.currentStage = stage
+        }
+    }
+    
     func didConnectSuccessFully() {
         print("Connected")
         DispatchQueue.main.async {
