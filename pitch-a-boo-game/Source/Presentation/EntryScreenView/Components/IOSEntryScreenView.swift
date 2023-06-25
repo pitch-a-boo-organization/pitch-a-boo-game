@@ -17,12 +17,14 @@ struct IOSEntryScreenView: View {
     var scannerSheet: some View {
         CodeScannerView(
             codeTypes: [.qr],
-            completion: { result in
-                if case let .success(code) = result {
-                    entryViewModel.setScannedCode(with: code.string)
+            completion: { response in
+                switch response {
+                case .success(let result):
+                    entryViewModel.setScannedCode(with: result.string)
                     self.isPresentingScanner = false
-                    // Verify if network is granted before subscribe!!!!x
                     entryViewModel.subscribeToService()
+                case .failure(let error):
+                    print(error.localizedDescription)
                 }
             }
         )
@@ -31,33 +33,39 @@ struct IOSEntryScreenView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 10) {
-                Text("Seu player: \(entryViewModel.localUser.name)")
+                Image("Logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 100)
+                    .padding(.bottom, 100)
                 
-                Button("Scan QR Code") {
-                    self.isPresentingScanner = true
-                }.sheet(isPresented: $isPresentingScanner) {
-                    self.scannerSheet
+                if !(entryViewModel.localUser.name == "Undefined") {
+                    Text("Seu player: \(entryViewModel.localUser.name)")
                 }
                 
-                TextField("hostname", text: $serverHostname)
-                    .autocorrectionDisabled(true)
-                    .textInputAutocapitalization(.never)
-                    .frame(width: 300, height: 50)
-                    .textFieldStyle(.roundedBorder)
-                    .padding(8)
-                    .padding([.horizontal], 150)
-                    .padding([.bottom], 50)
+                Button {
+                    self.isPresentingScanner = true
+                } label: {
+                    HStack {
+                        Image(systemName: "qrcode.viewfinder")
+                        Text("Scan QR Code")
+                    }
+                    .padding(12)
+                    .foregroundColor(.white)
+                    .background(.black)
+                    .cornerRadius(12)
+                    .frame(height: 50)
+                    
+                }
+                .sheet(isPresented: $isPresentingScanner) {
+                    self.scannerSheet
+                }
                 
                 Button {
                     entryViewModel.setScannedCode(with: serverHostname)
                     entryViewModel.subscribeToService()
                 } label: {
-                    Text("Conectar")
-                        .padding(12)
-                        .foregroundColor(.white)
-                        .background(.black)
-                        .cornerRadius(12)
-                        .frame(width: 150, height: 50)
+                    
                 }
                 .disabled(serverHostname == "")
             }.navigationDestination(isPresented: $entryViewModel.matchIsReady) {
