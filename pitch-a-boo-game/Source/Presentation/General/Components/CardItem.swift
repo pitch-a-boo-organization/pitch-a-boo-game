@@ -11,7 +11,7 @@ struct CardItem: View {
 
     @State var colorCard = "ColorCard"
     @State var colorFont = "ColorCard"
-    @State var imageItem = "Pumpkin"
+
     @State var coinImageName = "BoneCoin"
     @State private var degrees = 180.0
     
@@ -51,9 +51,10 @@ struct CardItem: View {
                 Circle()
                     .fill(.white)
                     .overlay {
-                        Image(imageItem)
+                        Image(nameItem)
                             .resizable()
                             .frame(maxWidth: 150 ,maxHeight: 160)
+                            .scaledToFit()
                     }
                     .frame(width: 235.76, height: 235.75)
                 Spacer()

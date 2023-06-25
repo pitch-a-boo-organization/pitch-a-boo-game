@@ -16,7 +16,7 @@ struct BackCardView: View {
             Image("LogoNegative")
                 .resizable()
                 .frame(width: 321, height: 283.11)
-                .scaleEffect(x: -0.5, y: 0.5)
+                .scaleEffect(x: 0.5, y: 0.5)
         }
         .frame(width: 321.49, height: 523.57)
     }

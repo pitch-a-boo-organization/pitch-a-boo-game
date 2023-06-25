@@ -33,26 +33,7 @@ struct TvOSPitchView: View {
                     CardBids()
                 }
             }
-            
-            ZStack {
-                ForEach(0..<starSplashRange, id: \.self) { index in
-                    Image("StarSplash")
-                        .resizable()
-                        .frame(width: 250, height: 250)
-                        .position(
-                            x: imageOffsets[index].x,
-                            y: imageOffsets[index].y
-                        )
-                }
-            }
-            .frame(width: screenWidth, height: screenHeight)
-            .onAppear {
-                        for index in 0..<starSplashRange {
-                            imageOffsets[index] = CGPoint(x: .random(in: 50..<screenWidth), y: .random(in: 50..<screenHeight))
-                        }
-                    }
-            
-            
+
             VStack(spacing: 50) {
                 Counter(countdown: 30,
                     timersUp: {
