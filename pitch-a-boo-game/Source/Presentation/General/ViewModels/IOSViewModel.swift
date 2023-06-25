@@ -30,8 +30,10 @@ class IOSViewModel: ObservableObject {
     var cancellable: Set<AnyCancellable> = []
     
     func resetToNewRound() {
-        amIChosen = false
-        chosenPlayer = ChosenPlayer.createAnUndefinedChosenPlayer()
+        DispatchQueue.main.async {
+            self.amIChosen = false
+            self.chosenPlayer = ChosenPlayer.createAnUndefinedChosenPlayer()
+        }
     }
     
     let client = PitchABooSocketClient.shared
@@ -94,6 +96,7 @@ extension IOSViewModel: IOSDelegate {
     
     func saveChosenPlayer(_ chosenPlayer: ChosenPlayer) {
         print("Receiving a new choosen player")
+        resetToNewRound()
         setChosenPlayer(chosenPlayer)
     }
 }

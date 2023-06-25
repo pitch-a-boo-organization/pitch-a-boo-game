@@ -72,9 +72,9 @@ struct IOSPitchView: View {
             if value == 34 {
                 if !bidSended && !iosPitchViewModel.amIChosen { iosPitchViewModel.sendBid() }
                 goToReviewItemView = true
-            }
-            iosPitchViewModel.cancellable.forEach { cancelable in
-                cancelable.cancel()
+                iosPitchViewModel.cancellable.forEach { cancelable in
+                    cancelable.cancel()
+                }
             }
         }
         .store(in: &iosPitchViewModel.cancellable)
