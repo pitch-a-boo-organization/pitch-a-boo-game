@@ -40,39 +40,58 @@ struct IOSEntryScreenView: View {
                     .padding(.bottom, 100)
                 
                 if !(entryViewModel.localUser.name == "Undefined") {
-                    Text("Seu player: \(entryViewModel.localUser.name)")
+                    Text("Your player: \(entryViewModel.localUser.name)")
                 }
                 
-                Button {
-                    self.isPresentingScanner = true
-                } label: {
-                    HStack {
-                        Image(systemName: "qrcode.viewfinder")
-                        Text("Scan QR Code")
+                if entryViewModel.localUser.name != "Undefined" {
+                    Text("You are connected!")
+                } else {
+                    Button {
+                        self.isPresentingScanner = true
+                    } label: {
+                        HStack {
+                            Image(systemName: "qrcode.viewfinder")
+                            Text("Scan QR Code")
+                        }
+                        .padding(12)
+                        .foregroundColor(.white)
+                        .background(Color("Red"))
+                        .cornerRadius(12)
+                        .frame(height: 50)
+                        
                     }
-                    .padding(12)
-                    .foregroundColor(.white)
-                    .background(.black)
-                    .cornerRadius(12)
-                    .frame(height: 50)
-                    
-                }
-                .sheet(isPresented: $isPresentingScanner) {
-                    self.scannerSheet
+                    .sheet(isPresented: $isPresentingScanner) {
+                        self.scannerSheet
+                    }
                 }
                 
-                Button {
-                    entryViewModel.setScannedCode(with: serverHostname)
-                    entryViewModel.subscribeToService()
-                } label: {
-                    
-                }
-                .disabled(serverHostname == "")
-            }.navigationDestination(isPresented: $entryViewModel.matchIsReady) {
+                
+            
+            }
+            .navigationDestination(isPresented: $entryViewModel.matchIsReady) {
                 IOSPreparePitchView()
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink (destination: {
+                        List {
+                            Section("CodeScanner") {
+                                VStack {
+                                    Link(destination: URL(string: "https://github.com/twostraws/CodeScanner.git")!) {
+                                        Text("CodeScanner was made by Paul Hudson, who writes free Swift tutorials over at Hacking with Swift. It’s available under the MIT license, which permits commercial use, modification, distribution, and private use.")
+                                    }.buttonStyle(.plain)
+                                }
+                            }
+                        }.navigationTitle("Used Package Credits")
+                    }) {
+                        Label("", systemImage: "info.circle")
+                            .foregroundColor(Color(.systemGray))
+                    }
+                }
             }
         }
         
     }
 }
+
 #endif
