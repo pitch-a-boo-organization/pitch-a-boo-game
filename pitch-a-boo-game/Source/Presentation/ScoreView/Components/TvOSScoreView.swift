@@ -15,25 +15,34 @@ struct TvOSScoreView: View {
     @State var startNewRound = false
     
     var body: some View {
-        
-        VStack(alignment: .center) {
-            if showGameEnded {
-                Text("Game Ended!")
-                    .font(.title2)
-                    .bold()
-                    .multilineTextAlignment(.center)
-                    .padding(12)
-            }
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                ForEach(tvScoreViewModel.players, id: \.id) { player in
-                    PlayerScore(player: player)
+
+        ZStack {
+            Image("GhostBackground")
+                .resizable()
+                .scaledToFill()
+                .background(Color("ScoreBackground"))
+                .ignoresSafeArea(.all)
+
+            VStack(alignment: .center) {
+                if showGameEnded {
+                    Text("Game Ended!")
+                        .font(.title2)
+                        .bold()
+                        .multilineTextAlignment(.center)
+                        .padding(12)
+                }
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
+                    ForEach(tvScoreViewModel.players, id: \.id) { player in
+                        PlayerScore(player: player)
+                    }
                 }
             }
-        }
-        .navigationDestination(isPresented: $startNewRound) {
-            TvOSPreparePitchView()
+            .navigationDestination(isPresented: $startNewRound) {
+                TvOSPreparePitchView()
+            }
         }
         .onAppear {
+            tvScoreViewModel.cleanBidArray()
             DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                 showGameEnded = tvScoreViewModel.gameEnded
                 if !tvScoreViewModel.gameEnded {

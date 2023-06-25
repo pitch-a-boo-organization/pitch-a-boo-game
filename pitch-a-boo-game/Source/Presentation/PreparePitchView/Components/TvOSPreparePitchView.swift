@@ -34,6 +34,7 @@ struct TvOSPreparePitchView: View {
                 Spacer()
                 if let name = prepareViewModel.sellingPlayer?.name {
                     Text("Player \(name) is preparing their apresentation...")
+                        .foregroundColor(.black)
                         .font(.title)
                 }
                 Spacer()

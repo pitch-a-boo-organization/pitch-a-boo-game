@@ -25,6 +25,14 @@ struct TvOSPitchView: View {
                 .scaledToFill()
                 .background(Color("PitchBackground"))
                 .ignoresSafeArea(.all)
+
+            HStack {
+                Spacer()
+                VStack {
+                    Spacer()
+                    CardBids()
+                }
+            }
             
             ZStack {
                 ForEach(0..<starSplashRange, id: \.self) { index in
@@ -59,6 +67,7 @@ struct TvOSPitchView: View {
                 
                 if let player = pitchViewModel.sellingPlayer {
                     Text("Player \(player.name) is presenting...")
+                        .foregroundColor(.black)
                         .font(.title)
                 }
                 Spacer()

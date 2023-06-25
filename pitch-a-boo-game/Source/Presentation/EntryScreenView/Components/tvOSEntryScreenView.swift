@@ -15,67 +15,92 @@ struct TvOSEntryScreenView: View {
     let textConnections = "Everybody's connected"
     private let textScan = "Scan to Play!"
     @EnvironmentObject var entryViewModel: TvOSViewModel
-    
+
+
+
     var body: some View {
         NavigationStack {
-            HStack(alignment: .center) {
-                VStack(alignment: .leading) {
-                    VStack(spacing: 95) {
-                        Image(logoImage)
-                            .resizable()
-                            .frame(width: 488, height: 356.45154)
-                        
-                        Text(entryViewModel.server.getServerHostname() ?? "none")
-                        
-                        if entryViewModel.isMatchReady {
-                            VStack {
-                                Button {
-                                    entryViewModel.sendStartStage(31)
-                                } label: {
-                                    ZStack {
-                                        Rectangle()
-                                            .foregroundColor(.clear)
-                                            .background(Color(red: 0.11, green: 0.11, blue: 0.11))
-                                            .cornerRadius(13.86969)
-                                            .frame(width: 388, height: 81.5864)
-                                        
-                                        Text("\(textConnections)")
+            ZStack {
+                Image("GhostBackground")
+                    .resizable()
+                    .scaledToFill()
+                    .background(Color("EntryBackground"))
+                    .ignoresSafeArea(.all)
+
+                HStack(alignment: .center) {
+                    VStack(alignment: .leading) {
+                        VStack(spacing: 95) {
+                            Image(logoImage)
+                                .resizable()
+                                .frame(width: 488, height: 356.45154)
+
+//                            Text(entryViewModel.server.getServerHostname() ?? "none")
+
+                            if entryViewModel.isMatchReady {
+                                VStack {
+                                    Button {
+                                        entryViewModel.sendStartStage(31)
+                                    } label: {
+                                        ZStack {
+                                            Rectangle()
+                                                .foregroundColor(.clear)
+                                                .background(Color(red: 0.11, green: 0.11, blue: 0.11))
+                                                .cornerRadius(13.86969)
+                                                .frame(width: 388, height: 81.5864)
+
+                                            Text("\(textConnections)")
+                                        }
                                     }
+                                    
+                                    .buttonStyle(.card)
+                                }.navigationDestination(isPresented: $entryViewModel.inningHasStarted) {
+                                    TvOSPreparePitchView()
                                 }
-                                .buttonStyle(.card)
-                            }.navigationDestination(isPresented: $entryViewModel.inningHasStarted) {
-                                TvOSPreparePitchView()
+                            } else {
+                                ZStack {
+                                    Rectangle()
+                                        .foregroundColor(.clear)
+                                        .background(Color(red: 0.11, green: 0.11, blue: 0.11))
+                                        .cornerRadius(13.86969)
+                                        .frame(width: 388, height: 81.5864)
+                                        .opacity(0.5)
+
+                                    Text("\(textConnections)")
+                                        .foregroundColor(Color.init(white: 0.8))
+                                }
+                            }
+
+
+
+                            VStack(spacing: 5) {
+                                Image(
+                                    uiImage: generateQRCode(
+                                        serverHostname: entryViewModel.server.getServerHostname()!
+                                    )!
+                                )
+                                .resizable()
+                                .interpolation(.none)
+                                .frame(width: 250, height: 250)
+                                .foregroundColor(.white)
+
+                                Text("\(textScan)")
+                                    .font(.title3)
+                                    .foregroundColor(.black)
                             }
                         }
-                        
-                        
-                        VStack(spacing: 5) {
-                            Image(
-                                uiImage: generateQRCode(
-                                    serverHostname: entryViewModel.server.getServerHostname()!
-                                )!
-                            )
-                            .resizable()
-                            .interpolation(.none)
-                            .frame(width: 250, height: 250)
-                            .foregroundColor(.white)
-                            
-                            Text("\(textScan)")
-                                .font(.title3)
-                                .foregroundColor(.black)
-                        }
+
+                        .padding(.leading, 166)
                     }
-                    
-                    .padding(.leading, 166)
+                    Spacer()
+
+                    VStack {
+                        PlayersGrid(players: entryViewModel.players)
+                    }
+                    Spacer()
                 }
-                Spacer()
-                
-                VStack {
-                    PlayersGrid(players: entryViewModel.players)
-                }
-                Spacer()
             }
-        }.background(Color("EntryBackground"))
+        }
+
     }
     
     public func generateQRCode(serverHostname: String) -> UIImage? {

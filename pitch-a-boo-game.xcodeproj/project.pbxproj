@@ -59,6 +59,8 @@
 		DD3E56AB2A4323C600F5B30F /* TvOSScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56AA2A4323C600F5B30F /* TvOSScoreView.swift */; };
 		DD3E56AF2A43436200F5B30F /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56AE2A43436200F5B30F /* CardItem.swift */; };
 		DD3E56E12A48B23D00F5B30F /* BackCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56E02A48B23D00F5B30F /* BackCardView.swift */; };
+		DD3E56E32A48B54C00F5B30F /* CardBids.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56E22A48B54C00F5B30F /* CardBids.swift */; };
+		DD3E56E52A48B56700F5B30F /* BidPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56E42A48B56700F5B30F /* BidPlayers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,8 @@
 		DD3E56AA2A4323C600F5B30F /* TvOSScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSScoreView.swift; sourceTree = "<group>"; };
 		DD3E56AE2A43436200F5B30F /* CardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItem.swift; sourceTree = "<group>"; };
 		DD3E56E02A48B23D00F5B30F /* BackCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackCardView.swift; sourceTree = "<group>"; };
+		DD3E56E22A48B54C00F5B30F /* CardBids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBids.swift; sourceTree = "<group>"; };
+		DD3E56E42A48B56700F5B30F /* BidPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidPlayers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,6 +412,8 @@
 				DD3E56922A4320A000F5B30F /* PlayerScore.swift */,
 				DD3E56AE2A43436200F5B30F /* CardItem.swift */,
 				DD3E56E02A48B23D00F5B30F /* BackCardView.swift */,
+				DD3E56E22A48B54C00F5B30F /* CardBids.swift */,
+				DD3E56E42A48B56700F5B30F /* BidPlayers.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -614,6 +620,7 @@
 				DD3E56AF2A43436200F5B30F /* CardItem.swift in Sources */,
 				85D30C412A4661580031A83B /* IOSPreparePitchView.swift in Sources */,
 				DD3E56AB2A4323C600F5B30F /* TvOSScoreView.swift in Sources */,
+				DD3E56E52A48B56700F5B30F /* BidPlayers.swift in Sources */,
 				85A412E62A45C3F5007B9098 /* TvOSViewModel.swift in Sources */,
 				DD3E568B2A431E3A00F5B30F /* PlayersGrid.swift in Sources */,
 				85F3C5962A41D055003D7C1A /* Item.swift in Sources */,
@@ -629,6 +636,7 @@
 				00837C462A47F20700414281 /* IOSReviewItemView.swift in Sources */,
 				DD3E56892A431DBD00F5B30F /* Counter.swift in Sources */,
 				007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */,
+				DD3E56E32A48B54C00F5B30F /* CardBids.swift in Sources */,
 				006643702A476306005C3AA0 /* IOSPitchView.swift in Sources */,
 				DD3E56E12A48B23D00F5B30F /* BackCardView.swift in Sources */,
 				85F3C59A2A41D090003D7C1A /* SaleResult.swift in Sources */,
