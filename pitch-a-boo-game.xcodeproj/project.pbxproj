@@ -1030,7 +1030,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pitch-a-boo-organization/pitch-a-boo-server";
 			requirement = {
-				branch = main;
+				branch = "refactor/new-names";
 				kind = branch;
 			};
 		};
