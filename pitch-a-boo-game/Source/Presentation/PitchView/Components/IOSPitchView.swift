@@ -45,6 +45,7 @@ struct IOSPitchView: View {
                 }
             }
         }
+        .onAppear { bindViewModel() }
         .navigationDestination(isPresented: $goToReviewItemView) {
             IOSReviewItemView()
         }

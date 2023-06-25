@@ -65,6 +65,10 @@ class IOSViewModel: ObservableObject {
 }
 
 extension IOSViewModel: IOSDelegate {
+    func didFinishInning(with result: SaleResult) {
+        
+    }
+    
     func didUpdateStage(_ stage: Int) {
         print("Did update stage: \(stage)")
         DispatchQueue.main.async {

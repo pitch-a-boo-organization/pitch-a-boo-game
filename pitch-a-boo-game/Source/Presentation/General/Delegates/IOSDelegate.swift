@@ -13,4 +13,5 @@ protocol IOSDelegate: AnyObject {
     func saveLocalPlayerIdentifier(_ player: Player)
     func saveChosenPlayer(_ chosenPlayer: ChosenPlayer)
     func didUpdateStage(_ stage: Int)
+    func didFinishInning(with result: SaleResult)
 }

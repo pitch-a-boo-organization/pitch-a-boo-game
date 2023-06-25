@@ -53,8 +53,6 @@
 		DD3E568D2A431E9500F5B30F /* EntryPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E568C2A431E9500F5B30F /* EntryPlayers.swift */; };
 		DD3E56912A431F3600F5B30F /* TvOSPreparePitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56902A431F3600F5B30F /* TvOSPreparePitchView.swift */; };
 		DD3E56932A4320A000F5B30F /* PlayerScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56922A4320A000F5B30F /* PlayerScore.swift */; };
-		DD3E569B2A43235300F5B30F /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E569A2A43235300F5B30F /* ScoreView.swift */; };
-		DD3E56A12A43237E00F5B30F /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A02A43237E00F5B30F /* ScoreViewModel.swift */; };
 		DD3E56A72A4323A700F5B30F /* TvOSReviewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A62A4323A700F5B30F /* TvOSReviewItemView.swift */; };
 		DD3E56A92A4323B600F5B30F /* TvOSPitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A82A4323B600F5B30F /* TvOSPitchView.swift */; };
 		DD3E56AB2A4323C600F5B30F /* tvOSScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56AA2A4323C600F5B30F /* tvOSScoreView.swift */; };
@@ -128,8 +126,6 @@
 		DD3E568C2A431E9500F5B30F /* EntryPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryPlayers.swift; sourceTree = "<group>"; };
 		DD3E56902A431F3600F5B30F /* TvOSPreparePitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSPreparePitchView.swift; sourceTree = "<group>"; };
 		DD3E56922A4320A000F5B30F /* PlayerScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScore.swift; sourceTree = "<group>"; };
-		DD3E569A2A43235300F5B30F /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
-		DD3E56A02A43237E00F5B30F /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
 		DD3E56A62A4323A700F5B30F /* TvOSReviewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSReviewItemView.swift; sourceTree = "<group>"; };
 		DD3E56A82A4323B600F5B30F /* TvOSPitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSPitchView.swift; sourceTree = "<group>"; };
 		DD3E56AA2A4323C600F5B30F /* tvOSScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSScoreView.swift; sourceTree = "<group>"; };
@@ -431,8 +427,6 @@
 			isa = PBXGroup;
 			children = (
 				DD3E56992A43234000F5B30F /* Components */,
-				DD3E569A2A43235300F5B30F /* ScoreView.swift */,
-				DD3E56A02A43237E00F5B30F /* ScoreViewModel.swift */,
 			);
 			path = ScoreView;
 			sourceTree = "<group>";
@@ -614,7 +608,6 @@
 				DD3E56AF2A43436200F5B30F /* CardItem.swift in Sources */,
 				85D30C412A4661580031A83B /* IOSPreparePitchView.swift in Sources */,
 				DD3E56AB2A4323C600F5B30F /* tvOSScoreView.swift in Sources */,
-				DD3E569B2A43235300F5B30F /* ScoreView.swift in Sources */,
 				85A412E62A45C3F5007B9098 /* TvOSViewModel.swift in Sources */,
 				DD3E568B2A431E3A00F5B30F /* PlayersGrid.swift in Sources */,
 				85F3C5962A41D055003D7C1A /* Item.swift in Sources */,
@@ -634,7 +627,6 @@
 				00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */,
 				85F3C5862A41CE77003D7C1A /* DTOConnectSession.swift in Sources */,
 				85A412EB2A45C5A0007B9098 /* IOSDelegate.swift in Sources */,
-				DD3E56A12A43237E00F5B30F /* ScoreViewModel.swift in Sources */,
 				85F3C58E2A41CEC3003D7C1A /* DTOPlayersConnected.swift in Sources */,
 				85F3C5822A41CD5E003D7C1A /* DTOVerifyAvailability.swift in Sources */,
 				85F3C5A02A41E6C8003D7C1A /* TransferMessage.swift in Sources */,

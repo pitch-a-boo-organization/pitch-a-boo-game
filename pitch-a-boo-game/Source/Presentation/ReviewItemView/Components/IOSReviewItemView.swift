@@ -10,12 +10,16 @@ import SwiftUI
 
 struct IOSReviewItemView: View {
     @EnvironmentObject var iOSReviewItemViewModel: IOSViewModel
+    @State var goToScoreView: Bool = false
 
     var body: some View {
-        Text("Round results are being shown on TV!")
+        Text("Item are being reveal on TV!")
             .font(.title2)
             .bold()
-        
+            .multilineTextAlignment(.center)
+            .navigationDestination(isPresented: $goToScoreView) {
+                EmptyView()
+            }
     }
 }
 #endif

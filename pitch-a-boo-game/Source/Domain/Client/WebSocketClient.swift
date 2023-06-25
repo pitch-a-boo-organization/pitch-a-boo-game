@@ -218,7 +218,7 @@ extension PitchABooSocketClient {
             
             
         case .saleResult:
-            //Recomeca ou acaba
+            handleSaleResult(with: message)
             break
         default:
             break
@@ -256,15 +256,20 @@ extension PitchABooSocketClient {
     }
     
     private func handleStartProcess(with message: DTOTransferMessage) {
-        do {
+        do {    
             let decodedStartProcess = try decodeData(DTOStartProcess.self, from: message.message)
             //Avisar ViewModel
-            switch decodedStartProcess.stage {
-            case 33:
-                iOSDelegate?.didUpdateStage(33)
-            default:
-                print("caiu default")
-            }
+            iOSDelegate?.didUpdateStage(decodedStartProcess.stage)
+        } catch {
+            print("\(#function) \(Self.self) cannot be decoded \(error.localizedDescription)")
+        }
+    }
+    
+    private func handleSaleResult(with message: DTOTransferMessage) {
+        do {
+            let decodedSaleResult = try decodeData(DTOSaleResult.self, from: message.message)
+            //Avisar ViewModel
+            iOSDelegate?.didFinishInning(with: decodedSaleResult.result)
         } catch {
             print("\(#function) \(Self.self) cannot be decoded \(error.localizedDescription)")
         }
