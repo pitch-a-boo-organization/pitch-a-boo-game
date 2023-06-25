@@ -65,6 +65,10 @@ public final class TvOSViewModel: ObservableObject {
         players[buyerIndex].bones -= saleResult.soldValue
         players[buyerIndex].bones += saleResult.item.value
     }
+
+    func cleanBidArray() {
+        bidPlayersSent = []
+    }
 }
 
 extension TvOSViewModel: PitchABooServer.ServerOutputs {

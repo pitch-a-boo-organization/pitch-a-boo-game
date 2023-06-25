@@ -15,44 +15,56 @@ struct TvOSReviewItemView: View {
     @State var backColorCard = "ColorCard"
     @State var alpha:Double = 1
     @State var alpha2:Double = 0
+    @State var isRotated = false
     
     var body: some View {
-        VStack {
-            HStack{
-                Circle().frame(width: 100, height: 100)
-                Spacer()
-                Circle().frame(width: 100, height: 100)
-            }
-            ZStack {
-                CardItem(
-                    nameItem: tvReviewItemViewModel.sellingPlayer!.sellingItem.name,
-                    numberOfCoins: tvReviewItemViewModel.sellingPlayer!.sellingItem.value
-                )
-                .opacity(alpha2)
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color(backColorCard)
-                        .opacity(alpha))
-                    .frame(width: 321.49, height: 523.57)
+        ZStack {
+            Image("GhostBackground")
+                .resizable()
+                .scaledToFill()
+                .background(Color("ReviewItemBackground"))
+                .ignoresSafeArea(.all)
+            
+            VStack {
+                
+                ZStack {
+                    CardItem(
+                        
+                        nameItem: tvReviewItemViewModel.sellingPlayer!.sellingItem.name,
+                        numberOfCoins: tvReviewItemViewModel.sellingPlayer!.sellingItem.value
+                        
+                    )
+                    .opacity(alpha2)
+                    
+                    BackCardView()
+                    
+                        .opacity(alpha)
+                        .frame(width: 321.49, height: 523.57)
+                }
+                
             }
             
-        }
-        .rotation3DEffect(.degrees(degrees), axis: (x: 0, y: 1, z: 0))
-        .onAppear {
-            withAnimation(.easeInOut(duration: 2)) {
-                degrees = 360
-                withAnimation(.easeOut(duration: 5)) {
-                    alpha = 0
-                    alpha2 = 1
+            
+            .rotation3DEffect(.degrees(degrees), axis: (x: 0, y: 1, z: 0))
+            .onAppear {
+                
+                withAnimation(.easeInOut(duration: 2)) {
+                    degrees = 360
+                    withAnimation(.easeOut(duration: 2)) {
+                        alpha = 0
+                        alpha2 = 1
+                    }
+                }
+                isRotated.toggle()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                    goToScoreView = true
+                    tvReviewItemViewModel.sendStartStage(35)
                 }
             }
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                goToScoreView = true
-                tvReviewItemViewModel.sendStartStage(35)
+            .navigationDestination(isPresented: $goToScoreView) {
+                TvOSScoreView()
             }
-        }
-        .navigationDestination(isPresented: $goToScoreView) {
-            TvOSScoreView()
         }
     }
 }
