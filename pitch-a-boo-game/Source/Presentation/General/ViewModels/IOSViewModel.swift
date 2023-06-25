@@ -21,25 +21,19 @@ class IOSViewModel: ObservableObject {
     @Published public var matchIsReady: Bool = false
     @Published private(set) var amIChosen: Bool = false
     @Published private(set) var currentStage: Int = 0
-    @Published private(set) var chosenPlayer: ChosenPlayer = ChosenPlayer.createAnUndefinedChosenPlayer() {
-        didSet {
-            if chosenPlayer.player.name != "Unselected" {
-                DispatchQueue.main.async {
-                    self.matchIsReady = true
-                    if self.chosenPlayer.player.id == self.localUser.id {
-                        self.amIChosen = true
-                    }
-                }
-            }
-        }
-    }
+    @Published private(set) var chosenPlayer: ChosenPlayer = ChosenPlayer.createAnUndefinedChosenPlayer()
     
     // MARK: - BidView Properties
     @Published private(set) var playerBidValue: Int = 0
     
     // MARK: -General Properties
     var cancellable: Set<AnyCancellable> = []
-
+    
+    func resetToNewRound() {
+        amIChosen = false
+        chosenPlayer = ChosenPlayer.createAnUndefinedChosenPlayer()
+    }
+    
     let client = PitchABooSocketClient.shared
     
     public func setScannedCode(with code: String) {
@@ -53,8 +47,14 @@ class IOSViewModel: ObservableObject {
     }
     
     internal func setChosenPlayer(_ chosenPlayer: ChosenPlayer) {
+        print("NEW CHOOSEN PLAYER: \(chosenPlayer)")
         DispatchQueue.main.async {
             self.chosenPlayer = chosenPlayer
+            self.matchIsReady = true
+            if chosenPlayer.player.id == self.localUser.id {
+                print("AM I CHOOSEN!")
+                self.amIChosen = true
+            }
         }
     }
     
@@ -65,6 +65,10 @@ class IOSViewModel: ObservableObject {
 }
 
 extension IOSViewModel: IOSDelegate {
+    func didFinishInning(with result: SaleResult) {
+        
+    }
+    
     func didUpdateStage(_ stage: Int) {
         print("Did update stage: \(stage)")
         DispatchQueue.main.async {
@@ -89,6 +93,7 @@ extension IOSViewModel: IOSDelegate {
     
     
     func saveChosenPlayer(_ chosenPlayer: ChosenPlayer) {
+        print("Receiving a new choosen player")
         setChosenPlayer(chosenPlayer)
     }
 }
@@ -108,7 +113,11 @@ extension IOSViewModel {
     
     internal func minusBidValue() {
         if verifyBidValueLimit() {
-            playerBidValue -= 1
+            if playerBidValue > 0 {
+                playerBidValue -= 1
+                return
+            }
+            playerBidValue = 0
         }
     }
     

@@ -45,6 +45,7 @@ struct Counter: View {
                 Text("\(timeString)")
                     .bold()
                     .font(.system(size: 146.45))
+                    .foregroundColor(.black)
             }
         }
         .onAppear{

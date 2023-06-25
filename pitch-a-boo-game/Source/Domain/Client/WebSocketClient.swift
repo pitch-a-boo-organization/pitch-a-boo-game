@@ -203,25 +203,27 @@ extension PitchABooSocketClient {
         // Convert CommandCode that was sent as a Integer to CommandCode enum type
         guard let code = CommandCode.ServerMessage(rawValue: message.code) else { return }
         switch code {
-        case .statusAvailability:
-            sendConnectSession(stage: 10, shouldSubscribe: true)
-        case .playerIdentifier:
-            handlePlayerIdentifier(with: message)
-        case .playersConnected:
-            handlePlayersConnected(with: message)
-            
-        // GameFlowReceivers
-        case .chosenPlayer:
-            handleChosenPlayer(with: message)
-        case .startProcess:
-            handleStartProcess(with: message)
-            
-            
-        case .saleResult:
-            //Recomeca ou acaba
-            break
-        default:
-            break
+            case .statusAvailability:
+                sendConnectSession(stage: 10, shouldSubscribe: true)
+                
+            case .playerIdentifier:
+                handlePlayerIdentifier(with: message)
+                
+            case .playersConnected:
+                handlePlayersConnected(with: message)
+                
+            // GameFlowReceivers
+            case .chosenPlayer:
+                handleChosenPlayer(with: message)
+                
+            case .startProcess:
+                handleStartProcess(with: message)
+                
+            case .saleResult:
+                handleSaleResult(with: message)
+                
+            default:
+                print("Caiu default!!")
         }
     }
     
@@ -247,6 +249,7 @@ extension PitchABooSocketClient {
     // apagar
     private func handleChosenPlayer(with message: DTOTransferMessage) {
         do {
+            print("Receiving choosen player")
             let decodedChosenPlayer = try decodeData(DTOChosenPlayer.self, from: message.message)
             let chosenPlayer = ChosenPlayer(player: decodedChosenPlayer.player, sellingItem: decodedChosenPlayer.item)
             iOSDelegate?.saveChosenPlayer(chosenPlayer)
@@ -256,15 +259,20 @@ extension PitchABooSocketClient {
     }
     
     private func handleStartProcess(with message: DTOTransferMessage) {
-        do {
+        do {    
             let decodedStartProcess = try decodeData(DTOStartProcess.self, from: message.message)
             //Avisar ViewModel
-            switch decodedStartProcess.stage {
-            case 33:
-                iOSDelegate?.didUpdateStage(33)
-            default:
-                print("caiu default")
-            }
+            iOSDelegate?.didUpdateStage(decodedStartProcess.stage)
+        } catch {
+            print("\(#function) \(Self.self) cannot be decoded \(error.localizedDescription)")
+        }
+    }
+    
+    private func handleSaleResult(with message: DTOTransferMessage) {
+        do {
+            let decodedSaleResult = try decodeData(DTOSaleResult.self, from: message.message)
+            //Avisar ViewModel
+            iOSDelegate?.didFinishInning(with: decodedSaleResult.result)
         } catch {
             print("\(#function) \(Self.self) cannot be decoded \(error.localizedDescription)")
         }

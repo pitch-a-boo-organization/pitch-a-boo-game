@@ -12,12 +12,11 @@ struct CardItem: View {
     @State var colorCard = "ColorCard"
     @State var colorFont = "ColorCard"
     @State var imageItem = "Pumpkin"
-    @State var nameItem = "Name of item"
     @State var coinImageName = "BoneCoin"
-    @State var numberOfCoins = "5"
     @State private var degrees = 180.0
-
-
+    
+    var nameItem: String
+    var numberOfCoins: Int
 
     var body: some View {
         
@@ -30,7 +29,7 @@ struct CardItem: View {
                 HStack {
                     Spacer()
                     HStack (spacing: 1){
-                        Text(numberOfCoins)
+                        Text("\(numberOfCoins)")
                             .bold()
                             .foregroundColor(.white)
                         Image(coinImageName)
@@ -72,11 +71,5 @@ struct CardItem: View {
 //                }
 //            }
 //        }
-    }
-}
-
-struct CardItem_Previews: PreviewProvider {
-    static var previews: some View {
-        CardItem()
     }
 }

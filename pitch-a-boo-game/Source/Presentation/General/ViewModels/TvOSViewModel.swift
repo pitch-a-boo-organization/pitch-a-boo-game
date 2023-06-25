@@ -8,6 +8,7 @@
 import Foundation
 import PitchABooServer
 import Network
+import Combine
 
 struct DummyConnection: Connection {
     func send(content: Data?, contentContext: NWConnection.ContentContext, isComplete: Bool, completion: NWConnection.SendCompletion) {
@@ -29,14 +30,18 @@ public final class TvOSViewModel: ObservableObject {
     }
     
     @Published var bidPlayersSent: [BidPlayer] = []
+    @Published var inningResult: PitchABooServer.SaleResult?
+    @Published var gameEnded: Bool = false
+    
+    var cancellable: Set<AnyCancellable> = []
     
     func sendMessageToServer(_ message: PitchABooServer.TransferMessage) {
         let dummyConnection = DummyConnection()
         server.router.redirectMessage(message, from: dummyConnection)
     }
     
-    func sendStartPitchStage(_ stage: Int) {
-        print("GOING TO STAGE: \(stage)")
+    func sendStartStage(_ stage: Int) {
+        print("SENDING START STAGE: \(stage)")
         let transferMessage = PitchABooServer.TransferMessage(
             code: CommandCode.ClientMessage.startProcess.rawValue,
             device: .tvOS,
@@ -48,10 +53,23 @@ public final class TvOSViewModel: ObservableObject {
         )
         sendMessageToServer(transferMessage)
     }
+    
+    func updateScore(with saleResult: PitchABooServer.SaleResult) {
+        guard let sellerPlayerIndex = players.firstIndex(where: { $0.id == saleResult.seller.id }) else {
+            return
+        }
+        players[sellerPlayerIndex].bones -= saleResult.item.value
+        players[sellerPlayerIndex].bones += saleResult.soldValue
+        
+        guard let buyerIndex = players.firstIndex(where: { $0.id == saleResult.buyer.id }) else { return }
+        players[buyerIndex].bones -= saleResult.soldValue
+        players[buyerIndex].bones += saleResult.item.value
+    }
 }
 
 extension TvOSViewModel: PitchABooServer.ServerOutputs {
     public func didReceiveBid(bid: Int, from player: PitchABooServer.Player) {
+        print("RECEIVE BID")
         let newBid = BidPlayer(id: player.id, namePlayer: player.name, bidSent: bid)
         DispatchQueue.main.async {
             self.bidPlayersSent.append(newBid)
@@ -63,10 +81,14 @@ extension TvOSViewModel: PitchABooServer.ServerOutputs {
             self?.inningHasStarted = true
             self?.sellingPlayer = player
         }
-        //Define server player
     }
     
     public func inningEnd(players: [PitchABooServer.Player], gameEnded: Bool, result: PitchABooServer.SaleResult) {
+        DispatchQueue.main.async {
+            self.gameEnded = gameEnded
+            self.inningResult = result
+            self.updateScore(with: result)
+        }
         //Define inning end
     }
     

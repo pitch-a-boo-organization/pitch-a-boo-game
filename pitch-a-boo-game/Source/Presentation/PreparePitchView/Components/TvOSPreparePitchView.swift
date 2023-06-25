@@ -15,10 +15,10 @@ struct TvOSPreparePitchView: View {
     
     var body: some View {
             VStack(spacing: 50) {
-                Counter(countdown: 30,
+                Counter(countdown: 15,
                     timersUp: {
                         navigateToView = true
-                        prepareViewModel.sendStartPitchStage(33)
+                        prepareViewModel.sendStartStage(33)
                     }
                 )
                 .navigationDestination(isPresented: $navigateToView) {
