@@ -53,7 +53,7 @@ struct TvOSPitchView: View {
                     }
                 )
                 .navigationDestination(isPresented: $navigateToView) {
-                    ReviewItemView()
+                    TvOSReviewItemView()
                 }
                 Spacer()
                 

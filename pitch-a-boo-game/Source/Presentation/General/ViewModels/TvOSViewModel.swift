@@ -66,7 +66,6 @@ extension TvOSViewModel: PitchABooServer.ServerOutputs {
             self?.inningHasStarted = true
             self?.sellingPlayer = player
         }
-        //Define server player
     }
     
     public func inningEnd(players: [PitchABooServer.Player], gameEnded: Bool, result: PitchABooServer.SaleResult) {

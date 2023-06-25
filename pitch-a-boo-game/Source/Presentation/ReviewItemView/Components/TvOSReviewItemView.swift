@@ -7,13 +7,13 @@
 #if os(tvOS)
 import SwiftUI
 
-struct tvOSReviewItemView: View {
+struct TvOSReviewItemView: View {
+    @EnvironmentObject var tvReviewItemViewModel: TvOSViewModel
     @State private(set) var degrees:Double = 180
     @State var colorCard = "ColorCard"
     @State var backColorCard = "ColorCard"
     @State var alpha:Double = 1
     @State var alpha2:Double = 0
-
 
     var body: some View {
         VStack {
@@ -25,7 +25,8 @@ struct tvOSReviewItemView: View {
             ZStack {
                 NavigationLink(destination: ScoreView(), label: {
                     ZStack {
-                        CardItem().opacity(alpha2)
+                        CardItem()
+                            .opacity(alpha2)
                         RoundedRectangle(cornerRadius: 10)
                             .fill(Color(backColorCard)
                                 .opacity(alpha))
@@ -44,13 +45,6 @@ struct tvOSReviewItemView: View {
                 }
             }
         }
-    }
-}
-
-struct tvOSReviewItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        tvOSReviewItemView()
-            .previewDevice(.init(stringLiteral: "Apple TV 4K"))
     }
 }
 #endif

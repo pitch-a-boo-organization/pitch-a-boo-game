@@ -10,6 +10,7 @@
 		003361F42A3B7CE900570986 /* PitchABooServer in Frameworks */ = {isa = PBXBuildFile; productRef = 003361F32A3B7CE900570986 /* PitchABooServer */; };
 		006643702A476306005C3AA0 /* IOSPitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0066436F2A476306005C3AA0 /* IOSPitchView.swift */; };
 		007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C9DBB2A3A2FC000D242F9 /* ClientError.swift */; };
+		00837C462A47F20700414281 /* IOSReviewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00837C452A47F20700414281 /* IOSReviewItemView.swift */; };
 		00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE85E2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift */; };
 		00CDE8632A39D98400FB1BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CDE8622A39D98400FB1BF5 /* Assets.xcassets */; };
 		00CDE8672A39D98400FB1BF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CDE8662A39D98400FB1BF5 /* Preview Assets.xcassets */; };
@@ -53,10 +54,8 @@
 		DD3E56912A431F3600F5B30F /* TvOSPreparePitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56902A431F3600F5B30F /* TvOSPreparePitchView.swift */; };
 		DD3E56932A4320A000F5B30F /* PlayerScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56922A4320A000F5B30F /* PlayerScore.swift */; };
 		DD3E569B2A43235300F5B30F /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E569A2A43235300F5B30F /* ScoreView.swift */; };
-		DD3E569F2A43237000F5B30F /* ReviewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E569E2A43237000F5B30F /* ReviewItemView.swift */; };
 		DD3E56A12A43237E00F5B30F /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A02A43237E00F5B30F /* ScoreViewModel.swift */; };
-		DD3E56A52A43239600F5B30F /* ReviewItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A42A43239600F5B30F /* ReviewItemViewModel.swift */; };
-		DD3E56A72A4323A700F5B30F /* tvOSReviewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A62A4323A700F5B30F /* tvOSReviewItemView.swift */; };
+		DD3E56A72A4323A700F5B30F /* TvOSReviewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A62A4323A700F5B30F /* TvOSReviewItemView.swift */; };
 		DD3E56A92A4323B600F5B30F /* TvOSPitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A82A4323B600F5B30F /* TvOSPitchView.swift */; };
 		DD3E56AB2A4323C600F5B30F /* tvOSScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56AA2A4323C600F5B30F /* tvOSScoreView.swift */; };
 		DD3E56AF2A43436200F5B30F /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56AE2A43436200F5B30F /* CardItem.swift */; };
@@ -82,6 +81,7 @@
 /* Begin PBXFileReference section */
 		0066436F2A476306005C3AA0 /* IOSPitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSPitchView.swift; sourceTree = "<group>"; };
 		007C9DBB2A3A2FC000D242F9 /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
+		00837C452A47F20700414281 /* IOSReviewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSReviewItemView.swift; sourceTree = "<group>"; };
 		00CDE85B2A39D98300FB1BF5 /* pitch-a-boo-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pitch-a-boo-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00CDE85E2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameApp.swift; sourceTree = "<group>"; };
 		00CDE8622A39D98400FB1BF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,10 +129,8 @@
 		DD3E56902A431F3600F5B30F /* TvOSPreparePitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSPreparePitchView.swift; sourceTree = "<group>"; };
 		DD3E56922A4320A000F5B30F /* PlayerScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerScore.swift; sourceTree = "<group>"; };
 		DD3E569A2A43235300F5B30F /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
-		DD3E569E2A43237000F5B30F /* ReviewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewItemView.swift; sourceTree = "<group>"; };
 		DD3E56A02A43237E00F5B30F /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
-		DD3E56A42A43239600F5B30F /* ReviewItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewItemViewModel.swift; sourceTree = "<group>"; };
-		DD3E56A62A4323A700F5B30F /* tvOSReviewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSReviewItemView.swift; sourceTree = "<group>"; };
+		DD3E56A62A4323A700F5B30F /* TvOSReviewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSReviewItemView.swift; sourceTree = "<group>"; };
 		DD3E56A82A4323B600F5B30F /* TvOSPitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSPitchView.swift; sourceTree = "<group>"; };
 		DD3E56AA2A4323C600F5B30F /* tvOSScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tvOSScoreView.swift; sourceTree = "<group>"; };
 		DD3E56AE2A43436200F5B30F /* CardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItem.swift; sourceTree = "<group>"; };
@@ -425,8 +423,6 @@
 			isa = PBXGroup;
 			children = (
 				DD3E56972A43233200F5B30F /* Components */,
-				DD3E569E2A43237000F5B30F /* ReviewItemView.swift */,
-				DD3E56A42A43239600F5B30F /* ReviewItemViewModel.swift */,
 			);
 			path = ReviewItemView;
 			sourceTree = "<group>";
@@ -444,7 +440,8 @@
 		DD3E56972A43233200F5B30F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DD3E56A62A4323A700F5B30F /* tvOSReviewItemView.swift */,
+				DD3E56A62A4323A700F5B30F /* TvOSReviewItemView.swift */,
+				00837C452A47F20700414281 /* IOSReviewItemView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -612,8 +609,7 @@
 				85F3C5982A41D075003D7C1A /* Persona.swift in Sources */,
 				85F3C5902A41CED2003D7C1A /* DTOChosenPlayer.swift in Sources */,
 				DD3E56832A4259CD00F5B30F /* TvOSEntryScreenView.swift in Sources */,
-				DD3E56A72A4323A700F5B30F /* tvOSReviewItemView.swift in Sources */,
-				DD3E56A52A43239600F5B30F /* ReviewItemViewModel.swift in Sources */,
+				DD3E56A72A4323A700F5B30F /* TvOSReviewItemView.swift in Sources */,
 				85F3C5922A41CEDF003D7C1A /* DTOSaleResult.swift in Sources */,
 				DD3E56AF2A43436200F5B30F /* CardItem.swift in Sources */,
 				85D30C412A4661580031A83B /* IOSPreparePitchView.swift in Sources */,
@@ -630,10 +626,10 @@
 				85A412E82A45C402007B9098 /* IOSViewModel.swift in Sources */,
 				85F3C5942A41D046003D7C1A /* Player.swift in Sources */,
 				00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */,
+				00837C462A47F20700414281 /* IOSReviewItemView.swift in Sources */,
 				DD3E56892A431DBD00F5B30F /* Counter.swift in Sources */,
 				007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */,
 				006643702A476306005C3AA0 /* IOSPitchView.swift in Sources */,
-				DD3E569F2A43237000F5B30F /* ReviewItemView.swift in Sources */,
 				85F3C59A2A41D090003D7C1A /* SaleResult.swift in Sources */,
 				00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */,
 				85F3C5862A41CE77003D7C1A /* DTOConnectSession.swift in Sources */,
