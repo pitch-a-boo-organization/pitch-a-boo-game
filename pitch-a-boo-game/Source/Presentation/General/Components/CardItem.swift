@@ -35,10 +35,11 @@ struct CardItem: View {
                         Image(coinImageName)
                             .resizable()
                             .frame(width: 34.14, height: 32)
-                    }.frame(maxWidth: 59.14, maxHeight: 32)
-                        .padding(10)
+                    }
+                    .frame(maxWidth: 59.14, maxHeight: 32)
+                    .padding(10)
                 }
-                    Text(nameItem)
+                Text(nameItem)
                     .bold()
                     .padding(.horizontal, 30)
                     .foregroundColor(Color(colorFont))
@@ -62,14 +63,6 @@ struct CardItem: View {
             }
 
         }
-        .frame(width: 321.49, height: 523.57)
-//        .rotation3DEffect(.degrees(degrees), axis: (x: 0, y: 1, z: 0))
-//        .onAppear{
-//            withAnimation {
-//                withAnimation(.linear(duration: 5)) {
-//                    degrees = 360
-//                }
-//            }
-//        }
+        .frame(maxWidth: 321.49, maxHeight: 523.57)
     }
 }

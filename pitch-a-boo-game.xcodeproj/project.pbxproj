@@ -58,6 +58,7 @@
 		DD3E56A92A4323B600F5B30F /* TvOSPitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56A82A4323B600F5B30F /* TvOSPitchView.swift */; };
 		DD3E56AB2A4323C600F5B30F /* TvOSScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56AA2A4323C600F5B30F /* TvOSScoreView.swift */; };
 		DD3E56AF2A43436200F5B30F /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56AE2A43436200F5B30F /* CardItem.swift */; };
+		DD3E56E12A48B23D00F5B30F /* BackCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56E02A48B23D00F5B30F /* BackCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,7 @@
 		DD3E56A82A4323B600F5B30F /* TvOSPitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSPitchView.swift; sourceTree = "<group>"; };
 		DD3E56AA2A4323C600F5B30F /* TvOSScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSScoreView.swift; sourceTree = "<group>"; };
 		DD3E56AE2A43436200F5B30F /* CardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItem.swift; sourceTree = "<group>"; };
+		DD3E56E02A48B23D00F5B30F /* BackCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,6 +407,7 @@
 				DD3E568C2A431E9500F5B30F /* EntryPlayers.swift */,
 				DD3E56922A4320A000F5B30F /* PlayerScore.swift */,
 				DD3E56AE2A43436200F5B30F /* CardItem.swift */,
+				DD3E56E02A48B23D00F5B30F /* BackCardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -627,6 +630,7 @@
 				DD3E56892A431DBD00F5B30F /* Counter.swift in Sources */,
 				007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */,
 				006643702A476306005C3AA0 /* IOSPitchView.swift in Sources */,
+				DD3E56E12A48B23D00F5B30F /* BackCardView.swift in Sources */,
 				85F3C59A2A41D090003D7C1A /* SaleResult.swift in Sources */,
 				00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */,
 				85F3C5862A41CE77003D7C1A /* DTOConnectSession.swift in Sources */,

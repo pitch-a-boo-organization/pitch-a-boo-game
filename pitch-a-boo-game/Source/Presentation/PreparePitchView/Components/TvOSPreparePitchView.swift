@@ -14,12 +14,19 @@ struct TvOSPreparePitchView: View {
     @State var navigateToView = false
     
     var body: some View {
+        ZStack {
+            Image("GhostBackground")
+                .resizable()
+                .scaledToFill()
+                .background(Color("PitchBackground"))
+                .ignoresSafeArea(.all)
+
             VStack(spacing: 50) {
                 Counter(countdown: 15,
-                    timersUp: {
-                        navigateToView = true
-                        prepareViewModel.sendStartStage(33)
-                    }
+                        timersUp: {
+                    navigateToView = true
+                    prepareViewModel.sendStartStage(33)
+                }
                 )
                 .navigationDestination(isPresented: $navigateToView) {
                     TvOSPitchView()
@@ -31,6 +38,7 @@ struct TvOSPreparePitchView: View {
                 }
                 Spacer()
             }
+        }
     }
 }
 #endif
