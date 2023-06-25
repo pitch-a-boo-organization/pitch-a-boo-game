@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Logo-Pitch-A-Boo.png",
+      "idiom" : "tv"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
