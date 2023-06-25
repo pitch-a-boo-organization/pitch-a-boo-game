@@ -18,8 +18,23 @@ struct IOSReviewItemView: View {
             .bold()
             .multilineTextAlignment(.center)
             .navigationDestination(isPresented: $goToScoreView) {
-                EmptyView()
+                IOSScoreView()
             }
+            .onAppear {
+                bindViewModel()
+            }
+    }
+    
+    func bindViewModel() {
+        iOSReviewItemViewModel.$currentStage.sink { value in
+            if value == 35 {
+                goToScoreView = true
+            }
+            iOSReviewItemViewModel.cancellable.forEach { cancelable in
+                cancelable.cancel()
+            }
+        }
+        .store(in: &iOSReviewItemViewModel.cancellable)
     }
 }
 #endif

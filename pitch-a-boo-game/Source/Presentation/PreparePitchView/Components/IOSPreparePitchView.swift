@@ -39,8 +39,12 @@ struct IOSPreparePitchView: View {
     
     func bindViewModel() {
         prepareViewModel.$currentStage.sink { value in
-            print("RECEIVE VALUE: \(value)")
-            goToPitchView = (value == 33)
+            if value == 33 {
+                goToPitchView = true
+            }
+            prepareViewModel.cancellable.forEach { cancelable in
+                cancelable.cancel()
+            }
         }
         .store(in: &prepareViewModel.cancellable)
     }

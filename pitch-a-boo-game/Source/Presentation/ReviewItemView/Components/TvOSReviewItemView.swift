@@ -52,7 +52,7 @@ struct TvOSReviewItemView: View {
             }
         }
         .navigationDestination(isPresented: $goToScoreView) {
-            tvOSScoreView()
+            TvOSScoreView()
         }
     }
 }

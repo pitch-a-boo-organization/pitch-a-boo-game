@@ -69,7 +69,13 @@ struct IOSPitchView: View {
     
     func bindViewModel() {
         iosPitchViewModel.$currentStage.sink { value in
-            goToReviewItemView = (value == 34)
+            if value == 34 {
+                if !bidSended && !iosPitchViewModel.amIChosen { iosPitchViewModel.sendBid() }
+                goToReviewItemView = true
+            }
+            iosPitchViewModel.cancellable.forEach { cancelable in
+                cancelable.cancel()
+            }
         }
         .store(in: &iosPitchViewModel.cancellable)
     }

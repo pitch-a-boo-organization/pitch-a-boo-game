@@ -30,6 +30,8 @@ public final class TvOSViewModel: ObservableObject {
     }
     
     @Published var bidPlayersSent: [BidPlayer] = []
+    @Published var inningResult: PitchABooServer.SaleResult?
+    @Published var gameEnded: Bool = false
     
     var cancellable: Set<AnyCancellable> = []
     
@@ -39,6 +41,7 @@ public final class TvOSViewModel: ObservableObject {
     }
     
     func sendStartStage(_ stage: Int) {
+        print("SENDING START STAGE: \(stage)")
         let transferMessage = PitchABooServer.TransferMessage(
             code: CommandCode.ClientMessage.startProcess.rawValue,
             device: .tvOS,
@@ -49,6 +52,18 @@ public final class TvOSViewModel: ObservableObject {
             )
         )
         sendMessageToServer(transferMessage)
+    }
+    
+    func updateScore(with saleResult: PitchABooServer.SaleResult) {
+        guard let sellerPlayerIndex = players.firstIndex(where: { $0.id == saleResult.seller.id }) else {
+            return
+        }
+        players[sellerPlayerIndex].bones -= saleResult.item.value
+        players[sellerPlayerIndex].bones += saleResult.soldValue
+        
+        guard let buyerIndex = players.firstIndex(where: { $0.id == saleResult.buyer.id }) else { return }
+        players[buyerIndex].bones -= saleResult.soldValue
+        players[buyerIndex].bones += saleResult.item.value
     }
 }
 
@@ -69,6 +84,11 @@ extension TvOSViewModel: PitchABooServer.ServerOutputs {
     }
     
     public func inningEnd(players: [PitchABooServer.Player], gameEnded: Bool, result: PitchABooServer.SaleResult) {
+        DispatchQueue.main.async {
+            self.gameEnded = gameEnded
+            self.inningResult = result
+            self.updateScore(with: result)
+        }
         //Define inning end
     }
     

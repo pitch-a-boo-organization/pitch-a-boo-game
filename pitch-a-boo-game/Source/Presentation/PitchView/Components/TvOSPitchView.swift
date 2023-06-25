@@ -46,7 +46,7 @@ struct TvOSPitchView: View {
             
             
             VStack(spacing: 50) {
-                Counter(countdown: 60,
+                Counter(countdown: 30,
                     timersUp: {
                         navigateToView = true
                         pitchViewModel.sendStartStage(34)

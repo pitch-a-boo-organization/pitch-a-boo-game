@@ -5,16 +5,18 @@
 //  Created by Cicero Nascimento on 21/06/23.
 //
 
+#if os(tvOS)
 import SwiftUI
+import PitchABooServer
 
 struct PlayerScore: View {
-    let name = "Zumbi"
     let imageCoin = "BoneCoin"
     let tombstone = "whiteTombstone"
-    let numberOfCoins = "5"
+    let player: PitchABooServer.Player
+    
     var body: some View {
         VStack {
-            Text("\(name)")
+            Text(player.name)
                 .font(.title3)
             Image(tombstone)
                 .resizable()
@@ -23,16 +25,11 @@ struct PlayerScore: View {
                 Image(imageCoin)
                     .resizable()
                     .frame(width: 58.25, height: 53.67)
-                Text(numberOfCoins)
+                Text("\(player.bones)")
                     .bold()
                     .font(.title3)
             }
         }
     }
 }
-
-struct PlayerScore_Previews: PreviewProvider {
-    static var previews: some View {
-        PlayerScore()
-    }
-}
+#endif
