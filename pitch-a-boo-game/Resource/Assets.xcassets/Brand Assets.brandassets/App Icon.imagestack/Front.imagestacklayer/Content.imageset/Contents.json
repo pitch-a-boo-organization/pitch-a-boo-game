@@ -1,0 +1,18 @@
+{
+  "images" : [
+    {
+      "filename" : "Logo-Pitch-A-Boo (1).png",
+      "idiom" : "tv",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Logo-Pitch-A-Boo (5).png",
+      "idiom" : "tv",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
