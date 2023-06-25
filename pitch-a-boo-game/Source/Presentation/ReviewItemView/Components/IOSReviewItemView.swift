@@ -29,9 +29,9 @@ struct IOSReviewItemView: View {
         iOSReviewItemViewModel.$currentStage.sink { value in
             if value == 35 {
                 goToScoreView = true
-            }
-            iOSReviewItemViewModel.cancellable.forEach { cancelable in
-                cancelable.cancel()
+                iOSReviewItemViewModel.cancellable.forEach { cancelable in
+                    cancelable.cancel()
+                }
             }
         }
         .store(in: &iOSReviewItemViewModel.cancellable)

@@ -29,7 +29,6 @@ struct IOSScoreView: View {
         iosScoreView.$currentStage.sink { value in
             if value == 31 {
                 startNewRound = true
-                iosScoreView.resetToNewRound()
                 iosScoreView.cancellable.forEach { cancelable in
                     cancelable.cancel()
                 }
