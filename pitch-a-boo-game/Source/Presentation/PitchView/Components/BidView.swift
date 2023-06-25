@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct BidView: View {
-    @EnvironmentObject var bidViewModel: IOSViewModel
+    var bidValue: Int
+    var plusTapped: (() -> Void)?
+    var minusTapped: (() -> Void)?
+    var sendBidTapped: (() -> Void)?
     
     var body: some View {
         VStack(spacing: 100) {
-            Text("\(bidViewModel.playerBidValue)")
+            Text("\(bidValue)")
               .font(
                 Font.custom("SF Pro", size: 96)
                   .weight(.semibold)
@@ -23,7 +26,7 @@ struct BidView: View {
             
             HStack(spacing: 30) {
                 Button {
-                    bidViewModel.plusBidValue()
+                    minusTapped?()
                 } label: {
                     Image(systemName: "minus")
                         .foregroundColor(.white)
@@ -32,8 +35,9 @@ struct BidView: View {
                         .background(Color("ColorCard"))
                         .clipShape(Circle())
                 }
+                
                 Button {
-                    bidViewModel.minusBidValue()
+                    plusTapped?()
                 } label: {
                     Image(systemName: "plus")
                         .foregroundColor(.white)
@@ -45,7 +49,7 @@ struct BidView: View {
             }
             
             Button {
-                bidViewModel.sendBid()
+                sendBidTapped?()
             } label: {
                 Text("Send Bid")
                     .foregroundColor(.white)

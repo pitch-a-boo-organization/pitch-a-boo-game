@@ -30,7 +30,7 @@ struct TvOSEntryScreenView: View {
                         if entryViewModel.isMatchReady {
                             VStack {
                                 Button {
-                                    entryViewModel.sendStartPitchStage(31)
+                                    entryViewModel.sendStartStage(31)
                                 } label: {
                                     ZStack {
                                         Rectangle()

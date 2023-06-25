@@ -108,7 +108,11 @@ extension IOSViewModel {
     
     internal func minusBidValue() {
         if verifyBidValueLimit() {
-            playerBidValue -= 1
+            if playerBidValue > 0 {
+                playerBidValue -= 1
+                return
+            }
+            playerBidValue = 0
         }
     }
     

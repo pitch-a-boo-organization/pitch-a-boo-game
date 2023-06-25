@@ -18,7 +18,7 @@ struct TvOSPreparePitchView: View {
                 Counter(countdown: 30,
                     timersUp: {
                         navigateToView = true
-                        prepareViewModel.sendStartPitchStage(33)
+                        prepareViewModel.sendStartStage(33)
                     }
                 )
                 .navigationDestination(isPresented: $navigateToView) {
