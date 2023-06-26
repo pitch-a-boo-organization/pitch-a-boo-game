@@ -13,6 +13,7 @@ struct IOSPreparePitchView: View {
     @State private var goToPitchView: Bool = false
     
     var body: some View {
+        
         Group {
             if prepareViewModel.amIChosen {
                 VStack {

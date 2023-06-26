@@ -13,17 +13,26 @@ struct IOSReviewItemView: View {
     @State var goToScoreView: Bool = false
 
     var body: some View {
-        Text("Item are being reveal on TV!")
-            .font(.title2)
-            .bold()
-            .multilineTextAlignment(.center)
-            .navigationDestination(isPresented: $goToScoreView) {
-                IOSScoreView()
-            }
-            .navigationBarBackButtonHidden(true)
-            .onAppear {
-                bindViewModel()
-            }
+        ZStack{
+
+            Image("GhostBackground")
+                .resizable()
+                .scaledToFill()
+                .background(Color("ReviewItemBackground"))
+                .ignoresSafeArea(.all)
+            
+            Text("Item are being reveal on TV!")
+                .font(.title2)
+                .bold()
+                .multilineTextAlignment(.center)
+                .navigationDestination(isPresented: $goToScoreView) {
+                    IOSScoreView()
+                }
+                .navigationBarBackButtonHidden(true)
+                .onAppear {
+                    bindViewModel()
+                }
+        }
     }
     
     func bindViewModel() {
