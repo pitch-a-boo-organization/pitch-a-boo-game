@@ -1082,7 +1082,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pitch-a-boo-organization/pitch-a-boo-server";
 			requirement = {
-				branch = feat/pause_session;
+				branch = main;
 				kind = branch;
 			};
 		};
