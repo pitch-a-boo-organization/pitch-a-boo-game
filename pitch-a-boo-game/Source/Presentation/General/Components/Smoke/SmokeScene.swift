@@ -49,7 +49,7 @@ class SmokeScene: SKScene {
             node.particleLifetime = CGFloat(100)
 
             // Define a posição inicial no ponto específico (por exemplo, x: 100, y: 200)
-            let startPoint = CGPoint(x: -20, y: 0)
+            let startPoint = CGPoint(x: -40, y: 20)
             node.position = startPoint
 
             // Define a faixa de posição para que as partículas se concentrem em torno do ponto inicial
@@ -57,7 +57,7 @@ class SmokeScene: SKScene {
 
             node.particlePositionRange = positionRange
             node.emissionAngle = 0
-//            node.emissionAngleRange =  .pi / 22
+            node.emissionAngleRange =  .pi / 6
 
             node.particleAlpha = 0.4
             node.particleAlphaRange = 180.3
@@ -68,7 +68,7 @@ class SmokeScene: SKScene {
             node.particleScaleRange = 0.3
             node.particleScaleSpeed = 0.5
 
-            node.particleSpeed = config.velocityValue
+            node.particleSpeed = 100
             node.particleSpeedRange = 40
             node.particleColor = contentElement.color ?? .black
             node.particleColorBlendFactor = 1

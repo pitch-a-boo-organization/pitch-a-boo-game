@@ -30,7 +30,7 @@ struct TvOSEntryScreenView: View {
                 SmokeView(
                     config: SmokeConfig(
                         content: [
-                            .image(UIImage(imageLiteralResourceName: "spark"), .init(white: 0.8, alpha: 0.2), 2)
+                            .image(UIImage(imageLiteralResourceName: "spark"), .init(white: 1, alpha: 0.2), 2)
 
 //                            .shape(.triangle, .white, 10.0),
 //                            .shape(.square, .white, 10.0),
