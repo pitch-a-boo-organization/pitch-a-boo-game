@@ -34,18 +34,46 @@ struct IOSEntryScreenView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 10) {
-                Image("Logo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(height: 100)
-                    .padding(.bottom, 100)
-                
-                if !(entryViewModel.localUser.name == "Undefined") {
-                    Text("Your player: \(entryViewModel.localUser.name)")
+                if (entryViewModel.localUser.name == "Undefined") {
+                    Image("Logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 100)
+                        .padding(.bottom, 100)
                 }
                 
                 if entryViewModel.localUser.name != "Undefined" {
+
+                        Text("You are a\n")
+                            .font(.title2)
+                            .bold()
+                        Text("\(entryViewModel.localUser.persona.name)")
+                            .padding(.top, -40)
+                            .font(.title)
+                            .bold()
+                            .foregroundColor(.red)
+
+                        Image("\(entryViewModel.localUser.persona.name)")
+                            .resizable()
+                            .frame(width: 258.7, height: 293)
+                            .scaledToFit()
+                    VStack(alignment: .leading) {
+
+                        Text("Your name is: \(entryViewModel.localUser.name)")
+                            .bold()
+                        HStack(spacing: 1) {
+                            Text("You have: ")
+                                .bold()
+                            Image("BoneCoin")
+                                .resizable()
+                                .frame(width: 19, height: 19)
+                                .scaledToFit()
+                            Text("\(entryViewModel.localUser.bones) bones to use")
+                                .bold()
+                        }
+                    }
                     Text("You are connected!")
+                        .font(.caption)
                 } else {
                     Button {
                         self.isPresentingScanner = true

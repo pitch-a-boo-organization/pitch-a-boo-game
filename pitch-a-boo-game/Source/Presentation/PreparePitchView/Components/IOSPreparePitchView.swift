@@ -27,9 +27,36 @@ struct IOSPreparePitchView: View {
                         .padding(.bottom, 20)
                 }
             } else {
-                Text("Look for TV!")
-                    .font(.title2)
-                    .bold()
+                VStack {
+                    HStack {
+                        Spacer()
+                        Image("BoneCoin")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
+                        Text("\(prepareViewModel.localUser.bones)")
+                            .bold()
+                            .font(.title)
+                    }
+                    .padding(30)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .fill(Color("ColorCard"))
+                            .frame(width: 321.49, height: 523.57)
+                        Text("Look for TV!")
+                            .foregroundColor(.white)
+                            .font(.title2)
+                            .bold()
+                    }
+                    HStack(spacing: 1) {
+                        Text("You are a: ")
+                            .font(.title)
+                        Text("\(prepareViewModel.localUser.persona.name)")
+                            .font(.title)
+                            .bold()
+                            .foregroundColor(.red)
+                    }
+                }
             }
         }
         .navigationDestination(isPresented: $goToPitchView) {
