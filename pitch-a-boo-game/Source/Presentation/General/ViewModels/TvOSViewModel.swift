@@ -10,7 +10,16 @@ import PitchABooServer
 import Network
 import Combine
 
-struct DummyConnection: Connection {
+class DummyConnection: Connection {
+    var stateUpdateHandler: ((NWConnection.State) -> Void)?
+    
+    func receiveMessage(completion: @escaping (Data?, NWConnection.ContentContext?, Bool, NWError?) -> Void) {
+            
+    }
+    
+    func start(queue: DispatchQueue) {
+        
+    }
     func send(content: Data?, contentContext: NWConnection.ContentContext, isComplete: Bool, completion: NWConnection.SendCompletion) {
         
     }

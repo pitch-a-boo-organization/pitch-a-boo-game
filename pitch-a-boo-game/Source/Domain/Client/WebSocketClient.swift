@@ -11,6 +11,7 @@ import Network
 final class PitchABooSocketClient: NSObject {
     private var baseURL = ""
     private(set) var opened = false
+    private(set) var pause = false
     private(set) var webSocket: URLSessionWebSocketTask?
     static let shared = PitchABooSocketClient()
     
@@ -27,18 +28,16 @@ final class PitchABooSocketClient: NSObject {
         guard let webSocket = webSocket else { return }
         
         webSocket.receive(completionHandler: { [weak self] result in
-            print(result)
             switch result {
-            case .failure(_):
-                self?.iOSDelegate?.errorWhileSubscribingInService(.failWhenReceiveMessage)
-                self?.opened = false
-                return
-            case .success(let message):
-                self?.decodeServerMessage(message)
-            }
+                case .failure(_):
+                    self?.iOSDelegate?.errorWhileSubscribingInService(.failWhenReceiveMessage)
+                    self?.opened = false
+                    return
+                case .success(let message):
+                    self?.decodeServerMessage(message)
+                }
             self?.subscribeToService()
-        }
-        )
+        })
     }
     
     private func openWebSocket() {
@@ -56,27 +55,60 @@ final class PitchABooSocketClient: NSObject {
     
     private func decodeServerMessage(_ serverMessage: URLSessionWebSocketTask.Message) {
         switch serverMessage {
-            
-        case .string:
-            break
-        case .data(let data):
-//            print("Message: \(try! JSONSerialization.jsonObject(with: data))" )
-            do {
-                let message = try JSONDecoder().decode(DTOTransferMessage.self, from: data)
-                print(message.device)
-                handleMessageFromServer(message)
-            } catch {
-                iOSDelegate?.errorWhileSubscribingInService(.unableToEncode)
-            }
+            case .string:
+                break
+            case .data(let data):
+                do {
+                    let message = try JSONDecoder().decode(DTOTransferMessage.self, from: data)
+                    print(message.device)
+                    handleMessageFromServer(message)
+                } catch {
+                    iOSDelegate?.errorWhileSubscribingInService(.unableToEncode)
+                }
         default:
             break
         }
     }
     
     func closeSocket() {
-        webSocket?.cancel(with: .goingAway, reason: nil)
         opened = false
         webSocket = nil
+    }
+    
+    func resumeSession(to player: Player) {
+        if pause {
+            subscribeToService()
+            print("RESUME SESSION OF PLAYER: \(player.name)")
+            let resumeMessage = DTOTransferMessage(
+                code: CommandCode.ClientMessage.resumeSession.rawValue,
+                device: .iOS,
+                message: try! JSONEncoder().encode(
+                    DTOPauseSession(
+                        stage: 11,
+                        player: player
+                    )
+                )
+            )
+            sendMessageToServer(webSocket: webSocket, message: resumeMessage)
+        }
+    }
+    
+    func pauseSessionMessage(with player: Player) {
+        if !pause {
+            pause = true
+            print("PAUSE SESSION OF PLAYER: \(player.name)")
+            let pauseMessage = DTOTransferMessage(
+                code: CommandCode.ClientMessage.pauseSession.rawValue,
+                device: .iOS,
+                message: try! JSONEncoder().encode(
+                    DTOPauseSession(
+                        stage: CommandCode.ClientMessage.pauseSession.rawValue,
+                        player: player
+                    )
+                )
+            )
+            sendMessageToServer(webSocket: webSocket, message: pauseMessage)
+        }
     }
 }
 
@@ -206,8 +238,8 @@ extension PitchABooSocketClient {
         guard let code = CommandCode.ServerMessage(rawValue: message.code) else { return }
         switch code {
             case .statusAvailability:
-                sendConnectSession(stage: 10, shouldSubscribe: true)
-                
+                if !pause { sendConnectSession(stage: 10, shouldSubscribe: true) }
+                pause = false
             case .playerIdentifier:
                 handlePlayerIdentifier(with: message)
                 
