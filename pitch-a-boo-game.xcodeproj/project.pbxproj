@@ -70,6 +70,7 @@
 		DD3E56F42A48E9A500F5B30F /* SmokeContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56F32A48E9A500F5B30F /* SmokeContainerView.swift */; };
 		DD3E56F62A48E9BA00F5B30F /* SmokeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56F52A48E9BA00F5B30F /* SmokeScene.swift */; };
 		DD3E56F82A48EA5200F5B30F /* SmokeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56F72A48EA5200F5B30F /* SmokeView.swift */; };
+		DDD41F1A2A4A0D21004746D4 /* iOSNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD41F192A4A0D21004746D4 /* iOSNavBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +157,7 @@
 		DD3E56F32A48E9A500F5B30F /* SmokeContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeContainerView.swift; sourceTree = "<group>"; };
 		DD3E56F52A48E9BA00F5B30F /* SmokeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeScene.swift; sourceTree = "<group>"; };
 		DD3E56F72A48EA5200F5B30F /* SmokeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeView.swift; sourceTree = "<group>"; };
+		DDD41F192A4A0D21004746D4 /* iOSNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSNavBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -433,6 +435,7 @@
 				DD3E56E02A48B23D00F5B30F /* BackCardView.swift */,
 				DD3E56E22A48B54C00F5B30F /* CardBids.swift */,
 				DD3E56E42A48B56700F5B30F /* BidPlayers.swift */,
+				DDD41F192A4A0D21004746D4 /* iOSNavBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				DD3E56832A4259CD00F5B30F /* TvOSEntryScreenView.swift in Sources */,
 				DD3E56A72A4323A700F5B30F /* TvOSReviewItemView.swift in Sources */,
 				85F3C5922A41CEDF003D7C1A /* DTOSaleResult.swift in Sources */,
+				DDD41F1A2A4A0D21004746D4 /* iOSNavBar.swift in Sources */,
 				DD3E56AF2A43436200F5B30F /* CardItem.swift in Sources */,
 				DD3E56EE2A48E95100F5B30F /* InitialVelocity.swift in Sources */,
 				85D30C412A4661580031A83B /* IOSPreparePitchView.swift in Sources */,
