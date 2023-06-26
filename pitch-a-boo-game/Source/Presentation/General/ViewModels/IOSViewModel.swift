@@ -15,6 +15,7 @@ class IOSViewModel: ObservableObject {
     @Published private(set) var connected: Bool = false
     @Published private(set) var receiveFromServer: String = ""
     @Published private(set) var scannedCode: String = "Scan the TV QR code to get started."
+    @Published private(set) var errorInSubscriving: Bool = false
     
     // MARK: - Gameflow Properties
     @Published private(set) var localUser: Player = Player.createAnUndefinedPlayer()
@@ -87,6 +88,9 @@ extension IOSViewModel: IOSDelegate {
     
     func errorWhileSubscribingInService(_ error: ClientError) {
         print("Error in subscribing: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            self.errorInSubscriving = true
+        }
     }
     
     func saveLocalPlayerIdentifier(_ player: Player) {

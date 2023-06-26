@@ -31,6 +31,8 @@ final class PitchABooSocketClient: NSObject {
             switch result {
             case .failure(_):
                 self?.iOSDelegate?.errorWhileSubscribingInService(.failWhenReceiveMessage)
+                self?.opened = false
+                return
             case .success(let message):
                 self?.decodeServerMessage(message)
             }
