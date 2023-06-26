@@ -113,6 +113,8 @@ struct TvOSEntryScreenView: View {
 
                     VStack {
                         PlayersGrid(players: entryViewModel.players)
+
+
                     }
                     Spacer()
                 }

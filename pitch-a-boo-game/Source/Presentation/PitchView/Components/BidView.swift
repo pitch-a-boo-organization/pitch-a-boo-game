@@ -21,7 +21,6 @@ struct BidView: View {
                   .weight(.semibold)
               )
               .multilineTextAlignment(.center)
-              .foregroundColor(.black)
               .frame(width: 62, height: 67, alignment: .center)
             
             HStack(spacing: 30) {

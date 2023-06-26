@@ -59,7 +59,8 @@ struct IOSEntryScreenView: View {
                                 .padding(.top, -40)
                                 .font(.title)
                                 .bold()
-                                .foregroundColor(.red)
+                                .foregroundColor(.white)
+                                .shadow(radius: 10)
 
                             Image("\(entryViewModel.localUser.persona.name)")
                                 .resizable()
@@ -126,8 +127,8 @@ struct IOSEntryScreenView: View {
                                 }
                             }.navigationTitle("Used Package Credits")
                         }) {
-                            Label("", systemImage: "info.circle")
-                                .foregroundColor(Color(.systemRed))
+                            Label("", systemImage: "info.circle.fill")
+                                .foregroundColor(.white)
                         }
                     }
 
@@ -183,8 +184,8 @@ struct IOSEntryScreenView: View {
                                 }
                             }.navigationTitle("How to play?")
                         }) {
-                            Label("", systemImage: "gamecontroller")
-                                .foregroundColor(Color(.systemRed))
+                            Label("", systemImage: "gamecontroller.fill")
+                                .foregroundColor(.white)
                         }
                     }
 
