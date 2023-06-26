@@ -13,6 +13,7 @@ struct IOSEntryScreenView: View {
     @EnvironmentObject var entryViewModel: IOSViewModel
     @State var isPresentingScanner = false
     @State var serverHostname: String = "thiagos-mac.local"
+    @State var showConnectionError: Bool = false
     
     var scannerSheet: some View {
         CodeScannerView(
@@ -62,11 +63,16 @@ struct IOSEntryScreenView: View {
                     }
                     .sheet(isPresented: $isPresentingScanner) {
                         self.scannerSheet
+                    }.alert("Failed to connect, please try again", isPresented: $showConnectionError) {
+                        
                     }
                 }
                 
                 
             
+            }
+            .onAppear {
+                bindConnectionError()
             }
             .navigationDestination(isPresented: $entryViewModel.matchIsReady) {
                 IOSPreparePitchView()
@@ -92,6 +98,14 @@ struct IOSEntryScreenView: View {
         }
         .navigationBarBackButtonHidden(true)
         
+    }
+    
+    func bindConnectionError() {
+        entryViewModel.$errorInSubscriving.sink { error in
+            if error == true {
+                self.showConnectionError = true
+            }
+        }.store(in: &entryViewModel.cancellable)
     }
 }
 
