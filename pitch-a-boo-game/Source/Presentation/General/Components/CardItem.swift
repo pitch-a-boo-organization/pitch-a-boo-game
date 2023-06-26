@@ -57,10 +57,16 @@ struct CardItem: View {
                             .scaledToFit()
                     }
                     .frame(width: 235.76, height: 235.75)
-                Spacer()
+//                Spacer()
                 HStack {
-
-                }
+                    Spacer()
+                    Image("Abobora")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 239.41, height: 228.73)
+                        .offset(x: 80, y: 50)
+                        .clipped()
+                }.padding(.top, -110)
             }
 
         }

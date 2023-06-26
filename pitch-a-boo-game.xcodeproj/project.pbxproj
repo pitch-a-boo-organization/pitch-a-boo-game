@@ -61,6 +61,15 @@
 		DD3E56E12A48B23D00F5B30F /* BackCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56E02A48B23D00F5B30F /* BackCardView.swift */; };
 		DD3E56E32A48B54C00F5B30F /* CardBids.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56E22A48B54C00F5B30F /* CardBids.swift */; };
 		DD3E56E52A48B56700F5B30F /* BidPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56E42A48B56700F5B30F /* BidPlayers.swift */; };
+		DD3E56E82A48E90F00F5B30F /* SmokeConfig+DefaultValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56E72A48E90F00F5B30F /* SmokeConfig+DefaultValues.swift */; };
+		DD3E56EA2A48E92600F5B30F /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56E92A48E92600F5B30F /* Content.swift */; };
+		DD3E56EC2A48E93900F5B30F /* Intensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56EB2A48E93900F5B30F /* Intensity.swift */; };
+		DD3E56EE2A48E95100F5B30F /* InitialVelocity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56ED2A48E95100F5B30F /* InitialVelocity.swift */; };
+		DD3E56F02A48E96700F5B30F /* BaseConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56EF2A48E96700F5B30F /* BaseConfig.swift */; };
+		DD3E56F22A48E97B00F5B30F /* SmokeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56F12A48E97B00F5B30F /* SmokeConfig.swift */; };
+		DD3E56F42A48E9A500F5B30F /* SmokeContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56F32A48E9A500F5B30F /* SmokeContainerView.swift */; };
+		DD3E56F62A48E9BA00F5B30F /* SmokeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56F52A48E9BA00F5B30F /* SmokeScene.swift */; };
+		DD3E56F82A48EA5200F5B30F /* SmokeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3E56F72A48EA5200F5B30F /* SmokeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +147,15 @@
 		DD3E56E02A48B23D00F5B30F /* BackCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackCardView.swift; sourceTree = "<group>"; };
 		DD3E56E22A48B54C00F5B30F /* CardBids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBids.swift; sourceTree = "<group>"; };
 		DD3E56E42A48B56700F5B30F /* BidPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidPlayers.swift; sourceTree = "<group>"; };
+		DD3E56E72A48E90F00F5B30F /* SmokeConfig+DefaultValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SmokeConfig+DefaultValues.swift"; sourceTree = "<group>"; };
+		DD3E56E92A48E92600F5B30F /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		DD3E56EB2A48E93900F5B30F /* Intensity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intensity.swift; sourceTree = "<group>"; };
+		DD3E56ED2A48E95100F5B30F /* InitialVelocity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialVelocity.swift; sourceTree = "<group>"; };
+		DD3E56EF2A48E96700F5B30F /* BaseConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseConfig.swift; sourceTree = "<group>"; };
+		DD3E56F12A48E97B00F5B30F /* SmokeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeConfig.swift; sourceTree = "<group>"; };
+		DD3E56F32A48E9A500F5B30F /* SmokeContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeContainerView.swift; sourceTree = "<group>"; };
+		DD3E56F52A48E9BA00F5B30F /* SmokeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeScene.swift; sourceTree = "<group>"; };
+		DD3E56F72A48EA5200F5B30F /* SmokeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -406,6 +424,7 @@
 		DD3E56872A431D5D00F5B30F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				DD3E56E62A48E8B200F5B30F /* Smoke */,
 				DD3E56882A431DBD00F5B30F /* Counter.swift */,
 				DD3E568A2A431E3A00F5B30F /* PlayersGrid.swift */,
 				DD3E568C2A431E9500F5B30F /* EntryPlayers.swift */,
@@ -468,6 +487,22 @@
 				008073872A4888CE008A12FB /* IOSScoreView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		DD3E56E62A48E8B200F5B30F /* Smoke */ = {
+			isa = PBXGroup;
+			children = (
+				DD3E56E72A48E90F00F5B30F /* SmokeConfig+DefaultValues.swift */,
+				DD3E56E92A48E92600F5B30F /* Content.swift */,
+				DD3E56EB2A48E93900F5B30F /* Intensity.swift */,
+				DD3E56ED2A48E95100F5B30F /* InitialVelocity.swift */,
+				DD3E56EF2A48E96700F5B30F /* BaseConfig.swift */,
+				DD3E56F12A48E97B00F5B30F /* SmokeConfig.swift */,
+				DD3E56F32A48E9A500F5B30F /* SmokeContainerView.swift */,
+				DD3E56F52A48E9BA00F5B30F /* SmokeScene.swift */,
+				DD3E56F72A48EA5200F5B30F /* SmokeView.swift */,
+			);
+			path = Smoke;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -609,8 +644,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				85F3C5A32A41E759003D7C1A /* WebSocketError.swift in Sources */,
+				DD3E56EC2A48E93900F5B30F /* Intensity.swift in Sources */,
 				85F3C5882A41CE85003D7C1A /* DTOConnectStatus.swift in Sources */,
 				85F3C5842A41CE69003D7C1A /* DTOStatusAvailability.swift in Sources */,
+				DD3E56F82A48EA5200F5B30F /* SmokeView.swift in Sources */,
 				85F3C59C2A41E5D6003D7C1A /* DTOTransferMessage.swift in Sources */,
 				85F3C5982A41D075003D7C1A /* Persona.swift in Sources */,
 				85F3C5902A41CED2003D7C1A /* DTOChosenPlayer.swift in Sources */,
@@ -618,10 +655,12 @@
 				DD3E56A72A4323A700F5B30F /* TvOSReviewItemView.swift in Sources */,
 				85F3C5922A41CEDF003D7C1A /* DTOSaleResult.swift in Sources */,
 				DD3E56AF2A43436200F5B30F /* CardItem.swift in Sources */,
+				DD3E56EE2A48E95100F5B30F /* InitialVelocity.swift in Sources */,
 				85D30C412A4661580031A83B /* IOSPreparePitchView.swift in Sources */,
 				DD3E56AB2A4323C600F5B30F /* TvOSScoreView.swift in Sources */,
 				DD3E56E52A48B56700F5B30F /* BidPlayers.swift in Sources */,
 				85A412E62A45C3F5007B9098 /* TvOSViewModel.swift in Sources */,
+				DD3E56F42A48E9A500F5B30F /* SmokeContainerView.swift in Sources */,
 				DD3E568B2A431E3A00F5B30F /* PlayersGrid.swift in Sources */,
 				85F3C5962A41D055003D7C1A /* Item.swift in Sources */,
 				85EA4FC62A43203000637B6F /* DTOPlayerIdentifier.swift in Sources */,
@@ -631,6 +670,7 @@
 				008073882A4888CE008A12FB /* IOSScoreView.swift in Sources */,
 				DD3E56912A431F3600F5B30F /* TvOSPreparePitchView.swift in Sources */,
 				85A412E82A45C402007B9098 /* IOSViewModel.swift in Sources */,
+				DD3E56EA2A48E92600F5B30F /* Content.swift in Sources */,
 				85F3C5942A41D046003D7C1A /* Player.swift in Sources */,
 				00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */,
 				00837C462A47F20700414281 /* IOSReviewItemView.swift in Sources */,
@@ -649,12 +689,16 @@
 				DD3E568D2A431E9500F5B30F /* EntryPlayers.swift in Sources */,
 				85F3C58C2A41CEAF003D7C1A /* DTOBid.swift in Sources */,
 				DD3E567F2A42562900F5B30F /* EntryScreenView.swift in Sources */,
+				DD3E56F22A48E97B00F5B30F /* SmokeConfig.swift in Sources */,
+				DD3E56F02A48E96700F5B30F /* BaseConfig.swift in Sources */,
 				DD3E56A92A4323B600F5B30F /* TvOSPitchView.swift in Sources */,
 				85F3C59E2A41E634003D7C1A /* CommandCode.swift in Sources */,
 				85F3C58A2A41CE98003D7C1A /* DTOStartProcess.swift in Sources */,
 				85A412F12A45DB9B007B9098 /* IOSEntryScreenView.swift in Sources */,
+				DD3E56F62A48E9BA00F5B30F /* SmokeScene.swift in Sources */,
 				8558FD9E2A477E2600B3FD26 /* BidPlayer.swift in Sources */,
 				8558FD9C2A4774B000B3FD26 /* BidView.swift in Sources */,
+				DD3E56E82A48E90F00F5B30F /* SmokeConfig+DefaultValues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
