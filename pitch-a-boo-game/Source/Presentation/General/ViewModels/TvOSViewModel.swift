@@ -58,14 +58,28 @@ public final class TvOSViewModel: ObservableObject {
         guard let sellerPlayerIndex = players.firstIndex(where: { $0.id == saleResult.seller.id }) else {
             return
         }
+        
+        
         players[sellerPlayerIndex].bones -= saleResult.item.value
         players[sellerPlayerIndex].bones += saleResult.soldValue
+        
+        if rewardBonustoSeller(item: saleResult.item, buyer: saleResult.seller) == true {
+            players[sellerPlayerIndex].bones += 2
+        }
         
         guard let buyerIndex = players.firstIndex(where: { $0.id == saleResult.buyer.id }) else { return }
         players[buyerIndex].bones -= saleResult.soldValue
         players[buyerIndex].bones += saleResult.item.value
     }
-
+    
+    func rewardBonustoSeller(item: PitchABooServer.Item, buyer: PitchABooServer.Player) -> Bool {
+        for characteristic in buyer.persona.characteristics
+        where item.characteristic == characteristic {
+            return true
+        }
+        return false
+    }
+    
     func cleanBidArray() {
         bidPlayersSent = []
     }

@@ -19,20 +19,18 @@ struct Player: Codable, Hashable, Equatable {
         hasher.combine(name)
         hasher.combine(bones)
         hasher.combine(sellingItem)
-        hasher.combine(persona)
     }
     
     static func ==(lhs: Player, rhs: Player) -> Bool {
         return lhs.id == rhs.id &&
             lhs.name == rhs.name &&
             lhs.bones == rhs.bones &&
-            lhs.sellingItem == rhs.sellingItem &&
-            lhs.persona == rhs.persona
+            lhs.sellingItem == rhs.sellingItem
     }
 }
 
 extension Player {
     static func createAnUndefinedPlayer() -> Player {
-        Player(id: 0, name: "Undefined", bones: 0, sellingItem: Item(id: 0, name: "None", value: 0), persona: Persona(id: 0, name: "None", characteristics: ["Unknown"]))
+        Player(id: 0, name: "Undefined", bones: 0, sellingItem: Item(id: 0, name: "None", value: 0, characteristic: .athletic), persona: Persona(id: 0, name: "None", characteristics: [.dumb]))
     }
 }

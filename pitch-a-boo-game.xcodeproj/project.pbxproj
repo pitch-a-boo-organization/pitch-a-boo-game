@@ -27,6 +27,8 @@
 		85A412E82A45C402007B9098 /* IOSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412E72A45C402007B9098 /* IOSViewModel.swift */; };
 		85A412EB2A45C5A0007B9098 /* IOSDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412EA2A45C5A0007B9098 /* IOSDelegate.swift */; };
 		85A412F12A45DB9B007B9098 /* IOSEntryScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412F02A45DB9B007B9098 /* IOSEntryScreenView.swift */; };
+		85A632CA2A4A25DA007D047A /* Characteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A632C92A4A25DA007D047A /* Characteristic.swift */; };
+		85A632CC2A4A31AE007D047A /* TvOSViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A632CB2A4A31AE007D047A /* TvOSViewModelTests.swift */; };
 		85D30C412A4661580031A83B /* IOSPreparePitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D30C402A4661580031A83B /* IOSPreparePitchView.swift */; };
 		85EA4FC62A43203000637B6F /* DTOPlayerIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */; };
 		85EA4FC82A43969600637B6F /* ChosenPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA4FC72A43969600637B6F /* ChosenPlayer.swift */; };
@@ -114,6 +116,8 @@
 		85A412E72A45C402007B9098 /* IOSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSViewModel.swift; sourceTree = "<group>"; };
 		85A412EA2A45C5A0007B9098 /* IOSDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSDelegate.swift; sourceTree = "<group>"; };
 		85A412F02A45DB9B007B9098 /* IOSEntryScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSEntryScreenView.swift; sourceTree = "<group>"; };
+		85A632C92A4A25DA007D047A /* Characteristic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characteristic.swift; sourceTree = "<group>"; };
+		85A632CB2A4A31AE007D047A /* TvOSViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSViewModelTests.swift; sourceTree = "<group>"; };
 		85C639342A4265DE001AE223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		85D30C402A4661580031A83B /* IOSPreparePitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSPreparePitchView.swift; sourceTree = "<group>"; };
 		85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOPlayerIdentifier.swift; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				00CDE8702A39D98400FB1BF5 /* pitch_a_boo_gameTests.swift */,
+				85A632CB2A4A31AE007D047A /* TvOSViewModelTests.swift */,
 			);
 			path = "pitch-a-boo-gameTests";
 			sourceTree = "<group>";
@@ -360,6 +365,7 @@
 				85F3C59D2A41E634003D7C1A /* CommandCode.swift */,
 				85F3C59F2A41E6C8003D7C1A /* TransferMessage.swift */,
 				8558FD9D2A477E2600B3FD26 /* BidPlayer.swift */,
+				85A632C92A4A25DA007D047A /* Characteristic.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -667,6 +673,7 @@
 				DD3E56AB2A4323C600F5B30F /* TvOSScoreView.swift in Sources */,
 				DD3E56E52A48B56700F5B30F /* BidPlayers.swift in Sources */,
 				85A412E62A45C3F5007B9098 /* TvOSViewModel.swift in Sources */,
+				85A632CA2A4A25DA007D047A /* Characteristic.swift in Sources */,
 				DD3E56F42A48E9A500F5B30F /* SmokeContainerView.swift in Sources */,
 				DD3E568B2A431E3A00F5B30F /* PlayersGrid.swift in Sources */,
 				85F3C5962A41D055003D7C1A /* Item.swift in Sources */,
@@ -714,6 +721,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85A632CC2A4A31AE007D047A /* TvOSViewModelTests.swift in Sources */,
 				00CDE8712A39D98400FB1BF5 /* pitch_a_boo_gameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -863,7 +871,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.31;
 				DEVELOPMENT_ASSET_PATHS = "\"pitch-a-boo-game/Preview Content\"";
-				DEVELOPMENT_TEAM = 685GVH2XJC;
+				DEVELOPMENT_TEAM = F2MBMJ3PK6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -910,7 +918,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.31;
 				DEVELOPMENT_ASSET_PATHS = "\"pitch-a-boo-game/Preview Content\"";
-				DEVELOPMENT_TEAM = 685GVH2XJC;
+				DEVELOPMENT_TEAM = F2MBMJ3PK6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -953,7 +961,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 685GVH2XJC;
+				DEVELOPMENT_TEAM = F2MBMJ3PK6;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -976,7 +984,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 685GVH2XJC;
+				DEVELOPMENT_TEAM = F2MBMJ3PK6;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -998,7 +1006,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 685GVH2XJC;
+				DEVELOPMENT_TEAM = F2MBMJ3PK6;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -1020,7 +1028,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 685GVH2XJC;
+				DEVELOPMENT_TEAM = F2MBMJ3PK6;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -1082,7 +1090,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pitch-a-boo-organization/pitch-a-boo-server";
 			requirement = {
-				branch = "refactor/new-names";
+				branch = main;
 				kind = branch;
 			};
 		};

@@ -22,7 +22,8 @@ extension ChosenPlayer {
                 sellingItem: Item(
                     id: 0,
                     name: "none",
-                    value: 0
+                    value: 0,
+                    characteristic: .athletic
                 ),
                 persona: Persona(
                     id: 0,
@@ -30,7 +31,7 @@ extension ChosenPlayer {
                     characteristics: []
                 )
             ),
-            sellingItem: Item(id: 0, name: "unselected", value: 0)
+            sellingItem: Item(id: 0, name: "unselected", value: 0, characteristic: .athletic)
         )
     }
 }
