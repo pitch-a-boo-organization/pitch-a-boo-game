@@ -20,6 +20,7 @@ struct IOSReviewItemView: View {
             .navigationDestination(isPresented: $goToScoreView) {
                 IOSScoreView()
             }
+            .navigationBarBackButtonHidden(true)
             .onAppear {
                 bindViewModel()
             }
