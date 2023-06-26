@@ -13,17 +13,26 @@ struct IOSScoreView: View {
     @State var startNewRound = false
     
     var body: some View {
-        Text("Check your score on tv!")
-            .font(.title2)
-            .bold()
-            .multilineTextAlignment(.center)
-            .navigationDestination(isPresented: $startNewRound) {
-                IOSPreparePitchView()
-            }
-            .navigationBarBackButtonHidden(true)
-            .onAppear {
-               bindViewModel()
-            }
+        ZStack{
+
+            Image("GhostBackground")
+                .resizable()
+                .scaledToFill()
+                .background(Color("ScoreBackground"))
+                .ignoresSafeArea(.all)
+
+            Text("Check your score on tv!")
+                .font(.title2)
+                .bold()
+                .multilineTextAlignment(.center)
+                .navigationDestination(isPresented: $startNewRound) {
+                    IOSPreparePitchView()
+                }
+                .navigationBarBackButtonHidden(true)
+                .onAppear {
+                   bindViewModel()
+                }
+        }
     }
     
     func bindViewModel() {
