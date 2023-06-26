@@ -17,6 +17,7 @@ struct PlayerScore: View {
     var body: some View {
         VStack {
             Text(player.name)
+                .foregroundColor(.black)
                 .font(.title3)
             Image(tombstone)
                 .resizable()
@@ -27,6 +28,7 @@ struct PlayerScore: View {
                     .frame(width: 58.25, height: 53.67)
                 Text("\(player.bones)")
                     .bold()
+                    .foregroundColor(.black)
                     .font(.title3)
             }
         }

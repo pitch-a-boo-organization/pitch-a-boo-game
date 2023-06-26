@@ -22,8 +22,9 @@ struct IOSPreparePitchView: View {
                         .padding(26)
                     Text("Prepare Pitch...")
                         .padding(8)
-                    Text("Item: \(prepareViewModel.chosenPlayer.sellingItem.name)")
-                    Text("Value: \(prepareViewModel.chosenPlayer.sellingItem.value)")
+                    CardItem(nameItem: prepareViewModel.chosenPlayer.sellingItem.name , numberOfCoins: prepareViewModel.chosenPlayer.sellingItem.value
+                    ).scaledToFit()
+                        .padding(.bottom, 20)
                 }
             } else {
                 Text("Look for TV!")

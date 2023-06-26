@@ -27,6 +27,7 @@ struct TvOSScoreView: View {
                 if showGameEnded {
                     Text("Game Ended!")
                         .font(.title2)
+                        .foregroundColor(.black)
                         .bold()
                         .multilineTextAlignment(.center)
                         .padding(12)
