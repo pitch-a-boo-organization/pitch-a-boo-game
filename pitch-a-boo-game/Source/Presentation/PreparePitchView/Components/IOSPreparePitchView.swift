@@ -35,6 +35,7 @@ struct IOSPreparePitchView: View {
         .navigationDestination(isPresented: $goToPitchView) {
             IOSPitchView()
         }
+        .navigationBarBackButtonHidden(true)
         .onAppear { bindViewModel() }
     }
     

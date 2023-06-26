@@ -46,6 +46,7 @@ struct IOSPitchView: View {
             }
         }
         .onAppear { bindViewModel() }
+        .navigationBarBackButtonHidden(true)
         .navigationDestination(isPresented: $goToReviewItemView) {
             IOSReviewItemView()
         }

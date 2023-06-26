@@ -90,6 +90,7 @@ struct IOSEntryScreenView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden(true)
         
     }
 }

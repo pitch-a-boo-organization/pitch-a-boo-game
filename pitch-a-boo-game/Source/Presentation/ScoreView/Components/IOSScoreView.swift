@@ -20,6 +20,7 @@ struct IOSScoreView: View {
             .navigationDestination(isPresented: $startNewRound) {
                 IOSPreparePitchView()
             }
+            .navigationBarBackButtonHidden(true)
             .onAppear {
                bindViewModel()
             }
