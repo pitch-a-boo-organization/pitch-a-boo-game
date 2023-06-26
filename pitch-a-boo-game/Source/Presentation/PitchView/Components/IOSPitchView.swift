@@ -22,6 +22,7 @@ struct IOSPitchView: View {
                     .bold()
                     .multilineTextAlignment(.center)
             } else {
+                
                 VStack {
                     if !bidSended {
                         Text("Pay attention in presentation of player: \(iosPitchViewModel.chosenPlayer.player.name) \n Feel free to bid any value during the player's presentation")
