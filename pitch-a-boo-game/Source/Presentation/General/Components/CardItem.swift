@@ -53,8 +53,8 @@ struct CardItem: View {
                     .overlay {
                         Image(nameItem)
                             .resizable()
-                            .frame(maxWidth: 150 ,maxHeight: 160)
                             .scaledToFit()
+                            .frame(maxWidth: 150 ,maxHeight: 160)
                     }
                     .frame(width: 235.76, height: 235.75)
 //                Spacer()

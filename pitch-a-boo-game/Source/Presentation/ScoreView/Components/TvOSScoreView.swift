@@ -31,10 +31,18 @@ struct TvOSScoreView: View {
                         .bold()
                         .multilineTextAlignment(.center)
                         .padding(12)
-                }
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                    ForEach(tvScoreViewModel.players, id: \.id) { player in
-                        PlayerScore(player: player)
+
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
+                        ForEach(tvScoreViewModel.players, id: \.id) { player in
+                            PersonaScore(player: player)
+                        }
+                    }
+                } else {
+
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
+                        ForEach(tvScoreViewModel.players, id: \.id) { player in
+                            PlayerScore(player: player)
+                        }
                     }
                 }
             }
