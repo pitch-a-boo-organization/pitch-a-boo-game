@@ -12,6 +12,8 @@
 		007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C9DBB2A3A2FC000D242F9 /* ClientError.swift */; };
 		008073882A4888CE008A12FB /* IOSScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008073872A4888CE008A12FB /* IOSScoreView.swift */; };
 		00837C462A47F20700414281 /* IOSReviewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00837C452A47F20700414281 /* IOSReviewItemView.swift */; };
+		008C57DE2A49EFCD002CC070 /* ApplicationSceneHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C57DD2A49EFCD002CC070 /* ApplicationSceneHandler.swift */; };
+		008C57E02A4A0D0B002CC070 /* DTOPauseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C57DF2A4A0D0B002CC070 /* DTOPauseSession.swift */; };
 		00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE85E2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift */; };
 		00CDE8632A39D98400FB1BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CDE8622A39D98400FB1BF5 /* Assets.xcassets */; };
 		00CDE8672A39D98400FB1BF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CDE8662A39D98400FB1BF5 /* Preview Assets.xcassets */; };
@@ -98,6 +100,8 @@
 		007C9DBB2A3A2FC000D242F9 /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
 		008073872A4888CE008A12FB /* IOSScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSScoreView.swift; sourceTree = "<group>"; };
 		00837C452A47F20700414281 /* IOSReviewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSReviewItemView.swift; sourceTree = "<group>"; };
+		008C57DD2A49EFCD002CC070 /* ApplicationSceneHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSceneHandler.swift; sourceTree = "<group>"; };
+		008C57DF2A4A0D0B002CC070 /* DTOPauseSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOPauseSession.swift; sourceTree = "<group>"; };
 		00CDE85B2A39D98300FB1BF5 /* pitch-a-boo-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pitch-a-boo-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00CDE85E2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameApp.swift; sourceTree = "<group>"; };
 		00CDE8622A39D98400FB1BF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -283,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				00CDE85E2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift */,
+				008C57DD2A49EFCD002CC070 /* ApplicationSceneHandler.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 				85F3C5912A41CEDF003D7C1A /* DTOSaleResult.swift */,
 				85F3C59B2A41E5D6003D7C1A /* DTOTransferMessage.swift */,
 				85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */,
+				008C57DF2A4A0D0B002CC070 /* DTOPauseSession.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -662,6 +668,7 @@
 				DD3E56F82A48EA5200F5B30F /* SmokeView.swift in Sources */,
 				85F3C59C2A41E5D6003D7C1A /* DTOTransferMessage.swift in Sources */,
 				85F3C5982A41D075003D7C1A /* Persona.swift in Sources */,
+				008C57E02A4A0D0B002CC070 /* DTOPauseSession.swift in Sources */,
 				85F3C5902A41CED2003D7C1A /* DTOChosenPlayer.swift in Sources */,
 				DD3E56832A4259CD00F5B30F /* TvOSEntryScreenView.swift in Sources */,
 				DD3E56A72A4323A700F5B30F /* TvOSReviewItemView.swift in Sources */,
@@ -678,6 +685,7 @@
 				DD3E568B2A431E3A00F5B30F /* PlayersGrid.swift in Sources */,
 				85F3C5962A41D055003D7C1A /* Item.swift in Sources */,
 				85EA4FC62A43203000637B6F /* DTOPlayerIdentifier.swift in Sources */,
+				008C57DE2A49EFCD002CC070 /* ApplicationSceneHandler.swift in Sources */,
 				00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */,
 				DD3E56932A4320A000F5B30F /* PlayerScore.swift in Sources */,
 				85EA4FC82A43969600637B6F /* ChosenPlayer.swift in Sources */,
