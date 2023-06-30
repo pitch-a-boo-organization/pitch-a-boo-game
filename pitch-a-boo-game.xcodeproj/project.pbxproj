@@ -14,6 +14,7 @@
 		00837C462A47F20700414281 /* IOSReviewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00837C452A47F20700414281 /* IOSReviewItemView.swift */; };
 		008C57DE2A49EFCD002CC070 /* ApplicationSceneHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C57DD2A49EFCD002CC070 /* ApplicationSceneHandler.swift */; };
 		008C57E02A4A0D0B002CC070 /* DTOPauseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008C57DF2A4A0D0B002CC070 /* DTOPauseSession.swift */; };
+		00B84DA12A4E730900CF81AF /* DTOUpdatePlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B84DA02A4E730900CF81AF /* DTOUpdatePlayers.swift */; };
 		00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE85E2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift */; };
 		00CDE8632A39D98400FB1BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CDE8622A39D98400FB1BF5 /* Assets.xcassets */; };
 		00CDE8672A39D98400FB1BF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00CDE8662A39D98400FB1BF5 /* Preview Assets.xcassets */; };
@@ -102,6 +103,7 @@
 		00837C452A47F20700414281 /* IOSReviewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSReviewItemView.swift; sourceTree = "<group>"; };
 		008C57DD2A49EFCD002CC070 /* ApplicationSceneHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSceneHandler.swift; sourceTree = "<group>"; };
 		008C57DF2A4A0D0B002CC070 /* DTOPauseSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOPauseSession.swift; sourceTree = "<group>"; };
+		00B84DA02A4E730900CF81AF /* DTOUpdatePlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DTOUpdatePlayers.swift; sourceTree = "<group>"; };
 		00CDE85B2A39D98300FB1BF5 /* pitch-a-boo-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pitch-a-boo-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00CDE85E2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameApp.swift; sourceTree = "<group>"; };
 		00CDE8622A39D98400FB1BF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 				85F3C59B2A41E5D6003D7C1A /* DTOTransferMessage.swift */,
 				85EA4FC52A43203000637B6F /* DTOPlayerIdentifier.swift */,
 				008C57DF2A4A0D0B002CC070 /* DTOPauseSession.swift */,
+				00B84DA02A4E730900CF81AF /* DTOUpdatePlayers.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -722,6 +725,7 @@
 				8558FD9E2A477E2600B3FD26 /* BidPlayer.swift in Sources */,
 				8558FD9C2A4774B000B3FD26 /* BidView.swift in Sources */,
 				DD3E56E82A48E90F00F5B30F /* SmokeConfig+DefaultValues.swift in Sources */,
+				00B84DA12A4E730900CF81AF /* DTOUpdatePlayers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1098,7 +1102,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pitch-a-boo-organization/pitch-a-boo-server";
 			requirement = {
-				branch = main;
+				branch = feat/updating_local_user;
 				kind = branch;
 			};
 		};

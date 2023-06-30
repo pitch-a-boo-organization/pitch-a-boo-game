@@ -38,7 +38,7 @@ class IOSViewModel: ObservableObject {
     }
     
     let client = PitchABooSocketClient.shared
-    
+
     public func setScannedCode(with code: String) {
         scannedCode = code
     }
@@ -94,6 +94,7 @@ extension IOSViewModel: IOSDelegate {
     }
     
     func saveLocalPlayerIdentifier(_ player: Player) {
+        print("Setting local player... \(player.bones)")
         setLocalPlayer(player)
     }
     

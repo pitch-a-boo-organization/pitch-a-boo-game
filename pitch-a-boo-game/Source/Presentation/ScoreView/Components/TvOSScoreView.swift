@@ -54,6 +54,7 @@ struct TvOSScoreView: View {
             tvScoreViewModel.cleanBidArray()
             DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                 showGameEnded = tvScoreViewModel.gameEnded
+                tvScoreViewModel.updatePlayers()
                 if !tvScoreViewModel.gameEnded {
                     tvScoreViewModel.sendStartStage(31)
                     startNewRound = true
