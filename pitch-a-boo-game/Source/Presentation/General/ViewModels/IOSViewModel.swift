@@ -50,12 +50,10 @@ class IOSViewModel: ObservableObject, IOSViewModelProtocol {
     }
     
     internal func setChosenPlayer(_ chosenPlayer: ChosenPlayer) {
-        print("NEW CHOOSEN PLAYER: \(chosenPlayer)")
         DispatchQueue.main.async {
             self.chosenPlayer = chosenPlayer
             self.matchIsReady = true
             if chosenPlayer.player.id == self.localUser.id {
-                print("AM I CHOOSEN!")
                 self.amIChosen = true
             }
         }
@@ -68,39 +66,36 @@ class IOSViewModel: ObservableObject, IOSViewModelProtocol {
 }
 
 extension IOSViewModel: PitchABooClientOutput {
-    func didFinishInning(with result: SaleResult) {
-        
-    }
+    func errorWhileSendindMessageToServer(_ error: ClientError) { }
+    
+    func errorWhileReceivingMessageFromServer(_ error: ClientError) { }
+    
+    func didFinishInning(with result: SaleResult) { }
     
     func didUpdateStage(_ stage: Int) {
-        print("Did update stage: \(stage)")
         DispatchQueue.main.async {
             self.currentStage = stage
         }
     }
     
     func didConnectSuccessFully() {
-        print("Connected")
         DispatchQueue.main.async {
             self.connected = true
         }
     }
     
     func errorWhileSubscribingInService(_ error: ClientError) {
-        print("Error in subscribing: \(error.localizedDescription)")
         DispatchQueue.main.async {
             self.errorInSubscriving = true
         }
     }
     
     func saveLocalPlayerIdentifier(_ player: Player) {
-        print("Setting local player... \(player.bones)")
         setLocalPlayer(player)
     }
     
     
     func saveChosenPlayer(_ chosenPlayer: ChosenPlayer) {
-        print("Receiving a new choosen player")
         resetToNewRound()
         setChosenPlayer(chosenPlayer)
     }

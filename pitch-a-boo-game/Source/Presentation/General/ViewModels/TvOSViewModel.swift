@@ -66,7 +66,6 @@ public final class TvOSViewModel: ObservableObject {
     }
     
     func sendStartStage(_ stage: Int) {
-        print("SENDING START STAGE: \(stage)")
         let transferMessage = PitchABooServer.TransferMessage(
             code: CommandCode.ClientMessage.startProcess.rawValue,
             device: .tvOS,
@@ -127,7 +126,6 @@ public final class TvOSViewModel: ObservableObject {
 
 extension TvOSViewModel: PitchABooServer.ServerOutputs {
     public func didReceiveBid(bid: Int, from player: PitchABooServer.Player) {
-        print("RECEIVE BID")
         let newBid = BidPlayer(id: player.id, namePlayer: player.name, bidSent: bid)
         DispatchQueue.main.async {
             self.bidPlayersSent.append(newBid)
@@ -147,7 +145,6 @@ extension TvOSViewModel: PitchABooServer.ServerOutputs {
             self.inningResult = result
             self.updateScore(with: result)
         }
-        //Define inning end
     }
     
     public func didConectPlayer(players: [PitchABooServer.Player]) {

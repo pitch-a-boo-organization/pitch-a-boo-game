@@ -14,4 +14,6 @@ protocol PitchABooClientOutput: AnyObject {
     func saveChosenPlayer(_ chosenPlayer: ChosenPlayer)
     func didUpdateStage(_ stage: Int)
     func didFinishInning(with result: SaleResult)
+    func errorWhileSendindMessageToServer(_ error: ClientError)
+    func errorWhileReceivingMessageFromServer(_ error: ClientError)
 }

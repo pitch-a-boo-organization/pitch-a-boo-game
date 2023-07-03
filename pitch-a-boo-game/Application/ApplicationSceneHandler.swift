@@ -16,13 +16,11 @@ class ApplicationSceneHandler {
         if let vm = viewModel {
             switch scene {
             case .background:
-                print("BACKGROUND")
                 client.pauseSessionMessage(with: vm.localUser)
                 client.closeSocket()
             case .inactive:
-                print("INACTIVE")
+                break
             case .active:
-                print("ACTIVE")
                 client.resumeSession(to: vm.localUser)
             @unknown default:
                 break

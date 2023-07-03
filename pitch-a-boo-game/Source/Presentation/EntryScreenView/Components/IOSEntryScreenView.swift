@@ -20,12 +20,12 @@ struct IOSEntryScreenView: View {
             codeTypes: [.qr],
             completion: { response in
                 switch response {
-                case .success(let result):
-                    entryViewModel.setScannedCode(with: result.string)
-                    self.isPresentingScanner = false
-                    entryViewModel.subscribeToService()
-                case .failure(let error):
-                    print(error.localizedDescription)
+                    case .success(let result):
+                        entryViewModel.setScannedCode(with: result.string)
+                        self.isPresentingScanner = false
+                        entryViewModel.subscribeToService()
+                    case .failure(let error):
+                        print(error.localizedDescription)
                 }
             }
         )

@@ -69,9 +69,7 @@ struct IOSPreparePitchView: View {
     
     func bindViewModel() {
         prepareViewModel.$currentStage.sink { value in
-            print("RECEIVING NEW VALUE: \(value)")
             if value == 33 {
-                print("INSIDE IF")
                 goToPitchView = true
                 prepareViewModel.cancellable.forEach { cancelable in
                     cancelable.cancel()
