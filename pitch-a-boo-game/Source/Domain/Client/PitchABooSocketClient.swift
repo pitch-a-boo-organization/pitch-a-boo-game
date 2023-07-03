@@ -8,14 +8,13 @@
 import Foundation
 import Network
 
-final class PitchABooSocketClient: NSObject {
+final class PitchABooSocketClient: NSObject, PitchABooClient {
     private var baseURL = ""
     private(set) var opened = false
     private(set) var pause = false
     private(set) var webSocket: URLSessionWebSocketTask?
     static let shared = PitchABooSocketClient()
-    
-    weak var iOSDelegate: IOSDelegate?
+    weak var output: PitchABooClientOutput?
     
     func defineServerURL(hostname: String) {
         self.baseURL = "ws://\(hostname):8080"
@@ -30,7 +29,7 @@ final class PitchABooSocketClient: NSObject {
         webSocket.receive(completionHandler: { [weak self] result in
             switch result {
                 case .failure(_):
-                    self?.iOSDelegate?.errorWhileSubscribingInService(.failWhenReceiveMessage)
+                    self?.output?.errorWhileSubscribingInService(.failWhenReceiveMessage)
                     self?.opened = false
                     return
                 case .success(let message):
@@ -63,7 +62,7 @@ final class PitchABooSocketClient: NSObject {
                     print(message.device)
                     handleMessageFromServer(message)
                 } catch {
-                    iOSDelegate?.errorWhileSubscribingInService(.unableToEncode)
+                    output?.errorWhileSubscribingInService(.unableToEncode)
                 }
         default:
             break
@@ -203,7 +202,7 @@ extension PitchABooSocketClient {
         }
     }
     
-    func sendABidToServer(_ dtoBid: DTOBid) {
+    func sendBid(_ dtoBid: DTOBid) {
         let dto = DTOBid(
             stage: dtoBid.stage,
             bid: dtoBid.bid,
@@ -264,7 +263,7 @@ extension PitchABooSocketClient {
     private func handlePlayerIdentifier(with message: DTOTransferMessage) {
         do {
             let decodedLocalPlayer = try decodeData(DTOPlayerIdentifier.self, from: message.message)
-            iOSDelegate?.saveLocalPlayerIdentifier(decodedLocalPlayer.player)
+            output?.saveLocalPlayerIdentifier(decodedLocalPlayer.player)
         } catch {
             print("PitchABooSocketClient - localPlayer cannot be decoded \(error.localizedDescription)")
         }
@@ -286,7 +285,7 @@ extension PitchABooSocketClient {
             print("Receiving choosen player")
             let decodedChosenPlayer = try decodeData(DTOChosenPlayer.self, from: message.message)
             let chosenPlayer = ChosenPlayer(player: decodedChosenPlayer.player, sellingItem: decodedChosenPlayer.item)
-            iOSDelegate?.saveChosenPlayer(chosenPlayer)
+            output?.saveChosenPlayer(chosenPlayer)
         } catch {
             print(print("PitchABooSocketClient - chosenPlayer cannot be decoded \(error.localizedDescription)"))
         }
@@ -296,7 +295,7 @@ extension PitchABooSocketClient {
         do {    
             let decodedStartProcess = try decodeData(DTOStartProcess.self, from: message.message)
             //Avisar ViewModel
-            iOSDelegate?.didUpdateStage(decodedStartProcess.stage)
+            output?.didUpdateStage(decodedStartProcess.stage)
         } catch {
             print("\(#function) \(Self.self) cannot be decoded \(error.localizedDescription)")
         }
@@ -306,7 +305,7 @@ extension PitchABooSocketClient {
         do {
             let decodedSaleResult = try decodeData(DTOSaleResult.self, from: message.message)
             //Avisar ViewModel
-            iOSDelegate?.didFinishInning(with: decodedSaleResult.result)
+            output?.didFinishInning(with: decodedSaleResult.result)
         } catch {
             print("\(#function) \(Self.self) cannot be decoded \(error.localizedDescription)")
         }

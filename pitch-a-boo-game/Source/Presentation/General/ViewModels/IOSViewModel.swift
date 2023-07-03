@@ -9,8 +9,8 @@ import Foundation
 import Combine
 import PitchABooServer
 
-class IOSViewModel: ObservableObject {
-    
+class IOSViewModel: ObservableObject, IOSViewModelProtocol {
+    var client: PitchABooClient
     // MARK: - Connection Properties
     @Published private(set) var connected: Bool = false
     @Published private(set) var receiveFromServer: String = ""
@@ -30,14 +30,14 @@ class IOSViewModel: ObservableObject {
     // MARK: -General Properties
     var cancellable: Set<AnyCancellable> = []
     
+    init(client: PitchABooClient) { self.client = client }
+    
     func resetToNewRound() {
         DispatchQueue.main.async {
             self.amIChosen = false
             self.chosenPlayer = ChosenPlayer.createAnUndefinedChosenPlayer()
         }
     }
-    
-    let client = PitchABooSocketClient.shared
 
     public func setScannedCode(with code: String) {
         scannedCode = code
@@ -67,7 +67,7 @@ class IOSViewModel: ObservableObject {
     }
 }
 
-extension IOSViewModel: IOSDelegate {
+extension IOSViewModel: PitchABooClientOutput {
     func didFinishInning(with result: SaleResult) {
         
     }
@@ -110,7 +110,7 @@ extension IOSViewModel: IOSDelegate {
 extension IOSViewModel {
     public func sendBid() {
         let dto = DTOBid(stage: 33, bid: playerBidValue, player: localUser)
-        client.sendABidToServer(dto)
+        client.sendBid(dto)
     }
     
     internal func plusBidValue() {

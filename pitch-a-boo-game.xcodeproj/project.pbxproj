@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		003361F42A3B7CE900570986 /* PitchABooServer in Frameworks */ = {isa = PBXBuildFile; productRef = 003361F32A3B7CE900570986 /* PitchABooServer */; };
+		00644EF72A532F5700CFAD11 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00644EF62A532F5700CFAD11 /* Client.swift */; };
+		00644EFE2A53331D00CFAD11 /* IOSViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00644EFD2A53331D00CFAD11 /* IOSViewModelProtocol.swift */; };
+		00644F002A53339E00CFAD11 /* ClientOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00644EFF2A53339E00CFAD11 /* ClientOutput.swift */; };
 		006643702A476306005C3AA0 /* IOSPitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0066436F2A476306005C3AA0 /* IOSPitchView.swift */; };
 		007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C9DBB2A3A2FC000D242F9 /* ClientError.swift */; };
 		008073882A4888CE008A12FB /* IOSScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008073872A4888CE008A12FB /* IOSScoreView.swift */; };
@@ -22,13 +25,12 @@
 		00CDE87B2A39D98400FB1BF5 /* pitch_a_boo_gameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE87A2A39D98400FB1BF5 /* pitch_a_boo_gameUITests.swift */; };
 		00CDE87D2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE87C2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift */; };
 		00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE8942A3A046900FB1BF5 /* MessageType.swift */; };
-		00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */; };
+		00CDE8A02A3A06D700FB1BF5 /* PitchABooSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE89F2A3A06D700FB1BF5 /* PitchABooSocketClient.swift */; };
 		8558FD9C2A4774B000B3FD26 /* BidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558FD9B2A4774B000B3FD26 /* BidView.swift */; };
 		8558FD9E2A477E2600B3FD26 /* BidPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558FD9D2A477E2600B3FD26 /* BidPlayer.swift */; };
 		85A1EE182A40EE4D0003DDB3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; platformFilters = (ios, macos, ); productRef = 85A1EE172A40EE4D0003DDB3 /* CodeScanner */; };
 		85A412E62A45C3F5007B9098 /* TvOSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */; };
 		85A412E82A45C402007B9098 /* IOSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412E72A45C402007B9098 /* IOSViewModel.swift */; };
-		85A412EB2A45C5A0007B9098 /* IOSDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412EA2A45C5A0007B9098 /* IOSDelegate.swift */; };
 		85A412F12A45DB9B007B9098 /* IOSEntryScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A412F02A45DB9B007B9098 /* IOSEntryScreenView.swift */; };
 		85A632CA2A4A25DA007D047A /* Characteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A632C92A4A25DA007D047A /* Characteristic.swift */; };
 		85A632CC2A4A31AE007D047A /* TvOSViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A632CB2A4A31AE007D047A /* TvOSViewModelTests.swift */; };
@@ -97,6 +99,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00644EF62A532F5700CFAD11 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		00644EFD2A53331D00CFAD11 /* IOSViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSViewModelProtocol.swift; sourceTree = "<group>"; };
+		00644EFF2A53339E00CFAD11 /* ClientOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientOutput.swift; sourceTree = "<group>"; };
 		0066436F2A476306005C3AA0 /* IOSPitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSPitchView.swift; sourceTree = "<group>"; };
 		007C9DBB2A3A2FC000D242F9 /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
 		008073872A4888CE008A12FB /* IOSScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSScoreView.swift; sourceTree = "<group>"; };
@@ -115,12 +120,11 @@
 		00CDE87A2A39D98400FB1BF5 /* pitch_a_boo_gameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameUITests.swift; sourceTree = "<group>"; };
 		00CDE87C2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pitch_a_boo_gameUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		00CDE8942A3A046900FB1BF5 /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageType.swift; sourceTree = "<group>"; };
-		00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketClient.swift; sourceTree = "<group>"; };
+		00CDE89F2A3A06D700FB1BF5 /* PitchABooSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchABooSocketClient.swift; sourceTree = "<group>"; };
 		8558FD9B2A4774B000B3FD26 /* BidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidView.swift; sourceTree = "<group>"; };
 		8558FD9D2A477E2600B3FD26 /* BidPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidPlayer.swift; sourceTree = "<group>"; };
 		85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSViewModel.swift; sourceTree = "<group>"; };
 		85A412E72A45C402007B9098 /* IOSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSViewModel.swift; sourceTree = "<group>"; };
-		85A412EA2A45C5A0007B9098 /* IOSDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSDelegate.swift; sourceTree = "<group>"; };
 		85A412F02A45DB9B007B9098 /* IOSEntryScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSEntryScreenView.swift; sourceTree = "<group>"; };
 		85A632C92A4A25DA007D047A /* Characteristic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characteristic.swift; sourceTree = "<group>"; };
 		85A632CB2A4A31AE007D047A /* TvOSViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSViewModelTests.swift; sourceTree = "<group>"; };
@@ -199,6 +203,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00644EF52A532F4E00CFAD11 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				00644EF62A532F5700CFAD11 /* Client.swift */,
+				00644EFF2A53339E00CFAD11 /* ClientOutput.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		00644EFC2A53331000CFAD11 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				00644EFD2A53331D00CFAD11 /* IOSViewModelProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		0066436B2A460C8B005C3AA0 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,8 +232,8 @@
 		0066436C2A46A613005C3AA0 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				00644EFC2A53331000CFAD11 /* Protocol */,
 				0066436B2A460C8B005C3AA0 /* ViewModels */,
-				85A412E92A45C584007B9098 /* Delegates */,
 				DD3E56872A431D5D00F5B30F /* Components */,
 			);
 			path = General;
@@ -327,6 +348,7 @@
 		00CDE8962A3A04BF00FB1BF5 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				00644EF52A532F4E00CFAD11 /* Protocol */,
 				00CDE89E2A3A06CF00FB1BF5 /* Client */,
 				00CDE8972A3A04C300FB1BF5 /* Entities */,
 			);
@@ -346,18 +368,10 @@
 		00CDE89E2A3A06CF00FB1BF5 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				00CDE89F2A3A06D700FB1BF5 /* WebSocketClient.swift */,
+				00CDE89F2A3A06D700FB1BF5 /* PitchABooSocketClient.swift */,
 				007C9DBA2A3A2FB200D242F9 /* ClientError */,
 			);
 			path = Client;
-			sourceTree = "<group>";
-		};
-		85A412E92A45C584007B9098 /* Delegates */ = {
-			isa = PBXGroup;
-			children = (
-				85A412EA2A45C5A0007B9098 /* IOSDelegate.swift */,
-			);
-			path = Delegates;
 			sourceTree = "<group>";
 		};
 		85EA4FC92A4396A700637B6F /* Base */ = {
@@ -665,6 +679,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				85F3C5A32A41E759003D7C1A /* WebSocketError.swift in Sources */,
+				00644F002A53339E00CFAD11 /* ClientOutput.swift in Sources */,
 				DD3E56EC2A48E93900F5B30F /* Intensity.swift in Sources */,
 				85F3C5882A41CE85003D7C1A /* DTOConnectStatus.swift in Sources */,
 				85F3C5842A41CE69003D7C1A /* DTOStatusAvailability.swift in Sources */,
@@ -677,6 +692,7 @@
 				DD3E56A72A4323A700F5B30F /* TvOSReviewItemView.swift in Sources */,
 				85F3C5922A41CEDF003D7C1A /* DTOSaleResult.swift in Sources */,
 				DDD41F1A2A4A0D21004746D4 /* iOSNavBar.swift in Sources */,
+				00644EFE2A53331D00CFAD11 /* IOSViewModelProtocol.swift in Sources */,
 				DD3E56AF2A43436200F5B30F /* CardItem.swift in Sources */,
 				DD3E56EE2A48E95100F5B30F /* InitialVelocity.swift in Sources */,
 				85D30C412A4661580031A83B /* IOSPreparePitchView.swift in Sources */,
@@ -705,9 +721,8 @@
 				006643702A476306005C3AA0 /* IOSPitchView.swift in Sources */,
 				DD3E56E12A48B23D00F5B30F /* BackCardView.swift in Sources */,
 				85F3C59A2A41D090003D7C1A /* SaleResult.swift in Sources */,
-				00CDE8A02A3A06D700FB1BF5 /* WebSocketClient.swift in Sources */,
+				00CDE8A02A3A06D700FB1BF5 /* PitchABooSocketClient.swift in Sources */,
 				85F3C5862A41CE77003D7C1A /* DTOConnectSession.swift in Sources */,
-				85A412EB2A45C5A0007B9098 /* IOSDelegate.swift in Sources */,
 				85F3C58E2A41CEC3003D7C1A /* DTOPlayersConnected.swift in Sources */,
 				85F3C5822A41CD5E003D7C1A /* DTOVerifyAvailability.swift in Sources */,
 				DDD41F1C2A4A1950004746D4 /* PersonaScore.swift in Sources */,
@@ -716,6 +731,7 @@
 				85F3C58C2A41CEAF003D7C1A /* DTOBid.swift in Sources */,
 				DD3E567F2A42562900F5B30F /* EntryScreenView.swift in Sources */,
 				DD3E56F22A48E97B00F5B30F /* SmokeConfig.swift in Sources */,
+				00644EF72A532F5700CFAD11 /* Client.swift in Sources */,
 				DD3E56F02A48E96700F5B30F /* BaseConfig.swift in Sources */,
 				DD3E56A92A4323B600F5B30F /* TvOSPitchView.swift in Sources */,
 				85F3C59E2A41E634003D7C1A /* CommandCode.swift in Sources */,
