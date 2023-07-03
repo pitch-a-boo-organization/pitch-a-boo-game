@@ -11,6 +11,8 @@ import Network
 import Combine
 
 class DummyConnection: Connection {
+    var associatedPlayer: PitchABooServer.Player = PitchABooServer.Player.createAnUndefinedPlayer()
+    
     var stateUpdateHandler: ((NWConnection.State) -> Void)?
     
     func receiveMessage(completion: @escaping (Data?, NWConnection.ContentContext?, Bool, NWError?) -> Void) {
@@ -47,6 +49,20 @@ public final class TvOSViewModel: ObservableObject {
     func sendMessageToServer(_ message: PitchABooServer.TransferMessage) {
         let dummyConnection = DummyConnection()
         server.router.redirectMessage(message, from: dummyConnection)
+    }
+    
+    func updatePlayers() {
+        let updateMessage = PitchABooServer.TransferMessage(
+            code: CommandCode.ClientMessage.updatePlayers.rawValue,
+            device: .tvOS,
+            message: try! JSONEncoder().encode(
+                DTOUpdatePlayers(
+                    stage: 31,
+                    players: self.players
+                )
+            )
+        )
+        sendMessageToServer(updateMessage)
     }
     
     func sendStartStage(_ stage: Int) {
