@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "codescanner",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/twostraws/CodeScanner.git",
+      "state" : {
+        "revision" : "4b2f9c57d03bfe94e6b45572e0c908c1433c32b2",
+        "version" : "2.3.2"
+      }
+    },
+    {
+      "identity" : "pitch-a-boo-server",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pitch-a-boo-organization/pitch-a-boo-server",
+      "state" : {
+        "branch" : "main",
+        "revision" : "005ec5e3a85ec481aa5f9a53761e5b6e03692a21"
+      }
+    }
+  ],
+  "version" : 2
+}
