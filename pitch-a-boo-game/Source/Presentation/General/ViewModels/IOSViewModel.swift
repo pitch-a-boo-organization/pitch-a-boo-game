@@ -9,8 +9,8 @@ import Foundation
 import Combine
 import PitchABooServer
 
-class IOSViewModel: ObservableObject {
-    
+class IOSViewModel: ObservableObject, IOSViewModelProtocol {
+    var client: PitchABooClient
     // MARK: - Connection Properties
     @Published private(set) var connected: Bool = false
     @Published private(set) var receiveFromServer: String = ""
@@ -30,14 +30,14 @@ class IOSViewModel: ObservableObject {
     // MARK: -General Properties
     var cancellable: Set<AnyCancellable> = []
     
+    init(client: PitchABooClient) { self.client = client }
+    
     func resetToNewRound() {
         DispatchQueue.main.async {
             self.amIChosen = false
             self.chosenPlayer = ChosenPlayer.createAnUndefinedChosenPlayer()
         }
     }
-    
-    let client = PitchABooSocketClient.shared
 
     public func setScannedCode(with code: String) {
         scannedCode = code
@@ -50,12 +50,10 @@ class IOSViewModel: ObservableObject {
     }
     
     internal func setChosenPlayer(_ chosenPlayer: ChosenPlayer) {
-        print("NEW CHOOSEN PLAYER: \(chosenPlayer)")
         DispatchQueue.main.async {
             self.chosenPlayer = chosenPlayer
             self.matchIsReady = true
             if chosenPlayer.player.id == self.localUser.id {
-                print("AM I CHOOSEN!")
                 self.amIChosen = true
             }
         }
@@ -67,40 +65,37 @@ class IOSViewModel: ObservableObject {
     }
 }
 
-extension IOSViewModel: IOSDelegate {
-    func didFinishInning(with result: SaleResult) {
-        
-    }
+extension IOSViewModel: PitchABooClientOutput {
+    func errorWhileSendindMessageToServer(_ error: ClientError) { }
+    
+    func errorWhileReceivingMessageFromServer(_ error: ClientError) { }
+    
+    func didFinishInning(with result: SaleResult) { }
     
     func didUpdateStage(_ stage: Int) {
-        print("Did update stage: \(stage)")
         DispatchQueue.main.async {
             self.currentStage = stage
         }
     }
     
     func didConnectSuccessFully() {
-        print("Connected")
         DispatchQueue.main.async {
             self.connected = true
         }
     }
     
     func errorWhileSubscribingInService(_ error: ClientError) {
-        print("Error in subscribing: \(error.localizedDescription)")
         DispatchQueue.main.async {
             self.errorInSubscriving = true
         }
     }
     
     func saveLocalPlayerIdentifier(_ player: Player) {
-        print("Setting local player... \(player.bones)")
         setLocalPlayer(player)
     }
     
     
     func saveChosenPlayer(_ chosenPlayer: ChosenPlayer) {
-        print("Receiving a new choosen player")
         resetToNewRound()
         setChosenPlayer(chosenPlayer)
     }
@@ -110,7 +105,7 @@ extension IOSViewModel: IOSDelegate {
 extension IOSViewModel {
     public func sendBid() {
         let dto = DTOBid(stage: 33, bid: playerBidValue, player: localUser)
-        client.sendABidToServer(dto)
+        client.sendBid(dto)
     }
     
     internal func plusBidValue() {

@@ -10,15 +10,15 @@ import PitchABooServer
 
 struct EntryScreenView: View {
     #if os(iOS)
-    @ObservedObject var iOSViewModel = IOSViewModel()
+    @ObservedObject var iOSViewModel = IOSViewModel(client: PitchABooSocketClient.shared)
     @Environment(\.scenePhase) var scenePhase
     private var sceneHandler = ApplicationSceneHandler()
-    
+
     init() {
-        iOSViewModel.client.iOSDelegate = iOSViewModel
+        iOSViewModel.client.output = iOSViewModel
         sceneHandler.viewModel = iOSViewModel
     }
-    
+
     var body: some View {
         Group {
             IOSEntryScreenView()
