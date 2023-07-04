@@ -85,13 +85,7 @@ final class PitchABooClientTest: XCTestCase {
 
     func test_subscribeToService_when_success_should_be_able_to_receive_another_awnser() {
         let (sut, (socketMock, _, _)) = makeSUT()
-        let inputData = try! JSONEncoder().encode(
-            DTOTransferMessage(
-                code: 1,
-                device: .coreOS,
-                message: Data()
-            )
-        )
+        let inputData = generateDummyTransferMessage()
         sut.defineServerURL(hostname: "hostname")
         sut.subscribeToService()
         socketMock.receiveCompletionHandler!(.success(.data(inputData)))
@@ -125,15 +119,7 @@ final class PitchABooClientTest: XCTestCase {
     func test_handleMessageFromServer_when_receive_a_player_identifier_should_call_output_correctly() {
         let (sut, (socketMock, _, outputSpy)) = makeSUT()
         let inputPlayer = Player.createAnUndefinedPlayer()
-        let inputData = try! JSONEncoder().encode(
-            DTOTransferMessage(
-                code: CommandCode.ServerMessage.playerIdentifier.rawValue,
-                device: .coreOS,
-                message: try! JSONEncoder().encode(
-                    DTOPlayerIdentifier(stage: 10, player: inputPlayer)
-                )
-            )
-        )
+        let inputData = generatePlayerIdentifierMessage(inputPlayer)
         sut.defineServerURL(hostname: "hostname")
         sut.subscribeToService()
         socketMock.receiveCompletionHandler!(.success(.data(inputData)))
@@ -159,15 +145,7 @@ final class PitchABooClientTest: XCTestCase {
         let (sut, (socketMock, _, outputSpy)) = makeSUT()
         let inputPlayer = Player.createAnUndefinedPlayer()
         let inputItem = Item.availableItems.first!
-        let inputData = try! JSONEncoder().encode(
-            DTOTransferMessage(
-                code: CommandCode.ServerMessage.chosenPlayer.rawValue,
-                device: .coreOS,
-                message: try! JSONEncoder().encode(
-                    DTOChosenPlayer(stage: 31, player: inputPlayer, item: inputItem)
-                )
-            )
-        )
+        let inputData = generateChoosePlayer(inputPlayer, inputItem)
         sut.defineServerURL(hostname: "hostname")
         sut.subscribeToService()
         socketMock.receiveCompletionHandler!(.success(.data(inputData)))
@@ -198,15 +176,7 @@ final class PitchABooClientTest: XCTestCase {
     func test_handleMessageFromServer_when_receive_a_start_process_should_call_output_with_correct_state() {
         let (sut, (socketMock, _, outputSpy)) = makeSUT()
         let inputStage = 31
-        let inputData = try! JSONEncoder().encode(
-            DTOTransferMessage(
-                code: CommandCode.ServerMessage.startProcess.rawValue,
-                device: .coreOS,
-                message: try! JSONEncoder().encode(
-                    DTOStartProcess(stage: inputStage, start: true)
-                )
-            )
-        )
+        let inputData = generateStartProcessMessage(inputStage)
         sut.defineServerURL(hostname: "hostname")
         sut.subscribeToService()
         socketMock.receiveCompletionHandler!(.success(.data(inputData)))
@@ -242,20 +212,7 @@ final class PitchABooClientTest: XCTestCase {
             seller: .createAnUndefinedPlayer(),
             buyer: .createAnUndefinedPlayer()
         )
-        let inputData = try! JSONEncoder().encode(
-            DTOTransferMessage(
-                code: CommandCode.ServerMessage.saleResult.rawValue,
-                device: .coreOS,
-                message: try! JSONEncoder().encode(
-                    DTOSaleResult(
-                        stage: 35,
-                        players: [],
-                        gameEnded: false,
-                        result: inputResult
-                    )
-                )
-            )
-        )
+        let inputData = generateSaleResultMessage(inputResult)
         sut.defineServerURL(hostname: "hostname")
         sut.subscribeToService()
         socketMock.receiveCompletionHandler!(.success(.data(inputData)))
@@ -280,6 +237,71 @@ final class PitchABooClientTest: XCTestCase {
         XCTAssertEqual(
             outputSpy.receivedMessages,
             [.errorWhileReceivingMessageFromServer(.unableToDecode)]
+        )
+    }
+}
+
+extension PitchABooClientTest {
+    func generateDummyTransferMessage() -> Data {
+        return try! JSONEncoder().encode(
+            DTOTransferMessage(
+                code: 1,
+                device: .coreOS,
+                message: Data()
+            )
+        )
+    }
+    
+    func generatePlayerIdentifierMessage(_ inputPlayer: Player) -> Data {
+        return try! JSONEncoder().encode(
+            DTOTransferMessage(
+                code: CommandCode.ServerMessage.playerIdentifier.rawValue,
+                device: .coreOS,
+                message: try! JSONEncoder().encode(
+                    DTOPlayerIdentifier(stage: 10, player: inputPlayer)
+                )
+            )
+        )
+    }
+    
+    func generateChoosePlayer(_ inputPlayer: Player, _ inputItem: Item) -> Data {
+        return try! JSONEncoder().encode(
+            DTOTransferMessage(
+                code: CommandCode.ServerMessage.chosenPlayer.rawValue,
+                device: .coreOS,
+                message: try! JSONEncoder().encode(
+                    DTOChosenPlayer(stage: 31, player: inputPlayer, item: inputItem)
+                )
+            )
+        )
+    }
+    
+    func generateStartProcessMessage(_ inputStage: Int) -> Data {
+        return try! JSONEncoder().encode(
+            DTOTransferMessage(
+                code: CommandCode.ServerMessage.startProcess.rawValue,
+                device: .coreOS,
+                message: try! JSONEncoder().encode(
+                    DTOStartProcess(stage: inputStage, start: true)
+                )
+            )
+        )
+    }
+    
+    func generateSaleResultMessage(_ inputResult: SaleResult) -> Data {
+        return try! JSONEncoder().encode(
+            DTOTransferMessage(
+                code: CommandCode.ServerMessage.saleResult.rawValue,
+                device: .coreOS,
+                message: try! JSONEncoder().encode(
+                    DTOSaleResult(
+                        stage: 35,
+                        players: [],
+                        gameEnded: false,
+                        result: inputResult
+                    )
+                )
+            )
         )
     }
 }
