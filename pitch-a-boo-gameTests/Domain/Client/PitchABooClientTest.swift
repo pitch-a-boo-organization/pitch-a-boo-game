@@ -311,14 +311,14 @@ extension PitchABooClientTest: Testing {
         sut: PitchABooSocketClient,
         doubles: (
             socketMock: URLSessionWebSocketTaskMock,
-            sessionMock: URLSessionMock,
+            sessionMock: URLSessionStub,
             outputSpy: ClientOutputSpy
         )
     )
     
     func makeSUT() -> SutAndDoubles {
         let socketMock = URLSessionWebSocketTaskMock()
-        let sessionMock = URLSessionMock(socketMock: socketMock)
+        let sessionMock = URLSessionStub(socketMock: socketMock)
         let outputSpy = ClientOutputSpy()
         let client = PitchABooSocketClient()
         client.session = sessionMock

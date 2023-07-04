@@ -8,7 +8,7 @@
 import Foundation
 @testable import pitch_a_boo_game
 
-class URLSessionMock: URLSessionProtocol {
+class URLSessionStub: URLSessionProtocol {
     let socketMock: WebSocketSession
     
     init(socketMock: WebSocketSession) { self.socketMock = socketMock }
