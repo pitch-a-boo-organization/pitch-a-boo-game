@@ -18,28 +18,28 @@ final class PitchABooClientTest: XCTestCase {
         let (sut, (_, _, _)) = makeSUT()
         XCTAssertFalse(sut.opened)
     }
-    
+
     func test_defineServerURL_should_change_baseURL_value() {
         let (sut, (_, _, _)) = makeSUT()
         let inputHostname = "testHostname"
         sut.defineServerURL(hostname: inputHostname)
         XCTAssertEqual("ws://\(inputHostname):8080", sut.baseURL)
     }
-    
+
     func test_subscribeToService_when_open_false_should_open_websocket() {
         let (sut, (socketMock, _, _)) = makeSUT()
         sut.defineServerURL(hostname: "hostname")
         sut.subscribeToService()
         XCTAssertEqual(socketMock.resumeCalled, 1)
     }
-    
+
     func test_subscribeToService_when_open_false_should_toggle_the_value() {
         let (sut, (_, _, _)) = makeSUT()
         sut.defineServerURL(hostname: "hostname")
         sut.subscribeToService()
         XCTAssertTrue(sut.opened)
     }
-    
+
     func test_subscribeToService_when_opened_shoudnt_open_websocket() {
         let (sut, (socketMock, _, _)) = makeSUT()
         sut.defineServerURL(hostname: "hostname")
@@ -47,29 +47,55 @@ final class PitchABooClientTest: XCTestCase {
         sut.subscribeToService()
         XCTAssertEqual(socketMock.resumeCalled, 1)
     }
-    
+
     func test_subscribeToService_when_invalid_url_websocket_should_be_nil() {
         let (sut, (_, _, _)) = makeSUT()
         sut.subscribeToService()
         XCTAssertNil(sut.webSocket)
     }
-    
+
     func test_subscribeToService_when_websocket_nil_shoudnt_call_receive() {
         let (sut, (socketMock, _, _)) = makeSUT()
         sut.subscribeToService()
         XCTAssertEqual(socketMock.receiveCalled, 0)
     }
-    
+
     func test_subscribeToService_when_receive_failure_should_call_output() {
         let (sut, (socketMock, _, outputSpy)) = makeSUT()
         let inputError = NSError(domain: "error", code: 1)
-        socketMock.receiveCompletionHandler = { .failure(inputError) }
         sut.defineServerURL(hostname: "hostname")
         sut.subscribeToService()
+        
+        socketMock.receiveCompletionHandler!(.failure(inputError))
+        
         XCTAssertEqual(
             outputSpy.receivedMessages,
             [.errorWhileReceivingMessageFromServer(.failWhenReceiveMessage)]
         )
+    }
+
+    func test_subscribeToService_when_receive_failure_should_close_websocket() {
+        let (sut, (socketMock, _, _)) = makeSUT()
+        let inputError = NSError(domain: "error", code: 1)
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        socketMock.receiveCompletionHandler!(.failure(inputError))
+        XCTAssertFalse(sut.opened)
+    }
+
+    func test_subscribeToService_when_success_should_be_able_to_receive_another_awnser() {
+        let (sut, (socketMock, _, _)) = makeSUT()
+        let inputData = try! JSONEncoder().encode(
+            DTOTransferMessage(
+                code: 1,
+                device: .coreOS,
+                message: Data()
+            )
+        )
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        socketMock.receiveCompletionHandler!(.success(.data(inputData)))
+        XCTAssertEqual(socketMock.receiveCalled, 2)
     }
 }
 
