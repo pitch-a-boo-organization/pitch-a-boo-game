@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ClientError: LocalizedError {
+enum ClientError: LocalizedError, Equatable {
     case unableToEncode
     case unableToDecode
     case failWhenReceiveMessage

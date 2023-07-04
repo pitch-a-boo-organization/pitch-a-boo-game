@@ -32,7 +32,7 @@ final class PitchABooSocketClient: NSObject, PitchABooClient {
         webSocket.receive(completionHandler: { [weak self] result in
             switch result {
                 case .failure(_):
-                    self?.output?.errorWhileSubscribingInService(.failWhenReceiveMessage)
+                    self?.output?.errorWhileReceivingMessageFromServer(.failWhenReceiveMessage)
                     self?.opened = false
                     return
                 case .success(let message):
@@ -49,8 +49,6 @@ final class PitchABooSocketClient: NSObject, PitchABooClient {
             self.webSocket = webSocket
             self.opened = true
             self.webSocket?.resume()
-        } else {
-            webSocket = nil
         }
     }
     
@@ -63,7 +61,7 @@ final class PitchABooSocketClient: NSObject, PitchABooClient {
                     let message = try JSONDecoder().decode(DTOTransferMessage.self, from: data)
                     handleMessageFromServer(message)
                 } catch {
-                    output?.errorWhileSubscribingInService(.unableToEncode)
+                    output?.errorWhileReceivingMessageFromServer(.unableToDecode)
                 }
             default:
                 break

@@ -33,6 +33,7 @@
 		00FFA90D2A53B71900DAEC28 /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFA90C2A53B71900DAEC28 /* URLSessionExtension.swift */; };
 		00FFA9102A53BC3A00DAEC28 /* URLWebSocketSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFA90F2A53BC3A00DAEC28 /* URLWebSocketSessionMock.swift */; };
 		00FFA9122A53BCE500DAEC28 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFA9112A53BCE500DAEC28 /* URLSessionMock.swift */; };
+		00FFA9142A53D47B00DAEC28 /* ClientOutputSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFA9132A53D47B00DAEC28 /* ClientOutputSpy.swift */; };
 		8558FD9C2A4774B000B3FD26 /* BidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558FD9B2A4774B000B3FD26 /* BidView.swift */; };
 		8558FD9E2A477E2600B3FD26 /* BidPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558FD9D2A477E2600B3FD26 /* BidPlayer.swift */; };
 		85A1EE182A40EE4D0003DDB3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; platformFilters = (ios, macos, ); productRef = 85A1EE172A40EE4D0003DDB3 /* CodeScanner */; };
@@ -136,6 +137,7 @@
 		00FFA90C2A53B71900DAEC28 /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
 		00FFA90F2A53BC3A00DAEC28 /* URLWebSocketSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLWebSocketSessionMock.swift; sourceTree = "<group>"; };
 		00FFA9112A53BCE500DAEC28 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		00FFA9132A53D47B00DAEC28 /* ClientOutputSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientOutputSpy.swift; sourceTree = "<group>"; };
 		8558FD9B2A4774B000B3FD26 /* BidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidView.swift; sourceTree = "<group>"; };
 		8558FD9D2A477E2600B3FD26 /* BidPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidPlayer.swift; sourceTree = "<group>"; };
 		85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSViewModel.swift; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 			children = (
 				00FFA90F2A53BC3A00DAEC28 /* URLWebSocketSessionMock.swift */,
 				00FFA9112A53BCE500DAEC28 /* URLSessionMock.swift */,
+				00FFA9132A53D47B00DAEC28 /* ClientOutputSpy.swift */,
 			);
 			path = Doubles;
 			sourceTree = "<group>";
@@ -818,6 +821,7 @@
 			files = (
 				00FFA9122A53BCE500DAEC28 /* URLSessionMock.swift in Sources */,
 				00FFA9102A53BC3A00DAEC28 /* URLWebSocketSessionMock.swift in Sources */,
+				00FFA9142A53D47B00DAEC28 /* ClientOutputSpy.swift in Sources */,
 				00644F092A539CBF00CFAD11 /* PitchABooClientTest.swift in Sources */,
 				85A632CC2A4A31AE007D047A /* TvOSViewModelTests.swift in Sources */,
 				00644F072A539C9000CFAD11 /* Testing.swift in Sources */,

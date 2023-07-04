@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SaleResult: Codable {
+struct SaleResult: Codable, Equatable {
     let item: Item
     let soldValue: Int
     let seller: Player
