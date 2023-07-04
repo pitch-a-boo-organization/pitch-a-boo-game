@@ -241,6 +241,7 @@ final class PitchABooClientTest: XCTestCase {
     }
 }
 
+// MARK: - Utilities Functions
 extension PitchABooClientTest {
     func generateDummyTransferMessage() -> Data {
         return try! JSONEncoder().encode(
@@ -306,6 +307,8 @@ extension PitchABooClientTest {
     }
 }
 
+
+// MARK: Testing protocol
 extension PitchABooClientTest: Testing {
     typealias SutAndDoubles = (
         sut: PitchABooSocketClient,
