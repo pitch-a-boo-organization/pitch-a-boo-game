@@ -27,6 +27,12 @@
 		00CDE87D2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE87C2A39D98400FB1BF5 /* pitch_a_boo_gameUITestsLaunchTests.swift */; };
 		00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE8942A3A046900FB1BF5 /* MessageType.swift */; };
 		00CDE8A02A3A06D700FB1BF5 /* PitchABooSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CDE89F2A3A06D700FB1BF5 /* PitchABooSocketClient.swift */; };
+		00FFA9062A53AF1F00DAEC28 /* WebSocketSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFA9052A53AF1F00DAEC28 /* WebSocketSession.swift */; };
+		00FFA9092A53AF8600DAEC28 /* URLSessionWebSocketExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFA9082A53AF8600DAEC28 /* URLSessionWebSocketExtension.swift */; };
+		00FFA90B2A53B60200DAEC28 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFA90A2A53B60200DAEC28 /* URLSessionProtocol.swift */; };
+		00FFA90D2A53B71900DAEC28 /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFA90C2A53B71900DAEC28 /* URLSessionExtension.swift */; };
+		00FFA9102A53BC3A00DAEC28 /* URLWebSocketSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFA90F2A53BC3A00DAEC28 /* URLWebSocketSessionMock.swift */; };
+		00FFA9122A53BCE500DAEC28 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FFA9112A53BCE500DAEC28 /* URLSessionMock.swift */; };
 		8558FD9C2A4774B000B3FD26 /* BidView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558FD9B2A4774B000B3FD26 /* BidView.swift */; };
 		8558FD9E2A477E2600B3FD26 /* BidPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8558FD9D2A477E2600B3FD26 /* BidPlayer.swift */; };
 		85A1EE182A40EE4D0003DDB3 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; platformFilters = (ios, macos, ); productRef = 85A1EE172A40EE4D0003DDB3 /* CodeScanner */; };
@@ -124,6 +130,12 @@
 		00CDE8942A3A046900FB1BF5 /* MessageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageType.swift; sourceTree = "<group>"; };
 		00CDE89F2A3A06D700FB1BF5 /* PitchABooSocketClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchABooSocketClient.swift; sourceTree = "<group>"; };
 		00FFA9042A53A95A00DAEC28 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		00FFA9052A53AF1F00DAEC28 /* WebSocketSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketSession.swift; sourceTree = "<group>"; };
+		00FFA9082A53AF8600DAEC28 /* URLSessionWebSocketExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionWebSocketExtension.swift; sourceTree = "<group>"; };
+		00FFA90A2A53B60200DAEC28 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		00FFA90C2A53B71900DAEC28 /* URLSessionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtension.swift; sourceTree = "<group>"; };
+		00FFA90F2A53BC3A00DAEC28 /* URLWebSocketSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLWebSocketSessionMock.swift; sourceTree = "<group>"; };
+		00FFA9112A53BCE500DAEC28 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
 		8558FD9B2A4774B000B3FD26 /* BidView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidView.swift; sourceTree = "<group>"; };
 		8558FD9D2A477E2600B3FD26 /* BidPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidPlayer.swift; sourceTree = "<group>"; };
 		85A412E52A45C3F5007B9098 /* TvOSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvOSViewModel.swift; sourceTree = "<group>"; };
@@ -211,6 +223,8 @@
 			children = (
 				00644EF62A532F5700CFAD11 /* Client.swift */,
 				00644EFF2A53339E00CFAD11 /* ClientOutput.swift */,
+				00FFA9052A53AF1F00DAEC28 /* WebSocketSession.swift */,
+				00FFA90A2A53B60200DAEC28 /* URLSessionProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -234,6 +248,7 @@
 		00644F022A539C7900CFAD11 /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				00FFA90E2A53BC2900DAEC28 /* Doubles */,
 				00644F082A539CBF00CFAD11 /* PitchABooClientTest.swift */,
 			);
 			path = Client;
@@ -378,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				00644EF52A532F4E00CFAD11 /* Protocol */,
+				00FFA9072A53AF7100DAEC28 /* Extension */,
 				00CDE89E2A3A06CF00FB1BF5 /* Client */,
 				00CDE8972A3A04C300FB1BF5 /* Entities */,
 			);
@@ -401,6 +417,24 @@
 				007C9DBA2A3A2FB200D242F9 /* ClientError */,
 			);
 			path = Client;
+			sourceTree = "<group>";
+		};
+		00FFA9072A53AF7100DAEC28 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				00FFA9082A53AF8600DAEC28 /* URLSessionWebSocketExtension.swift */,
+				00FFA90C2A53B71900DAEC28 /* URLSessionExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		00FFA90E2A53BC2900DAEC28 /* Doubles */ = {
+			isa = PBXGroup;
+			children = (
+				00FFA90F2A53BC3A00DAEC28 /* URLWebSocketSessionMock.swift */,
+				00FFA9112A53BCE500DAEC28 /* URLSessionMock.swift */,
+			);
+			path = Doubles;
 			sourceTree = "<group>";
 		};
 		85EA4FC92A4396A700637B6F /* Base */ = {
@@ -713,6 +747,7 @@
 				85F3C5882A41CE85003D7C1A /* DTOConnectStatus.swift in Sources */,
 				85F3C5842A41CE69003D7C1A /* DTOStatusAvailability.swift in Sources */,
 				DD3E56F82A48EA5200F5B30F /* SmokeView.swift in Sources */,
+				00FFA9062A53AF1F00DAEC28 /* WebSocketSession.swift in Sources */,
 				85F3C59C2A41E5D6003D7C1A /* DTOTransferMessage.swift in Sources */,
 				85F3C5982A41D075003D7C1A /* Persona.swift in Sources */,
 				008C57E02A4A0D0B002CC070 /* DTOPauseSession.swift in Sources */,
@@ -726,6 +761,7 @@
 				DD3E56EE2A48E95100F5B30F /* InitialVelocity.swift in Sources */,
 				85D30C412A4661580031A83B /* IOSPreparePitchView.swift in Sources */,
 				DD3E56AB2A4323C600F5B30F /* TvOSScoreView.swift in Sources */,
+				00FFA90B2A53B60200DAEC28 /* URLSessionProtocol.swift in Sources */,
 				DD3E56E52A48B56700F5B30F /* BidPlayers.swift in Sources */,
 				85A412E62A45C3F5007B9098 /* TvOSViewModel.swift in Sources */,
 				85A632CA2A4A25DA007D047A /* Characteristic.swift in Sources */,
@@ -737,6 +773,7 @@
 				00CDE85F2A39D98300FB1BF5 /* pitch_a_boo_gameApp.swift in Sources */,
 				DD3E56932A4320A000F5B30F /* PlayerScore.swift in Sources */,
 				85EA4FC82A43969600637B6F /* ChosenPlayer.swift in Sources */,
+				00FFA9092A53AF8600DAEC28 /* URLSessionWebSocketExtension.swift in Sources */,
 				008073882A4888CE008A12FB /* IOSScoreView.swift in Sources */,
 				DD3E56912A431F3600F5B30F /* TvOSPreparePitchView.swift in Sources */,
 				85A412E82A45C402007B9098 /* IOSViewModel.swift in Sources */,
@@ -744,6 +781,7 @@
 				85F3C5942A41D046003D7C1A /* Player.swift in Sources */,
 				00CDE8952A3A046900FB1BF5 /* MessageType.swift in Sources */,
 				00837C462A47F20700414281 /* IOSReviewItemView.swift in Sources */,
+				00FFA90D2A53B71900DAEC28 /* URLSessionExtension.swift in Sources */,
 				DD3E56892A431DBD00F5B30F /* Counter.swift in Sources */,
 				007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */,
 				DD3E56E32A48B54C00F5B30F /* CardBids.swift in Sources */,
@@ -778,6 +816,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00FFA9122A53BCE500DAEC28 /* URLSessionMock.swift in Sources */,
+				00FFA9102A53BC3A00DAEC28 /* URLWebSocketSessionMock.swift in Sources */,
 				00644F092A539CBF00CFAD11 /* PitchABooClientTest.swift in Sources */,
 				85A632CC2A4A31AE007D047A /* TvOSViewModelTests.swift in Sources */,
 				00644F072A539C9000CFAD11 /* Testing.swift in Sources */,

@@ -12,9 +12,14 @@ final class PitchABooSocketClient: NSObject, PitchABooClient {
     private(set) var baseURL = ""
     private(set) var opened = false
     private(set) var pause = false
-    private(set) var webSocket: URLSessionWebSocketTask?
+    private(set) var webSocket: WebSocketSession?
     static let shared = PitchABooSocketClient()
     weak var output: PitchABooClientOutput?
+    lazy var session: URLSessionProtocol = URLSession(
+        configuration: .default,
+        delegate: self,
+        delegateQueue: nil
+    )
     
     func defineServerURL(hostname: String) {
         self.baseURL = "ws://\(hostname):8080"
@@ -40,7 +45,6 @@ final class PitchABooSocketClient: NSObject, PitchABooClient {
     private func openWebSocket() {
         if let url = URL(string: baseURL) {
             let request = URLRequest(url: url)
-            let session = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
             let webSocket = session.webSocketTask(with: request)
             self.webSocket = webSocket
             self.opened = true
@@ -120,7 +124,7 @@ extension PitchABooSocketClient: URLSessionWebSocketDelegate {
 
 // Connection Cycle Methods
 extension PitchABooSocketClient {
-    func sendMessageToServer(webSocket: URLSessionWebSocketTask?, message: DTOTransferMessage) {
+    func sendMessageToServer(webSocket: WebSocketSession?, message: DTOTransferMessage) {
         guard let webSocket = webSocket else { return }
         do {
             let encondedData = try JSONEncoder().encode(message)
