@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "8132B281-B5DF-4166-8388-29B27D1D359A",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:pitch-a-boo-game.xcodeproj",
+        "identifier" : "00CDE86B2A39D98400FB1BF5",
+        "name" : "pitch-a-boo-gameTests"
+      }
+    }
+  ],
+  "version" : 1
+}

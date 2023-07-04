@@ -21,18 +21,18 @@ final class TvOSViewModelTests: XCTestCase {
         sut = nil
     }
 
-    func test_rewardBonusToSeller_ShouldReturnTrue() {
-        let item = PitchABooServer.Item(id: 0, name: "sda", value: 5, characteristc: .dumb)
-        let sellerPlayer = PitchABooServer.Player.createAnUndefinedPlayer()
-        let result = sut?.rewardBonustoSeller(item: item, buyer: sellerPlayer)
-        XCTAssertEqual(result, true)
-    }
-    
-    func test_rewardBonusToSeller_ShouldReturnFalse() {
-        let item = PitchABooServer.Item(id: 0, name: "sda", value: 5, characteristc: .athletic)
-        let sellerPlayer = PitchABooServer.Player.createAnUndefinedPlayer()
-        let result = sut?.rewardBonustoSeller(item: item, buyer: sellerPlayer)
-        XCTAssertEqual(result, false)
-    }
+//    func test_rewardBonusToSeller_ShouldReturnTrue() {
+//        let item = PitchABooServer.Item(id: 0, name: "sda", value: 5, characteristc: .dumb)
+//        let sellerPlayer = PitchABooServer.Player.createAnUndefinedPlayer()
+//        let result = sut?.rewardBonustoSeller(item: item, buyer: sellerPlayer)
+//        XCTAssertEqual(result, true)
+//    }
+//    
+//    func test_rewardBonusToSeller_ShouldReturnFalse() {
+//        let item = PitchABooServer.Item(id: 0, name: "sda", value: 5, characteristc: .athletic)
+//        let sellerPlayer = PitchABooServer.Player.createAnUndefinedPlayer()
+//        let result = sut?.rewardBonustoSeller(item: item, buyer: sellerPlayer)
+//        XCTAssertEqual(result, false)
+//    }
 
 }

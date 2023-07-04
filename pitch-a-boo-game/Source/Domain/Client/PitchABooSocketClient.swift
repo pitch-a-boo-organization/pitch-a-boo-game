@@ -9,7 +9,7 @@ import Foundation
 import Network
 
 final class PitchABooSocketClient: NSObject, PitchABooClient {
-    private var baseURL = ""
+    private(set) var baseURL = ""
     private(set) var opened = false
     private(set) var pause = false
     private(set) var webSocket: URLSessionWebSocketTask?
@@ -19,9 +19,7 @@ final class PitchABooSocketClient: NSObject, PitchABooClient {
     func defineServerURL(hostname: String) {
         self.baseURL = "ws://\(hostname):8080"
     }
-    
-    private override init() { }
-    
+
     func subscribeToService() {
         if !opened { openWebSocket() }
         guard let webSocket = webSocket else { return }
