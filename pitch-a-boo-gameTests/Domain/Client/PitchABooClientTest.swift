@@ -97,6 +97,191 @@ final class PitchABooClientTest: XCTestCase {
         socketMock.receiveCompletionHandler!(.success(.data(inputData)))
         XCTAssertEqual(socketMock.receiveCalled, 2)
     }
+    
+    func test_subscribeToService_when_not_receive_a_data_should_handle_correct_error() {
+        let (sut, (socketMock, _, outputSpy)) = makeSUT()
+        let inputString = ""
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        socketMock.receiveCompletionHandler!(.success(.string(inputString)))
+        XCTAssertEqual(
+            outputSpy.receivedMessages,
+            [.errorWhileReceivingMessageFromServer(.unableToDecode)]
+        )
+    }
+    
+    func test_subscribeToService_when_not_receive_a_transfer_message_should_throw_error() {
+        let (sut, (socketMock, _, outputSpy)) = makeSUT()
+        let inputData = Data()
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        socketMock.receiveCompletionHandler!(.success(.data(inputData)))
+        XCTAssertEqual(
+            outputSpy.receivedMessages,
+            [.errorWhileReceivingMessageFromServer(.unableToDecode)]
+        )
+    }
+    
+    func test_handleMessageFromServer_when_receive_a_player_identifier_should_call_output_correctly() {
+        let (sut, (socketMock, _, outputSpy)) = makeSUT()
+        let inputPlayer = Player.createAnUndefinedPlayer()
+        let inputData = try! JSONEncoder().encode(
+            DTOTransferMessage(
+                code: CommandCode.ServerMessage.playerIdentifier.rawValue,
+                device: .coreOS,
+                message: try! JSONEncoder().encode(
+                    DTOPlayerIdentifier(stage: 10, player: inputPlayer)
+                )
+            )
+        )
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        socketMock.receiveCompletionHandler!(.success(.data(inputData)))
+        XCTAssertEqual(outputSpy.receivedMessages, [.saveLocalPlayerIdentifier(inputPlayer)])
+    }
+    
+    func test_handleMessageFromServer_when_receive_a_incorrect_player_identifier_should_call_output() {
+        let (sut, (socketMock, _, outputSpy)) = makeSUT()
+        let inputData = try! JSONEncoder().encode(
+            DTOTransferMessage(
+                code: CommandCode.ServerMessage.playerIdentifier.rawValue,
+                device: .coreOS,
+                message: Data()
+            )
+        )
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        socketMock.receiveCompletionHandler!(.success(.data(inputData)))
+        XCTAssertEqual(outputSpy.receivedMessages, [.errorWhileReceivingMessageFromServer(.unableToDecode)])
+    }
+    
+    func test_handleMessageFromServer_when_receive_a_choosen_player_should_call_output_correctly() {
+        let (sut, (socketMock, _, outputSpy)) = makeSUT()
+        let inputPlayer = Player.createAnUndefinedPlayer()
+        let inputItem = Item.availableItems.first!
+        let inputData = try! JSONEncoder().encode(
+            DTOTransferMessage(
+                code: CommandCode.ServerMessage.chosenPlayer.rawValue,
+                device: .coreOS,
+                message: try! JSONEncoder().encode(
+                    DTOChosenPlayer(stage: 31, player: inputPlayer, item: inputItem)
+                )
+            )
+        )
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        socketMock.receiveCompletionHandler!(.success(.data(inputData)))
+        XCTAssertEqual(
+            outputSpy.receivedMessages,
+            [.saveChosenPlayer(ChosenPlayer(player: inputPlayer, sellingItem: inputItem))]
+        )
+    }
+    
+    func test_handleMessageFromServer_when_receive_a_incorrect_choosen_player_should_call_output_correctly() {
+        let (sut, (socketMock, _, outputSpy)) = makeSUT()
+        let inputData = try! JSONEncoder().encode(
+            DTOTransferMessage(
+                code: CommandCode.ServerMessage.chosenPlayer.rawValue,
+                device: .coreOS,
+                message: Data()
+            )
+        )
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        socketMock.receiveCompletionHandler!(.success(.data(inputData)))
+        XCTAssertEqual(
+            outputSpy.receivedMessages,
+            [.errorWhileReceivingMessageFromServer(.unableToDecode)]
+        )
+    }
+    
+    func test_handleMessageFromServer_when_receive_a_start_process_should_call_output_with_correct_state() {
+        let (sut, (socketMock, _, outputSpy)) = makeSUT()
+        let inputStage = 31
+        let inputData = try! JSONEncoder().encode(
+            DTOTransferMessage(
+                code: CommandCode.ServerMessage.startProcess.rawValue,
+                device: .coreOS,
+                message: try! JSONEncoder().encode(
+                    DTOStartProcess(stage: inputStage, start: true)
+                )
+            )
+        )
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        socketMock.receiveCompletionHandler!(.success(.data(inputData)))
+        XCTAssertEqual(
+            outputSpy.receivedMessages,
+            [.didUpdateStage(inputStage)]
+        )
+    }
+    
+    func test_handleMessageFromServer_when_receive_a_incorrect_start_process_should_call_output_with_correct_state() {
+        let (sut, (socketMock, _, outputSpy)) = makeSUT()
+        let inputData = try! JSONEncoder().encode(
+            DTOTransferMessage(
+                code: CommandCode.ServerMessage.startProcess.rawValue,
+                device: .coreOS,
+                message: Data()
+            )
+        )
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        socketMock.receiveCompletionHandler!(.success(.data(inputData)))
+        XCTAssertEqual(
+            outputSpy.receivedMessages,
+            [.errorWhileReceivingMessageFromServer(.unableToDecode)]
+        )
+    }
+
+    func test_handleMessageFromServer_when_receive_a_sale_result_should_call_output_correctly() {
+        let (sut, (socketMock, _, outputSpy)) = makeSUT()
+        let inputResult = SaleResult(
+            item: Item.availableItems.first!,
+            soldValue: 3,
+            seller: .createAnUndefinedPlayer(),
+            buyer: .createAnUndefinedPlayer()
+        )
+        let inputData = try! JSONEncoder().encode(
+            DTOTransferMessage(
+                code: CommandCode.ServerMessage.saleResult.rawValue,
+                device: .coreOS,
+                message: try! JSONEncoder().encode(
+                    DTOSaleResult(
+                        stage: 35,
+                        players: [],
+                        gameEnded: false,
+                        result: inputResult
+                    )
+                )
+            )
+        )
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        socketMock.receiveCompletionHandler!(.success(.data(inputData)))
+        XCTAssertEqual(
+            outputSpy.receivedMessages,
+            [.didFinishInning(result: inputResult)]
+        )
+    }
+    
+    func test_handleMessageFromServer_when_receive_a_incorrect_sale_result_should_call_output_correctly() {
+        let (sut, (socketMock, _, outputSpy)) = makeSUT()
+        let inputData = try! JSONEncoder().encode(
+            DTOTransferMessage(
+                code: CommandCode.ServerMessage.saleResult.rawValue,
+                device: .coreOS,
+                message: Data()
+            )
+        )
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        socketMock.receiveCompletionHandler!(.success(.data(inputData)))
+        XCTAssertEqual(
+            outputSpy.receivedMessages,
+            [.errorWhileReceivingMessageFromServer(.unableToDecode)]
+        )
+    }
 }
 
 extension PitchABooClientTest: Testing {

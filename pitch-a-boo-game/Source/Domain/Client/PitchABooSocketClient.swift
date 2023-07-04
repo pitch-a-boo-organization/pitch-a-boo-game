@@ -55,7 +55,7 @@ final class PitchABooSocketClient: NSObject, PitchABooClient {
     private func decodeServerMessage(_ serverMessage: URLSessionWebSocketTask.Message) {
         switch serverMessage {
             case .string:
-                break
+                output?.errorWhileReceivingMessageFromServer(.unableToDecode)
             case .data(let data):
                 do {
                     let message = try JSONDecoder().decode(DTOTransferMessage.self, from: data)
@@ -63,7 +63,7 @@ final class PitchABooSocketClient: NSObject, PitchABooClient {
                 } catch {
                     output?.errorWhileReceivingMessageFromServer(.unableToDecode)
                 }
-            default:
+            @unknown default:
                 break
         }
     }
