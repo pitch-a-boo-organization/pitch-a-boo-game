@@ -9,19 +9,22 @@ import Foundation
 import Network
 
 final class PitchABooSocketClient: NSObject, PitchABooClient {
-    private var baseURL = ""
+    private(set) var baseURL = ""
     private(set) var opened = false
     private(set) var pause = false
-    private(set) var webSocket: URLSessionWebSocketTask?
+    private(set) var webSocket: WebSocketSession?
     static let shared = PitchABooSocketClient()
     weak var output: PitchABooClientOutput?
+    lazy var session: URLSessionProtocol = URLSession(
+        configuration: .default,
+        delegate: self,
+        delegateQueue: nil
+    )
     
     func defineServerURL(hostname: String) {
         self.baseURL = "ws://\(hostname):8080"
     }
-    
-    private override init() { }
-    
+
     func subscribeToService() {
         if !opened { openWebSocket() }
         guard let webSocket = webSocket else { return }
@@ -29,7 +32,7 @@ final class PitchABooSocketClient: NSObject, PitchABooClient {
         webSocket.receive(completionHandler: { [weak self] result in
             switch result {
                 case .failure(_):
-                    self?.output?.errorWhileSubscribingInService(.failWhenReceiveMessage)
+                    self?.output?.errorWhileReceivingMessageFromServer(.failWhenReceiveMessage)
                     self?.opened = false
                     return
                 case .success(let message):
@@ -42,28 +45,25 @@ final class PitchABooSocketClient: NSObject, PitchABooClient {
     private func openWebSocket() {
         if let url = URL(string: baseURL) {
             let request = URLRequest(url: url)
-            let session = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
             let webSocket = session.webSocketTask(with: request)
             self.webSocket = webSocket
             self.opened = true
             self.webSocket?.resume()
-        } else {
-            webSocket = nil
         }
     }
     
     private func decodeServerMessage(_ serverMessage: URLSessionWebSocketTask.Message) {
         switch serverMessage {
             case .string:
-                break
+                output?.errorWhileReceivingMessageFromServer(.unableToDecode)
             case .data(let data):
                 do {
                     let message = try JSONDecoder().decode(DTOTransferMessage.self, from: data)
                     handleMessageFromServer(message)
                 } catch {
-                    output?.errorWhileSubscribingInService(.unableToEncode)
+                    output?.errorWhileReceivingMessageFromServer(.unableToDecode)
                 }
-            default:
+            @unknown default:
                 break
         }
     }
@@ -122,73 +122,41 @@ extension PitchABooSocketClient: URLSessionWebSocketDelegate {
 
 // Connection Cycle Methods
 extension PitchABooSocketClient {
-    func sendMessageToServer(webSocket: URLSessionWebSocketTask?, message: DTOTransferMessage) {
+    func sendMessageToServer(webSocket: WebSocketSession?, message: DTOTransferMessage) {
         guard let webSocket = webSocket else { return }
-        do {
-            let encondedData = try JSONEncoder().encode(message)
-            webSocket.send(URLSessionWebSocketTask.Message.data(encondedData)) { [weak self] error in
-                if let _ = error {
-                    self?.output?.errorWhileSendindMessageToServer(.failWhenSendingMessage)
-                }
+        let encondedData = try! JSONEncoder().encode(message)
+        webSocket.send(URLSessionWebSocketTask.Message.data(encondedData)) { [weak self] error in
+            if let _ = error {
+                self?.output?.errorWhileSendindMessageToServer(.failWhenSendingMessage)
             }
-        } catch {
-            self.output?.errorWhileSendindMessageToServer(.unableToEncode)
-        }
-    }
-    
-    func sendVerifyAvailability(stage: Int, isAvailable availability: Bool) {
-        let dto = DTOVerifyAvailability(stage: stage, available: availability)
-        do {
-            let data = try JSONEncoder().encode(dto)
-            let transferMessage = DTOTransferMessage(code: CommandCode.ClientMessage.verifyAvailability.rawValue, device: .iOS, message: data)
-            sendMessageToServer(webSocket: webSocket, message: transferMessage)
-        } catch {
-            self.output?.errorWhileSendindMessageToServer(.unableToEncode)
         }
     }
     
     func sendConnectSession(stage: Int, shouldSubscribe: Bool) {
         let dto = DTOConnectSession(stage: stage, subscribe: shouldSubscribe)
-        do {
-            let data = try JSONEncoder().encode(dto)
-            let transferMessage = DTOTransferMessage(code: CommandCode.ClientMessage.connectToSession.rawValue, device: .iOS, message: data)
-            sendMessageToServer(webSocket: webSocket, message: transferMessage)
-        } catch {
-            self.output?.errorWhileSendindMessageToServer(.unableToEncode)
-        }
+        let data = try! JSONEncoder().encode(dto)
+        let transferMessage = DTOTransferMessage(code: CommandCode.ClientMessage.connectToSession.rawValue, device: .iOS, message: data)
+        sendMessageToServer(webSocket: webSocket, message: transferMessage)
     }
     
     func sendStartProcess(stage: Int, shouldStart: Bool) {
         let dto = DTOStartProcess(stage: stage, start: shouldStart)
-        do {
-            let data = try JSONEncoder().encode(dto)
-            let transferMessage = DTOTransferMessage(code: CommandCode.ClientMessage.startProcess.rawValue, device: .iOS, message: data)
-            sendMessageToServer(webSocket: webSocket, message: transferMessage)
-        } catch {
-            self.output?.errorWhileSendindMessageToServer(.unableToEncode)
-        }
+        let data = try! JSONEncoder().encode(dto)
+        let transferMessage = DTOTransferMessage(code: CommandCode.ClientMessage.startProcess.rawValue, device: .iOS, message: data)
+        sendMessageToServer(webSocket: webSocket, message: transferMessage)
     }
 }
 
 // MARK: - GameFlow Methods
 extension PitchABooSocketClient {
     func sendBid(_ dtoBid: DTOBid) {
-        let dto = DTOBid(
-            stage: dtoBid.stage,
-            bid: dtoBid.bid,
-            player: dtoBid.player
+        let data = try! JSONEncoder().encode(dtoBid)
+        let transferMessage = DTOTransferMessage(
+            code: 5,
+            device: .iOS,
+            message: data
         )
-        do {
-            let data = try JSONEncoder().encode(dto)
-            let transferMessage = DTOTransferMessage(
-                code: 5,
-                device: .iOS,
-                message: data
-            )
-            sendMessageToServer(webSocket: webSocket, message: transferMessage)
-        } catch {
-            self.output?.errorWhileSendindMessageToServer(.unableToEncode)
-        }
+        sendMessageToServer(webSocket: webSocket, message: transferMessage)
     }
 }
 

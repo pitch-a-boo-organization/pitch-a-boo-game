@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChosenPlayer: Codable {
+struct ChosenPlayer: Codable, Equatable {
     var player: Player
     var sellingItem: Item
 }
