@@ -136,17 +136,6 @@ extension PitchABooSocketClient {
         }
     }
     
-    func sendVerifyAvailability(stage: Int, isAvailable availability: Bool) {
-        let dto = DTOVerifyAvailability(stage: stage, available: availability)
-        do {
-            let data = try JSONEncoder().encode(dto)
-            let transferMessage = DTOTransferMessage(code: CommandCode.ClientMessage.verifyAvailability.rawValue, device: .iOS, message: data)
-            sendMessageToServer(webSocket: webSocket, message: transferMessage)
-        } catch {
-            self.output?.errorWhileSendindMessageToServer(.unableToEncode)
-        }
-    }
-    
     func sendConnectSession(stage: Int, shouldSubscribe: Bool) {
         let dto = DTOConnectSession(stage: stage, subscribe: shouldSubscribe)
         do {

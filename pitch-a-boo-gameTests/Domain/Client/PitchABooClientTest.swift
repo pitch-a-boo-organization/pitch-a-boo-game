@@ -239,6 +239,137 @@ final class PitchABooClientTest: XCTestCase {
             [.errorWhileReceivingMessageFromServer(.unableToDecode)]
         )
     }
+    
+    func test_closeSocket_should_reset_propeties() {
+        let (sut, (_, _, _)) = makeSUT()
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        sut.closeSocket()
+        XCTAssertNil(sut.webSocket)
+        XCTAssertFalse(sut.opened)
+    }
+    
+    func test_pauseSessionMessage_should_toggle_value_of_false_propetie() {
+        let (sut, (_, _, _)) = makeSUT()
+        let inputPlayer = Player.createAnUndefinedPlayer()
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        sut.pauseSessionMessage(with: inputPlayer)
+        XCTAssertEqual(sut.pause, true)
+    }
+    
+    func test_pauseSessionMessage_should_call_send_in_socket() {
+        let (sut, (socketMock, _, _)) = makeSUT()
+        let inputPlayer = Player.createAnUndefinedPlayer()
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        sut.pauseSessionMessage(with: inputPlayer)
+        XCTAssertEqual(socketMock.sendCalled, 1)
+    }
+    
+    func test_pauseSessionMessage_should_call_send_correct_message() {
+        let (sut, (socketMock, _, _)) = makeSUT()
+        let inputPlayer = Player.createAnUndefinedPlayer()
+        let expectedSendedMessage = generatePauseMessage(inputPlayer)
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        sut.pauseSessionMessage(with: inputPlayer)
+        guard let pauseMessage = socketMock.sendedMessages.first else {
+            XCTFail("Message shouldnt be nil")
+            return
+        }
+        switch pauseMessage {
+            case .data(let data):
+                XCTAssertEqual(data, expectedSendedMessage)
+            case .string(_):
+                XCTFail("Message should be type of Data")
+            @unknown default:
+                XCTFail("Message should be type of Data")
+        }
+    }
+    
+    func test_pauseSessionMessage_if_already_paused_shoudnt_send_message() {
+        let (sut, (socketMock, _, _)) = makeSUT()
+        let inputPlayer = Player.createAnUndefinedPlayer()
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        sut.pauseSessionMessage(with: inputPlayer)
+        sut.pauseSessionMessage(with: inputPlayer)
+        XCTAssertEqual(socketMock.sendCalled, 1)
+    }
+    
+    func test_resumeSessionMessage_if_not_paused_shouldnt_send_message() {
+        let (sut, (socketMock, _, _)) = makeSUT()
+        let inputPlayer = Player.createAnUndefinedPlayer()
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        sut.resumeSession(to: inputPlayer)
+        XCTAssertEqual(socketMock.sendCalled, 0)
+    }
+    
+    func test_resumeSessionMessage_if_paused_should_send_message() {
+        let (sut, (socketMock, _, _)) = makeSUT()
+        let inputPlayer = Player.createAnUndefinedPlayer()
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        sut.pauseSessionMessage(with: inputPlayer)
+        sut.resumeSession(to: inputPlayer)
+        XCTAssertEqual(socketMock.sendCalled, 2)
+    }
+    
+    func test_sendMessageToServer_if_websocket_not_initiate_shouldnt_send_message() {
+        let (sut, (socketMock, _, _)) = makeSUT()
+        let inputMessage = DTOTransferMessage(code: 0, device: .iOS, message: Data())
+        sut.sendMessageToServer(webSocket: nil, message: inputMessage)
+        XCTAssertEqual(socketMock.sendCalled, 0)
+    }
+    
+    func test_sendMessageToServer_should_encode_and_send_correctly() {
+        let (sut, (socketMock, _, _)) = makeSUT()
+        let inputMessage = DTOTransferMessage(code: 0, device: .iOS, message: Data())
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        sut.sendMessageToServer(webSocket: sut.webSocket, message: inputMessage)
+        XCTAssertEqual(socketMock.sendCalled, 1)
+    }
+    
+    func test_sendMessageToServer_when_completion_error_should_call_output_correctly() {
+        let (sut, (socketMock, _, outputSpy)) = makeSUT()
+        let inputMessage = DTOTransferMessage(code: 0, device: .iOS, message: Data())
+        let inputError = ClientError.failWhenSendingMessage
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        sut.sendMessageToServer(webSocket: sut.webSocket, message: inputMessage)
+        socketMock.sendCompletionHandler!(inputError)
+        XCTAssertEqual(outputSpy.receivedMessages, [.errorWhileSendindMessageToServer(inputError)])
+    }
+    
+    func test_dtoSendBit_should_send_bit_to_server() {
+        let (sut, (socketMock, _, _)) = makeSUT()
+        let inputPlayer = Player.createAnUndefinedPlayer()
+        let inputMessage = DTOBid(stage: 34, bid: 4, player: inputPlayer)
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        sut.sendBid(inputMessage)
+        XCTAssertEqual(socketMock.sendCalled, 1)
+    }
+    
+    func test_sendStartProcess_should_send_message_to_server() {
+        let (sut, (socketMock, _, _)) = makeSUT()
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        sut.sendStartProcess(stage: 31, shouldStart: true)
+        XCTAssertEqual(socketMock.sendCalled, 1)
+    }
+    
+    func test_sendConnectSession_should_send_message_to_server() {
+        let (sut, (socketMock, _, _)) = makeSUT()
+        sut.defineServerURL(hostname: "hostname")
+        sut.subscribeToService()
+        sut.sendConnectSession(stage: 10, shouldSubscribe: true)
+        XCTAssertEqual(socketMock.sendCalled, 1)
+    }
+
 }
 
 // MARK: - Utilities Functions
@@ -300,6 +431,21 @@ extension PitchABooClientTest {
                         players: [],
                         gameEnded: false,
                         result: inputResult
+                    )
+                )
+            )
+        )
+    }
+    
+    func generatePauseMessage(_ inputPlayer: Player) -> Data {
+        return try! JSONEncoder().encode(
+            DTOTransferMessage(
+                code: CommandCode.ClientMessage.pauseSession.rawValue,
+                device: .iOS,
+                message: try! JSONEncoder().encode(
+                    DTOPauseSession(
+                        stage: CommandCode.ClientMessage.pauseSession.rawValue,
+                        player: inputPlayer
                     )
                 )
             )

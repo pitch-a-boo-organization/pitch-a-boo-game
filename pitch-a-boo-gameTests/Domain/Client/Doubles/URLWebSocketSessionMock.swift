@@ -13,9 +13,11 @@ class URLSessionWebSocketTaskMock: WebSocketSession {
     private(set) var receiveCalled: Int = 0
     private(set) var sendCalled: Int = 0
     private(set) var resumeCalled: Int = 0
+    private(set) var sendedMessages: [URLSessionWebSocketTask.Message] = []
     
     // MARK: - Completion Handlers
     var receiveCompletionHandler: ((Result<URLSessionWebSocketTask.Message, Error>) -> Void)?
+    var sendCompletionHandler: ((Error?) -> Void)?
     
     func receive(completionHandler: @escaping (Result<URLSessionWebSocketTask.Message, Error>) -> Void) {
         receiveCalled += 1
@@ -24,6 +26,8 @@ class URLSessionWebSocketTaskMock: WebSocketSession {
     
     func send(_ message: URLSessionWebSocketTask.Message, completionHandler: @escaping ((Error)?) -> Void) {
         sendCalled += 1
+        sendedMessages.append(message)
+        sendCompletionHandler = completionHandler
     }
     
     func resume() {
