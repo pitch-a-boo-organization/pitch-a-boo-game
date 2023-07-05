@@ -18,6 +18,12 @@ final class PitchABooClientTest: XCTestCase {
         let (sut, (_, _, _)) = makeSUT()
         XCTAssertFalse(sut.opened)
     }
+    
+    func test_init_should_subscribe_as_delegate_urlSession() {
+        let sut = PitchABooSocketClient()
+        let session = sut.session
+        XCTAssertNotNil(session as? URLSession)
+    }
 
     func test_defineServerURL_should_change_baseURL_value() {
         let (sut, (_, _, _)) = makeSUT()
@@ -369,7 +375,6 @@ final class PitchABooClientTest: XCTestCase {
         sut.sendConnectSession(stage: 10, shouldSubscribe: true)
         XCTAssertEqual(socketMock.sendCalled, 1)
     }
-
 }
 
 // MARK: - Utilities Functions
