@@ -15,7 +15,7 @@
 		00644F092A539CBF00CFAD11 /* PitchABooClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00644F082A539CBF00CFAD11 /* PitchABooClientTest.swift */; };
 		006643702A476306005C3AA0 /* IOSPitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0066436F2A476306005C3AA0 /* IOSPitchView.swift */; };
 		00754A8C2A5DB16B00A13685 /* GameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00754A8B2A5DB16B00A13685 /* GameRouter.swift */; };
-		00754A8E2A5DB3EB00A13685 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00754A8D2A5DB3EB00A13685 /* MainView.swift */; };
+		00754A8E2A5DB3EB00A13685 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00754A8D2A5DB3EB00A13685 /* RouterView.swift */; };
 		007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C9DBB2A3A2FC000D242F9 /* ClientError.swift */; };
 		008073882A4888CE008A12FB /* IOSScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008073872A4888CE008A12FB /* IOSScoreView.swift */; };
 		00837C462A47F20700414281 /* IOSReviewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00837C452A47F20700414281 /* IOSReviewItemView.swift */; };
@@ -115,7 +115,7 @@
 		00644F082A539CBF00CFAD11 /* PitchABooClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchABooClientTest.swift; sourceTree = "<group>"; };
 		0066436F2A476306005C3AA0 /* IOSPitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSPitchView.swift; sourceTree = "<group>"; };
 		00754A8B2A5DB16B00A13685 /* GameRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRouter.swift; sourceTree = "<group>"; };
-		00754A8D2A5DB3EB00A13685 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		00754A8D2A5DB3EB00A13685 /* RouterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
 		007C9DBB2A3A2FC000D242F9 /* ClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientError.swift; sourceTree = "<group>"; };
 		008073872A4888CE008A12FB /* IOSScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSScoreView.swift; sourceTree = "<group>"; };
 		00837C452A47F20700414281 /* IOSReviewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSReviewItemView.swift; sourceTree = "<group>"; };
@@ -282,7 +282,6 @@
 				00754A8A2A5DB15200A13685 /* Router */,
 				0066436B2A460C8B005C3AA0 /* ViewModels */,
 				DD3E56872A431D5D00F5B30F /* Components */,
-				00754A8D2A5DB3EB00A13685 /* MainView.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -291,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				00754A8B2A5DB16B00A13685 /* GameRouter.swift */,
+				00754A8D2A5DB3EB00A13685 /* RouterView.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -798,7 +798,7 @@
 				00837C462A47F20700414281 /* IOSReviewItemView.swift in Sources */,
 				00FFA90D2A53B71900DAEC28 /* URLSessionExtension.swift in Sources */,
 				DD3E56892A431DBD00F5B30F /* Counter.swift in Sources */,
-				00754A8E2A5DB3EB00A13685 /* MainView.swift in Sources */,
+				00754A8E2A5DB3EB00A13685 /* RouterView.swift in Sources */,
 				007C9DBC2A3A2FC000D242F9 /* ClientError.swift in Sources */,
 				DD3E56E32A48B54C00F5B30F /* CardBids.swift in Sources */,
 				006643702A476306005C3AA0 /* IOSPitchView.swift in Sources */,

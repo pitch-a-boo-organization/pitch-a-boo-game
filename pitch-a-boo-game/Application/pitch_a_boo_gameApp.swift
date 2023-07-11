@@ -26,7 +26,7 @@ struct pitch_a_boo_gameApp: App {
     #else
     var body: some Scene {
         WindowGroup {
-            MainView()
+            RouterView()
         }
     }
     #endif

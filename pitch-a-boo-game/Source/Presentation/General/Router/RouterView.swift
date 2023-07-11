@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct MainView: View {
+struct RouterView: View {
     @ObservedObject var iOSViewModel = IOSViewModel(client: PitchABooSocketClient.shared)
     @ObservedObject var router: GameRouter = GameRouter()
     @Environment(\.scenePhase) var scenePhase

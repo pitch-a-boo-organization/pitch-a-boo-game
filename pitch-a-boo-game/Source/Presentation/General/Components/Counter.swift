@@ -57,7 +57,6 @@ struct Counter: View {
 
 struct Counter_Previews: PreviewProvider {
     static var previews: some View {
-        var count = 1
         Counter(countdown: 1)
     }
 }
