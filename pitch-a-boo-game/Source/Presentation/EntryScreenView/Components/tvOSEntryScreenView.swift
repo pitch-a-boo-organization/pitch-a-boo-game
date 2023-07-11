@@ -16,8 +16,6 @@ struct TvOSEntryScreenView: View {
     private let textScan = "Scan to Play!"
     @EnvironmentObject var entryViewModel: TvOSViewModel
 
-
-
     var body: some View {
         NavigationStack {
             ZStack {

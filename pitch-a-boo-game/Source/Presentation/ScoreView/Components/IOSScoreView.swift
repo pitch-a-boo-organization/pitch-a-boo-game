@@ -9,12 +9,8 @@
 import SwiftUI
 
 struct IOSScoreView: View {
-    @EnvironmentObject var iosScoreView: IOSViewModel
-    @State var startNewRound = false
-    
     var body: some View {
         ZStack{
-
             Image("GhostBackground")
                 .resizable()
                 .scaledToFill()
@@ -25,26 +21,8 @@ struct IOSScoreView: View {
                 .font(.title2)
                 .bold()
                 .multilineTextAlignment(.center)
-                .navigationDestination(isPresented: $startNewRound) {
-                    IOSPreparePitchView()
-                }
                 .navigationBarBackButtonHidden(true)
-                .onAppear {
-                   bindViewModel()
-                }
         }
-    }
-    
-    func bindViewModel() {
-        iosScoreView.$currentStage.sink { value in
-            if value == 31 {
-                startNewRound = true
-                iosScoreView.cancellable.forEach { cancelable in
-                    cancelable.cancel()
-                }
-            }
-        }
-        .store(in: &iosScoreView.cancellable)
     }
 }
 #endif

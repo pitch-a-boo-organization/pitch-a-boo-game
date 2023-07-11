@@ -12,7 +12,6 @@ struct IOSPitchView: View {
     @EnvironmentObject var iosPitchViewModel: IOSViewModel
     @State var confirmationDialog: Bool = false
     @State var bidSended: Bool = false
-    @State var goToReviewItemView: Bool = false
     
     var body: some View {
         Group {
@@ -46,11 +45,7 @@ struct IOSPitchView: View {
                 }
             }
         }
-        .onAppear { bindViewModel() }
         .navigationBarBackButtonHidden(true)
-        .navigationDestination(isPresented: $goToReviewItemView) {
-            IOSReviewItemView()
-        }
         .alert(isPresented: $confirmationDialog) {
             Alert(
                 title: Text(
@@ -67,19 +62,10 @@ struct IOSPitchView: View {
             )
         
         }
-    }
-    
-    func bindViewModel() {
-        iosPitchViewModel.$currentStage.sink { value in
-            if value == 34 {
-                if !bidSended && !iosPitchViewModel.amIChosen { iosPitchViewModel.sendBid() }
-                goToReviewItemView = true
-                iosPitchViewModel.cancellable.forEach { cancelable in
-                    cancelable.cancel()
-                }
+        .onDisappear {
+            if !bidSended && !iosPitchViewModel.amIChosen {
+                iosPitchViewModel.sendBid()
             }
         }
-        .store(in: &iosPitchViewModel.cancellable)
-    }
-}
+    }}
 #endif
