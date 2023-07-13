@@ -12,7 +12,6 @@ struct IOSPitchView: View {
     @EnvironmentObject var iosPitchViewModel: IOSViewModel
     @State var confirmationDialog: Bool = false
     @State var bidSended: Bool = false
-    @State var goToReviewItemView: Bool = false
     
     var body: some View {
         Group {
@@ -22,7 +21,6 @@ struct IOSPitchView: View {
                     .bold()
                     .multilineTextAlignment(.center)
             } else {
-                
                 VStack {
                     if !bidSended {
                         Text("Pay attention in presentation of player: \(iosPitchViewModel.chosenPlayer.player.name) \n Feel free to bid any value during the player's presentation")
@@ -46,11 +44,12 @@ struct IOSPitchView: View {
                 }
             }
         }
-        .onAppear { bindViewModel() }
-        .navigationBarBackButtonHidden(true)
-        .navigationDestination(isPresented: $goToReviewItemView) {
-            IOSReviewItemView()
+        .onDisappear {
+            if !bidSended && !iosPitchViewModel.amIChosen {
+                iosPitchViewModel.sendBid()
+            }
         }
+        .navigationBarBackButtonHidden(true)
         .alert(isPresented: $confirmationDialog) {
             Alert(
                 title: Text(
@@ -65,21 +64,7 @@ struct IOSPitchView: View {
                     }
               )
             )
-        
         }
-    }
-    
-    func bindViewModel() {
-        iosPitchViewModel.$currentStage.sink { value in
-            if value == 34 {
-                if !bidSended && !iosPitchViewModel.amIChosen { iosPitchViewModel.sendBid() }
-                goToReviewItemView = true
-                iosPitchViewModel.cancellable.forEach { cancelable in
-                    cancelable.cancel()
-                }
-            }
-        }
-        .store(in: &iosPitchViewModel.cancellable)
     }
 }
 #endif

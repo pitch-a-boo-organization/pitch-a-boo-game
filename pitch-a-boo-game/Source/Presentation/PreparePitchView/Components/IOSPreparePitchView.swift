@@ -10,10 +10,8 @@ import SwiftUI
 
 struct IOSPreparePitchView: View {
     @EnvironmentObject var prepareViewModel: IOSViewModel
-    @State private var goToPitchView: Bool = false
     
     var body: some View {
-        
         Group {
             if prepareViewModel.amIChosen {
                 VStack {
@@ -60,23 +58,7 @@ struct IOSPreparePitchView: View {
                 }
             }
         }
-        .navigationDestination(isPresented: $goToPitchView) {
-            IOSPitchView()
-        }
         .navigationBarBackButtonHidden(true)
-        .onAppear { bindViewModel() }
-    }
-    
-    func bindViewModel() {
-        prepareViewModel.$currentStage.sink { value in
-            if value == 33 {
-                goToPitchView = true
-                prepareViewModel.cancellable.forEach { cancelable in
-                    cancelable.cancel()
-                }
-            }
-        }
-        .store(in: &prepareViewModel.cancellable)
     }
 }
 #endif

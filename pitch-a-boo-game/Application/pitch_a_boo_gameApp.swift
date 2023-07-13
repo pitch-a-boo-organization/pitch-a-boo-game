@@ -9,9 +9,25 @@ import SwiftUI
 
 @main
 struct pitch_a_boo_gameApp: App {
+    #if os(tvOS)
+    @ObservedObject var tvOSViewModel = TvOSViewModel()
+    
+    init() {
+        tvOSViewModel.server.startServer { _ in }
+        tvOSViewModel.server.defineOutput(tvOSViewModel)
+    }
+    
     var body: some Scene {
         WindowGroup {
-            EntryScreenView()
+            TvOSEntryScreenView()
+                .environmentObject(tvOSViewModel)
         }
     }
+    #else
+    var body: some Scene {
+        WindowGroup {
+            RouterView()
+        }
+    }
+    #endif
 }

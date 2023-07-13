@@ -9,12 +9,8 @@
 import SwiftUI
 
 struct IOSReviewItemView: View {
-    @EnvironmentObject var iOSReviewItemViewModel: IOSViewModel
-    @State var goToScoreView: Bool = false
-
     var body: some View {
         ZStack{
-
             Image("GhostBackground")
                 .resizable()
                 .scaledToFill()
@@ -25,26 +21,8 @@ struct IOSReviewItemView: View {
                 .font(.title2)
                 .bold()
                 .multilineTextAlignment(.center)
-                .navigationDestination(isPresented: $goToScoreView) {
-                    IOSScoreView()
-                }
                 .navigationBarBackButtonHidden(true)
-                .onAppear {
-                    bindViewModel()
-                }
         }
-    }
-    
-    func bindViewModel() {
-        iOSReviewItemViewModel.$currentStage.sink { value in
-            if value == 35 {
-                goToScoreView = true
-                iOSReviewItemViewModel.cancellable.forEach { cancelable in
-                    cancelable.cancel()
-                }
-            }
-        }
-        .store(in: &iOSReviewItemViewModel.cancellable)
     }
 }
 #endif
